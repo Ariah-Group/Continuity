@@ -1,0 +1,68 @@
+<html>
+	<head>
+	 
+		<!--                                           -->
+		<!-- Any title is fine                         -->
+		<!--                                           -->
+		<title>Wrapper HTML for Building</title>
+
+		<!--                                           -->
+		<!-- The module reference below is the link    -->
+		<!-- between html and your Web Toolkit module  -->		
+		<!--                                           -->
+		<meta name='gwt:module' content='org.kuali.continuity.admin.main.Building'/>
+		<!-- Move from gwt.xml to here to fix buggy Ext undefined problem -->
+		<link href="js/ext/resources/css/ext-all.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/ext/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="js/ext/ext-all.js"></script>
+		<script language="javascript" src="org.kuali.continuity.admin.main.Building.nocache.js"></script>
+		<!-- Move from gwt.xml to here to fix buggy Ext undefined problem above -->    
+		
+		<link href="/kcpt/css/ucreadystyles.css" rel="stylesheet" type="text/css">
+		<link href="/kcpt/css/ucreadyAdminElements.css" rel="stylesheet" type="text/css">
+		<link href="/kcpt/css/ucreadyMainElements.css" rel="stylesheet" type="text/css">	
+	</head>
+
+	<!--                                           -->
+	<!-- The body can have arbitrary html, or      -->
+	<!-- we leave the body empty because we want   -->
+	<!-- to create a completely dynamic ui         -->
+	<!--                                           -->
+	<body>
+  	<div class="AdminSite">
+		<div id="innertube">	
+			<h1>Setup Buildings </h1>
+            
+	    	<p>Users of this tool are asked to identify which buildings their department occupies.&nbsp; To do so, they are offered a drop-down list of buildings. This occurs on the <b>Step 1:&nbsp; Department Identification</b> screen.<p>
+	      	<p>Using the entry forms below, you will construct that list.</p>
+  			<ul class="numberlist">
+				<li>If necessary, obtain your institution's list of buildings from whoever owns it.</li>
+				<li>Decide which buildings should be included on the list you present to users of this tool.  Suggestion: eliminate toolsheds, bus shelters and other structures that do not house people and whose loss would have little impact on the mission.</li>
+				<li>Identify the buildings whose common names differ from their official names.  In the entry-forms below, &ldquo;common name&rdquo; is the item that will be displayed to users in the drop-down list.  Make sure that the common name is indeed the name that will be recognized by staff & faculty.</li>
+				<li>The &ldquo;Identifier&rdquo; field is provided for institutions that attach a unique number or other key field to each building.</li>
+			</ul>					
+			<p>To modify an existing item, first highlight that row on the grid then use the entry-forms at bottom to modify.</p>					
+		<div id="gwtRoot" ></div>
+	</div><!-- closes AdminSite div-->
+	
+	
+	</div><!-- closes innertube div-->
+	<div id="plural" title="List of Buildings"></div>
+	<div id="itemdata" title="Building" class="Heading"></div>
+	<div id="formelement" title="Common Name" class="Heading"></div> 
+	<div id="dataelement" title="building" class="Heading"></div> 
+           
+		<!--                                            -->
+		<!-- This script is required bootstrap stuff.   -->
+		<!-- You can put it in the HEAD, but startup    -->
+		<!-- is slightly faster if you include it here. -->
+		<!--                                            -->
+		<div id="screendata" title="Building">
+
+		</div>
+		
+		<!-- OPTIONAL: include this if you want history support -->
+		<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+   
+	</body>
+</html>

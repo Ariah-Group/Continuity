@@ -1,0 +1,18 @@
+<module>
+	<inherits name="com.google.gwt.user.User"/>
+	<inherits name='com.google.gwt.user.theme.standard.Standard'/>
+	<stylesheet src="MainViewer.css"/>
+	<entry-point class="org.kuali.continuity.admin.main.client.ActivityLog"/>
+
+	<inherits name="com.gwtext.Charts"/>
+	<inherits name="com.google.code.p.gwtchismes.GWTChismes"/>
+	 <inherits name="com.google.gwt.i18n.I18N"/>
+    <stylesheet src='GWTC-compressed.css' />
+	
+	   <!--  Ext  -->
+	<inherits name='com.gwtext.GwtExt' />
+	<!--  UCReady  -->
+	<stylesheet src="css/ucreadystyles.css" />
+	<stylesheet src="css/ucreadyMainElements.css" />	
+	<stylesheet src="css/ucreadyAdminElements.css" />
+</module>

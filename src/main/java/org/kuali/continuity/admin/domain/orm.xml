@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    <description>Admin Domain Objects</description>
+    <package>org.kuali.continuity.admin.domain</package>
+
+    <entity class="org.kuali.continuity.admin.domain.Acronym" name="Acronym">
+        <table name="Acronym"/>
+        <named-query name="Acronym.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Acronym dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Acronym.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Acronym dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="AcronymID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="Acronym"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+            <transient name="acronym"/>
+        </attributes>
+    </entity>
+    
+    <entity class="org.kuali.continuity.admin.domain.AnnualReview" name="AnnualReview">
+        <table name="AnnualReview"/>
+        <named-query name="AnnualReview.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM AnnualReview dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="AnnualReview.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM AnnualReview dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="AnnualReviewID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="ReviewItem"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+    
+     <entity class="org.kuali.continuity.admin.domain.Building" name="Building">
+        <table name="Building"/>
+        <named-query name="Building.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Building dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Building.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Building dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="BuildingID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="BuildingName"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+            <basic name="commonName">
+                <column name="BuildingCommonName"/>
+            </basic>
+            <basic name="address">
+                <column name="BuildingAddress"/>
+            </basic>
+            <many-to-one name="ownership" fetch="LAZY">
+                <join-column name="Ownership" nullable="false"/>
+            </many-to-one>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.CentralApplication" name="CentralApplication">
+        <table name="CentralApplication"/>
+        <named-query name="CentralApplication.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM CentralApplication dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="CentralApplication.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM CentralApplication dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="CentralApplication.admin.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM CentralApplication dObj WHERE dObj.systemDomainId = :systemDomainId
+                         AND dObj.recordType = org.kuali.continuity.domain.RecordType.S
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="CentralApplication.admin.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM CentralApplication dObj WHERE dObj.systemDomainId = :systemDomainId
+                         AND dObj.recordType = org.kuali.continuity.domain.RecordType.S
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="CentralApplicationID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+            <basic name="recordType">
+                <column name="RecordType"/>
+                <enumerated>STRING</enumerated>
+            </basic>
+            <transient name="userDefined"/>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.ContactInfo" name="ContactInfo">
+        <table name="ContactUs"/>
+        <named-query name="ContactInfo.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM ContactInfo dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="ContactInfo.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM ContactInfo dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="ContactID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="Contact"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.CriticalFunctionExample" name="CriticalFunctionExample">
+        <table name="FunctionExample"/>
+        <named-query name="CriticalFunctionExample.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM CriticalFunctionExample dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="CriticalFunctionExample.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM CriticalFunctionExample dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="FunctionExampleID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+            <basic name="plans">
+                <column name="PlanList"/>
+            </basic>
+            <transient name="name"/>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.DepartmentType" name="DepartmentType">
+        <table name="DepartmentType"/>
+        <named-query name="DepartmentType.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM DepartmentType dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="DepartmentType.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM DepartmentType dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="DepartmentTypeID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="DepartmentType"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.Dependency" name="Dependency">
+        <table name="Dependency"/>
+        <named-query name="Dependency.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Dependency dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Dependency.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Dependency dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Dependency.admin.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Dependency dObj WHERE dObj.systemDomainId = :systemDomainId
+                         AND dObj.recordType = org.kuali.continuity.domain.RecordType.S
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Dependency.admin.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Dependency dObj WHERE dObj.systemDomainId = :systemDomainId
+                         AND dObj.recordType = org.kuali.continuity.domain.RecordType.S
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="DependencyID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="Dependency"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+            <basic name="recordType">
+                <column name="RecordType"/>
+                <enumerated>STRING</enumerated>
+            </basic>
+            <many-to-one name="dependencyType" fetch="LAZY">
+                <join-column name="DependencyType" nullable="false"/>
+            </many-to-one>
+            <transient name="userDefined"/>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.FAQ" name="FAQ">
+        <table name="FAQ"/>
+        <named-query name="FAQ.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM FAQ dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="FAQ.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM FAQ dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="FAQID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+            <transient name="name"/>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.MajorDivision" name="MajorDivision">
+        <table name="MajorDivision"/>
+        <named-query name="MajorDivision.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM MajorDivision dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="MajorDivision.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM MajorDivision dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="MajorDivisionID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="MajorDivisionName"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.PlannerLogCategory" name="PlannerLogCategory">
+        <table name="PlannerCategory"/>
+        <named-query name="PlannerLogCategory.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM PlannerLogCategory dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="PlannerLogCategory.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM PlannerLogCategory dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="PlannerCategoryID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="Item"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.Reference" name="Reference">
+        <table name="Reference"/>
+        <named-query name="Reference.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Reference dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Reference.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Reference dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="ReferenceID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="Reference"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.Shift" name="Shift">
+        <table name="Shift"/>
+        <named-query name="Shift.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Shift dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Shift.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Shift dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="ShiftID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.Skill" name="Skill">
+        <table name="Skill"/>
+        <named-query name="Skill.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Skill dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Skill.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Skill dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Skill.admin.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Skill dObj WHERE dObj.systemDomainId = :systemDomainId 
+                        AND dObj.recordType = org.kuali.continuity.domain.RecordType.S
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Skill.admin.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Skill dObj WHERE dObj.systemDomainId = :systemDomainId
+                        AND dObj.recordType = org.kuali.continuity.domain.RecordType.S
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="SkillID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+            <basic name="recordType">
+                <column name="RecordType"/>
+                <enumerated>STRING</enumerated>
+            </basic>
+            <transient name="userDefined"/>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.StaffCategory" name="StaffCategory">
+        <table name="StaffCategory"/>
+        <named-query name="StaffCategory.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM StaffCategory dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="StaffCategory.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM StaffCategory dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="StaffCategoryID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="StaffCategory"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.SystemDomain" name="Domain">
+        <table name="SystemDomain"/>
+        <named-query name="Domain.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Domain dObj
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Domain.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Domain dObj
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Domain.members.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Domain dObj 
+                      WHERE dObj.parentSystemDomainId = :systemDomainId
+                        AND dObj.type.id = '1'
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Domain.members.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Domain dObj 
+                      WHERE dObj.parentSystemDomainId = :systemDomainId
+                        AND dObj.type.id = '1'
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="InstitutionID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="Institution"/>
+            </basic>
+            <basic name="parentSystemDomainId">
+                <column name="Domain"/>
+            </basic>
+            <basic name="logo">
+                <column name="Logo"/>
+                <lob/>
+            </basic>
+            <basic name="LBNL">
+                <column name="LBNLFlag"/>
+            </basic>
+            <basic name="dirAccessible">
+                <column name="DirectoryAccess"/>
+            </basic>
+            <basic name="shibMode">
+                <column name="AuthType"/>
+            </basic>
+            <many-to-one name="systemDomainAccess" fetch="LAZY">            
+                <join-column name="InstitutionAccess" nullable="false"/>
+            </many-to-one>
+            <many-to-one name="type" fetch="LAZY">
+                <join-column name="InstitutionType" nullable="false"/>
+            </many-to-one>
+            <embedded name="settings">
+                <attribute-override name="teamsScreenVisible">
+                    <column name="TeamsScreenFlag"/>
+                </attribute-override>
+            </embedded>
+            <embedded name="settings">
+                <attribute-override name="skillsScreenVisible">
+                    <column name="SkillsScreenFlag"/>
+                </attribute-override>
+            </embedded>
+            <embedded name="settings">
+                <attribute-override name="staffRequirementsScreenVisible">
+                    <column name="StaffingScreenFlag"/>
+                </attribute-override>
+            </embedded>
+            <embedded name="settings">
+                <attribute-override name="criticalFunctionsScreenVisible">
+                    <column name="ExamplesScreenFlag"/>
+                </attribute-override>
+            </embedded>
+            <transient name="memberSystemDomains"/>
+        </attributes>
+     </entity>
+     
+     <entity class="org.kuali.continuity.admin.domain.ToKnowItem" name="ToKnowItem">
+        <table name="ThingsToKnow"/>
+        <named-query name="ToKnowItem.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM ToKnowItem dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="ToKnowItem.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM ToKnowItem dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="ThingsToKnowID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="ThingsToKnowItem"/>
+            </basic>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+     </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.User" name="SystemDomainUser">
+        <table name="UserSecurity"/>
+        <named-query name="User.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM SystemDomainUser dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="User.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM SystemDomainUser dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="UserID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+            <basic name="dateCreated">
+                <column name="CreatedDate"/>
+                <temporal>DATE</temporal>
+            </basic>
+            <basic name="name">
+            </basic>
+            <many-to-one name="securityType" fetch="LAZY">
+                <join-column name="SecurityType" nullable="false"/>
+            </many-to-one>
+            <many-to-one name="accessStatus" fetch="LAZY">
+                <join-column name="AccessStatus" nullable="false"/>
+            </many-to-one>
+            <many-to-one name="lockStatus" fetch="LAZY">
+                <join-column name="LockStatus" nullable="false"/>
+            </many-to-one>
+            <transient name="name"/>
+            <transient name="fullName"/>
+        </attributes>
+    </entity>
+
+     <entity class="org.kuali.continuity.admin.domain.Utility" name="Utility">
+        <table name="Utility"/>
+        <named-query name="Utility.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM Utility dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <named-query name="Utility.size">
+            <query>
+                <![CDATA[
+                     SELECT COUNT(dObj) FROM Utility dObj WHERE dObj.systemDomainId = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="UtilityID"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="systemDomainId">
+                <column name="InstitutionID"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <embeddable class="org.kuali.continuity.admin.domain.SystemDomainSettings"/>
+
+</entity-mappings>

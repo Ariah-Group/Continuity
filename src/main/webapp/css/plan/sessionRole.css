@@ -1,0 +1,37 @@
+INPUT.CurLocationNameClass
+{
+	width: 350px;
+
+}
+
+INPUT.CurRoleNameClass
+{
+	width: 150px;
+
+}
+
+
+INPUT.OrgLocationNameClass
+{
+	width: 350px;
+
+}
+
+INPUT.OrgRoleNameClass
+{
+	width: 150px;
+
+}
+
+
+SELECT.NewLocationNameSelectClass
+{
+	width: 355px;
+
+}
+
+SELECT.NewRoleNameSelectClass
+{
+	width: 155px;
+
+}

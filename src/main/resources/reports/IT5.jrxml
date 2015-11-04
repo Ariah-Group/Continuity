@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IT1" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="13" bottomMargin="13" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<property name="com.jasperassistant.designer.VGuides.Page Footer" value="49"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(434)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select it_howto_where, it_howto_when, it_howto_requirement, it_howto_staff, it_howto_other,  it_howto_work_home, it_howto_cannot_work_around  from plans where pid=$P{PID}]]>
+	</queryString>
+	<field name="it_howto_cannot_work_around" class="java.lang.String"/>
+	<field name="it_howto_other" class="java.lang.String"/>
+	<field name="it_howto_requirement" class="java.lang.String"/>
+	<field name="it_howto_staff" class="java.lang.String"/>
+	<field name="it_howto_when" class="java.lang.String"/>
+	<field name="it_howto_where" class="java.lang.String"/>
+	<field name="it_howto_work_home" class="java.lang.String"/>
+	<detail>
+		<band height="150" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="73" width="550" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[III. INFORMATION TECHNOLOGY (cont.) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="105" width="304" height="18"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part 5: Recovery Strategies for IT ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="398" y="28" width="126" height="26"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="402" y="30" width="122" height="26"/>
+				<textElement>
+					<font fontName="Arial" size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the Step 3 tab of the on-line tool.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="123" width="134" height="27"/>
+				<textElement>
+					<font fontName="Arial" size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Where to purchase hardware
+]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="153" y="123" width="397" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{it_howto_where}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="548" height="1"/>
+			</line>
+		</band>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="117" height="55"/>
+				<textElement>
+					<font fontName="Arial" size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[If workstations, servers, etc. need to be rebuilt at new location, where can 
+technicians locate the software & documentation?  
+
+]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="153" y="0" width="397" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{it_howto_when}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="117" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Environmental requirements for hardware ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="153" y="0" width="397" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{it_howto_requirement}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="117" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Will your IT staff be sufficient to the task?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="153" y="0" width="397" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{it_howto_staff}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="79" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Other obstacles ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="153" y="0" width="397" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{it_howto_other}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="117" height="35"/>
+				<textElement>
+					<font fontName="Arial" size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[How your IT staff will assist faculty & staff to work from home ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="153" y="0" width="397" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{it_howto_work_home}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="1" width="103" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[IT applications for which there is no workaround ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="153" y="1" width="397" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{it_howto_cannot_work_around}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="28" width="153" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part 6: Action Items for IT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="43" width="301" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="9" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[See Action Item List (Section VI) 
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="53">
+			<textField>
+				<reportElement x="202" y="42" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="27" width="548" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="185" y="32" width="180" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

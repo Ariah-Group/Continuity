@@ -1,0 +1,54 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+
+    <field name="keyStaffBasics.emergencyContactListHolders">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[saveActionType == 2 || (keyStaffBasics.emergencyContactListHolders != null && keyStaffBasics.emergencyContactListHolders.length() <= 320)]]></param>
+            <message>'Who holds copies ...' may not exceed 320 characters</message>
+        </field-validator>
+    </field>
+
+    <field name="keyStaffBasics.emergencyContactListUpdaters">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[saveActionType == 2 || (keyStaffBasics.emergencyContactListUpdaters != null && keyStaffBasics.emergencyContactListUpdaters.length() <= 320)]]></param>
+            <message>'Who updates ...' may not exceed 320 characters</message>
+        </field-validator>
+    </field>
+
+    <field name="keyStaffBasics.voiceMailMessagesCheckers">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[saveActionType == 2 || (keyStaffBasics.voiceMailMessagesCheckers != null && keyStaffBasics.voiceMailMessagesCheckers.length() <= 320)]]></param>
+            <message>'Who knows how to check ...' may not exceed 320 characters</message>
+        </field-validator>
+    </field>
+
+    <field name="keyStaffBasics.voiceMailGreeters">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[saveActionType == 2 || (keyStaffBasics.voiceMailGreeters != null && keyStaffBasics.voiceMailGreeters.length() <= 320)]]></param>
+            <message>'Who knows how to record ...' may not exceed 320 characters</message>
+        </field-validator>
+    </field>
+
+    <field name="keyStaffBasics.websiteMessagePosters">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[saveActionType == 2 || (keyStaffBasics.websiteMessagePosters != null && keyStaffBasics.websiteMessagePosters.length() <= 320)]]></param>
+            <message>'Who can post messages ...' may not exceed 320 characters</message>
+        </field-validator>
+    </field>
+
+    <field name="keyStaffBasics.sharedPasswordKeepers">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[saveActionType == 2 || (keyStaffBasics.sharedPasswordKeepers != null && keyStaffBasics.sharedPasswordKeepers.length() <= 320)]]></param>
+            <message>'Do your staff ...' may not exceed 320 characters</message>
+        </field-validator>
+    </field>
+
+    <field name="keyStaffBasics.staffBasicsComment">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[saveActionType == 2 || (keyStaffBasics.staffBasicsComment != null && keyStaffBasics.staffBasicsComment.length() <= 512)]]></param>
+            <message>'Comment?' may not exceed 512 characters</message>
+        </field-validator>
+    </field>
+
+</validators>

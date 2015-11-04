@@ -1,0 +1,13 @@
+<module>
+	<inherits name="com.google.gwt.user.User"/>
+	<inherits name='com.google.gwt.user.theme.standard.Standard'/>
+	<stylesheet src="MainViewer.css"/>
+	<entry-point class="org.kuali.continuity.admin.main.client.Knowledge"/>
+
+   <!--  Ext  -->
+	<inherits name='com.gwtext.GwtExt' />
+	<!--  UCReady  -->
+	<stylesheet src="css/ucreadystyles.css" />
+	<stylesheet src="css/ucreadyMainElements.css" />	
+	<stylesheet src="css/ucreadyAdminElements.css" />
+</module>

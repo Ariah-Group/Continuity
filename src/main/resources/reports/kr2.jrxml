@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="KR2WorkFromHome" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="20" bottomMargin="20" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="false"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(434)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select name,
+CASE WHEN institution_position='1' THEN 'Faculty' 
+WHEN institution_position='2' THEN 'Staff'
+WHEN institution_position='3' THEN 'Other' 
+ELSE ''           
+END as institution_position,
+CASE WHEN broadband_connection='1' THEN 'Yes' 
+WHEN broadband_connection='2' THEN 'No'
+WHEN broadband_connection='3' THEN 'Probably' 
+WHEN broadband_connection='4' THEN 'Probably not'
+WHEN broadband_connection='5' THEN 'Don''t know'
+ELSE ''           
+END as broadband_connection,
+CASE WHEN currently_does='1' THEN 'Yes' 
+WHEN currently_does='2' THEN 'No'
+WHEN currently_does='3' THEN 'Probably' 
+WHEN currently_does='4' THEN 'Probably not'
+WHEN currently_does='5' THEN 'Don''t know'
+ELSE ''           
+END as currently_does,
+
+CASE WHEN office_pc_must_on='1' THEN 'Yes' 
+WHEN office_pc_must_on='2' THEN 'No'
+WHEN office_pc_must_on='3' THEN 'Don''t know' 
+ELSE ''           
+END as office_pc_must_on
+,comment 
+from key_work_home 
+where  pid=$P{PID} 
+and disabled = 'N' 
+order by name;]]>
+	</queryString>
+	<field name="broadband_connection" class="java.lang.String"/>
+	<field name="comment" class="java.lang.String"/>
+	<field name="currently_does" class="java.lang.String"/>
+	<field name="institution_position" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="office_pc_must_on" class="java.lang.String"/>
+	<pageHeader>
+		<band height="22">
+			<textField>
+				<reportElement x="2" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="21" width="548" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="115">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() == 1 || $V{REPORT_COUNT}.intValue() == 0 )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="49" width="550" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[V. KEY RESOURCES (cont.)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="411" y="9" width="130" height="23"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="416" y="10" width="123" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the Step 5 tab of the on-line tool. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="71" width="193" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part 2: Work from Home]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="91" width="373" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[The capabilities of some faculty & staff to connect from home are listed below.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="0" width="548" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="90" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() > 0 )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="13" y="10" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="20" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Position]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="32" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Home broadband connection]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="44" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Currently does connect from home]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="68" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="56" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Must office computer be running?]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="229" y="8" width="265" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="229" y="20" width="265" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{institution_position}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="229" y="32" width="265" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{broadband_connection}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="229" y="44" width="265" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{currently_does}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="229" y="56" width="265" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{office_pc_must_on}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="229" y="68" width="265" height="21"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{comment}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="202" y="38" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="23" width="550" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="185" y="28" width="180" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

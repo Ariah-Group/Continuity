@@ -1,0 +1,51 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+
+    <field name="dto.name">
+        <field-validator type="requiredstring">
+            <message>Name of Unit required</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">256</param>
+            <message>Name of Unit required and may not exceed ${maxLength} characters</message>
+        </field-validator>
+    </field>
+    
+    <field name="dto.majorDivision.id">
+        <field-validator type="fieldexpression">
+            <param name="expression">dto.majorDivision.id != 0</param>
+            <message>Reports Upward To required</message>
+        </field-validator>
+    </field>
+    
+    <field name="dto.departmentHead.firstName">
+        <field-validator type="requiredstring">
+            <message>Head of Unit First Name required</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">50</param>
+            <message>Head of Unit First Name required and may not exceed ${maxLength} characters</message>
+        </field-validator>
+    </field>
+    
+    <field name="dto.departmentHead.lastName">
+        <field-validator type="requiredstring">
+            <message>Head of Unit Last Name required</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">50</param>
+            <message>Head of Unit Last Name Name required and may not exceed ${maxLength} characters</message>
+        </field-validator>
+    </field>
+    
+    <field name="dto.departmentHead.emailRegular">
+        <field-validator type="requiredstring">
+            <message>Head of Unit Email required</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Head of Unit Email is invalid</message>
+        </field-validator>
+    </field>
+    
+</validators>

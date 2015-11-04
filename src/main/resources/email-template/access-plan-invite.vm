@@ -1,0 +1,17 @@
+<html>
+<body>
+This is to inform you that you have been added to the user-list of the following unit&#39;s continuity plan:
+<br/><br/>
+${plan.acronymPlusName}
+<br/><br/>
+The person who added your name is ${planner.fullName}
+<br/><br/>
+To access this plan, simply log into ${systemName} at ${krURL} using your current login name & password.   If you cannot remember one or both, you can request new ones on the Login screen.
+<br/><br/>
+Be Ready!
+<br/><br/>
+<br/><br/>
+<hr/>
+This is an auto-email from the ${systemName} continuity planning tool.
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+	<head>
+
+		<!--                                           -->
+		<!-- Any title is fine                         -->
+		<!--                                           -->
+		<title>Wrapper HTML for Location</title>
+
+		<!--                                           -->
+		<!-- The module reference below is the link    -->
+		<!-- between html and your Web Toolkit module  -->
+		<!--                                           -->
+		<meta name='gwt:module' content='org.kuali.continuity.admin.main.Location'/>
+		<!-- Move from gwt.xml to here to fix buggy Ext undefined problem -->
+		<link href="js/ext/resources/css/ext-all.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/ext/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="js/ext/ext-all.js"></script>
+		<script language="javascript" src="org.kuali.continuity.admin.main.CriticalFunction.nocache.js"></script>
+		<!-- Move from gwt.xml to here to fix buggy Ext undefined problem above -->    
+		
+		<link href="/kcpt/css/ucreadystyles.css" rel="stylesheet" type="text/css">
+		<link href="/kcpt/css/ucreadyAdminElements.css" rel="stylesheet" type="text/css">
+		<link href="/kcpt/css/ucreadyMainElements.css" rel="stylesheet" type="text/css">
+
+
+	</head>
+
+	<!--                                           -->
+	<!-- The body can have arbitrary html, or      -->
+	<!-- we leave the body empty because we want   -->
+	<!-- to create a completely dynamic ui         -->
+	<!--                                           -->
+	<body>
+
+	<div class="AdminSite">
+		<div id="innertube">
+			<h1>Setup Examples of Critical Functions</h1>
+			<p class="StandardWidth">Select here the data that you would like your users to see on the screen titled "Examples of Critical Functions". The intent is to offer real examples from other departments to assist users in identifying their own critical functions.</p>
+
+			<p  class="StandardWidth">Place the desired plans in the right-hand box, then click "Save Selections". </p>
+			<div id="gwtRoot" ></div>
+
+		</div><!-- closes AdminSite div-->
+	</div><!-- closes innertube div-->
+
+
+<div id="plural" title="Critical Functions"></div>
+<div id="itemdata" title="Function" class="Heading"></div>
+<div id="formelement" title="Function" class="Heading"></div>
+
+		<!--                                            -->
+		<!-- This script is required bootstrap stuff.   -->
+		<!-- You can put it in the HEAD, but startup    -->
+		<!-- is slightly faster if you include it here. -->
+		<!--                                            -->
+		
+		<!-- OPTIONAL: include this if you want history support -->
+		<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+	</body>
+</html>

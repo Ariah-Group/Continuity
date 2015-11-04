@@ -1,0 +1,41 @@
+p.mesg {
+	color: #CC0000;
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+	padding-top: 5px;
+	float: none;
+    font-size: 12px;
+}
+
+p.mesgNormal {
+	color: #CC0000;
+	padding-top: 5px;
+	float: center;
+    font-size: 12px;
+}
+
+ul.mesg {
+	color: #CC0000;
+	list-style: outside;
+	list-style-type: disc;
+	margin-top: 0;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	margin-right: 0;
+	padding: 0px;
+    font-size: 12px;
+}
+
+ul.mesg li {
+	color: #CC0000;
+	margin: 0;
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+span.mesgBold {
+	color: #CC0000;
+	font-weight: bold;
+    font-size: 12px;
+}

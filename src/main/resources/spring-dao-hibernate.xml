@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- D A O   D E F I N I T I O N S -->
+	<description>Data Access Object (DAO) related definitions</description>
+
+    <!-- D A O s -->
+    <bean id="referenceDomainObjectDAOFactory"  autowire="byType" 
+        class="org.kuali.continuity.dao.ReferenceDomainObjectDAOFactoryImpl" >
+         <property name="daoMap">
+                <map>
+                    <entry key="org.kuali.continuity.domain.AccessStatus">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.AccessStatus</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.BroadbandConnection">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.BroadbandConnection</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.BuildingOwnership">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.BuildingOwnership</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.ComputerRunning">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.ComputerRunning</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.ConnectFromHome">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.ConnectFromHome</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.DependencyType">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.DependencyType</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.DocumentType">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.DocumentType</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.EvacuationPlan">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.EvacuationPlan</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.PlanAccessType">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.PlanAccessType</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.PlanStatus">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.PlanStatus</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.SecurityType">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.SecurityType</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.StaffPosition">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.StaffPosition</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.StakeholderType">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.StakeholderType</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.SystemDomainAccess">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.SystemDomainAccess</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.SystemDomainType">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.SystemDomainType</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.SystemLogEventType">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.SystemLogEventType</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.SystemLogObjectType">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.SystemLogObjectType</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.plan.domain.ActionItemCost">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.plan.domain.ActionItemCost</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.plan.domain.ActionItemCostCycle">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.plan.domain.ActionItemCostCycle</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.plan.domain.ActionItemScope">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.plan.domain.ActionItemScope</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.plan.domain.ActionItemStatus">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.plan.domain.ActionItemStatus</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.plan.domain.BackupFrequency">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.plan.domain.BackupFrequency</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.CourseCast">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.CourseCast</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.InstructionSelect1">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.InstructionSelect1</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.InstructionSelect2">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.InstructionSelect2</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.InstructionSelect3">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.InstructionSelect3</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.domain.SpecialTeachingIssue">
+                        <bean class="org.kuali.continuity.dao.hibernate.ReferenceDomainObjectDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.domain.SpecialTeachingIssue</value>
+                            </constructor-arg>
+                            <property name="sessionFactory" ref="sessionFactory"/>
+                        </bean>
+                    </entry>
+               </map>
+         </property>
+    </bean>
+
+</beans>

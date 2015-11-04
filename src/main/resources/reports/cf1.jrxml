@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Front2" pageWidth="612" pageHeight="792" whenNoDataType="BlankPage" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="20" bottomMargin="20" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(530)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="OPTION_SECTION" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\apache-tomcat-6.0.20\\webapps\\kcpt\\WEB-INF\\classes\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IN_DIR" class="java.lang.String"/>
+	<parameter name="REPORT_DIR" class="java.lang.String"/>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<parameter name="LNBL" class="java.lang.Boolean"/>
+	<queryString>
+		<![CDATA[select * from critical_functions where pid= $P{PID}
+and (CriticalityLevel <> '4' or
+    (CriticalityLevel = '4' and exists
+    (select plans.pid from plans, systemdomain
+      where plans.institutionid = systemdomain.institutionid
+      and systemdomain.CriticalLvlDtlsFlag = 1
+      and plans.pid = critical_functions.pid)))
+order by priority]]>
+	</queryString>
+	<field name="CriticalityLevel" class="java.lang.String"/>
+	<field name="cid" class="java.lang.Integer"/>
+	<field name="comment" class="java.lang.String"/>
+	<field name="con_disruption_patientcare" class="java.lang.String"/>
+	<field name="con_disruption_patientcare_explain" class="java.lang.String"/>
+	<field name="con_disruption_research" class="java.lang.String"/>
+	<field name="con_disruption_research_explain" class="java.lang.String"/>
+	<field name="con_disruption_teaching" class="java.lang.String"/>
+	<field name="con_disruption_teaching_explain" class="java.lang.String"/>
+	<field name="con_impact_business" class="java.lang.String"/>
+	<field name="con_impact_business_explain" class="java.lang.String"/>
+	<field name="con_impact_other_campus" class="java.lang.String"/>
+	<field name="con_impact_other_campus_explain" class="java.lang.String"/>
+	<field name="con_legal_harm" class="java.lang.String"/>
+	<field name="con_legal_harm_explain" class="java.lang.String"/>
+	<field name="con_legal_obligations" class="java.lang.String"/>
+	<field name="con_legal_obligations_explain" class="java.lang.String"/>
+	<field name="con_loss_faculty" class="java.lang.String"/>
+	<field name="con_loss_faculty_explain" class="java.lang.String"/>
+	<field name="con_loss_revenue" class="java.lang.String"/>
+	<field name="con_loss_revenue_explain" class="java.lang.String"/>
+	<field name="con_loss_staff" class="java.lang.String"/>
+	<field name="con_loss_staff_explain" class="java.lang.String"/>
+	<field name="con_loss_students" class="java.lang.String"/>
+	<field name="con_loss_students_explain" class="java.lang.String"/>
+	<field name="con_other" class="java.lang.String"/>
+	<field name="con_other_explain" class="java.lang.String"/>
+	<field name="con_payment_deadline" class="java.lang.String"/>
+	<field name="con_payment_deadline_explain" class="java.lang.String"/>
+	<field name="con_well_being_staff" class="java.lang.String"/>
+	<field name="con_well_being_staff_explain" class="java.lang.String"/>
+	<field name="con_well_being_students" class="java.lang.String"/>
+	<field name="con_well_being_students_explain" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="disabled" class="java.lang.String"/>
+	<field name="explanation" class="java.lang.String"/>
+	<field name="how_additional_vulnerabilities" class="java.lang.String"/>
+	<field name="how_campus_closure" class="java.lang.String"/>
+	<field name="how_equipment" class="java.lang.String"/>
+	<field name="how_network_access" class="java.lang.String"/>
+	<field name="how_policy_exceptions" class="java.lang.String"/>
+	<field name="how_risk" class="java.lang.String"/>
+	<field name="how_show_stoppers" class="java.lang.String"/>
+	<field name="how_space" class="java.lang.String"/>
+	<field name="how_staff" class="java.lang.String"/>
+	<field name="how_timing" class="java.lang.String"/>
+	<field name="how_unique_skills" class="java.lang.String"/>
+	<field name="how_work_at_home" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="old_cid" class="java.lang.Integer"/>
+	<field name="peak_apr" class="java.lang.String"/>
+	<field name="peak_aug" class="java.lang.String"/>
+	<field name="peak_dec" class="java.lang.String"/>
+	<field name="peak_feb" class="java.lang.String"/>
+	<field name="peak_jan" class="java.lang.String"/>
+	<field name="peak_jul" class="java.lang.String"/>
+	<field name="peak_jun" class="java.lang.String"/>
+	<field name="peak_mar" class="java.lang.String"/>
+	<field name="peak_may" class="java.lang.String"/>
+	<field name="peak_nov" class="java.lang.String"/>
+	<field name="peak_oct" class="java.lang.String"/>
+	<field name="peak_sep" class="java.lang.String"/>
+	<field name="pid" class="java.lang.Integer"/>
+	<field name="priority" class="java.lang.Integer"/>
+	<field name="responsible_person" class="java.lang.String"/>
+	<field name="unit_performs" class="java.lang.String"/>
+	<group name="PageBreakGroup" isStartNewPage="true">
+		<groupExpression><![CDATA[$V{REPORT_COUNT}]]></groupExpression>
+		<groupFooter>
+			<band height="2"/>
+		</groupFooter>
+	</group>
+	<pageHeader>
+		<band height="22">
+			<elementGroup/>
+			<textField>
+				<reportElement x="0" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="548" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="130" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="83" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Name ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="106" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<elementGroup/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="83" width="329" height="13"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="106" width="369" height="13"/>
+				<textElement markup="styled">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equals("Instruction"))? "<style  fontSize=\"11\" isBold=\"true\" pdfFontName=\"Helvetica-Bold\">THIS PAGE CONTAINS NO DATA.   DATA FOR THE \"INSTRUCTION\" CRITICAL FUNCTION ARE PRESENTED LATER IN PART IV.</style>" : $F{description} )]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="405" y="6" width="127" height="28"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="412" y="8" width="125" height="37"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the Step 2 tab of the on-line tool]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="25" y="36" width="501" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="false" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( (($P{LNBL}).booleanValue()) ? "II. ESSENTIAL FUNCTIONS" : "II. CRITICAL FUNCTIONS" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="60" width="155" height="23"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( (($P{LNBL}).booleanValue()) ? "Essential Function # " : "Critical Function # " ) + $V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="97" height="17"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Who performs this?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="182" y="0" width="369" height="17"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{unit_performs} )]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="12"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{responsible_person})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="0" width="97" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Responsible person(s)
+]]></text>
+			</staticText>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Peak periods  ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $P{REPORT_SCRIPTLET}.peakPeriods())]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="121" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Explanation
+]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="12"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{explanation})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="121" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Documents
+]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="12"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : "See Document List (Appendix A)")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="109" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Upstream dependencies
+]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="12"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $P{REPORT_SCRIPTLET}.upstream())]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="12"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $P{REPORT_SCRIPTLET}.downstream())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="0" width="133" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Downstream dependencies
+]]></text>
+			</staticText>
+		</band>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="157" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Possible consequences if this
+function is not continued or recovered
+quickly enough
+]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="183" y="0" width="368" height="30"/>
+				<subreportParameter name="PID">
+					<subreportParameterExpression><![CDATA[$P{PID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CID">
+					<subreportParameterExpression><![CDATA[$F{cid}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{REPORT_DIR} + "cf1_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="25" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_space})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="0" width="157" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[How to cope if usual space is not
+available]]></text>
+			</staticText>
+		</band>
+		<band height="25" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_staff})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="0" width="157" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[How to cope with 50% absenteeism
+of staff and faculty]]></text>
+			</staticText>
+		</band>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="157" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[What to do if certain skills/knowledge
+are held by only one staff member
+(unique skills)?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_unique_skills})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30">
+			<staticText>
+				<reportElement x="22" y="0" width="157" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Can this function be performed fully
+or partly from home?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_work_at_home})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="157" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[How to cope if data network is not
+available]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_network_access})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="157" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Any show-stoppers?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="13"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_show_stoppers} )]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="157" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[If University declares temporary
+closure, is it possible to stop doing
+this function?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="367" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_campus_closure})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="183" y="0" width="369" height="12"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{comment})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="0" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment]]></text>
+			</staticText>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="157" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Do any of these coping strategies
+expose the University to risk?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="367" height="13"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_risk})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="157" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Policy exceptions that may be needed]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="182" y="0" width="369" height="13"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_policy_exceptions})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="181" y="0" width="367" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : $F{how_additional_vulnerabilities})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="0" width="157" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Additional vulnerabilities]]></text>
+			</staticText>
+		</band>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="25" y="0" width="157" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Action items for this function]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="181" y="0" width="367" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{OPTION_SECTION}.equals("INSTRUCTION") &&  $F{name}.equalsIgnoreCase("Instruction"))? "" : "See Action Item List - section VI")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="202" y="39" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="24" width="548" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="185" y="29" width="180" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

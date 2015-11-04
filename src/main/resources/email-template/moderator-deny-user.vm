@@ -1,0 +1,18 @@
+<html>
+<body>
+Your request for an account in the ${systemName} continuity planning tool has been denied &ndash; probably because your email address is not in one of the allowed domains.
+<br/><br/>
+For more information and to re-submit your request, please email all of the following:
+<br/>
+<ul>
+#foreach ( $moderator in $moderators )
+    <li>$moderator.emailRegular</li>
+#end
+</ul>
+Be Ready!
+<br/><br/>
+<hr/>
+This is an auto-email from the ${systemName} continuity planning tool.
+</body>
+</html>
+

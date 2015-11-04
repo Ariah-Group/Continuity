@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<description>Lightweight Directory Access Protocol (LDAP) bean definitions</description>
+
+	<!-- L D A P s -->
+	
+	<!-- factory -->
+	<bean id="userSearchDAOFactory" autowire="byType" class="org.kuali.continuity.admin.dao.UserSearchDAOFactoryImpl">
+	    <property name="userSearchDAOMap">
+	        <map>
+	            <entry key ="1"><ref bean="berkeley.edu.userSearchDAO"/></entry>
+                <entry key="11"><ref bean="ucdavis.edu.userSearchDAO"/></entry>
+                <entry key="12"><ref bean="lbl.gov.userSearchDAO"/></entry>
+                <entry key="24"><ref bean="ucsd.edu.userSearchDAO"/></entry>
+                <entry key="25"><ref bean="ucsb.edu.userSearchDAO"/></entry>
+                <entry key="26"><ref bean="ucsc.edu.userSearchDAO"/></entry>
+                <entry key="27"><ref bean="uci.edu.userSearchDAO"/></entry>
+                <entry key="28"><ref bean="ucr.edu.userSearchDAO"/></entry>
+                <entry key="30"><ref bean="ucm.edu.userSearchDAO"/></entry>
+	        </map>
+	    </property>
+	    <property name="defaultUserSearchDAO" ref="userDAO"/>
+	</bean>
+
+    <!-- berkeley -->
+    <bean id="searchControls" class="javax.naming.directory.SearchControls">
+        <property name="searchScope" value="2"/>
+        <property name="countLimit" value="500"/>
+        <property name="timeLimit" value="60000"/>
+    </bean>
+    
+    <!-- DAOs & Context Sources -->
+
+    <!-- berkeley -->
+    <bean id="berkeley.edu.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="berkeley.edu.ldapTemplate" />
+        <property name="returnAttributes" ref="berkeley.edu.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="berkeley.edu.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="berkeley.edu.ldapContextSource"/>
+    </bean>
+    
+    <bean id="berkeley.edu.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldap://ldap.berkeley.edu" />
+        <property name="base" value="ou=people,dc=berkeley,dc=edu" />
+    </bean>
+    
+    <bean id="berkeley.edu.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="uid"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value="title"/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value="telephoneNumber"/>
+        <property name="workFax" value="facsimileTelephoneNumber"/>
+        <property name="departmentName" value="berkeleyEduUnitHRDeptName"/>
+        <property name="departmentOrg" value="berkeleyEduPrimaryDeptUnit"/>
+        <property name="departmentOrgHierarchy" value="berkeleyEduPrimaryDeptUnitHierarchyString"/>
+        <property name="authId" value=""/>
+    </bean>
+
+    <!-- ucdavis -->
+    <bean id="ucdavis.edu.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="ucdavis.edu.ldapTemplate" />
+        <property name="returnAttributes" ref="ucdavis.edu.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="ucdavis.edu.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="ucdavis.edu.ldapContextSource"/>
+    </bean>
+    
+    <bean id="ucdavis.edu.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldaps://ldap.ucdavis.edu:636" />
+        <property name="base" value="ou=People,dc=ucdavis,dc=edu"/>
+        <property name="userDn" value=""/>
+        <property name="password" value="xxxxxx"/>
+    </bean>
+    
+    <bean id="ucdavis.edu.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="ucdPersonUUID"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value="title"/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value="telephoneNumber"/>
+        <property name="workFax" value="facsimileTelephoneNumber"/>
+        <property name="departmentName" value="ou"/>
+        <property name="departmentOrg" value=""/>
+        <property name="departmentOrgHierarchy" value=""/>
+        <property name="authId" value="eduPersonPrincipalName"/>
+    </bean>
+    
+    <!-- lbl.gov -->
+    <bean id="lbl.gov.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="lbl.gov.ldapTemplate" />
+        <property name="returnAttributes" ref="lbl.gov.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="lbl.gov.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="lbl.gov.ldapContextSource"/>
+    </bean>
+    
+    <bean id="lbl.gov.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldap://ldap.lbl.gov:389" />
+        <property name="base" value="ou=people,o=lawrence berkeley laboratory,c=us"/>
+    </bean>
+
+    <bean id="lbl.gov.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="uid"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value=""/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value="telephoneNumber"/>
+        <property name="workFax" value=""/>
+        <property name="departmentName" value="lblDivision"/>
+        <property name="departmentOrg" value=""/>
+        <property name="departmentOrgHierarchy" value=""/>
+        <property name="authId" value=""/>
+    </bean>
+    
+    <!-- ucsd -->
+    <bean id="ucsd.edu.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="ucsd.edu.ldapTemplate" />
+        <property name="returnAttributes" ref="ucsd.edu.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="ucsd.edu.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="ucsd.edu.ldapContextSource"/>
+    </bean>
+    
+    <bean id="ucsd.edu.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldap://ldap.ucsd.edu:389" />
+        <property name="base" value="o=UCSD,c=US"/>
+    </bean>
+    
+    <bean id="ucsd.edu.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="uid"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value="title"/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value="telephoneNumber"/>
+        <property name="workFax" value=""/>
+        <property name="departmentName" value=""/>
+        <property name="departmentOrg" value=""/>
+        <property name="departmentOrgHierarchy" value=""/>
+        <property name="authId" value=""/>
+    </bean>
+    
+    <!-- ucsb -->
+    <bean id="ucsb.edu.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="ucsb.edu.ldapTemplate" />
+        <property name="returnAttributes" ref="ucsb.edu.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="ucsb.edu.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="ucsb.edu.ldapContextSource"/>
+    </bean>
+    
+    <bean id="ucsb.edu.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldap://directory.ucsb.edu:389" />
+        <property name="base" value="o=ucsb"/>
+    </bean>
+    
+    <bean id="ucsb.edu.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="ucsbcampusid"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value="title"/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value="telephoneNumber"/>
+        <property name="workFax" value=""/>
+        <property name="departmentName" value="ucsbhomedepartment"/>
+        <property name="departmentOrg" value=""/>
+        <property name="departmentOrgHierarchy" value=""/>
+        <property name="authId" value=""/>
+    </bean>
+
+    <!-- ucsc - time out exception -->
+    <bean id="ucsc.edu.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="ucsc.edu.ldapTemplate" />
+        <property name="returnAttributes" ref="ucsc.edu.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="ucsc.edu.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="ucsc.edu.ldapContextSource"/>
+    </bean>
+    
+    <bean id="ucsc.edu.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldaps://ldap-wp.ucsc.edu:636" />
+        <property name="base" value="ou=People,dc=ucsc,dc=edu"/>
+        <property name="userDn" value=""/>
+        <property name="password" value="xxxxxx"/>
+    </bean>
+    
+    <bean id="ucsc.edu.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="uid"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value="ucscEmp-primaryworkingtitle"/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value=""/>
+        <property name="workFax" value=""/>
+        <property name="departmentName" value="ucscEmp-homedeptname"/>
+        <property name="departmentOrg" value=""/>
+        <property name="departmentOrgHierarchy" value=""/>
+        <property name="authId" value=""/>
+    </bean>
+    
+    <!-- uci - operation not supported exception -->
+    <bean id="uci.edu.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="uci.edu.ldapTemplate" />
+        <property name="returnAttributes" ref="uci.edu.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="uci.edu.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="uci.edu.ldapContextSource"/>
+    </bean>
+    
+    <bean id="uci.edu.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldap://ldap.service.uci.edu:389" />
+        <property name="base" value=""/>
+    </bean>
+    
+    <bean id="uci.edu.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="uid"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value="title"/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value="telephoneNumber"/>
+        <property name="workFax" value=""/>
+        <property name="departmentName" value="department"/>
+        <property name="departmentOrg" value=""/>
+        <property name="departmentOrgHierarchy" value=""/>
+        <property name="authId" value=""/>
+    </bean>
+
+    <!-- ucr - operation not supported exception -->
+    <bean id="ucr.edu.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="ucr.edu.ldapTemplate" />
+        <property name="returnAttributes" ref="ucr.edu.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="ucr.edu.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="ucr.edu.ldapContextSource"/>
+    </bean>
+    
+    <bean id="ucr.edu.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldap://ldap.ucr.edu:389" />
+        <property name="base" value="ou=Persons,dc=ucr,dc=edu"/>
+    </bean>
+    
+    <bean id="ucr.edu.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="uid"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value="title"/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value="telephoneNumber"/>
+        <property name="workFax" value=""/>
+        <property name="departmentName" value="ou"/>
+        <property name="departmentOrg" value=""/>
+        <property name="departmentOrgHierarchy" value=""/>
+        <property name="authId" value=""/>
+    </bean>
+
+    <!-- ucm -->
+    <bean id="ucm.edu.userSearchDAO" class="org.kuali.continuity.admin.dao.ldap.UserLDAPSearchDAOImpl">
+        <property name="searchControls" ref="searchControls" />
+        <property name="ldapTemplate" ref="ucm.edu.ldapTemplate" />
+        <property name="returnAttributes" ref="ucm.edu.userLDAPReturnAttributes" />
+    </bean>
+    
+    <bean id="ucm.edu.ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="ucm.edu.ldapContextSource"/>
+    </bean>
+    
+    <bean id="ucm.edu.ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldap://ldap1.ucmerced.edu:389" />
+        <property name="base" value="ou=People,dc=ucmerced,dc=edu"/>
+    </bean>
+    
+    <bean id="ucm.edu.userLDAPReturnAttributes" class="org.kuali.continuity.admin.dao.ldap.UserLDAPReturnAttributes">
+        <property name="dirUserId" value="uid"/>
+        <property name="firstName" value="givenName"/>
+        <property name="lastName" value="sn"/>
+        <property name="title" value="title"/>
+        <property name="emailRegular" value="mail"/>
+        <property name="workPhone" value="telephoneNumber"/>
+        <property name="workFax" value=""/>
+        <property name="departmentName" value="ou"/>
+        <property name="departmentOrg" value=""/>
+        <property name="departmentOrgHierarchy" value=""/>
+        <property name="authId" value=""/>
+    </bean>
+
+</beans>

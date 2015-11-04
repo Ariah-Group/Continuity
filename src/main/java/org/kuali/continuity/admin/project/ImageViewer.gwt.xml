@@ -1,0 +1,28 @@
+<module>
+	
+
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name='com.google.gwt.user.theme.standard.Standard'/>
+	<!-- Inherit the GWTExt Toolkit library configuration.	  -->
+	<inherits name='com.gwtext.GwtExt' />
+	
+   <inherits name="com.gwtextux.GwtExtUx"/>
+	 -->
+
+	<entry-point class="org.kuali.continuity.admin.project.client.ImageViewer"/>
+	<servlet path="/KcpService" class="org.kuali.continuity.admin.project.server.KcpServiceImpl"/>
+	<!--	<stylesheet src="ImageViewer.css"/> -->
+	<stylesheet src="js/ext/resources/css/ext-all.css" />
+	<stylesheet src="css/ucreadystyles.css" />
+	<stylesheet src="css/ucreadyMainElements.css" />	
+	<stylesheet src="css/ucreadyAdminElements.css" />	
+	    <stylesheet src="ImageViewer.css"/> 
+	
+	<script src="js/ext/adapter/ext/ext-base.js" />
+	<script src="js/ext/ext-all.js" />
+	<script src="js/ext-ux-pagingmemoryproxy.js"></script>
+<!-- 	This is excluded since KcpServiceImpl is not a servlet. 
+    <servlet path="/KcpService"
+    class="org.kuali.continuity.admin.project.server.KcpServiceImpl"/>
+-->
+</module>

@@ -1,0 +1,66 @@
+<html>
+<head>
+
+<!--                                           -->
+<!-- Any title is fine                         -->
+<!--                                           -->
+<title>Wrapper HTML for MainViewer</title>
+
+<!--                                           -->
+<!-- The module reference below is the link    -->
+<!-- between html and your Web Toolkit module  -->
+<!--                                           -->
+<meta name='gwt:module'
+	content='org.kuali.continuity.admin.main.StaffCategory' />
+<!-- Move from gwt.xml to here to fix buggy Ext undefined problem -->
+<link href="js/ext/resources/css/ext-all.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="js/ext/ext-all.js"></script>
+<script language="javascript" src="org.kuali.continuity.admin.main.Application.nocache.js"></script>
+<!-- Move from gwt.xml to here to fix buggy Ext undefined problem above -->    
+    
+        
+    <link href="/kcpt/css/ucreadystyles.css" rel="stylesheet" type="text/css">
+<link href="/kcpt/css/ucreadyAdminElements.css" rel="stylesheet" type="text/css">
+<link href="/kcpt/css/ucreadyMainElements.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<!--                                           -->
+<!-- The body can have arbitrary html, or      -->
+<!-- we leave the body empty because we want   -->
+<!-- to create a completely dynamic ui         -->
+<!--                                           -->
+<body>
+
+<div class="AdminSite">
+<div id="innertube">	
+		<h1>Setup Staff Categories</h1>
+		<p>Please input here the items that will appear in the drop-down list of Staff Categories on the <b>Staffing Requirements</b> page.</p>
+
+                    <p>To modify an existing item, first highlight that row on the grid then use the entry-forms at bottom to modify. 
+					<br />
+					</p>
+
+		
+    </div><!-- closes AdminSite div-->
+</div><!-- closes innertube div-->
+    
+    <table>
+	<tr>
+
+		<td valign="top">
+		<div id="gwtRoot" ></div>
+		</td>
+	</tr>
+</table>
+<div id="plural" title="Staff Categories"></div>
+<div id="itemdata" title="Category" class="Heading"></div>
+<div id="formelement" title="Category" class="Heading"></div>    
+ <div id="dataelement" title="staffcategory" class="Heading"></div> 
+    <div id="columnelement" title="Category" class="Heading"></div>
+<!-- OPTIONAL: include this if you want history support -->
+<iframe id="__gwt_historyFrame" style="width: 0; height: 0; border: 0"></iframe>
+
+</body>
+</html>

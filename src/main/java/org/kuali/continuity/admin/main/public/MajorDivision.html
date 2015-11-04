@@ -1,0 +1,91 @@
+<html>
+<head>
+
+<!--                                           -->
+<!-- Any title is fine                         -->
+<!--                                           -->
+<title>Wrapper HTML for MainViewer</title>
+
+<!--                                           -->
+<!-- The module reference below is the link    -->
+<!-- between html and your Web Toolkit module  -->
+<!--                                           -->
+<meta name='gwt:module'
+	content='org.kuali.continuity.admin.main.MajorDivision' />
+    <!-- Move from gwt.xml to here to fix buggy Ext undefined problem -->
+<link href="js/ext/resources/css/ext-all.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="js/ext/ext-all.js"></script>
+<script language="javascript"
+	src="org.kuali.continuity.admin.main.MajorDivision.nocache.js"></script>
+<!-- Move from gwt.xml to here to fix buggy Ext undefined problem above -->    
+    
+    <link href="/kcpt/css/ucreadystyles.css" rel="stylesheet" type="text/css">
+	<link href="/kcpt/css/ucreadyAdminElements.css" rel="stylesheet" type="text/css">
+	<link href="/kcpt/css/ucreadyMainElements.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<!--                                           -->
+<!-- The body can have arbitrary html, or      -->
+<!-- we leave the body empty because we want   -->
+<!-- to create a completely dynamic ui         -->
+<!--                                           -->
+<body>
+
+	<div class="AdminSite">
+<div id="innertube">	
+		<h1>Setup Major Divisions </h1>
+		<p class="StandardWidth">Users of this tool are
+		asked to identify which major division of the campus or medical center
+		their department falls under (&ldquo;reports upwards
+		to&rdquo;).&nbsp;&nbsp; The user is offered a drop-down list of
+		choices, and is allowed to select only one.</p>
+
+
+		<p class="StandardWidth">You, as administrator, should create and
+		maintain that drop-down list. This screen allows you to do that.</p>
+		<p class="StandardWidth">This will be, essentially, a list of the
+		top-level organizational units of your campus or medical center. Use
+		your own judgment in making this list. The ideal list will be
+		<ul class="bulletlist">
+			<li>Comprehensive: every department in the campus or medical
+			center will belong in one of these divisions.</li>
+			<li>Mutually-exclusive: each department will belong to only one
+			division.</li>
+			<li>Understandable: each department will easily recognize where
+			it belongs.</li>
+		</ul>
+
+		</p>
+		<p>Don&acute;t worry if your list does not
+		perfectly meet these criteria. Make it a list that is useful for your
+		needs.</p>
+		<p>The drop-down list will be sorted
+		alphabetically, so consistent naming will help it to be user-friendly.</p>
+		<p>To modify an existing item, first highlight that row on the
+		grid then use the entry-forms at bottom to modify. <br />
+		<br />
+
+		</p>
+</div><!-- closes AdminSite div-->
+</div><!-- closes innertube div-->
+		
+    <table>
+	<tr>
+
+		<td valign="top">
+		<div id="gwtRoot" ></div>
+		</td>
+	</tr>
+</table>
+<div id="plural" title="Major Divisions"></div>
+<div id="itemdata" title="Division" class="Heading"></div>
+<div id="formelement" title="Major Division" class="Heading"></div>
+<div id="columnelement" title="Division" class="Heading"></div>
+
+<!-- OPTIONAL: include this if you want history support -->
+<iframe id="__gwt_historyFrame" style="width: 0; height: 0; border: 0"></iframe>
+
+</body>
+</html>

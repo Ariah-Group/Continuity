@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Front1_subreport1" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="DOMAIN_ID" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT UIImage from SystemDomainUIImage WHERE institutionId = $P{DOMAIN_ID} AND name = 'BANNER']]>
+	</queryString>
+	<field name="UIImage" class="java.io.InputStream">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="100">
+			<image>
+				<reportElement x="167" y="12" width="220" height="76"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$F{UIImage}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

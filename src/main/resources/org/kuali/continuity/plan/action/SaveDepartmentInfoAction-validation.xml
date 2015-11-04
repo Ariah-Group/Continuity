@@ -1,0 +1,69 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+
+    <field name="departmentInfo.academicStaffCount">
+        <field-validator type="int">
+            <param name="Min">0</param>
+            <param name="max">32767</param>
+            <message>Invalid number in Academic appointees!</message>
+        </field-validator>
+    </field>
+
+    <field name="departmentInfo.residentsAndFellowsCount">
+        <field-validator type="int">
+            <param name="Min">0</param>
+            <param name="max">32767</param>
+            <message>Invalid number in Resident/Fellows appointees!</message>
+        </field-validator>
+    </field>
+
+    <field name="departmentInfo.fulltimeStaffCount">
+        <field-validator type="int">
+            <param name="Min">0</param>
+            <param name="max">32767</param>
+            <message>Invalid number in Full-time staff!</message>
+        </field-validator>
+    </field>
+
+    <field name="departmentInfo.parttimeStaffCount">
+        <field-validator type="int">
+            <param name="Min">0</param>
+            <param name="max">32767</param>
+            <message>Invalid number in Part-time staff!</message>
+        </field-validator>
+    </field>
+
+    <field name="departmentInfo.studentStaffCount">
+        <field-validator type="int">
+            <param name="Min">0</param>
+            <param name="max">32767</param>
+            <message>Invalid number in Student staff!</message>
+        </field-validator>
+    </field>
+
+    <field name="departmentInfo.volunteersCount">
+        <field-validator type="int">
+            <param name="Min">0</param>
+            <param name="max">32767</param>
+            <message>Invalid number in Volunteers!</message>
+        </field-validator>
+    </field>
+
+    <field name="departmentInfo.guestsCount">
+        <field-validator type="int">
+            <param name="Min">0</param>
+            <param name="max">32767</param>
+            <message>Invalid number in Guests!</message>
+        </field-validator>
+    </field>
+
+    <field name="departmentInfo.otherStaffCount">
+        <field-validator type="int">
+            <param name="Min">0</param>
+            <param name="max">32767</param>
+            <message>Invalid number in Other staff!</message>
+        </field-validator>
+    </field>
+
+</validators>

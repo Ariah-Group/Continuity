@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Front2_subreport1" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="PID" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select cid, name from critical_functions where pid=$P{PID} order by priority,name]]>
+	</queryString>
+	<field name="cid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="180" y="0" width="372" height="12" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["#"+$V{REPORT_COUNT}+" "+$F{name}.substring(0,1).toUpperCase()+($F{name}+"  ").substring(1)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

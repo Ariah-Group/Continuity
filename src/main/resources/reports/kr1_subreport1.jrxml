@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kr1_subreport1" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="PID" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select ksu_id, first_name, last_name, special_skill, title_or_function, comment,  
+CASE WHEN first_successor=1 THEN 'First Leadership Successor'           
+ELSE ''           END as first_successor,  
+CASE WHEN second_successor=1 THEN 'Second Leadership Successor'           
+ELSE ''           END as second_successor,  
+CASE WHEN third_successor=1 THEN 'Third Leadership Successor'          
+ELSE ''           END as third_successor,  
+CASE WHEN holds_formal_delegation=1 THEN 'Holds formal delegation(s) of authority'           
+ELSE ''           END as holds_formal_delegation  
+
+from key_staff_unit where pid = $P{PID}
+and disabled = 'N' order by first_name, last_name;]]>
+	</queryString>
+	<field name="ksu_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="special_skill" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="title_or_function" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="comment" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="first_successor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="second_successor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="third_successor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="holds_formal_delegation" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() > 0 )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="235" y="10" width="308" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{first_name} + " "  +$F{last_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="11" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+		</band>
+		<band height="13" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() > 0 )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="15" y="0" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Title or function]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="235" y="0" width="308" height="12"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{title_or_function}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="13" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() > 0 )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="15" y="0" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Special skill]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="235" y="0" width="308" height="12"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{special_skill}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="13" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() > 0 )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="15" y="0" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Special role]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="235" y="0" width="308" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{first_successor} +" " + $F{second_successor} +" "+ $F{third_successor}+ " "+$F{holds_formal_delegation}).trim()]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="13" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() > 0 )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="15" y="0" width="157" height="11"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="235" y="0" width="308" height="12"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{comment}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

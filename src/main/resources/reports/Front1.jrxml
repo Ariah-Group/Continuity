@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Unnamed" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="548" leftMargin="32" rightMargin="32" topMargin="20" bottomMargin="20">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="false"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<subDataset name="dataset1"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1458)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CREATE_DATE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("MMM dd YYYY")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LAST_MODIFIED" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("MMM dd YYYY")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IN_DIR" class="java.lang.String"/>
+	<parameter name="PIC_FILE" class="java.lang.String"/>
+	<parameter name="IMAGE_DIR" class="java.lang.String"/>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<parameter name="SYSTEM_NAME" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\apache-tomcat-6.0.20-apache\\webapps\\kcpt\\WEB-INF\\classes\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DOMAIN_ID" class="java.lang.String"/>
+	<parameter name="REPORT_DIR" class="java.lang.String"/>
+	<parameter name="LNBL" class="java.lang.Boolean"/>
+	<parameter name="CUSTOM_IMAGE" class="java.lang.Boolean"/>
+	<queryString>
+		<![CDATA[select count(*) as count from action_items]]>
+	</queryString>
+	<field name="count" class="java.lang.Integer"/>
+	<pageHeader>
+		<band height="22">
+			<textField>
+				<reportElement x="0" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="548" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="627">
+			<staticText>
+				<reportElement x="0" y="28" width="548" height="23"/>
+				<textElement textAlignment="Center" lineSpacing="Single">
+					<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[CONTINUITY PLAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="222" y="51" width="255" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($P{CREATE_DATE}.equals("Jan 01, 1900"))? "Creation Date: Prior to Jan 01, 2009" : ("Creation Date: " + $P{CREATE_DATE}) )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="64" width="255" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Last Modified: " + $P{LAST_MODIFIED}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="5" width="548" height="24"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="21" y="271" width="517" height="218"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</rectangle>
+			<elementGroup>
+				<elementGroup>
+					<staticText>
+						<reportElement x="37" y="316" width="485" height="27"/>
+						<textElement markup="styled">
+							<font fontName="Arial" size="9" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">Continuity planning</style> addresses the question: how can we prepare to <b> continue operations</b> despite those adverse events that we call disasters - or if we can't continue, how can we <style isBold="true" pdfFontName="Helvetica-Bold"> resume our operations</style>  rapidly and gracefully?]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="21" y="288" width="517" height="22"/>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[What is a continuity plan? ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="38" y="346" width="500" height="26"/>
+						<textElement markup="html">
+							<font fontName="Arial" size="9" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[The core mission of higher education is teaching; and the mission may also include research, public service, and healthcare. These four enterprises, along with the infrastructure that supports them, are the focus of our continuity planning.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="55" y="450" width="432" height="23"/>
+						<textElement markup="styled">
+							<font fontName="Arial" size="9" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[A good continuity plan will identify <style isBold="true"  pdfFontName="Helvetica-Bold">action items: things that we can do now</style>  to lessen the impact of disaster-events and make it easier to recover. 
+]]></text>
+					</staticText>
+				</elementGroup>
+			</elementGroup>
+			<staticText>
+				<reportElement x="38" y="378" width="355" height="13"/>
+				<textElement markup="styled">
+					<font fontName="Arial" size="9" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Your departmental continuity plan:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="420" width="463" height="41"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[<ul><li>Contains various information that will be needed during and after the disaster-event.</li> <li>Describes how we can prepare.  This is most important of all, because "a stitch in time does indeed save nine." </ul>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="421" width="355" height="11"/>
+				<textElement markup="styled">
+					<font fontName="Arial" size="9" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[space, equipment, or IT infrastructure).]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="148" y="193" width="253" height="78"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["This document has been produced using the " + $P{SYSTEM_NAME} + " on-line planning tool, and is stored in the tool's database. To update this document, please use the on-line tool."]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="102" width="548" height="69"/>
+				<subreportParameter name="DOMAIN_ID">
+					<subreportParameterExpression><![CDATA[$P{DOMAIN_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[( (($P{CUSTOM_IMAGE}).booleanValue()) ? $P{REPORT_DIR} + "Front1_subreport1.jasper" : $P{REPORT_DIR} + "Front1_subreport2.jasper" )]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="38" y="391" width="500" height="39"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( (($P{LNBL}).booleanValue()) ? "<ul><li>Identifies your department's essential functions.</li> <li>Describes how you might carry on these functions under conditions of diminished resources (diminished staff,</li><ul>" : "<ul><li>Identifies your department's critical functions.</li> <li>Describes how you might carry on these functions under conditions of diminished resources (diminished staff,</li><ul>" )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="201" y="40" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="25" width="548" height="1"/>
+			</line>
+			<elementGroup>
+				<textField>
+					<reportElement x="184" y="30" width="180" height="10"/>
+					<textElement textAlignment="Center" markup="none">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</elementGroup>
+		</band>
+	</pageFooter>
+</jasperReport>

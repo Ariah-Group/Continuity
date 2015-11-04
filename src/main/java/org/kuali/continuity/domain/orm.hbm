@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.kuali.continuity.domain">
+
+    <class name="org.kuali.continuity.domain.AccessStatus" table="DescriptionLookup" where="LookupName='AccessStatus'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+        
+    <class name="org.kuali.continuity.domain.BuildingOwnership" table="DescriptionLookup" where="LookupName='BuildingOwnership'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.CriticalityLevel" table="DescriptionLookup" where="LookupName='CriticalityLevel'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.DependencyType" table="DescriptionLookup" where="LookupName='DependencyType'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.DocumentType" table="DescriptionLookup" where="LookupName='DocumentMedium'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.EvacuationPlan" table="DescriptionLookup" where="LookupName='EvacuationPlan'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.PlanAccessType" table="DescriptionLookup" where="LookupName='UserPlanAccess'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.PlanStatus" table="DescriptionLookup" where="LookupName='PlanStatus'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.SecurityType" table="DescriptionLookup" where="LookupName='SysAdminRoleSet'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.StaffPosition" table="DescriptionLookup" where="LookupName='StaffPosition'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.StakeholderType" table="DescriptionLookup" where="LookupName='StakeholderType'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.SystemDomainAccess" table="DescriptionLookup" where="LookupName='SysAdminInstitutionAccess'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <class name="org.kuali.continuity.domain.SystemDomainType" table="DescriptionLookup" where="LookupName='SysAdminInstitutionType'">
+        <id name="id" column="LookupValue"/>
+        <property name="description" column="LookupDescription"/>
+    </class>
+    
+    <query name="AccessStatus.list">SELECT dObj FROM AccessStatus dObj ORDER BY dObj.id</query>
+    <query name="BuildingOwnership.list">SELECT dObj FROM BuildingOwnership dObj ORDER BY dObj.id</query>
+    <query name="CriticalityLevel.list">SELECT dObj FROM CriticalityLevel dObj ORDER BY dObj.id</query>
+    <query name="DependencyType.list">SELECT dObj FROM DependencyType dObj ORDER BY dObj.id</query>
+    <query name="DocumentType.list">SELECT dObj FROM DocumentType dObj ORDER BY dObj.id</query>
+    <query name="EvacuationPlan.list">SELECT dObj FROM EvacuationPlan dObj ORDER BY dObj.id</query>
+    <query name="PlanStatus.list">SELECT dObj FROM PlanStatus dObj ORDER BY dObj.id</query>
+    <query name="SecurityType.list">SELECT dObj FROM SecurityType dObj ORDER BY dObj.id</query>
+    <query name="StaffPosition.list">SELECT dObj FROM StaffPosition dObj ORDER BY dObj.id</query>
+    <query name="StakeholderType.list">SELECT dObj FROM StakeholderType dObj ORDER BY dObj.id</query>
+    <query name="SystemDomainAccess.list">SELECT dObj FROM SystemDomainAccess dObj ORDER BY dObj.id</query>
+    <query name="SystemDomainType.list">SELECT dObj FROM SystemDomainType dObj ORDER BY dObj.id</query>
+    <query name="PlanAccessType.list">SELECT dObj FROM PlanAccessType dObj ORDER BY dObj.id</query>
+    
+    
+</hibernate-mapping>

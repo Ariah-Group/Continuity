@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- D A O   D E F I N I T I O N S -->
+	<description>Data Access Object (DAO) related definitions</description>
+
+    <!-- D A O s -->
+    <bean id="systemLogDAO" autowire="byType" 
+        class="org.kuali.continuity.dao.jpa.SystemLogDAOImpl"/>
+	<bean id="userDao" autowire="byType" 
+		class="org.kuali.continuity.dao.jpa.UserDaoImpl"/>
+	<bean id="systemDomainDao" autowire="byType" 
+		class="org.kuali.continuity.dao.jpa.SystemDomainDaoImpl"/>
+    <bean id="systemSetupDAO" autowire="byType" 
+        class="org.kuali.continuity.dao.jpa.SystemSetupDAOImpl"/>
+    <bean id="systemUITextDAO" autowire="byType" 
+        class="org.kuali.continuity.dao.jpa.SystemUITextDAOImpl"/>
+    <bean id="systemCriticalityLevelDAOFactory" autowire="byType"
+        class="org.kuali.continuity.dao.SystemCriticalityLevelDAOFactoryImpl">
+        <property name="daoMap">
+            <map>
+                <entry key="org.kuali.continuity.domain.SystemCriticalFunctionCriticalityLevel">
+                    <bean class="org.kuali.continuity.dao.jpa.SystemCriticalityLevelDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.domain.SystemCriticalFunctionCriticalityLevel</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.domain.SystemCentralApplicationCriticalityLevel">
+                    <bean class="org.kuali.continuity.dao.jpa.SystemCriticalityLevelDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.domain.SystemCentralApplicationCriticalityLevel</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.SystemDomainCriticalFunctionCriticalityLevel">
+                    <bean class="org.kuali.continuity.dao.jpa.SystemCriticalityLevelDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.domain.SystemCriticalFunctionCriticalityLevel</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.SystemDomainCentralApplicationCriticalityLevel">
+                    <bean class="org.kuali.continuity.dao.jpa.SystemCriticalityLevelDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.domain.SystemCentralApplicationCriticalityLevel</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+</beans>

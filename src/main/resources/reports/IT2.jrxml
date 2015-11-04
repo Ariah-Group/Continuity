@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Front2" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="20" bottomMargin="20" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(434)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select ROW_NUMBER() OVER(ORDER BY it_application_id) as row_num,  it_application_id ,name ,functional_owner ,technical_owner ,application_type ,backup_frequency ,location_disks_docs ,responsible_person ,tech ,depts_impacted ,campus_systems ,data_from_core ,transaction_processing ,backup_media ,auto_manual ,location_onsite ,location_offsite ,frequency_offsite ,successful_recovery ,successful_recovery_explain from it_applications where pid=$P{PID}  AND disabled <> 'Y']]>
+	</queryString>
+	<field name="application_type" class="java.lang.String"/>
+	<field name="auto_manual" class="java.lang.String"/>
+	<field name="backup_frequency" class="java.lang.String"/>
+	<field name="backup_media" class="java.lang.String"/>
+	<field name="campus_systems" class="java.lang.String"/>
+	<field name="data_from_core" class="java.lang.String"/>
+	<field name="depts_impacted" class="java.lang.String"/>
+	<field name="frequency_offsite" class="java.lang.String"/>
+	<field name="functional_owner" class="java.lang.String"/>
+	<field name="it_application_id" class="java.lang.Integer"/>
+	<field name="location_disks_docs" class="java.lang.String"/>
+	<field name="location_offsite" class="java.lang.String"/>
+	<field name="location_onsite" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="responsible_person" class="java.lang.String"/>
+	<field name="successful_recovery" class="java.lang.String"/>
+	<field name="successful_recovery_explain" class="java.lang.String"/>
+	<field name="tech" class="java.lang.String"/>
+	<field name="technical_owner" class="java.lang.String"/>
+	<field name="transaction_processing" class="java.lang.String"/>
+	<field name="row_num" class="java.lang.Integer"/>
+	<group name="PageGroupBreak" isStartNewPage="true">
+		<groupExpression><![CDATA[$V{REPORT_COUNT}]]></groupExpression>
+		<groupFooter>
+			<band height="5"/>
+		</groupFooter>
+	</group>
+	<pageHeader>
+		<band height="22">
+			<textField>
+				<reportElement x="0" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="548" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() == 1 || $V{REPORT_COUNT}.intValue() == 0 )]]></printWhenExpression>
+			<elementGroup/>
+			<staticText>
+				<reportElement x="0" y="56" width="551" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[III. INFORMATION TECHNOLOGY (cont.) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="93" width="333" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part 2: Departmentally-Owned Applications that are Critical for our Unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="15" width="133" height="37"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the  Step 3 tab of the on-line tool.  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="117" width="97" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" isUnderline="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Definitions:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="130" width="528" height="30" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Departmentally-owned applications are those whose technical owner is our department or another department (but not central IT). 
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="409" y="13" width="128" height="25"/>
+			</rectangle>
+		</band>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="35" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Name of application or system ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="35" width="345" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="20" y="12" width="111" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Application # " + $F{row_num}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Functional owner ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{functional_owner}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Technical owner ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{technical_owner}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{application_type}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Backup frequency]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{backup_frequency}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Backup media]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{backup_media}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Backup auto or manual? ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{auto_manual}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Database application?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{transaction_processing}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Move data to or from core campus systems?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{data_from_core}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[If so, what campus systems?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{campus_systems}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Depts that will be impacted by failure 
+of this application  
+]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{depts_impacted}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Technical expert(s)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tech}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Responsible for recovery
+]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsible_person}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Onsite storage ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="346" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{location_onsite}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Offsite storage]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{location_offsite}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Frequency of offsite storage]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{frequency_offsite}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Location of installation disks & documentation ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="346" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{location_disks_docs}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Successful recovery been done?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{successful_recovery}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="213" y="0" width="345" height="13"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{successful_recovery_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="206" y="39" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="24" width="548" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="189" y="29" width="180" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,648 @@
+INPUT.ButtonClass
+{ 
+    width: 0;
+    overflow:visible;
+	padding: 0.2em .3em;
+
+	
+}
+input.ButtonClass[class] { /*ie ignores [class]*/
+    width: auto;
+}
+ 
+
+INPUT.DomainClass
+{
+	width:157px;
+}
+
+
+
+INPUT.ShiftNameClass
+{
+	width: 470px;
+	
+	
+}
+
+INPUT.SkillNameClass
+{
+	width: 510px;	
+	
+}
+
+INPUT.InstitutionClass
+{
+	width: 169px;	
+	
+}
+
+INPUT.OrderClass
+{
+	width: 20px;	
+	
+}
+
+
+INPUT.UserFirstNameClass
+{
+	width: 85px;	
+	
+}
+
+INPUT.UserLastNameClass
+{
+	width: 105px;	
+	
+}
+
+
+INPUT.AccountFirstNameClass
+{
+	width: 120px;
+}
+
+INPUT.AccountLastNameClass
+{
+	width: 178px;
+}
+
+INPUT.AccountInstitutionClass
+{
+	width: 260px;	
+	
+}
+
+INPUT.AccountDepartmentNameClass
+{
+	width: 535px;	
+	
+}
+
+INPUT.AccountEMailClass
+{
+	width: 260px;	
+	
+}
+
+
+INPUT.AccountPasswordClass
+{
+	width: 120px;
+	margin-right: 6px;	
+	
+}
+
+
+
+INPUT.AccountAuthIDClass
+{
+	width: 260px;	
+	
+}
+
+
+
+INPUT.AccountPhoneClass
+{
+	width: 115px;	
+	
+}
+
+INPUT.AccountTitleClass
+{
+	width: 535px;
+}
+
+
+INPUT.AccountDirectoryIDClass
+{
+	width: 535px;
+}
+
+
+INPUT.AcronymClass
+{
+	width: 70px;	
+	
+}
+
+INPUT.AcronymFullNameClass
+{
+	width: 420px;	
+	
+}
+
+
+
+
+INPUT.DependencyClass
+{
+	width: 335px;	
+	
+}
+
+
+INPUT.PlannerCategoryItemClass
+{
+	width: 480px;	
+	
+}
+
+INPUT.AppNameClass
+{
+	width: 500px;	
+	
+}
+
+
+INPUT.UtilityNameClass
+{
+	width: 500px;	
+	
+}
+
+
+INPUT.StaffCategoryClass
+{
+	width: 480px;	
+	
+}
+
+INPUT.DepartmentTypeClass
+{
+	width: 510px;	
+	
+}
+
+
+
+INPUT.MajorDivisionNameClass
+{
+	width: 580px;	
+	
+}
+
+INPUT.BuildingCommonNameClass
+{
+	width: 344px;	
+	
+}
+
+INPUT.BuildingNameClass
+{
+	width: 344px;	
+	
+}
+
+INPUT.CAANClass
+{
+	width: 134px;	
+	
+}
+
+
+INPUT.MyInstitutionClass
+{
+	width: 169px;	
+	
+}
+
+
+INPUT.MyDomainDescriptionClass
+{
+	width:156px;
+}
+
+
+INPUT.MyEmailClass
+{
+	width:250px;
+}
+
+INPUT.MyPhoneClass
+{
+	width:115px;
+}
+
+INPUT.MyFaxClass
+{
+	width:115px;
+}
+
+
+
+TEXTAREA.ContactClass
+{
+	width:640px;
+}
+
+TEXTAREA.BuildingAddressClass
+{
+	width:640px;
+}
+
+
+
+TEXTAREA.SkillDescriptionClass
+{
+	width:640px;
+}
+
+
+TEXTAREA.ReferenceClass
+{
+	width:640px;
+}
+
+TEXTAREA.QuestionClass
+{
+	width:640px;
+}
+
+TEXTAREA.AnswerClass
+{
+	width:640px;
+}
+
+
+TEXTAREA.ReviewItemClass
+{
+	width:640px;
+}
+
+
+TEXTAREA.ThingsToKnowItemClass
+{
+	width:640px;
+}
+
+
+TEXTAREA.TipsClass
+{
+	width:640px;
+}
+
+TEXTAREA.NewsClass
+{
+	width:640px;
+}
+
+TEXTAREA.ErrorDetailClass
+{
+	width:644px; 
+	text-align: left ;
+	
+}
+
+
+
+
+SELECT.InstitutionAccessSelectClass
+{
+	width:136px;
+}
+
+
+SELECT.InstitutionDomainSelectClass
+{
+	width:163px;
+}
+
+
+
+SELECT.AccountAccessSelectClass
+{
+	width:65px;
+}
+
+
+SELECT.InstitutionSelectClass
+{
+	width:260px;
+}
+
+SELECT.AccountRoleSelectClass
+{
+	width:112px;
+}
+
+SELECT.LocationSelectClass
+{
+	width:200px;
+}
+
+SELECT.DependencyTypeSelectClass
+{
+	width:95px;
+}
+
+SELECT.SourcePlanSelectClass
+{
+	width:272px;
+}
+
+SELECT.TargetPlanSelectClass
+{
+	width:272px;
+}
+
+SELECT.FunctionSelectClass
+{
+	width:640px;
+}
+
+
+SELECT.QuickLinksClass
+{
+	width:230px;
+
+}
+
+SELECT.OwnershipSelectClass
+{
+	width:107px;
+}
+
+SELECT.SourceBuildingSelectClass
+{
+	width:185px;
+}
+
+SELECT.TargetBuildingSelectClass
+{
+	width:185px;
+}
+
+
+SELECT.MyInstitutionAccessSelectClass
+{
+	width:134px;
+}
+
+SELECT.PlanSelectClass
+{
+	width:285px;
+}
+
+SELECT.PlannerLogCategorySelectClass
+{
+	width:260px;
+}
+
+
+
+SPAN.ErrorMessage 
+{  
+	color:#FF0000 ;
+	width: 640px;
+	height: 12px;
+}
+
+
+SPAN.myLink { 
+	text-decoration:underline;
+	color:#8000FF;
+	cursor: pointer;
+}
+
+SPAN.myLinkOver { 
+	text-decoration:underline;
+	color:#999999;
+	cursor: pointer;
+}
+
+
+
+SPAN.MessageDIVClass
+{
+	display:inline ;
+	height: 12px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	color:#FF0000 ;
+	font-weight:bold ;
+
+}
+
+
+SPAN.HiddenControl
+{   
+	display: none ;   
+}
+
+
+TR.HiddenControl
+{   
+	display: none ;   
+}
+
+
+
+SPAN.HiddenMessageClass
+{   
+	display: none ;   
+	font-weight:bold ;
+	color:#FF0000 ;
+}
+
+SPAN.NoWrap
+{ 
+	white-space:nowrap;
+}
+
+
+SPAN.myGridClass UL {
+	padding-left: 24px;
+	margin-bottom:8px;
+}
+
+
+SPAN.myGridClass OL{
+	padding-left: 20px;
+	margin-bottom:8px;
+}
+
+SPAN.myGridClass OL LI{
+	list-style:decimal ;
+	list-style-position:inside ;
+	padding:0px;
+}
+
+SPAN.myGridClass UL LI{
+	list-style:disk ;
+	list-style-position:inside ;
+	padding:0px;
+}
+
+
+DIV.ShowLdapSearch 
+{ 
+	width: 595px;
+}
+
+
+
+DIV.NoWrap
+{ 
+	white-space:nowrap;
+}
+
+DIV.FormDivClass 
+{ 
+	width: 644px;
+}
+
+
+DIV.AdminSite
+{ 
+	width: 644px;
+}
+
+
+DIV.MyButtonsDivClass 
+{ 
+	width: 644px;
+	padding: 3px;
+	height: 26px;
+}
+
+DIV.FloatLeft
+{ 
+	float:left ;
+}
+
+DIV.FloatRight
+{ 
+	float:right ;
+}
+
+
+IMG.NavMiddleImagesRegClass 
+{
+	border:none ;
+	vertical-align: middle;
+	padding-bottom: 4px;
+	
+}
+
+
+
+IMG.NavMiddleImagesClass 
+{
+	border:none ;
+	vertical-align: middle;
+	cursor:pointer ;
+	padding-bottom: 6px;
+	
+}
+
+
+IMG.NavTopImagesClass 
+{
+	border:none ;
+	vertical-align: top;
+	cursor:pointer ;
+	padding-bottom: 10px;
+	
+}
+
+
+
+IMG.NavBottomImagesClass 
+{
+	border:none ;
+	vertical-align: bottom;
+	cursor:pointer ;
+}
+
+
+
+SELECT.ErrorDetailClass 
+{
+	width: 487px ;
+}
+
+DIV.x-grid-cell-text 
+{
+	white-space:normal;
+} 
+
+
+A.ClickSelect 
+{ color:blue ; 
+text-decoration:underline ;
+
+	cursor:pointer ;
+}
+
+
+.ReadOnly {
+	background-color:#DDDDDD ;
+	border-style: ridge ;
+	
+}
+
+.AllignLeft {
+	text-align:left ;
+}
+
+.AllignRight {
+	text-align:right ;
+}
+
+
+.AllignCenter {
+	text-align:center
+}
+
+ 
+.StandardWidth {
+	 width: 644px;
+ } 
+	
+TABLE.UserSelectTable {
+
+}
+
+TR.TableHeader { 
+	background-color:#80FFFF;
+	border:none;
+}
+
+SPAN.ShowSpanClass {
+	display:inline ;
+}
+
+SPAN.HideSpanClass {
+	display:none ;
+}
+.x-grid3-row-over{
+	background:#AADEFF ;
+}
+
+
+.gwt-RichTextToolbar {
+  background-color: #D9D9D9;
+  padding: 2px;
+}
+
+.gwt-RichTextArea {
+  font-family: arial;
+  font-size: 9px;
+  border: 1px solid black;
+  background-color: white;
+}
+.AttentionClass
+{  
+	color:red ; 
+	font-weight:bold ;
+}
+
+ .AttentionClassNotBold
+{  
+	color:red ; 
+}
+  

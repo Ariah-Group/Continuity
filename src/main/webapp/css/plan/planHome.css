@@ -1,0 +1,33 @@
+<!--
+/************************************************/
+/*****cfpod.css*/
+/***********************************************/
+.ypod{
+    z-index:1;
+    overflow:hidden;
+}
+
+.ypod .ypod-bgcolor-hd {
+    color:#FFF;
+    font:bold 12px "sans serif", tahoma, verdana, helvetica;
+    padding-bottom:5px;
+    padding-left:3px;
+}
+
+.ypod .ypod-dlg-body{
+    background-color:white;
+    border:3px solid #C1CCD0;
+    border-top:0px none;
+    padding:10px;
+}
+/**************************************/
+/** corners css **/
+/***************************************/
+b.corner{display:block;background: transparent}
+b.corner b{display:block;height: 1px;
+    overflow: hidden; background: transparent}
+b.filler1{margin: 0 5px}
+b.filler2{margin: 0 3px}
+b.filler3{margin: 0 2px}
+b.corner b.filler4{margin: 0 1px;height: 2px}
+-->

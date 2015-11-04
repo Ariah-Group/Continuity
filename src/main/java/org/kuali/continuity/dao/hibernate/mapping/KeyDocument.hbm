@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.kuali.continuity.domain">
+   
+   <!-- ======================================================================================= -->
+   <class name="KeyDocument" table="key_plan_documents">
+      <id name="id" column="kpd_id">
+          <generator class="native"/>
+      </id>
+      <property name="name"/>
+      <property name="description"/>
+      <property name="ownerDepartment" column="owner_department"/>
+      <property name="fileName" column="original_file_name"/>
+      <property name="locationKept" column="location_kept"/>
+      <property name="backupMeasures" column="backup_measures"/>
+      <property name="principalContact" column="contacts"/>
+      <property name="comment"/>
+	  <property name="document" column="uploaded_file" type="binary"/>
+      <many-to-one name="documentMedium" column="mediumID" lazy="false" update="false" insert="false"/>
+      <many-to-one name="plan" column="pid" not-null="true"/>
+   </class>
+
+</hibernate-mapping>

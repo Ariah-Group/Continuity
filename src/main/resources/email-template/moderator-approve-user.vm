@@ -1,0 +1,19 @@
+<html>
+<body>
+Your request for an account in the ${systemName} continuity planning tool has been approved.
+<br/><br/>
+Your login name is ${authId}
+<br/><br/>
+Your password is ${password}.
+<br/><br/>
+You may change your password by clicking &ldquo;My Profile&rdquo; in the Handylinks list on any screen.
+<br/><br/>
+${systemName} is at ${krURL} 
+<br/><br/>
+Be Ready!
+<br/><br/>
+<br/><br/>
+<hr/>
+This is an auto-email from the ${systemName} continuity planning tool.
+</body>
+</html>

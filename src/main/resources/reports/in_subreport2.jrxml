@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="in_subreport2" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="pis_id" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select name, impact, alternatives 
+from instruction_teaching_issues 
+where pis_id = $P{pis_id} 
+order by name;]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="impact" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alternatives" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{name} != null && !$F{name}.equals("")  )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="139" height="14"/>
+				<textElement>
+					<font size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Special teaching issue:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="225" y="0" width="320" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="14">
+			<printWhenExpression><![CDATA[new Boolean( $F{name} != null && !$F{name}.equals("")  )]]></printWhenExpression>
+			<textField>
+				<reportElement x="225" y="0" width="320" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{impact}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="225" height="14"/>
+				<textElement>
+					<font size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Potential impact of this issue on the teaching program:]]></text>
+			</staticText>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[new Boolean( $F{name} != null && !$F{name}.equals("")  )]]></printWhenExpression>
+			<textField>
+				<reportElement x="225" y="0" width="320" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{alternatives}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="139" height="14"/>
+				<textElement>
+					<font size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Are there potential alternatives?]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

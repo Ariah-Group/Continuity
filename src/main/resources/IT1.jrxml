@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using JasperAssistant (http://www.jasperassistant.com) -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IT1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<property name="com.jasperassistant.designer.VGuides.Page Footer" value="49"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(434)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select RecordID, CentralApplication.Name AS CAName, CriticalityLevel,
+				CentralApplication.CentralApplicationID, Comment
+				from it_central_applications, CentralApplication
+				where it_central_applications.CentralApplicationID = CentralApplication.CentralApplicationID
+					and it_central_applications.pid=$P{PID} 
+				order by CAName]]>
+	</queryString>
+	<field name="CAName" class="java.lang.String"/>
+	<field name="CentralApplicationID" class="java.lang.Integer"/>
+	<field name="Comment" class="java.lang.String"/>
+	<field name="CriticalityLevel" class="java.lang.String"/>
+	<field name="RecordID" class="java.lang.Integer"/>
+	<title>
+		<band height="131">
+			<textField hyperlinkType="None">
+				<reportElement x="0" y="11" width="247" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{PLAN_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-7" y="29" width="554" height="2"/>
+			</line>
+			<textField hyperlinkType="None">
+				<reportElement x="0" y="0" width="81" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="58" width="552" height="27"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[III. INFORMATION TECHNOLOGY]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="408" y="34" width="136" height="33"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="408" y="33" width="136" height="43"/>
+				<textElement>
+					<font size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the
+Step 3 tab of the UC Ready web
+tool.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="94" width="304" height="27"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part 1: Centrally-Owned Applications that are Critical for our Unit:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50">
+			<printWhenExpression><![CDATA[new Boolean(!($V{REPORT_COUNT}.equals(new Integer(0))))]]></printWhenExpression>
+			<textField hyperlinkType="None">
+				<reportElement x="0" y="0" width="81" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="6" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="0" y="11" width="247" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="6" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{PLAN_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-7" y="30" width="553" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="34">
+			<staticText>
+				<reportElement x="192" y="0" width="109" height="21"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[
+Criticality Level]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="0" width="205" height="21"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[
+Comment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="0" width="157" height="21"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[
+Application or System]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34">
+			<elementGroup/>
+			<textField hyperlinkType="None">
+				<reportElement x="12" y="0" width="169" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CAName}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="324" y="0" width="193" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Comment}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="192" y="0" width="85" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CriticalityLevel}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50">
+			<line>
+				<reportElement x="0" y="0" width="553" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="38" width="556" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[See list of Action Items in Section VI.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="12" width="81" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="276" y="12" width="80" height="11"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="53">
+			<staticText>
+				<reportElement x="195" y="15" width="81" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="278" y="15" width="80" height="11"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="27" width="556" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[See list of Action Items in Section VI.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="20">
+			<line>
+				<reportElement x="0" y="0" width="553" height="1"/>
+			</line>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="82">
+			<staticText>
+				<reportElement x="96" y="6" width="276" height="50"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Definitions:
+Centrally-owned applications are those whose technical owner is Central IT. The functional owner could be any department.
+Critical 1: Cannot pause. Necessary to life, health, security.
+Critical 2: Failure will lead to imminent + very serious consequences.
+Critical 3: Can endure a pause, but ONLY for a short time. Must be recovered sooner than 30 days.
+Deferrable: Important, but we can function without this system for more than 30 days.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

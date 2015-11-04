@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.kuali.continuity.domain">
+   
+   <!-- ======================================================================================= -->
+   <class name="DocumentMedium" table="DescriptionLookup" where="LookupName='DocumentMedium'">
+      <id name="id" column="LookupValue"/>
+      <property name="description" column="LookupDescription"/>
+   </class>
+
+</hibernate-mapping>

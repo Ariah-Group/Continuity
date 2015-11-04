@@ -1,0 +1,55 @@
+#UCReadyhead {
+        background-image:url(/kcpt/login/getImage?imgEnum=BANNER);
+        background-repeat:no-repeat;
+        background-position:top left; 
+        border-bottom: 2px solid #666666;
+        height: 79px;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        text-indent: -9999em;/*Hide Text, keep for SEO*/
+
+        
+    }
+    
+#UCReadyhead  a {
+    background-image:url(/kcpt/login/getImage?imgEnum=BANNER_TEXT);
+    background-repeat:no-repeat;
+    background-position:top right; 
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    height: 100%;
+    width: 100%;
+}
+
+#KualiReadyLogo {
+    background-image:url(/kcpt/login/getImage?imgEnum=BEGIN);
+    background-repeat:no-repeat;
+    background-position:center center; 
+    height: 220px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+    
+#KualiReadyText {
+    background-image:url(/kcpt/images/pixel.gif);
+    background-repeat:no-repeat;
+    background-position:center center; 
+    height: 0px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+    
+#KualiReadyMission {
+    background-image:url(/kcpt/login/getImage?imgEnum=BEGIN_TEXT);
+    background-repeat:no-repeat;
+    background-position:center center; 
+    height: 117px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+

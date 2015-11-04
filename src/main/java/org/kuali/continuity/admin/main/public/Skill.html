@@ -1,0 +1,62 @@
+<html>
+	<head>
+	 
+		<!--                                           -->
+		<!-- Any title is fine                         -->
+		<!--                                           -->
+		<title>Wrapper HTML for Skill</title>
+
+		<!--                                           -->
+		<!-- The module reference below is the link    -->
+		<!-- between html and your Web Toolkit module  -->		
+		<!--                                           -->
+		<meta name='gwt:module' content='org.kuali.continuity.admin.main.Skill'/>
+<!-- Move from gwt.xml to here to fix buggy Ext undefined problem -->
+<link href="js/ext/resources/css/ext-all.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="js/ext/ext-all.js"></script>
+<script language="javascript" src="org.kuali.continuity.admin.main.Skill.nocache.js"></script>
+<!-- Move from gwt.xml to here to fix buggy Ext undefined problem above -->    
+        
+   <link href="/kcpt/css/ucreadystyles.css" rel="stylesheet" type="text/css">
+<link href="/kcpt/css/ucreadyAdminElements.css" rel="stylesheet" type="text/css">
+<link href="/kcpt/css/ucreadyMainElements.css" rel="stylesheet" type="text/css">
+        
+        
+		
+	</head>
+
+	<!--                                           -->
+	<!-- The body can have arbitrary html, or      -->
+	<!-- we leave the body empty because we want   -->
+	<!-- to create a completely dynamic ui         -->
+	<!--                                           -->
+	<body>
+ <div class="AdminSite">
+<div id="innertube">	
+		<h1>Setup Skills</h1>
+	<p class="StandardWidth">Please add here the items that will appear in the pick-list of skills, licenses, or certifications on the <b>Skills</b> page. The "skill" will appear on the pick-list (drop-down list), but both "skill" and "description" will display when the skill is selected by the user.</p>
+                    <p>To modify an existing item, first highlight that row on the grid then use the entry-forms at bottom to modify. 
+
+
+		</p>
+        </div><!-- closes AdminSite div-->
+			</div><!-- closes innertube div-->
+
+<table>		
+	<tr>
+		
+		<td valign="top">
+		<div id="gwtRoot" ></div>
+		</td>
+	</tr>
+</table>
+<div id="plural" title="Skills"></div>
+<div id="itemdata" title="Skill" class="Heading"></div>
+<div id="formelement" title="Skill" class="Heading"></div>  
+<div id="dataelement" title="skill" class="Heading"></div>             
+		<!-- OPTIONAL: include this if you want history support -->
+		<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+	</body>
+</html>

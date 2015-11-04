@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cf1_subreport1" pageWidth="400" pageHeight="802" columnWidth="400" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="CID" class="java.lang.Integer"/>
+	<parameter name="PID" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  con_disruption_teaching,con_disruption_teaching_explain,con_disruption_research, 
+con_disruption_research_explain,con_loss_faculty,con_loss_faculty_explain,con_loss_staff, 
+con_loss_staff_explain,con_loss_students,con_loss_students_explain,con_well_being_staff, 
+con_well_being_staff_explain,con_well_being_students,con_well_being_students_explain, 
+con_payment_deadline,con_payment_deadline_explain,con_loss_revenue,con_loss_revenue_explain, 
+con_legal_obligations,con_legal_obligations_explain,con_legal_harm,con_legal_harm_explain, 
+con_impact_other_campus,con_impact_other_campus_explain,con_impact_business,con_impact_business_explain, 
+con_other,con_other_explain,con_disruption_patientcare,con_disruption_patientcare_explain 
+from critical_functions where cid = $P{CID} and pid = $P{PID} and disabled <> 'Y';]]>
+	</queryString>
+	<field name="con_disruption_teaching" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_disruption_teaching_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_disruption_research" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_disruption_research_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_loss_faculty" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_loss_faculty_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_loss_staff" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_loss_staff_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_loss_students" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_loss_students_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_well_being_staff" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_well_being_staff_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_well_being_students" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_well_being_students_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_payment_deadline" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_payment_deadline_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_loss_revenue" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_loss_revenue_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_legal_obligations" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_legal_obligations_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_legal_harm" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_legal_harm_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_impact_other_campus" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_impact_other_campus_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_impact_business" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_impact_business_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_other" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_other_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_disruption_patientcare" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="con_disruption_patientcare_explain" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_disruption_teaching} != null && $F{con_disruption_teaching}.equals("1"))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_disruption_teaching_explain}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Disruption of teaching]]></text>
+			</staticText>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_disruption_research} != null && $F{con_disruption_research}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Disruption of research]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_disruption_research_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_disruption_patientcare} != null && $F{con_disruption_patientcare}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Disruption of patient care]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_disruption_patientcare_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_loss_faculty} != null && $F{con_loss_faculty}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Departure of faculty]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_loss_faculty_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_loss_staff} != null && $F{con_loss_staff}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Departure of staff]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_loss_staff_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_loss_students} != null && $F{con_loss_students}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Departure of students]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_loss_students_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_well_being_staff} != null && $F{con_well_being_staff}.equals("1"))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_well_being_staff_explain}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Well-being of faculty/staff]]></text>
+			</staticText>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_well_being_students} != null && $F{con_well_being_students}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Well-being of students]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_well_being_students_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_payment_deadline} != null && $F{con_payment_deadline}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Payment deadlines unmet]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_payment_deadline_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_loss_revenue} != null && $F{con_loss_revenue}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Loss of revenue]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_loss_revenue_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_legal_obligations} != null && $F{con_legal_obligations}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Legal obligations unmet]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_legal_obligations_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_legal_harm} != null && $F{con_legal_harm}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Legal harm to the University]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_legal_harm_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_impact_other_campus} != null && $F{con_impact_other_campus}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Impact on other unit(s)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_impact_other_campus_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_impact_business} != null && $F{con_impact_business}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Impact on important business partner(s)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_impact_business_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean( $F{con_other} != null && $F{con_other}.equals("1"))]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Other]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="172" y="0" width="200" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_other_explain}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

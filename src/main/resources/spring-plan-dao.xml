@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- D A O   D E F I N I T I O N S -->
+	<description>Data Access Object (DAO) related definitions</description>
+
+    <!-- D A O s -->
+    <bean id="actionItemDAO" autowire="byType"
+   	    class="org.kuali.continuity.plan.dao.jpa.ActionItemDAOImpl"/>
+    <bean id="continuityPlanDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanDAOImpl"/>
+    <bean id="continuityPlanLastModifiedDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jdbc.ContinuityPlanLastModifiedDAOImpl">
+            <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="criticalCentralApplicationDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.CriticalCentralApplicationDAOImpl"/>
+    <bean id="criticalFunctionDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.CriticalFunctionDAOImpl"/>
+    <bean id="criticalFunctionActionItemDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.CriticalFunctionActionItemDAOImpl"/>
+    <bean id="criticalFunctionDocumentDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.CriticalFunctionDocumentDAOImpl"/>
+    <bean id="departmentOwnedApplicationDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.DepartmentOwnedApplicationDAOImpl"/>
+    <bean id="facultyPreparednessDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.FacultyPreparednessDAOImpl"/>
+    <bean id="facultyPreparednessActionItemDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.FacultyPreparednessActionItemDAOImpl"/>
+    <bean id="highPriorityCourseDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.HighPriorityCourseDAOImpl"/>
+    <bean id="informationTechnologyDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.InformationTechnologyDAOImpl"/>
+    <bean id="informationTechnologyActionItemDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.InformationTechnologyActionItemDAOImpl"/>
+    <bean id="instructionDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.InstructionDAOImpl"/>
+    <bean id="instructionActionItemDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.InstructionActionItemDAOImpl"/>
+    <bean id="keyDocumentDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.KeyDocumentDAOImpl"/>
+    <bean id="keyResourcesDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.KeyResourcesDAOImpl"/>
+    <bean id="keyStaffMemberDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.KeyStaffMemberDAOImpl"/>
+    <bean id="otherUnitStaffMemberDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.OtherUnitStaffMemberDAOImpl"/>
+    <bean id="serverDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.ServerDAOImpl"/>
+    <bean id="simpleContinuityPlanDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jdbc.SimpleContinuityPlanDAOImpl"/>
+    <bean id="staffingRequirementDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.StaffingRequirementDAOImpl"/>
+    <bean id="stakeholderDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.StakeholderDAOImpl"/>
+    <bean id="systemDomainSamplePlanDocumentDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.SystemDomainSamplePlanDocumentDAOImpl">
+        <property name="systemSetupDAO" ref="systemSetupDAO" />
+    </bean>
+    <bean id="teachingIssueDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.TeachingIssueDAOImpl"/>
+    <bean id="teamDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.TeamDAOImpl"/>
+    <bean id="teamMemberDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.TeamMemberDAOImpl"/>
+    <bean id="workFromHomeStaffMemberDAO" autowire="byType"
+        class="org.kuali.continuity.plan.dao.jpa.WorkFromHomeStaffMemberDAOImpl"/>
+    <bean id="documentSearchDAO"
+        class="org.kuali.continuity.plan.dao.jpa.AllDocumentSearchDAOImpl">
+    </bean>
+    <bean id="documentDAOFactory" autowire="byType"
+        class="org.kuali.continuity.plan.dao.DocumentDAOFactoryImpl">
+        <property name="documentDAOMap">
+            <map>
+                <entry key="org.kuali.continuity.plan.domain.KeyDocument"><ref bean="keyDocumentDAO"/></entry>
+                <entry key="org.kuali.continuity.plan.domain.CriticalFunctionDocument"><ref bean="criticalFunctionDocumentDAO"/></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="binaryDocumentDAOFactory" autowire="byType"
+        class="org.kuali.continuity.plan.dao.BinaryDocumentDAOFactoryImpl">
+        <property name="binaryDocumentDAOMap">
+            <map>
+                <entry key="org.kuali.continuity.plan.domain.KeyDocument"><ref bean="keyDocumentDAO"/></entry>
+                <entry key="org.kuali.continuity.plan.domain.CriticalFunctionDocument"><ref bean="criticalFunctionDocumentDAO"/></entry>
+                <entry key="org.kuali.continuity.domain.SamplePlanDocument"><ref bean="systemDomainSamplePlanDocumentDAO"/></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="actionItemDAOFactory" autowire="byType"
+        class="org.kuali.continuity.plan.dao.ActionItemDAOFactoryImpl">
+        <property name="actionItemDAOMap">
+            <map>
+                <entry key="org.kuali.continuity.plan.domain.ActionItem"><ref bean="actionItemDAO"/></entry>
+                <entry key="org.kuali.continuity.plan.domain.CriticalFunctionActionItem"><ref bean="criticalFunctionActionItemDAO"/></entry>
+                <entry key="org.kuali.continuity.plan.domain.FacultyPreparednessActionItem"><ref bean="facultyPreparednessActionItemDAO"/></entry>
+                <entry key="org.kuali.continuity.plan.domain.InformationTechnologyActionItem"><ref bean="informationTechnologyActionItemDAO"/></entry>
+                <entry key="org.kuali.continuity.plan.domain.InstructionActionItem"><ref bean="instructionActionItemDAO"/></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="continuityPlanAdminValidationDAOFactory" autowire="byType"
+        class="org.kuali.continuity.plan.dao.ContinuityPlanAdminValidationDAOFactoryImpl">
+        <property name="daoMap">
+            <map>
+                <entry key="org.kuali.continuity.admin.domain.Utility">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.Utility</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.Shift">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.Shift</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.StaffCategory">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.StaffCategory</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.Skill">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.Skill</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.CentralApplication">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.CentralApplication</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.Dependency">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.Dependency</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.Acronym">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.Acronym</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.MajorDivision">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.MajorDivision</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.Building">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.Building</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.DepartmentType">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.DepartmentType</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.InstructionalDepartment">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.InstructionalDepartment</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.SystemDomain">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.ContinuityPlanAdminValidationDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.admin.domain.SystemDomain</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="planReviewDAOFactory" autowire="byType"
+        class="org.kuali.continuity.plan.dao.PlanReviewDAOFactoryImpl">
+        <property name="planReviewDAOMap">
+            <map>
+                <entry key="org.kuali.continuity.plan.domain.CompletedPlanReview">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.PlanReviewDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.plan.domain.CompletedPlanReview</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.AnnualPlanReview">
+                    <bean class="org.kuali.continuity.plan.dao.jpa.PlanReviewDAOImpl">
+                        <constructor-arg>
+                            <value>org.kuali.continuity.plan.domain.AnnualPlanReview</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+</beans>

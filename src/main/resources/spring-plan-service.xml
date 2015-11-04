@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<description>Plan Service bean definitions</description>
+
+	<!-- S E R V I C E    O B S E R V E R S -->
+	<!--  Place All Services Here -->
+
+	<bean id="continuityPlanService" autowire="byType"
+		class="org.kuali.continuity.plan.service.ContinuityPlanServiceImpl">
+		<property name="continuityPlanDAO" ref="continuityPlanDAO" />
+        <property name="simpleContinuityPlanDAO" ref="simpleContinuityPlanDAO" />
+	</bean>
+    <bean id="criticalFunctionService" autowire="byType"
+        class="org.kuali.continuity.plan.service.CriticalFunctionServiceImpl">
+        <property name="criticalFunctionDAO" ref="criticalFunctionDAO" />
+        <property name="genericAdminService" ref="genericAdminService" />
+        <property name="actionItemServiceFactory" ref="actionItemServiceFactory" />
+        <property name="documentServiceFactory" ref="documentServiceFactory" />
+    </bean>
+    <bean id="facultyPreparednessService" autowire="byType"
+        class="org.kuali.continuity.plan.service.FacultyPreparednessServiceImpl">
+        <property name="facultyPreparednessDAO" ref="facultyPreparednessDAO" />
+        <property name="actionItemDAO" ref="actionItemDAO" />
+    </bean>
+    <bean id="informationTechnologyService" autowire="byType"
+        class="org.kuali.continuity.plan.service.InformationTechnologyServiceImpl">
+        <property name="informationTechnologyDAO" ref="informationTechnologyDAO" />
+    </bean>
+    <bean id="keyResourcesService" autowire="byType"
+        class="org.kuali.continuity.plan.service.KeyResourcesServiceImpl">
+        <property name="keyResourcesDAO" ref="keyResourcesDAO" />
+    </bean>
+    <bean id="documentServiceFactory" autowire="byType"
+        class="org.kuali.continuity.plan.service.DocumentServiceFactoryImpl">
+        <property name="documentDAOFactory" ref="documentDAOFactory" />
+    </bean>
+    <bean id="binaryDocumentServiceFactory" autowire="byType"
+        class="org.kuali.continuity.plan.service.BinaryDocumentServiceFactoryImpl">
+        <property name="binaryDocumentDAOFactory" ref="binaryDocumentDAOFactory" />
+    </bean>
+    <bean id="documentSearchService" autowire="byType"
+        class="org.kuali.continuity.plan.service.DocumentSearchServiceImpl">
+        <property name="documentSearchDAO" ref="documentSearchDAO" />
+    </bean>
+    <bean id="actionItemServiceFactory" autowire="byType"
+        class="org.kuali.continuity.plan.service.ActionItemServiceFactoryImpl">
+        <property name="actionItemDAOFactory" ref="actionItemDAOFactory" />
+    </bean>
+    <bean id="criticalCentralApplicationService" autowire="byType"
+        class="org.kuali.continuity.plan.service.CriticalCentralApplicationServiceImpl">
+        <property name="criticalCentralApplicationDAO" ref="criticalCentralApplicationDAO" />
+    </bean>
+    <bean id="departmentOwnedApplicationService" autowire="byType"
+        class="org.kuali.continuity.plan.service.DepartmentOwnedApplicationServiceImpl">
+        <property name="departmentOwnedApplicationDAO" ref="departmentOwnedApplicationDAO" />
+    </bean>
+    <bean id="serverService" autowire="byType"
+        class="org.kuali.continuity.plan.service.ServerServiceImpl">
+        <property name="serverDAO" ref="serverDAO" />
+    </bean>
+    <bean id="keyStaffMemberService" autowire="byType"
+        class="org.kuali.continuity.plan.service.KeyStaffMemberServiceImpl">
+        <property name="keyStaffMemberDAO" ref="keyStaffMemberDAO" />
+    </bean>
+    <bean id="teamService" autowire="byType"
+        class="org.kuali.continuity.plan.service.TeamServiceImpl">
+        <property name="teamDAO" ref="teamDAO" />
+    </bean>
+    <bean id="teamMemberService" autowire="byType"
+        class="org.kuali.continuity.plan.service.TeamMemberServiceImpl">
+        <property name="teamMemberDAO" ref="teamMemberDAO" />
+    </bean>
+    <bean id="workFromHomeStaffMemberService" autowire="byType"
+        class="org.kuali.continuity.plan.service.WorkFromHomeStaffMemberServiceImpl">
+        <property name="workFromHomeStaffMemberDAO" ref="workFromHomeStaffMemberDAO" />
+    </bean>
+    <bean id="staffingRequirementService" autowire="byType"
+        class="org.kuali.continuity.plan.service.StaffingRequirementServiceImpl">
+        <property name="staffingRequirementDAO" ref="staffingRequirementDAO" />
+    </bean>
+    <bean id="otherUnitStaffMemberService" autowire="byType"
+        class="org.kuali.continuity.plan.service.OtherUnitStaffMemberServiceImpl">
+        <property name="otherUnitStaffMemberDAO" ref="otherUnitStaffMemberDAO" />
+    </bean>
+    <bean id="stakeholderService" autowire="byType"
+        class="org.kuali.continuity.plan.service.StakeholderServiceImpl">
+        <property name="stakeholderDAO" ref="stakeholderDAO" />
+    </bean>
+    <bean id="instructionService" autowire="byType"
+        class="org.kuali.continuity.plan.service.InstructionServiceImpl">
+        <property name="instructionDAO" ref="instructionDAO" />
+        <property name="highPriorityCourseService" ref="highPriorityCourseService" />
+        <property name="teachingIssueService" ref="teachingIssueService" />
+        <property name="actionItemServiceFactory" ref="actionItemServiceFactory" />
+    </bean>
+    <bean id="highPriorityCourseService" autowire="byType"
+        class="org.kuali.continuity.plan.service.HighPriorityCourseServiceImpl">
+        <property name="highPriorityCourseDAO" ref="highPriorityCourseDAO" />
+    </bean>
+    <bean id="teachingIssueService" autowire="byType"
+        class="org.kuali.continuity.plan.service.TeachingIssueServiceImpl">
+        <property name="teachingIssueDAO" ref="teachingIssueDAO" />
+    </bean>
+    <bean id="planAccessService" autowire="byType"
+        class="org.kuali.continuity.plan.service.PlanAccessServiceImpl">
+        <property name="userDAO" ref="userDAO" />
+        <property name="continuityPlanDAO" ref="continuityPlanDAO" />
+        <property name="order" value="1" />
+    </bean>
+    <bean id="planSystemLogService" autowire="byType"
+        class="org.kuali.continuity.plan.service.PlanSystemLogServiceImpl">
+        <property name="systemLogDAO" ref="systemLogDAO" />
+        <property name="continuityPlanLastModifiedDAO" ref="continuityPlanLastModifiedDAO" />
+    </bean>
+    <bean id="continuityPlanAdminValidationService" autowire="byType"
+        class="org.kuali.continuity.plan.service.ContinuityPlanAdminValidationServiceImpl">
+        <property name="factory" ref="continuityPlanAdminValidationDAOFactory" />
+    </bean>
+    <bean id="planReviewServiceFactory" autowire="byType"
+        class="org.kuali.continuity.plan.service.PlanReviewServiceFactoryImpl">
+        <property name="planReviewDAOFactory" ref="planReviewDAOFactory" />
+    </bean>
+    
+    <bean id="inCommonMetadataService" autowire="byType"
+        class="org.kuali.continuity.service.InCommonMetadataServiceImpl">
+        <property name="filePath" value="${application.spring.shibboleth.metada}"/>
+        <property name="cache" ref="inCommonMetadataCache" />
+        <property name="appUrl" value="${application.spring.url}"/> 
+    </bean>
+</beans>

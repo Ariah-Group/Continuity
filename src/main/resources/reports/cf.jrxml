@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Front2" pageWidth="612" pageHeight="792" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="13" bottomMargin="13" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(530)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from critical_functions where pid= $P{PID} order by priority]]>
+	</queryString>
+	<field name="CriticalityLevel" class="java.lang.String"/>
+	<field name="cid" class="java.lang.Integer"/>
+	<field name="comment" class="java.lang.String"/>
+	<field name="con_disruption_patientcare" class="java.lang.String"/>
+	<field name="con_disruption_patientcare_explain" class="java.lang.String"/>
+	<field name="con_disruption_research" class="java.lang.String"/>
+	<field name="con_disruption_research_explain" class="java.lang.String"/>
+	<field name="con_disruption_teaching" class="java.lang.String"/>
+	<field name="con_disruption_teaching_explain" class="java.lang.String"/>
+	<field name="con_impact_business" class="java.lang.String"/>
+	<field name="con_impact_business_explain" class="java.lang.String"/>
+	<field name="con_impact_other_campus" class="java.lang.String"/>
+	<field name="con_impact_other_campus_explain" class="java.lang.String"/>
+	<field name="con_legal_harm" class="java.lang.String"/>
+	<field name="con_legal_harm_explain" class="java.lang.String"/>
+	<field name="con_legal_obligations" class="java.lang.String"/>
+	<field name="con_legal_obligations_explain" class="java.lang.String"/>
+	<field name="con_loss_faculty" class="java.lang.String"/>
+	<field name="con_loss_faculty_explain" class="java.lang.String"/>
+	<field name="con_loss_revenue" class="java.lang.String"/>
+	<field name="con_loss_revenue_explain" class="java.lang.String"/>
+	<field name="con_loss_staff" class="java.lang.String"/>
+	<field name="con_loss_staff_explain" class="java.lang.String"/>
+	<field name="con_loss_students" class="java.lang.String"/>
+	<field name="con_loss_students_explain" class="java.lang.String"/>
+	<field name="con_other" class="java.lang.String"/>
+	<field name="con_other_explain" class="java.lang.String"/>
+	<field name="con_payment_deadline" class="java.lang.String"/>
+	<field name="con_payment_deadline_explain" class="java.lang.String"/>
+	<field name="con_well_being_staff" class="java.lang.String"/>
+	<field name="con_well_being_staff_explain" class="java.lang.String"/>
+	<field name="con_well_being_students" class="java.lang.String"/>
+	<field name="con_well_being_students_explain" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="disabled" class="java.lang.String"/>
+	<field name="explanation" class="java.lang.String"/>
+	<field name="how_additional_vulnerabilities" class="java.lang.String"/>
+	<field name="how_campus_closure" class="java.lang.String"/>
+	<field name="how_equipment" class="java.lang.String"/>
+	<field name="how_network_access" class="java.lang.String"/>
+	<field name="how_policy_exceptions" class="java.lang.String"/>
+	<field name="how_risk" class="java.lang.String"/>
+	<field name="how_show_stoppers" class="java.lang.String"/>
+	<field name="how_space" class="java.lang.String"/>
+	<field name="how_staff" class="java.lang.String"/>
+	<field name="how_timing" class="java.lang.String"/>
+	<field name="how_unique_skills" class="java.lang.String"/>
+	<field name="how_work_at_home" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="old_cid" class="java.lang.Integer"/>
+	<field name="peak_apr" class="java.lang.String"/>
+	<field name="peak_aug" class="java.lang.String"/>
+	<field name="peak_dec" class="java.lang.String"/>
+	<field name="peak_feb" class="java.lang.String"/>
+	<field name="peak_jan" class="java.lang.String"/>
+	<field name="peak_jul" class="java.lang.String"/>
+	<field name="peak_jun" class="java.lang.String"/>
+	<field name="peak_mar" class="java.lang.String"/>
+	<field name="peak_may" class="java.lang.String"/>
+	<field name="peak_nov" class="java.lang.String"/>
+	<field name="peak_oct" class="java.lang.String"/>
+	<field name="peak_sep" class="java.lang.String"/>
+	<field name="pid" class="java.lang.Integer"/>
+	<field name="priority" class="java.lang.Integer"/>
+	<field name="responsible_person" class="java.lang.String"/>
+	<field name="unit_performs" class="java.lang.String"/>
+	<pageHeader>
+		<band height="23">
+			<textField>
+				<reportElement x="0" y="1" width="80" height="8"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="9" width="246" height="8"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{PLAN_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="17" width="548" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="658">
+			<staticText>
+				<reportElement x="2" y="51" width="550" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[II. CRITICAL FUNCTIONS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="84" width="87" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Critical Function #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="108" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Name ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="132" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="156" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Who Performs this?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="252" width="121" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Documents 
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="276" width="109" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Upstream dependencies
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="300" width="133" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Downstream dependencies
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="324" width="157" height="37"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Possible consequences if this
+function is not continued or recovered
+quickly enough
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="228" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="360" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[How to cope if usual space is not
+available]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="192" y="204" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.peakPeriods()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="192" y="252" width="325" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[See Document List (Appendix 1)]]></text>
+			</staticText>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="394" y="8" width="135" height="35"/>
+				</rectangle>
+			</elementGroup>
+			<staticText>
+				<reportElement x="398" y="10" width="131" height="37"/>
+				<textElement>
+					<font size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use these tabs of the Kuali Continuity web tool - Plan Home, Step 1, Step 2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="180" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Responsible person(s)
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="204" width="97" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Peak Periods
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="384" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[How to cope with 50% absenteeism
+of staff and faculty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="420" width="157" height="37"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[What to do if certain skills/knowledge
+are held by only one staff member
+(unique skills)?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="456" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Can this function be performed fully
+or partly from home?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="480" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[How to cope if data network is not
+available]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="504" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Any show-stoppers?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="528" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[If University declares temporary
+closure, is it possible to stop doing
+this function?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="552" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Do any of these coping strategies
+expose the University to risk?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="576" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Policy exceptions that may be needed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="600" width="157" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Additional vulnerabilities]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="624" width="157" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Action items for this function]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="192" y="108" width="337" height="13"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="84" width="97" height="13"/>
+				<textElement>
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="154" width="188" height="20"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{unit_performs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="178" width="188" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsible_person}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="229" width="335" height="20"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{comment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="132" width="265" height="13"/>
+				<textElement>
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="192" y="624" width="169" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[See Action Item List - section VI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="192" y="504" width="335" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{how_show_stoppers}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="552" width="335" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{how_risk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="576" width="335" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{how_policy_exceptions}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="456" width="335" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{how_work_at_home}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="480" width="335" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{how_network_access}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="420" width="335" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{how_unique_skills}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="360" width="335" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{how_space}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="276" width="313" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.upstream()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="300" width="313" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.downstream()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="324" width="325" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{con_disruption_teaching_explain}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="384" width="335" height="20"/>
+				<textElement markup="none">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{how_staff}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="195" y="15" width="81" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="278" y="15" width="80" height="11"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="27" width="556" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[See list of Action Items in Section VI.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="4" width="553" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

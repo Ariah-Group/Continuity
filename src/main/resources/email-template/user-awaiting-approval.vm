@@ -1,0 +1,14 @@
+<html>
+<body>
+Dear ${systemName} Moderator,
+<br/><br/>
+A new user has requested an account in ${systemName}.  Please approve or deny at 
+<br/><br/>
+${krURL} 
+<br/><br/>
+Thank you!
+<br/><br/>
+<hr/>
+This is an auto-email from the ${systemName} continuity planning tool.
+</body>
+</html>

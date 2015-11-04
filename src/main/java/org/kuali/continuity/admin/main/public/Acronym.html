@@ -1,0 +1,82 @@
+<html>
+<head>
+
+<!--                                           -->
+<!-- Any title is fine                         -->
+<!--                                           -->
+<title>Wrapper HTML for Acronym</title>
+
+<!--                                           -->
+<!-- The module reference below is the link    -->
+<!-- between html and your Web Toolkit module  -->
+<!--                                           -->
+<meta name='gwt:module'
+	content='org.kuali.continuity.admin.main.Acronym' />
+<link href="js/ext/resources/css/ext-all.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="js/ext/ext-all.js"></script>
+<script language="javascript" src="org.kuali.continuity.admin.main.Acronym.nocache.js"></script>
+<link href="/kcpt/css/ucreadystyles.css" rel="stylesheet" type="text/css">
+<link href="/kcpt/css/ucreadyAdminElements.css" rel="stylesheet" type="text/css">
+<link href="/kcpt/css/ucreadyMainElements.css" rel="stylesheet" type="text/css">
+</head>
+
+<!--                                           -->
+<!-- The body can have arbitrary html, or      -->
+<!-- we leave the body empty because we want   -->
+<!-- to create a completely dynamic ui         -->
+<!--                                           -->
+<body>
+
+	<div class="AdminSite">
+<div id="innertube">
+		<h1>Setup Acronyms </h1>
+
+		<p class="StandardWidth">Your list of plans will eventually get
+		quite long. Acronyms can be used to group the names of plans (recall
+		that the name of the plan is simply the name of the department it
+		applies to).</p>
+		<p class="StandardWidth">For example, suppose SOM is the common
+		acronym for your School of Medicine. The plans of the many departments
+		in that School can be made to sort together on your list of plans by
+		naming them as follows</p>
+		<ul class="bulletlist">
+			<li>SOM - Dermatology</li>
+			<li>SOM - Internal Medicine</li>
+			<li>SOM - Orthopedic Surgery</li>
+
+
+		</ul>
+
+		<p>To achieve this, you should specify the
+		desired acronyms below. When a user creates a plan, he/she will be
+		asked to select from your list of acronyms. If the user selects an
+		acronym, the plan name will thereafter appear in the form above (e.g.
+		&quot;SOM - Dermatology&quot;).</p>
+		<p>If the user does NOT select an acronym,
+		the plan name will appear without one ("Dermatology").</p>
+
+		<p>To modify an existing item, first highlight that row on the
+		grid then use the entry-forms at bottom to modify.</p>
+
+</div><!-- closes AdminSite div-->
+</div><!-- closes innertube div-->
+
+    <table>
+	<tr>
+	
+		<td valign="top">
+		<div id="gwtRoot" ></div>
+		</td>
+	</tr>
+</table>
+<div id="plural" title="Acronyms"></div>
+<div id="itemdata" title="Acronym" class="Heading"></div>
+<div id="formelement" title="Acronym" class="Heading"></div>
+ <div id="dataelement" title="acronym" class="Heading"></div>
+
+<!-- OPTIONAL: include this if you want history support -->
+<iframe id="__gwt_historyFrame" style="width: 0; height: 0; border: 0"></iframe>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+    
+    <package name="admin" namespace="/admin" extends="struts-default">
+        
+        <interceptors>
+            <interceptor name="authenticationInterceptor"
+                class="org.kuali.continuity.action.util.AuthenticationInterceptor" />
+            <interceptor name="adminPageAccessInterceptor"
+                class="org.kuali.continuity.admin.action.util.AdminPageAccessInterceptor" />
+            <interceptor name="adminCsrfTokenInterceptor"
+                class="org.kuali.continuity.admin.action.util.AdminCsrfTokenInterceptor" />
+            <interceptor-stack name="secureStack">
+                <interceptor-ref name="authenticationInterceptor" />
+                <interceptor-ref name="adminPageAccessInterceptor" />
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="adminCsrfTokenInterceptor" />
+            </interceptor-stack>
+            <interceptor-stack name="tokenStack">
+                <interceptor-ref name="secureStack" />
+                <interceptor-ref name="tokenSession" />
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="secureStack" />
+
+        <global-results>
+            <result name="login" type="redirectAction">../</result>
+            <result name="error">/pages/common/ErrorException.jsp</result>
+            <result name="adminAccessDenied">/pages/admin/adminAccessException.jsp</result>
+            <result name="invalid.token" type="redirectAction">
+                <param name="actionName">error</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error" />
+        </global-exception-mappings>
+
+        <action name="adminHome">
+            <result>/pages/admin/adminMain.jsp</result>
+        </action>
+        <action name="accounts">
+            <result>/pages/admin/adminRole.jsp</result>
+        </action>
+        <action name="apps">
+            <result>/pages/admin/adminApplication.jsp</result>
+        </action>
+        <action name="setting">
+            <result>/pages/admin/adminSetting.jsp</result>
+        </action>
+        <action name="buildings">
+            <result>/pages/admin/adminBuilding.jsp</result>
+        </action>
+         
+        <action name="departmentTypes">
+            <result>/pages/admin/adminDepartmentType.jsp</result>
+        </action>
+        <action name="majorDivisions">
+            <result>/pages/admin/adminMajorDivision.jsp</result>
+        </action>
+        <action name="acronyms">
+            <result>/pages/admin/adminAcronym.jsp</result>
+        </action>
+        <action name="criticalFunctions">
+            <result>/pages/admin/adminCriticalFunction.jsp</result>
+        </action>
+        <action name="dependencies">
+            <result>/pages/admin/adminDependency.jsp</result>
+        </action>
+        <action name="skills">
+            <result>/pages/admin/adminSkill.jsp</result>
+        </action>
+        <action name="staffCategories">
+            <result>/pages/admin/adminStaff.jsp</result>
+        </action>
+        <action name="shifts">
+            <result>/pages/admin/adminShift.jsp</result>
+        </action>
+        <action name="utilities">
+            <result>/pages/admin/adminUtility.jsp</result>
+        </action>
+        <action name="knowledge">
+            <result>/pages/admin/adminKnowledge.jsp</result>
+        </action>
+        <action name="faq_admin">
+            <result>/pages/admin/adminFaq.jsp</result>
+        </action>
+        <action name="references">
+            <result>/pages/admin/adminReference.jsp</result>
+        </action>
+        <action name="contacts_admin">
+            <result>/pages/admin/adminContact.jsp</result>
+        </action>
+        <action name="annualReview">
+            <result>/pages/admin/adminAnnualReview.jsp</result>
+        </action>
+        <action name="plannerCategories">
+            <result>/pages/admin/adminPlannersCategory.jsp</result>
+        </action>
+        <action name="institutions">
+            <result>/pages/admin/adminLocation.jsp</result>
+        </action>
+        <action name="setSamplePlan">
+            <result>/pages/admin/adminSamplePlan.jsp</result>
+        </action>   
+        <action name="activityLog">
+            <result>/pages/admin/adminActivityLog.jsp</result>
+        </action>           
+       <action name="instructionalDepartments">
+            <result>/pages/admin/adminInstructional.jsp</result>
+        </action>           
+       <action name="instructionScreens" class="instructionUITextAction">
+            <result>/pages/admin/adminInstructionScreens.jsp</result>
+        </action>           
+       <action name="instructionInstallText" class="instructionUITextAction" method="installText">
+            <result name="success" type="redirectAction">
+                <param name="actionName">instructionScreens</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+       <action name="instructionRestoreText" class="instructionUITextAction" method="restoreText">
+            <result name="success" type="redirectAction">
+                <param name="actionName">instructionScreens</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+       <action name="instructionalDepartments">
+            <result>/pages/admin/adminInstructional.jsp</result>
+        </action>           
+       <action name="criticalityLevels" class="criticalityLevelsAction">
+            <result>/pages/admin/adminCriticalityLevels.jsp</result>
+        </action>           
+       <action name="criticalityLevelsInstallText" class="criticalityLevelsAction" method="installText">
+            <result name="success" type="redirectAction">
+                <param name="actionName">criticalityLevels</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+       <action name="criticalityLevelsRestoreText" class="criticalityLevelsAction" method="restoreText">
+            <result name="success" type="redirectAction">
+                <param name="actionName">criticalityLevels</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+       <action name="criticalityLevelsInstallTextCFD" class="criticalityLevelsAction" method="installText">
+            <result name="success" type="redirectAction">
+                <param name="actionName">criticalityLevels#cfDropDown</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+       <action name="criticalityLevelsRestoreTextCFD" class="criticalityLevelsAction" method="restoreText">
+            <result name="success" type="redirectAction">
+                <param name="actionName">criticalityLevels#cfDropDown</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+       <action name="criticalityLevelsInstallTextITG" class="criticalityLevelsAction" method="installText">
+            <result name="success" type="redirectAction">
+                <param name="actionName">criticalityLevels#itGuidance</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+       <action name="criticalityLevelsRestoreTextITG" class="criticalityLevelsAction" method="restoreText">
+            <result name="success" type="redirectAction">
+                <param name="actionName">criticalityLevels#itGuidance</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+        <action name="reports">
+            <result>/pages/admin/adminReportsMain.jsp</result>
+        </action>     
+        <action name="adminReports">
+            <result>/pages/admin/adminReportsMain.jsp</result>
+        </action>        
+         <action name="adminReportsParametersByPlan" class="showParameterAction" >
+            <result>/pages/admin/adminReportsParametersByPlan.jsp</result>
+        </action>   
+          <action name="report_detail" class="runAdminReportAction" >
+            <result>/pages/admin/adminReportsReport.jsp</result>
+            <result name="msword">/pages/admin/adminReportsDocReport.jsp</result>
+        </action>                         
+        <action name="samplePlan" class="systemDomainSamplePlanDocumentAction" method="get">
+            <result>/pages/admin/adminSamplePlan.jsp</result>
+        </action>           
+        <action name="samplePlanUpload" class="systemDomainSamplePlanDocumentAction" method="update">
+            <result name="success" type="redirectAction">
+                <param name="actionName">samplePlan</param>
+                <param name="namespace">/admin</param>
+            </result>
+            <interceptor-ref name="tokenStack"/>
+        </action>           
+        <action name="customImageUpload" class="customImageUploadAction" method="update">
+            <result name="success"></result>
+        </action>           
+    </package>
+  
+</struts>

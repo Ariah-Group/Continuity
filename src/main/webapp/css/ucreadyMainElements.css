@@ -1,0 +1,302 @@
+INPUT.ButtonClass
+{ 
+    width: 0;
+    overflow:visible;
+}
+input.ButtonClass[class] { /*ie ignores [class]*/
+    width: auto;
+}
+
+TABLE.PeopleInfoTable {
+}
+
+TR.TableHeader 
+{ 
+	height: 20px;
+	font-weight: medium;
+}
+
+TR.SearchTableHeader 
+{ 
+	height: 20px;
+	background-color:#E9E9E9
+	
+}
+
+
+TR.TableFooter
+{ 
+	background-color:#FFFFFF;
+	height: 20px;
+}
+
+TD.SpecialColumn
+{
+	 color:#FF0000 ;
+	 font-weight:bold ;
+}
+
+.OverFlow 
+{ 
+	overflow:auto;
+	overflow-x: hidden; 
+}
+
+
+DIV.MyButtonsDivClass 
+{ 
+	width: 644px;
+	padding: 3px;
+	height: 26px;
+}
+
+
+DIV.MyHeaderDivClass 
+{ 
+	width: 645px;
+	padding: 3px;
+}
+
+
+
+DIV.FloatLeft
+{ 
+	float:left ;
+}
+
+
+DIV.FormDivClass 
+{ 
+	width: 644px;
+}
+
+DIV.ShowLdapSearch 
+{ 
+	width: 500px;
+}
+
+DIV.FloatRight
+{
+	float:right ;
+}
+
+
+
+SPAN.ContactShowDIVClass
+{
+	display:inline ;
+	height: 12px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+
+.AttentionClass
+{  
+	color:red ; 
+	font-weight:bold ;
+}
+
+
+.AttentionClassNotBold
+{  
+	color:red ; 
+    font-weight:normal ;
+}
+
+
+
+SPAN.ErrorMessage 
+{  
+	color:#FF0000 ;
+	width: 640px;
+	height: 12px;
+}
+
+
+SPAN.MessageDIVClass
+{
+	display:inline ;
+	height: 12px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	color:#FF0000 ;
+	font-weight: bold;
+
+}
+
+
+SPAN.HiddenMessageClass
+{   
+	display: none ;   
+	font-weight:bold ;
+	color:#FF0000 ;
+}
+
+SPAN.myLink { 
+	text-decoration:underline;
+	cursor: pointer;
+}
+
+SPAN.myLinkOver { 
+	text-decoration:underline;
+	color:#999999;
+	cursor: pointer;
+}
+
+
+IMG.NavAbsMiddleImagesClass 
+{
+	border:none ;
+	vertical-align: middle;
+	cursor: pointer;
+	
+}
+
+
+DIV.MainSite
+{ 
+	width: 644px;
+}
+
+
+IMG.NavMiddleImagesRegClass 
+{
+	border:none ;
+	vertical-align: middle;
+	padding-bottom: 4px;
+	
+}
+
+IMG.NavTopImagesRegClass 
+{
+	border:none ;
+	vertical-align: text-bottom;
+
+}
+
+
+
+
+IMG.NavMiddleImagesClass 
+{
+	border:none ;
+	vertical-align: middle;
+	cursor: pointer;
+	padding-bottom: 5px;
+	
+}
+
+
+IMG.NavTopImagesClass 
+{
+	border:none ;
+	vertical-align: top;
+	cursor:pointer ;
+	padding-bottom: 10px;
+	
+}
+
+
+
+SELECT.QuickLinksClass
+{
+	width:230px;
+}
+
+
+SELECT.ErrorDetailClass 
+{
+	width: 475px ;
+}
+
+DIV.x-grid-cell-text 
+{
+	white-space:normal;
+} 
+
+
+A.ClickSelect 
+{ color:blue ; 
+	text-decoration:underline ;
+
+	cursor:pointer ;
+}
+
+
+.ReadOnly {
+	background-color:#DDDDDD ;
+	border-style: ridge ;
+}
+
+.AllignLeft {
+	text-align:left ;
+}
+
+.AllignRight {
+	text-align:right ;
+}
+ 
+.StandardWidth 
+{
+	 width: 644px;
+} 
+
+IMG.NavBottomImagesClass 
+{
+	border:none ;
+	vertical-align: bottom;
+	cursor:pointer ;
+}
+
+.NoToDisplay 
+{ 
+	display:none;
+}
+
+.HideElement 
+{ 
+	visibility: hidden;
+}
+
+
+HR.Guidance { 
+	background-color:#FF0000;
+	width: 200px;
+}
+
+TEXTAREA.ErrorDetailClass
+{
+	width:644px;
+}
+
+.myTableColor 
+{ 
+	background-color: #F5F5F5 ;
+}
+
+.AltRowColor 
+{ 
+	background-color: #F5F5F5 ;
+}
+
+.Padding3x {
+	padding-left: 5px;
+}
+
+
+SPAN.HiddenControl
+{   
+	display: none ;   
+}
+
+
+TR.HiddenControl
+{   
+	display: none ;   
+}
+

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.multipart.maxSize" value="20971520"/>
+
+    <package name="public" namespace="/login" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.kuali.continuity.admin.action.JSONResult" />
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        <interceptors>
+            <interceptor name="actionCompleteInterceptor"
+                class="org.kuali.continuity.action.util.ActionCompleteInterceptor" />
+            <interceptor-stack name="securePlanStack">
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="actionCompleteInterceptor" />
+            </interceptor-stack>
+            <interceptor-stack name="tokenPlanStack">
+                <interceptor-ref name="securePlanStack" />
+                <interceptor-ref name="tokenSession" />
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="securePlanStack" />
+
+        <global-results>
+            <result name="error">/pages/common/ErrorException.jsp</result>
+            <result name="invalid.token" type="redirectAction">
+                <param name="actionName">failed</param>
+                <param name="namespace">/login</param>
+            </result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error" />
+        </global-exception-mappings>
+        
+        <action name="shibleth" class="readyAction">
+            <result>/pages/plan/begin.jsp</result>
+        </action>
+        
+        <action name="logout" class="logoutAction">
+             <result>/pages/login/logout.jsp</result>
+        </action>
+       
+        <action name="ready" class="readyAction">
+            <result name="success">/pages/login/authenticate.jsp</result>           
+            <result name="input" type="redirect">${shibbolethUrl}</result>
+        </action>    
+        <action name="failed" class="readyAction" method="failed">
+            <result>/pages/login/authenticate.jsp</result>
+        </action>       
+        <action name="disabled" class="readyAction" method="failed">
+            <result>/pages/login/authenticate.jsp</result>
+        </action>
+        <action name="shibFailed" class="readyAction" method="failed">
+            <result>/pages/login/shibError.jsp</result>
+        </action>       
+        <action name="shibDisabled" class="readyAction" method="failed">
+            <result>/pages/login/shibError.jsp</result>
+        </action>
+        <action name="newAccount" class="createAccount" method="newAccount">
+            <result name="success">/pages/login/createAccount.jsp</result>
+        </action>
+        
+        <action name="createAccount" class="createAccount" method="add">
+            <result name="success" type="redirectAction">
+                <param name="actionName">newAccount</param>
+                <param name="namespace">/login</param>
+            </result>
+            <result name="input">/pages/login/createAccount.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        <action name="getLoginPassword" class="requestLoginPassword" method="start">
+            <result>/pages/login/getLoginPassword.jsp</result>
+        </action>
+        <action name="requestLoginPassword" class="requestLoginPassword">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getLoginPassword</param>
+                <param name="namespace">/login</param>
+            </result>
+            <result name="input">/pages/login/getLoginPassword.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        <action name="contactUs" class="contactUsAction">
+            <result>/pages/login/contactUs.jsp</result>
+        </action>
+        <action name="start" class="loginAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">begin</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input" type="redirectAction">
+                <param name="actionName">failed</param>
+                <param name="namespace">/login</param>
+            </result>
+            <result name="accessDisabled" type="redirectAction">
+                <param name="actionName">disabled</param>
+                <param name="namespace">/login</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        <action name="shibStart" class="loginAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">begin</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input" type="redirectAction">
+                <param name="actionName">shibFailed</param>
+                <param name="namespace">/login</param>
+            </result>
+            <result name="accessDisabled" type="redirectAction">
+                <param name="actionName">shibDisabled</param>
+                <param name="namespace">/login</param>
+            </result>
+        </action>
+        <action name="getImage" class="systemDomainUIImageAction">
+            <result type="stream">
+                <param name="inputName">inputStream</param>
+			    <param name="allowCaching">false</param>
+			</result>
+        </action>
+    </package>
+
+    <include file="struts-admin.xml"/>
+    <include file="struts-plan.xml"/>
+    
+</struts>

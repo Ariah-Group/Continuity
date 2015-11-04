@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="instruction" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="20" bottomMargin="20" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<style name="Crosstab Data Text" isDefault="false" hAlign="Center"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(434)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Workspace\\Kuali-ready-latest\\kcpt\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IN_DIR" class="java.lang.String"/>
+	<parameter name="INSTITUTION_ID" class="java.lang.String"/>
+	<parameter name="REPORT_DIR" class="java.lang.String"/>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select iDept.DepartmentName, pIns.pis_id,
+	b_bspace_usage, b_bspace_expand, b_bspace_comment,
+	b_bspace_grade_usage, b_bspace_grade_expand, b_bspace_grade_comment,
+	b_gsi_communication_usage, b_gsi_communication_expand, b_gsi_communication_comment,
+	b_common_materials_usage, b_common_materials_expand, b_common_materials_comment,
+	c_prioritize_course, c_prioritize_comment, c_communication, c_communication_comment,
+	c_backup_personnel, c_backup_personnel_comment, c_faculty_recall,
+	c_faculty_recall_comment, c_pedagogy, c_pedagogy_comment
+from plans_instructions as pIns, InstructionalDepartment as iDept
+where pIns.InstructionalDepartmentID = iDept.InstructionalDepartmentID
+	and pIns.pid = $P{PID}
+order by DepartmentName;]]>
+	</queryString>
+	<field name="DepartmentName" class="java.lang.String"/>
+	<field name="b_bspace_usage" class="java.lang.String"/>
+	<field name="b_bspace_expand" class="java.lang.String"/>
+	<field name="b_bspace_grade_usage" class="java.lang.String"/>
+	<field name="b_bspace_grade_expand" class="java.lang.String"/>
+	<field name="b_gsi_communication_usage" class="java.lang.String"/>
+	<field name="b_gsi_communication_expand" class="java.lang.String"/>
+	<field name="b_common_materials_usage" class="java.lang.String"/>
+	<field name="b_common_materials_expand" class="java.lang.String"/>
+	<field name="b_bspace_comment" class="java.lang.String"/>
+	<field name="b_bspace_grade_comment" class="java.lang.String"/>
+	<field name="b_gsi_communication_comment" class="java.lang.String"/>
+	<field name="b_common_materials_comment" class="java.lang.String"/>
+	<field name="c_prioritize_course" class="java.lang.String"/>
+	<field name="c_communication" class="java.lang.String"/>
+	<field name="c_backup_personnel" class="java.lang.String"/>
+	<field name="c_faculty_recall" class="java.lang.String"/>
+	<field name="c_pedagogy" class="java.lang.String"/>
+	<field name="c_prioritize_comment" class="java.lang.String"/>
+	<field name="c_communication_comment" class="java.lang.String"/>
+	<field name="c_backup_personnel_comment" class="java.lang.String"/>
+	<field name="c_faculty_recall_comment" class="java.lang.String"/>
+	<field name="c_pedagogy_comment" class="java.lang.String"/>
+	<field name="pis_id" class="java.lang.Integer"/>
+	<group name="PageBreakGroup" isStartNewPage="true">
+		<groupExpression><![CDATA[$V{REPORT_COUNT}]]></groupExpression>
+		<groupFooter>
+			<band height="1"/>
+		</groupFooter>
+	</group>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="548" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="180" splitType="Stretch">
+			<rectangle>
+				<reportElement x="422" y="15" width="124" height="25"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="428" y="16" width="120" height="43"/>
+				<textElement>
+					<font fontName="Arial" size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the Step 4 tab of the on-line tool.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="45" width="385" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[IV.INSTRUCTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="70" width="257" height="17"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[THE DATA BELOW IS FOR THE DEPARTMENT:]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="258" y="70" width="290" height="17"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DepartmentName}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="87" width="372" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part A. RECOMMENDED PRACTICES FOR HIGH PRIORITY COURSES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="87" width="173" height="14"/>
+				<textElement/>
+				<text><![CDATA[(undergraduate courses only)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="107" width="168" height="14"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[PRACTICE 1 (COURSE-CASTING): ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="135" width="204" height="14"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[PRACTICE 3 (ALTERNATE INSTRUCTOR):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="107" width="223" height="14"/>
+				<textElement>
+					<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Have course-cast version of course available.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="135" width="288" height="14"/>
+				<textElement>
+					<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Have another instructor who can teach this course if necessary.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="155" width="580" height="25" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[The courses designated “High Priority” by the Chair are listed below, and each is assessed on the basis of these three practices.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="17" y="121" width="532" height="14"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 2 " + "(" + $P{INSTITUTION_ID} + "):</style>" + " Have " + $P{INSTITUTION_ID} + " sites for all sections. "]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<subreport>
+				<reportElement x="19" y="0" width="530" height="15"/>
+				<subreportParameter name="institution_id">
+					<subreportParameterExpression><![CDATA[$P{INSTITUTION_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pis_id">
+					<subreportParameterExpression><![CDATA[$F{pis_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{REPORT_DIR} + "in_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="545" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part B. RECOMMENDED PRACTICES FOR ALL UNDERGRADUATE COURSES]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="15" width="240" height="18"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 4 " + "(" + $P{INSTITUTION_ID} + "):</style>" + " Every course has a " + $P{INSTITUTION_ID} + " site. "]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="12" width="227" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Can this practice be expanded in this department?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="0" width="298" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp1()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="12" width="298" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp2()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="0" width="227" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Current usage of this practice in this department:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="27" width="49" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="27" width="299" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{b_bspace_comment}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="240" height="27" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 5 " + "(GRADES):</style>" + " Grades are kept current at all times, using the " + $P{INSTITUTION_ID} + " gradebook tool."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="45" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="14" width="301" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp4()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="0" width="301" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp3()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="14" width="227" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Can this practice be expanded in this department?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="0" width="227" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Current usage of this practice in this department:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="28" width="301" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{b_bspace_grade_comment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="28" width="49" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment:]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1" y="0" width="239" height="28" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 6 (GOOD COMMUNICATION AMONG GSIs):</style> " + " Consistency is achieved across discussion &amp; lab sessions by fostering communication among GSIs. Possible methods are regular meetings, a dedicated " +  $P{INSTITUTION_ID} + " site for GSIs, etc."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="45" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="14" width="299" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp6()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="0" width="227" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Current usage of this practice in this department:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="0" width="300" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp5()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="14" width="227" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Can this practice be expanded in this department?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="28" width="299" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{b_gsi_communication_comment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="28" width="49" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment:]]></text>
+			</staticText>
+		</band>
+		<band height="32" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="2" y="0" width="239" height="28" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 7 (COMMON COURSE MATERIALS):</style> " + " When instructors teach the same or similar courses, common textbooks and other course materials are used."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="45" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="0" width="301" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp7()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="14" width="227" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Can this practice be expanded in this department?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="14" width="301" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp8()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="0" width="227" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Current usage of this practice in this department:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="28" width="49" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="28" width="301" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{b_common_materials_comment}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="545" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part C. RECOMMENDED PRACTICES FOR DEPARTMENTS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="14" width="239" height="28" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 8 (STRATEGY FOR DISASTER COMMUNICATIONS):</style> " + " The department has a plan that details how it will communicate rapidly with faculty, staff &amp; students if disaster strikes."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="0" width="131" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Is this currently being done?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="250" y="0" width="300" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp10()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="249" y="14" width="300" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c_communication_comment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="14" width="49" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment:]]></text>
+			</staticText>
+		</band>
+		<band height="36" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="239" height="28" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 9 (BACKUP PLAN FOR ACADEMIC PERSONNEL):</style> " + " The department has a plan for instructor substitution if necessary. The groundwork is laid by practices such as team-teaching, rotating instructors, or substituting \"topics in\" courses."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="248" y="0" width="303" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp11()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="0" width="131" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Is this currently being done?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="14" width="49" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="248" y="14" width="303" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c_backup_personnel_comment}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="36" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="239" height="28" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 10 (FACULTY LEAVES):</style> " + " When faculty leaves are approved, faculty members are informed of the possibility of recall."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="248" y="0" width="303" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp12()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="0" width="131" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Is this currently being done?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="248" y="14" width="303" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c_faculty_recall_comment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="14" width="49" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment:]]></text>
+			</staticText>
+		</band>
+		<band height="36" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="239" height="28" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="styled">
+					<font size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<style isBold=\"true\" pdfFontName=\"Helvetica-Bold\">PRACTICE 11 (INNOVATIVE PEDAGOGY):</style> " + " Faculty are actively encouraged to experiment with teaching tools before disaster strikes, and to share experiences with colleagues."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="131" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Is this currently being done?]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="245" y="0" width="303" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.qTemp13()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="245" y="14" width="303" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c_pedagogy_comment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="14" width="49" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Comment:]]></text>
+			</staticText>
+		</band>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="2" width="546" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part D: SPECIAL TEACHING ISSUES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="16" width="220" height="61"/>
+				<textElement>
+					<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[The following special teaching issues have been Identified by faculty and/or staff of this department.These issues may pose particular challenges to the continuation of instruction during and after a major disaster.]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="22" y="77" width="528" height="17"/>
+				<subreportParameter name="pis_id">
+					<subreportParameterExpression><![CDATA[$F{pis_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{REPORT_DIR} + "in_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="535" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part E: ACTION ITEMS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="24" width="201" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[See the Action Item List in Section VI.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="49" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="22" width="548" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="202" y="37" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="27" width="180" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

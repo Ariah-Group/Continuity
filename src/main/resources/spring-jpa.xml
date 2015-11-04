@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<!-- J P A   D E F I N I T I O N S -->
+	<description>JPA related definitions</description>
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+      
+    <bean id="jpaVendorAdapter"
+    	class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+    	<property name="databasePlatform" value="${hibernate.db.dialect}"/>
+  	</bean>
+  	
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+		<property name="jpaPropertyMap">
+			<props>
+			<prop key="hibernate.dialect">${hibernate.db.dialect}</prop>
+			<prop key="hibernate.query.substitutions">${hibernate.db.query.substitutions}</prop>
+			<prop key="hibernate.jdbc.batch_size">${hibernate.db.jdbc.batch_size}</prop>
+			<prop key="hibernate.jdbc.batch_versioned_data">${hibernate.db.jdbc.batch_versioned_data}</prop>
+			<prop key="hibernate.jdbc.use_streams_for_binary">${hibernate.db.jdbc.use_streams_for_binary}</prop>
+			<prop key="hibernate.max_fetch_depth">${hibernate.db.max_fetch_depth}</prop>
+			<prop key="hibernate.show_sql">${hibernate.db.show_sql}</prop>
+			<prop key="hibernate.bytecode.use_reflection_optimizer">${hibernate.db.bytecode.use_reflection_optimizer}</prop>
+			<prop key="hibernate.cache.provider_class">${hibernate.db.cache.provider_class}</prop>
+			<prop key="hibernate.cache.use_minimal_puts">${hibernate.db.cache.use_minimal_puts}</prop>
+			<prop key="hibernate.cache.use_query_cache">${hibernate.db.cache.use_query_cache}</prop>
+			<prop key="hibernate.cache.region_prefix">${hibernate.db.cache.region_prefix}</prop>
+            <prop key="hibernate.c3p0.min_size">${hibernate.c3p0.min_size}</prop>
+            <prop key="hibernate.c3p0.max_size">${hibernate.c3p0.max_size}</prop>
+            <prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop>
+            <prop key="hibernate.c3p0.max_statements">${hibernate.c3p0.max_statements}</prop>
+			</props>
+		</property>
+    </bean>
+
+    <bean id="transactionManager"
+        class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+</beans>

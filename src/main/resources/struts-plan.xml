@@ -1,0 +1,1499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+
+    <package name="plan" namespace="/plan" extends="struts-default">
+
+        <result-types>
+            <result-type name="json" class="org.kuali.continuity.admin.action.JSONResult" />
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>     
+        
+        <interceptors>
+            <interceptor name="authenticationInterceptor"
+                class="org.kuali.continuity.action.util.AuthenticationInterceptor" />
+            <interceptor name="actionCompleteInterceptor"
+                class="org.kuali.continuity.action.util.ActionCompleteInterceptor" />
+            <interceptor name="sessionPlanResetInterceptor"
+                class="org.kuali.continuity.plan.action.util.SessionPlanResetInterceptor" />
+            <interceptor-stack name="securePlanStack">
+                <interceptor-ref name="authenticationInterceptor" />
+                <interceptor-ref name="sessionPlanResetInterceptor" />
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="actionCompleteInterceptor" />
+            </interceptor-stack>
+            <interceptor-stack name="tokenPlanStack">
+                <interceptor-ref name="securePlanStack" />
+                <interceptor-ref name="tokenSession" />
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="securePlanStack" />
+
+        <global-results>
+            <result name="login" type="redirectAction">../</result>
+            <result name="listplan" type="redirectAction">
+                <param name="actionName">getPlans</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="step4f" type="redirectAction">
+                <param name="actionName">getFacultyPreparednessActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="step4i" type="redirectAction">
+                <param name="actionName">getInstructions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="error">/pages/common/ErrorException.jsp</result>
+            <result name="adminAccessDenied">/pages/admin/adminAccessException.jsp</result>
+            <result name="invalid.token" type="redirectAction">
+                <param name="actionName">error</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error" />
+        </global-exception-mappings>
+
+        <!-- Tiles & JSON -->
+        
+        <!-- Prototype -->
+   <!--      
+        <action name="getAccounts" class="getAccountsAction">
+            <result type="json"/>
+        </action>    
+ 
+     <action name="manageRoles" class="getAccountsReferenceDataAction">
+            <result>/accounts.jsp</result>
+        </action>    
+     
+        <action name="roles">
+            <result>/adminroles.jsp</result>
+        </action>
+ -->       
+ 		<action name="getCritialFunctionGuidanceStepTwo">
+            <result>/pages/plan/getCritialFunctionGuidanceStepTwo.jsp</result>
+        </action>
+ 		
+ 		
+        <!-- Plan -->       
+ 
+        <action name="begin" class="beginAction">
+            <result>/pages/plan/begin.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">welcome</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </action>
+
+        <action name="welcome" class="welcomeAction">
+            <result>/pages/plan/welcome.jsp</result>
+        </action>
+
+        <action name="contactUs" class="contactUsAction">
+            <result>/pages/plan/contactUs.jsp</result>
+        </action>
+
+        <action name="annualReviews" class="annualReviewsAction">
+            <result>/pages/plan/annualReviews.jsp</result>
+        </action>
+
+        <action name="toKnowItems" class="toKnowItemsAction">
+            <result>/pages/plan/toKnowItems.jsp</result>
+        </action>
+
+        <action name="faqs" class="faqsAction">
+            <result>/pages/plan/faqs.jsp</result>
+        </action>
+
+        <action name="references" class="referencesAction">
+            <result>/pages/plan/references.jsp</result>
+        </action>
+
+        <action name="sessionRole" class="sessionRoleAction">
+            <result>/pages/plan/sessionRole.jsp</result>
+        </action>
+        
+        <action name="setNewSessionRole" method="setNew" class="sessionRoleAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">sessionRole</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/sessionRole.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="restoreSessionRole" method="restore" class="sessionRoleAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">sessionRole</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/sessionRole.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="myProfile" class="userProfileAction">
+            <result>/pages/plan/myProfile.jsp</result>
+        </action>
+        
+        <action name="saveMyProfile" class="saveUserProfileAction">
+            <result name="success">/pages/plan/myProfile.jsp</result>
+            <result name="input">/pages/plan/myProfile.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveMyPassword" class="saveUserPasswordAction">
+            <result name="success">/pages/plan/myProfile.jsp</result>
+            <result name="input">/pages/plan/myProfile.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="samplePlan">
+            <result>/pages/plan/samplePlan.jsp</result>
+        </action>
+        
+        <action name="getBasePlans" class="getBasePlansAction">
+            <result>/pages/plan/getBasePlans.jsp</result>
+        </action>
+
+        <action name="getPlans" class="getPlansAction">
+            <result>/pages/plan/getPlans.jsp</result>
+        </action>
+
+        <action name="editPlan" class="planAction">
+            <result>/pages/plan/editPlan.jsp</result>
+        </action>
+
+        <action name="savePlan" method="add" class="planAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">planHome</param>
+                <param name="namespace">/plan</param>
+                <param name="doRefresh">true</param>
+            </result>
+            <result name="input">/pages/plan/editPlan.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="deletePlan" class="deletePlanAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getPlans</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getPlanDepartment" method="get" class="planDepartmentAction">
+            <result>/pages/plan/editPlan.jsp</result>
+        </action>
+
+        <action name="savePlanDepartment" method="update" class="planDepartmentAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getPlanDepartment</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/editPlan.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getPlanUsers" class="getPlanUsersAction">
+            <result>/pages/plan/getPlanUsers.jsp</result>
+        </action>
+
+        <action name="savePlanUsers" class="savePlanUsersAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getPlanUsers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/editPlan.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getPlanContacts" class="getPlanContactsAction">
+            <result>/pages/plan/getPlanContacts.jsp</result>
+        </action>
+
+        <action name="getSystemDomainDocuments" method="list" class="systemDomainDocumentsAction">
+            <result>/pages/plan/getSystemDomainDocuments.jsp</result>
+        </action>
+
+        <action name="printAction" class="planDocumentsAction">
+            <result>/pages/plan/printMenu.jsp</result>
+        </action>  
+
+        <action name="printMenu" method="list" class="planDocumentsAction">
+            <result>/pages/plan/printMenu.jsp</result>
+        </action>
+        
+        <action name="gotoInterviewForms" method="list" class="planDocumentsAction">
+            <result type="redirectAction">
+                <param name="actionName">printMenu#interviewforms</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </action>
+
+        <action name="getDocumentFile" class="documentFileAction">
+            <result type="stream">
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        
+        <action name="searchSystemDomainUsers">
+            <result>/pages/plan/searchSystemDomainUsers.jsp</result>
+        </action>
+
+        <action name="getSystemDomainUsers" class="getSystemDomainUsersAction">
+            <result>/pages/plan/getSystemDomainUsers.jsp</result>
+        </action>
+
+        <action name="planHome" class="getPlanAction">
+            <result>/pages/plan/planHome.jsp</result>
+            <result name="error" type="redirectAction">
+                <param name="actionName">getPlans</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </action>
+
+        <action name="getPlanStatus" class="getPlanAction">
+            <result>/pages/plan/getPlanStatus.jsp</result>
+        </action>
+
+        <action name="getPlanReview" class="getPlanReviewAction">
+            <result>/pages/plan/getPlanReview.jsp</result>
+        </action>
+
+        <action name="savePlanStatus" class="savePlanStatusAction">
+            <result name="success">/pages/plan/getPlanStatus.jsp</result>
+            <result name="input">/pages/plan/getPlanStatus.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="savePlanReview" class="savePlanReviewAction">
+            <result name="success">/pages/plan/getPlanReview.jsp</result>
+            <result name="input">/pages/plan/getPlanReview.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">planHome</param>
+                <param name="namespace">/plan</param>
+                <param name="doRefresh">true</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="planReviewComplete" class="completedPlanReview">
+            <result name="success">/pages/plan/planReviewComplete.jsp</result>
+            <result name="input">/pages/plan/planReviewComplete.jsp</result>
+        </action>
+
+        <action name="savePlanReviewComplete" method="add" class="completedPlanReview">
+            <result name="success" type="redirectAction">
+                <param name="actionName">planReviewComplete</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/planReviewComplete.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="deletePlanReviewComplete" method="delete" class="completedPlanReview">
+            <result name="success" type="redirectAction">
+                <param name="actionName">planReviewComplete</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/planReviewComplete.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="planReviewAnnual" class="annualPlanReview">
+            <result name="success">/pages/plan/planReviewAnnual.jsp</result>
+            <result name="input">/pages/plan/planReviewAnnual.jsp</result>
+        </action>
+
+        <action name="savePlanReviewAnnual" method="add" class="annualPlanReview">
+            <result name="success" type="redirectAction">
+                <param name="actionName">planReviewAnnual</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/planReviewAnnual.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="deletePlanReviewAnnual" method="delete" class="annualPlanReview">
+            <result name="success" type="redirectAction">
+                <param name="actionName">planReviewAnnual</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/planReviewAnnual.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getNewUsers" class="approveNewUsers" method="getNewUsers">
+            <result>/pages/plan/approveNewUsers.jsp</result>
+        </action>
+
+        <action name="approveNewUsers" class="approveNewUsers" method="approveNewUsers">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getNewUsers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getCustomMessage">
+            <result>/pages/widget/CustomMessage.jsp</result>
+        </action>
+
+        <action name="getAdminPlans" class="getAdminPlansAction">
+            <result type="json"/>
+        </action>    
+ 
+        <action name="getAdminCriticalFunctions" class="getAdminCriticalFunctionsAction">
+            <result type="json"/>
+        </action>    
+ 
+        <!-- Department Info -->
+        
+        <action name="getDepartmentInfo" class="getDepartmentInfoAction">
+            <result>/pages/plan/getDepartmentInfo.jsp</result>
+        </action>
+
+        <action name="saveDepartmentInfo" class="saveDepartmentInfoAction">
+            <result name="success">/pages/plan/getDepartmentInfo.jsp</result>
+            <result name="input">/pages/plan/getDepartmentInfo.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <!-- Critical Function -->
+        
+        <action name="getCriticalFunctions" method="execute" class="criticalFunctionsAction">
+            <result name="success">/pages/plan/getCriticalFunctions.jsp</result>
+            <result name="input">/pages/plan/getCriticalFunctions.jsp</result>
+        </action>
+
+        <action name="addCriticalFunction" method="add" class="criticalFunctionsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctions.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="saveCriticalFunctions" method="update" class="criticalFunctionsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctions.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyCentralApplications</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="deleteCriticalFunction" method="delete" class="criticalFunctionsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctions.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="reorderCriticalFunctions" method="reorder" class="criticalFunctionsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctions.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyCentralApplications</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </action>
+        
+        <action name="getCriticalFunctionDescriptions" method="update" class="criticalFunctionsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDescription</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunctionId}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctions.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDescription</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunctionId}</param>
+            </result>
+        </action>
+        
+        <action name="getCriticalFunctionExamples" method="execute" class="criticalFunctionExamplesAction">
+            <result name="success">/pages/plan/getCriticalFunctionExamples.jsp</result>
+            <result name="input">/pages/plan/getCriticalFunctionExamples.jsp</result>
+        </action>
+
+        <action name="getCriticalFunctionDescription" method="getDescriptions" class="criticalFunctionAction">
+            <result name="success">/pages/plan/getCriticalFunctionDescription.jsp</result>
+        </action>
+        
+        <action name="getCriticalFunctionPeakPeriods" method="getPeakPeriods" class="criticalFunctionAction">
+            <result name="success">/pages/plan/getCriticalFunctionPeakPeriods.jsp</result>
+        </action>
+        
+        <action name="getCriticalFunctionConsequences" method="getConsequences" class="criticalFunctionAction">
+            <result name="success">/pages/plan/getCriticalFunctionConsequences.jsp</result>
+        </action>
+        
+        <action name="getCriticalFunctionCopingMethod" method="getCopingMethod" class="criticalFunctionAction">
+            <result name="success">/pages/plan/getCriticalFunctionCopingMethod.jsp</result>
+        </action>
+        
+        <action name="saveCriticalFunctionDescription" method="updateDescriptions" class="criticalFunctionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDescription</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionDescription.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctionPeakPeriods</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveCriticalFunctionPeakPeriods" method="updatePeakPeriods" class="criticalFunctionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionPeakPeriods</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionPeakPeriods.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDocuments</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveCriticalFunctionConsequences" method="updateConsequences" class="criticalFunctionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionConsequences</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionConsequences.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctionCopingMethod</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveCriticalFunctionCopingMethod" method="updateCopingMethod" class="criticalFunctionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionCopingMethod</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionCopingMethod.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctionActionItems</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="copyCriticalFunctionConsequences" method="copyConsequences" class="criticalFunctionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionConsequences</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getCriticalFunctionDocuments" method="list" class="criticalFunctionDocumentsAction">
+            <result name="success">/pages/plan/getCriticalFunctionDocuments.jsp</result>
+            <result name="input">/pages/plan/getCriticalFunctionDocuments.jsp</result>
+        </action>
+
+        <action name="getCriticalFunctionDocument" method="get" class="criticalFunctionDocumentsAction">
+            <result name="success">/pages/plan/getCriticalFunctionDocument.jsp</result>
+            <result name="input">/pages/plan/getCriticalFunctionDocument.jsp</result>
+        </action>
+
+        <action name="addCriticalFunctionDocument" method="add" class="criticalFunctionDocumentsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDocuments</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionDocuments.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDependencies</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="saveCriticalFunctionDocument" method="update" class="criticalFunctionDocumentsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDocuments</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionDocument.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="deleteCriticalFunctionDocument" method="delete" class="criticalFunctionDocumentsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDocuments</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionDocuments.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getCriticalFunctionActionItems" method="list" class="criticalFunctionActionItemsAction">
+            <result name="success">/pages/plan/getCriticalFunctionActionItems.jsp</result>
+            <result name="input">/pages/plan/getCriticalFunctionActionItems.jsp</result>
+        </action>
+        
+        <action name="getCriticalFunctionActionItem" method="get" class="criticalFunctionActionItemsAction">
+            <result name="success">/pages/plan/getCriticalFunctionActionItem.jsp</result>
+            <result name="input">/pages/plan/getCriticalFunctionActionItem.jsp</result>
+        </action>
+
+        <action name="addCriticalFunctionActionItem" method="add" class="criticalFunctionActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionActionItems</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionActionItems.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="saveCriticalFunctionActionItem" method="update" class="criticalFunctionActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionActionItems</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionActionItem.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteCriticalFunctionActionItem" method="delete" class="criticalFunctionActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionActionItems</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionActionItems.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getCriticalFunctionDependencies" method="execute" class="criticalFunctionDependenciesAction">
+            <result name="success">/pages/plan/getCriticalFunctionDependencies.jsp</result>
+            <result name="input">/pages/plan/getCriticalFunctionDependencies.jsp</result>
+        </action>
+
+        <action name="addCriticalFunctionDependency" method="add" class="criticalFunctionDependenciesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDependencies</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionDependencies.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getCriticalFunctionConsequences</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="deleteCriticalFunctionDependency" method="delete" class="criticalFunctionDependenciesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDependencies</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionDependencies.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="copyCriticalFunctionDependencies" method="copy" class="criticalFunctionDependenciesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getCriticalFunctionDependencies</param>
+                <param name="namespace">/plan</param>
+                <param name="criticalFunction.id">%{criticalFunction.id}</param>
+            </result>
+            <result name="input">/pages/plan/getCriticalFunctionDependencies.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <!-- Information Technology -->
+        
+        <action name="getInformationTechnologyActionItems" method="list" class="informationTechnologyActionItemsAction">
+            <result name="success">/pages/plan/getInformationTechnologyActionItems.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyActionItems.jsp</result>
+        </action>
+        
+        <action name="getInformationTechnologyActionItem" method="get" class="informationTechnologyActionItemsAction">
+            <result name="success">/pages/plan/getInformationTechnologyActionItem.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyActionItem.jsp</result>
+        </action>
+
+        <action name="addInformationTechnologyActionItem" method="add" class="informationTechnologyActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyActionItems.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getFacultyPreparednessActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="saveInformationTechnologyActionItem" method="update" class="informationTechnologyActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyActionItem.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteInformationTechnologyActionItem" method="delete" class="informationTechnologyActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyActionItems.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getInformationTechnologyCentralApplications" method="list" class="informationTechnologyCentralApplicationsAction">
+            <result name="success">/pages/plan/getInformationTechnologyCentralApplications.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyCentralApplications.jsp</result>
+        </action>
+        
+        <action name="saveInformationTechnologyCentralApplications" method="save" class="informationTechnologyCentralApplicationsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyCentralApplications</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyCentralApplications.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyDepartmentApplications</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteInformationTechnologyCentralApplication" method="delete" class="informationTechnologyCentralApplicationsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyCentralApplications</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyCentralApplications.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getInformationTechnologyDepartmentApplications" method="list" class="informationTechnologyDepartmentApplicationsAction">
+            <result name="success">/pages/plan/getInformationTechnologyDepartmentApplications.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyDepartmentApplications.jsp</result>
+        </action>
+        
+        <action name="getInformationTechnologyDepartmentApplication" method="get" class="informationTechnologyDepartmentApplicationsAction">
+            <result name="success">/pages/plan/getInformationTechnologyDepartmentApplication.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyDepartmentApplication.jsp</result>
+        </action>
+        
+        <action name="addInformationTechnologyDepartmentApplication" method="add" class="informationTechnologyDepartmentApplicationsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyDepartmentApplications</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyDepartmentApplications.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyServers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveInformationTechnologyDepartmentApplication" method="update" class="informationTechnologyDepartmentApplicationsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyDepartmentApplication</param>
+                <param name="namespace">/plan</param>
+                <param name="rowId">%{dto.id}</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyDepartmentApplication.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyDepartmentApplications</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteInformationTechnologyDepartmentApplication" method="delete" class="informationTechnologyDepartmentApplicationsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyDepartmentApplications</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyDepartmentApplications.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getInformationTechnologyServers" method="list" class="informationTechnologyServersAction">
+            <result name="success">/pages/plan/getInformationTechnologyServers.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyServers.jsp</result>
+        </action>
+        
+        <action name="getInformationTechnologyServer" method="get" class="informationTechnologyServersAction">
+            <result name="success">/pages/plan/getInformationTechnologyServer.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyServer.jsp</result>
+        </action>
+        
+        <action name="addInformationTechnologyServer" method="add" class="informationTechnologyServersAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyServers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyServers.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyWorkstations</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveInformationTechnologyServer" method="update" class="informationTechnologyServersAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyServer</param>
+                <param name="namespace">/plan</param>
+                <param name="rowId">%{dto.id}</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyServer.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyServers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteInformationTechnologyServer" method="delete" class="informationTechnologyServersAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyServers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInformationTechnologyServers.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getInformationTechnologyWorkstations" method="get" class="informationTechnologyWorkstationsAction">
+            <result name="success">/pages/plan/getInformationTechnologyWorkstations.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyWorkstations.jsp</result>
+        </action>
+        
+        <action name="saveInformationTechnologyWorkstations" method="update" class="informationTechnologyWorkstationsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyWorkstations</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyRestart</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getInformationTechnologyRestart" method="get" class="informationTechnologyRestartAction">
+            <result name="success">/pages/plan/getInformationTechnologyRestart.jsp</result>
+            <result name="input">/pages/plan/getInformationTechnologyRestart.jsp</result>
+        </action>
+        
+        <action name="saveInformationTechnologyRestart" method="update" class="informationTechnologyRestartAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInformationTechnologyRestart</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInformationTechnologyActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <!-- Faculty Preparedness -->
+
+        <action name="getFacultyPreparednessActionItems" method="list" class="facultyPreparednessActionItemsAction">
+            <result name="success">/pages/plan/getFacultyPreparednessActionItems.jsp</result>
+            <result name="input">/pages/plan/getFacultyPreparednessActionItems.jsp</result>
+        </action>
+        
+        <action name="getFacultyPreparednessActionItem" method="get" class="facultyPreparednessActionItemsAction">
+            <result name="success">/pages/plan/getFacultyPreparednessActionItem.jsp</result>
+            <result name="input">/pages/plan/getFacultyPreparednessActionItem.jsp</result>
+        </action>
+
+        <action name="addFacultyPreparednessActionItem" method="add" class="facultyPreparednessActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getFacultyPreparednessActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getFacultyPreparednessActionItems.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffMembers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="saveFacultyPreparednessActionItem" method="update" class="facultyPreparednessActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getFacultyPreparednessActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getFacultyPreparednessActionItem.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteFacultyPreparednessActionItem" method="delete" class="facultyPreparednessActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getFacultyPreparednessActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getFacultyPreparednessActionItems.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <!-- Key Resources -->
+        
+        <action name="getKeyResourcesStaffMembers" method="list" class="keyResourcesStaffAction">
+            <result name="success">/pages/plan/getKeyResourcesStaffMembers.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesStaffMembers.jsp</result>
+        </action>
+        
+        <action name="saveKeyResourcesStaffMember" method="save" class="keyResourcesStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffMembers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStaffMembers.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesWorkFromHomeStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="updateKeyResourcesStaffMember" method="update" class="keyResourcesStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffMembers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStaffMembers.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteKeyResourcesStaffMember" method="delete" class="keyResourcesStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffMembers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStaffMembers.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getKeyResourcesStaffMember" method="get" class="keyResourcesStaffAction">
+            <result name="success">/pages/plan/getKeyResourcesStaffMember.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesStaffMember.jsp</result>
+        </action>
+        
+        <action name="getKeyResourcesWorkFromHomeStaffs" method="list" class="keyResourcesWorkFromHomeStaffAction">
+            <result name="success">/pages/plan/getKeyResourcesWorkFromHomeStaffs.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesWorkFromHomeStaffs.jsp</result>
+        </action>
+        
+        <action name="saveKeyResourcesWorkFromHomeStaff" method="save" class="keyResourcesWorkFromHomeStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesWorkFromHomeStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesWorkFromHomeStaffs.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesTeams</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="updateKeyResourcesWorkFromHomeStaff" method="update" class="keyResourcesWorkFromHomeStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesWorkFromHomeStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesWorkFromHomeStaffs.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteKeyResourcesWorkFromHomeStaff" method="delete" class="keyResourcesWorkFromHomeStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesWorkFromHomeStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesWorkFromHomeStaffs.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getKeyResourcesWorkFromHomeStaff" method="get" class="keyResourcesWorkFromHomeStaffAction">
+            <result name="success">/pages/plan/getKeyResourcesWorkFromHomeStaff.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesWorkFromHomeStaff.jsp</result>
+        </action>
+        
+        <action name="getKeyResourcesTeams" method="list" class="keyResourcesTeamsAction">
+            <result name="success">/pages/plan/getKeyResourcesTeams.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesTeams.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesSkills</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </action>
+        
+        <action name="addKeyResourcesTeamMember" method="add" class="keyResourcesTeamsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesTeams</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesTeamMember.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="updateKeyResourcesTeams" method="update" class="keyResourcesTeamsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesTeams</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesTeams.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesSkills</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveKeyResourcesTeams" method="save" class="keyResourcesTeamsAction">
+            <result name="success">/pages/plan/getKeyResourcesTeamMember.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesTeams.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteKeyResourcesTeamMember" method="delete" class="keyResourcesTeamsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesTeams</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesTeams.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getKeyResourcesSkills" method="list" class="keyResourcesSkillsAction">
+            <result name="success">/pages/plan/getKeyResourcesSkills.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesSkills.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </action>
+        
+        <action name="saveKeyResourcesSkills" method="save" class="keyResourcesSkillsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesSkills</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesSkills.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteKeyResourcesSkill" method="delete" class="keyResourcesSkillsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesSkills</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesSkills.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getKeyResourcesStaffReqs" method="list" class="keyResourcesStaffReqsAction">
+            <result name="success">/pages/plan/getKeyResourcesStaffReqs.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesStaffReqs.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesOtherUnitStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+        </action>
+        
+        <action name="addKeyResourcesStaffReq" method="add" class="keyResourcesStaffReqsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStaffReqs.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesOtherUnitStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteKeyResourcesStaffReq" method="delete" class="keyResourcesStaffReqsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStaffReqs.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="updateKeyResourcesStaffReq" method="update" class="keyResourcesStaffReqsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStaffReq.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getKeyResourcesStaffReq" method="get" class="keyResourcesStaffReqsAction">
+            <result name="success">/pages/plan/getKeyResourcesStaffReq.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesStaffReq.jsp</result>
+        </action>
+        
+        <action name="getKeyResourcesOtherUnitStaffs" method="list" class="keyResourcesOtherUnitStaffAction">
+            <result name="success">/pages/plan/getKeyResourcesOtherUnitStaffs.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesOtherUnitStaffs.jsp</result>
+        </action>
+        
+        <action name="addKeyResourcesOtherUnitStaff" method="add" class="keyResourcesOtherUnitStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesOtherUnitStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesOtherUnitStaffs.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesStakeholders</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="updateKeyResourcesOtherUnitStaff" method="update" class="keyResourcesOtherUnitStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesOtherUnitStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesOtherUnitStaff.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteKeyResourcesOtherUnitStaff" method="delete" class="keyResourcesOtherUnitStaffAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesOtherUnitStaffs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesOtherUnitStaffs.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getKeyResourcesOtherUnitStaff" method="get" class="keyResourcesOtherUnitStaffAction">
+            <result name="success">/pages/plan/getKeyResourcesOtherUnitStaff.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesOtherUnitStaff.jsp</result>
+        </action>
+        
+        <action name="getKeyResourcesStakeholders" method="list" class="keyResourcesStakeholderAction">
+            <result name="success">/pages/plan/getKeyResourcesStakeholders.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesStakeholders.jsp</result>
+        </action>
+        
+        <action name="addKeyResourcesStakeholder" method="add" class="keyResourcesStakeholderAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStakeholders</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStakeholders.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesDocuments</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="updateKeyResourcesStakeholder" method="update" class="keyResourcesStakeholderAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStakeholders</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStakeholder.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteKeyResourcesStakeholder" method="delete" class="keyResourcesStakeholderAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesStakeholders</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesStakeholders.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getKeyResourcesStakeholder" method="get" class="keyResourcesStakeholderAction">
+            <result name="success">/pages/plan/getKeyResourcesStakeholder.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesStakeholder.jsp</result>
+        </action>
+        
+        <action name="getKeyResourcesDocuments" method="list" class="keyResourcesDocumentsAction">
+            <result name="success">/pages/plan/getKeyResourcesDocuments.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesDocuments.jsp</result>
+        </action>
+
+        <action name="getKeyResourcesDocument" method="get" class="keyResourcesDocumentsAction">
+            <result name="success">/pages/plan/getKeyResourcesDocument.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesDocument.jsp</result>
+        </action>
+
+        <action name="deleteKeyResourcesDocument" method="delete" class="keyResourcesDocumentsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesDocuments</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesDocuments.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveKeyResourcesDocument" method="update" class="keyResourcesDocumentsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesDocuments</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesDocument.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="saveKeyResourcesDocuments" method="list" class="keyResourcesDocumentsAction">
+            <result name="success">/pages/plan/getKeyResourcesDocuments.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesDocuments.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesEquipmentReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getKeyResourcesEquipmentReqs" method="get" class="keyResourcesEquipmentReqsAction">
+            <result name="success">/pages/plan/getKeyResourcesEquipmentReqs.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesEquipmentReqs.jsp</result>
+        </action>
+        
+        <action name="updateKeyResourcesEquipmentReqs" method="update" class="keyResourcesEquipmentReqsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesEquipmentReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesEquipmentReqs.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesFacilitiesReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getKeyResourcesFacilitiesReqs" method="get" class="keyResourcesFacilitiesReqsAction">
+            <result name="success">/pages/plan/getKeyResourcesFacilitiesReqs.jsp</result>
+            <result name="input">/pages/plan/getKeyResourcesFacilitiesReqs.jsp</result>
+        </action>
+        
+        <action name="saveKeyResourcesFacilitiesReqs" method="save" class="keyResourcesFacilitiesReqsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesFacilitiesReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesFacilitiesReqs.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getPlanActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteKeyResourcesUtility" method="delete" class="keyResourcesFacilitiesReqsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getKeyResourcesFacilitiesReqs</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getKeyResourcesFacilitiesReqs.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <!-- Action Item Summary -->
+
+        <action name="getPlanActionItems" method="list" class="planActionItemsAction">
+            <result name="success">/pages/plan/getPlanActionItems.jsp</result>
+            <result name="input">/pages/plan/getPlanActionItems.jsp</result>
+        </action>
+        
+        <action name="getPlanActionItem" method="get" class="planActionItemsAction">
+            <result name="success">/pages/plan/getPlanActionItem.jsp</result>
+            <result name="input">/pages/plan/getPlanActionItem.jsp</result>
+        </action>
+
+        <action name="addPlanActionItem" method="add" class="planActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getPlanActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getPlanActionItems.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="savePlanActionItem" method="update" class="planActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getPlanActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getPlanActionItem.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deletePlanActionItem" method="delete" class="planActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getPlanActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getPlanActionItems.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="savePlanActionItemsStatus" method="updateListStatus" class="planActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getPlanActionItems</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getPlanActionItems.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">planHome</param>
+                <param name="namespace">/plan</param>
+                <param name="doRefresh">true</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <!-- Instruction -->
+        
+        <action name="getInstructions" method="list" class="instructionAction">
+            <result name="success">/pages/plan/getInstructions.jsp</result>
+            <result name="input">/pages/plan/getInstructions.jsp</result>
+        </action>
+        
+        <action name="addInstruction" method="add" class="instructionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInstructions.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getKeyResourcesStaffMembers</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="deleteInstruction" method="delete" class="instructionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <result name="input">/pages/plan/getInstructions.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="getInstructionHighPriorityCourses" method="list" class="instructionHighPriorityCoursesAction">
+            <result name="success">/pages/plan/getInstructionHighPriorityCourses.jsp</result>
+            <result name="input">/pages/plan/getInstructionHighPriorityCourses.jsp</result>
+        </action>
+        
+        <action name="deleteInstructionHighPriorityCourse" method="delete" class="instructionHighPriorityCoursesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionHighPriorityCourses</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionHighPriorityCourses.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveInstructionHighPriorityCourses" method="save" class="instructionHighPriorityCoursesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionHighPriorityCourses</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionHighPriorityCourses.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInstructionAllCourses</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getInstructionAllCourses" method="get" class="instructionAllCoursesAction">
+            <result name="success">/pages/plan/getInstructionAllCourses.jsp</result>
+            <result name="input">/pages/plan/getInstructionAllCourses.jsp</result>
+        </action>
+        
+        <action name="saveInstructionAllCourses" method="update" class="instructionAllCoursesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionAllCourses</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionAllCourses.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInstructionDepartmentalPractices</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getInstructionDepartmentalPractices" method="get" class="instructionDepartmentalPracticesAction">
+            <result name="success">/pages/plan/getInstructionDepartmentalPractices.jsp</result>
+            <result name="input">/pages/plan/getInstructionDepartmentalPractices.jsp</result>
+        </action>
+        
+        <action name="saveInstructionDepartmentalPractices" method="update" class="instructionDepartmentalPracticesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionDepartmentalPractices</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionDepartmentalPractices.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInstructionTeachingIssues</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getInstructionTeachingIssues" method="list" class="instructionTeachingIssuesAction">
+            <result name="success">/pages/plan/getInstructionTeachingIssues.jsp</result>
+            <result name="input">/pages/plan/getInstructionTeachingIssues.jsp</result>
+        </action>
+        
+        <action name="deleteInstructionTeachingIssue" method="delete" class="instructionTeachingIssuesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionTeachingIssues</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionTeachingIssues.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="saveInstructionTeachingIssues" method="save" class="instructionTeachingIssuesAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionTeachingIssues</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionTeachingIssues.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInstructionActionItems</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="getInstructionActionItems" method="list" class="instructionActionItemsAction">
+            <result name="success">/pages/plan/getInstructionActionItems.jsp</result>
+            <result name="input">/pages/plan/getInstructionActionItems.jsp</result>
+        </action>
+        
+        <action name="getInstructionActionItem" method="get" class="instructionActionItemsAction">
+            <result name="success">/pages/plan/getInstructionActionItem.jsp</result>
+            <result name="input">/pages/plan/getInstructionActionItem.jsp</result>
+        </action>
+
+        <action name="addInstructionActionItem" method="add" class="instructionActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionActionItems</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionActionItems.jsp</result>
+            <result name="continue" type="redirectAction">
+                <param name="actionName">getInstructions</param>
+                <param name="namespace">/plan</param>
+            </result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <action name="saveInstructionActionItem" method="update" class="instructionActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionActionItems</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionActionItem.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+        
+        <action name="deleteInstructionActionItem" method="delete" class="instructionActionItemsAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getInstructionActionItems</param>
+                <param name="namespace">/plan</param>
+                <param name="insId">%{insId}</param>
+            </result>
+            <result name="input">/pages/plan/getInstructionActionItems.jsp</result>
+            <interceptor-ref name="tokenPlanStack"/>
+        </action>
+
+        <!-- Test -->
+        
+        <action name="test">
+            <result>/pages/widget/Calendar.jsp</result>
+        </action>
+
+    </package>
+    
+</struts>

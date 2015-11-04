@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- D A O   D E F I N I T I O N S -->
+    <description>Data Access Object (DAO) related definitions</description>
+
+    <!-- D A O s -->
+    <bean id="acronymDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.AcronymDAOImpl"/>
+    <bean id="annualReviewDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.AnnualReviewDAOImpl"/>
+    <bean id="buildingDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.BuildingDAOImpl"/>
+    <bean id="centralApplicationDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.CentralApplicationAdminDAOImpl"/>
+    <bean id="contactInfoDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.ContactInfoDAOImpl"/>
+    <bean id="criticalFunctionExampleDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.CriticalFunctionExampleDAOImpl"/>
+    <bean id="customImageUploadDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jdbc.CustomImageUploadDAOImpl"/>
+    <bean id="departmentTypeDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.DepartmentTypeDAOImpl"/>
+    <bean id="dependencyDAO"
+        class="org.kuali.continuity.admin.dao.jpa.DependencyAdminDAOImpl"/>
+    <bean id="faqDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.FAQDAOImpl"/>
+    <bean id="majorDivisionDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.MajorDivisionDAOImpl"/>
+    <bean id="instructionalDepartmentDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.InstructionalDepartmentDAOImpl"/>
+    <bean id="plannerLogCategoryDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.PlannerLogCategoryDAOImpl"/>
+    <bean id="referenceDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.ReferenceDAOImpl"/>
+    <bean id="shiftDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.ShiftDAOImpl"/>
+    <bean id="skillDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.SkillAdminDAOImpl"/>
+    <bean id="staffCategoryDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.StaffCategoryDAOImpl"/>
+    <bean id="systemDomainDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.SystemDomainDAOImpl"/>
+    <bean id="systemDomainGroupDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.SystemDomainGroupDAOImpl"/>
+    <bean id="systemDomainUITextDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.SystemDomainUITextDAOImpl"/>
+    <bean id="systemDomainUIImageDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.SystemDomainUIImageDAOImpl"/>
+    <bean id="toKnowItemDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.ToKnowItemDAOImpl"/>
+    <bean id="userDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.UserDAOImpl"/>
+    <bean id="userLoginDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.UserLoginDAOImpl"/>
+    <bean id="adminTestModeDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jdbc.AdminTestModeDAOImpl"/>
+
+    <bean id="allDependencyDAO"
+        class="org.kuali.continuity.admin.dao.jpa.DependencyDAOImpl"/>
+    <bean id="allSkillDAO"
+        class="org.kuali.continuity.admin.dao.jpa.SkillDAOImpl"/>
+    <bean id="utilityDAO" autowire="byType"
+        class="org.kuali.continuity.admin.dao.jpa.UtilityDAOImpl"/>
+        
+    <bean id="dependencyDAOFactory" autowire="byType"
+        class="org.kuali.continuity.admin.dao.DependencyDAOFactoryImpl" >
+        <property name="adminDAO" ref="dependencyDAO"/>
+        <property name="allDAO" ref="allDependencyDAO"/>
+    </bean>    
+    
+    <bean id="itemDaoFactory"  autowire="byType" 
+        class="org.kuali.continuity.admin.dao.ItemDaoFactoryImpl" >
+         <property name="daoMap">
+                <map>
+                      <entry  key="application"> <list><ref bean="centralApplicationDAO"/></list></entry>
+                      <entry  key="acronym"> <list><ref bean="acronymDAO"/></list></entry>
+                      <entry  key="building"> <list><ref bean="buildingDAO"/></list></entry>
+                      <entry  key="contact"> <list><ref bean="contactInfoDAO"/></list></entry>
+                      <entry  key="department"> <list><ref bean="instructionalDepartmentDAO"/></list></entry>
+                      <entry  key="function"> <list><ref bean="criticalFunctionExampleDAO"/></list></entry>
+                      <entry  key="group"> <list><ref bean="systemDomainGroupDAO"/></list></entry>
+                      <entry  key="knowledge"> <list><ref bean="toKnowItemDAO"/></list></entry>
+                      <entry  key="dependency"> <list><ref bean="dependencyDAO"/></list></entry>
+                      <entry  key="faq"> <list><ref bean="faqDAO"/></list></entry>
+                      <entry  key="division"> <list><ref bean="majorDivisionDAO"/></list></entry>
+                      <entry  key="location"> <list><ref bean="systemDomainDAO"/></list></entry>
+                      <entry  key="plannerscategory"> <list><ref bean="plannerLogCategoryDAO"/></list></entry>
+                      <entry  key="reference"> <list><ref bean="referenceDAO"/></list></entry>
+                      <entry  key="review"> <list><ref bean="annualReviewDAO"/></list></entry>
+                      <entry  key="setting"> <list><ref bean="systemDomainDAO"/></list></entry>
+                      <entry  key="shift"> <list><ref bean="shiftDAO"/></list></entry>
+                      <entry  key="skill"> <list><ref bean="skillDAO"/></list></entry>
+                      <entry  key="staffcategory"> <list><ref bean="staffCategoryDAO"/></list></entry>
+                      <entry  key="type"> <list><ref bean="departmentTypeDAO"/></list></entry>
+                      <entry  key="user"> <list><ref bean="userDAO"/></list></entry>
+                      <entry  key="utility"> <list><ref bean="utilityDAO"/></list></entry>
+                    
+               </map>
+         </property>
+    </bean>
+    
+    <bean id="genericAdminDAOFactory" autowire="byType" 
+        class="org.kuali.continuity.admin.dao.GenericAdminDAOFactoryImpl" >
+         <property name="daoMap">
+                <map>
+                    <entry key="org.kuali.continuity.admin.domain.Acronym">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.Acronym</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.AnnualReview">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.AnnualReview</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.Building">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.Building</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.CentralApplication">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.CentralApplication</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.ContactInfo">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.ContactInfo</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.CriticalFunctionExample">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.CriticalFunctionExample</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.DepartmentType">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.DepartmentType</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.Dependency">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.Dependency</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.FAQ">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.FAQ</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.InstructionalDepartment">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.InstructionalDepartment</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.MajorDivision">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.MajorDivision</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.PlannerLogCategory">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.PlannerLogCategory</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.Reference">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.Reference</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.Shift">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.Shift</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.Skill">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.Skill</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.StaffCategory">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.StaffCategory</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.SystemDomain">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.SystemDomain</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.SystemDomainCentralApplicationCriticalityLevel">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.SystemDomainCentralApplicationCriticalityLevel</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.SystemDomainCriticalFunctionCriticalityLevel">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.SystemDomainCriticalFunctionCriticalityLevel</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.ToKnowItem">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.ToKnowItem</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.User">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.User</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+                    <entry key="org.kuali.continuity.admin.domain.Utility">
+                        <bean class="org.kuali.continuity.admin.dao.jpa.GenericAdminDAOImpl">
+                            <constructor-arg>
+                                <value>org.kuali.continuity.admin.domain.Utility</value>
+                            </constructor-arg>
+                        </bean>
+                    </entry>
+               </map>
+         </property>
+    </bean>
+
+</beans>

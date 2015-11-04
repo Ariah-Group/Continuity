@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                        http://www.springframework.org/schema/security
+                         http://www.springframework.org/schema/security/spring-security-2.0.1.xsd">
+ 
+ 	<security:global-method-security/>
+ 	
+    <security:http auto-config="false" entry-point-ref="authenticationProcessingFilterEntryPoint" >         
+	   <security:intercept-url pattern="/login/logout" filters="none"/>
+       <security:intercept-url pattern="/login/failed" filters="none"/>
+       <security:intercept-url pattern="/login/ready" filters="none"/>      
+       <security:intercept-url pattern="/login/newAccount" filters="none"/>
+       <security:intercept-url pattern="/login/createAccount" filters="none"/>
+       <security:intercept-url pattern="/login/getLoginPassword" filters="none"/>
+       <security:intercept-url pattern="/login/requestLoginPassword" filters="none"/>
+       <security:intercept-url pattern="/login/contactUs" filters="none"/>
+       <security:intercept-url pattern="/login/getImage**" filters="none"/>
+       <security:intercept-url pattern="/css/**" filters="none"/> 
+       <security:intercept-url pattern="/images/**" filters="none"/>
+       <security:intercept-url pattern="/javascripts/**" filters="none"/>        
+       <security:intercept-url pattern="/**" access="ROLE_ADMIN"/>
+    </security:http>
+	
+ 	
+ 	<bean id="authenticationProcessingFilter" class="org.kuali.continuity.security.KualiAuthenticationProcessingFilter">
+		<security:custom-filter position="AUTHENTICATION_PROCESSING_FILTER" />
+		<property name="defaultTargetUrl" value="/login/ready" />
+		<property name="authenticationFailureUrl" value="/login/failed"/>
+		<property name="filterProcessesUrl" value="/login/j_spring_security_check" />
+		<property name="entryUrl" value="/login/start?" />
+        <property name="entryShibUrl" value="/login/shibStart?" />
+		<!-- NOte: If you change lotoutURL here, remember to change the org.kuali.continuity.admin.project.client.ListControl -->
+		<!--       protected final String logoutPath = "/kcpt/login/logout"; -->
+		<property name="logoutUrl" value="/login/logout" />
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="shiblethAuthenticationManager" ref="shiblethAuthenticationManager" />
+		<property name="jdbcAuthenticationManager" ref="jdbcAuthenticationManager" />
+		<property name="userLoginService" ref="userLoginService" /> 
+        <property name="systemDomainService" ref="systemDomainService"/> 
+        <property name="userService" ref="userService"/>  
+        <property name="cookieLife" value="86400"/>
+        <!-- Note: This is for the default value of Shibboleth Unique identifier.  -->
+        <property name="defaultShibbolethUniqueId" value="eppn"/>    
+	</bean>		
+ 	
+ 	<security:authentication-manager alias="authenticationManager" />
+
+ 	<bean id="jdbcAuthenticationManager" class="org.kuali.continuity.security.JdbcAuthenticationManager">
+ 		<property name="userLoginService" ref="userLoginService" />
+ 	</bean>
+ 	
+ 	<bean id="shiblethAuthenticationManager" class="org.kuali.continuity.security.ShiblethAuthenticationManager"/>
+ 	 		
+<!-- 	<bean id="authenticationProcessingFilterEntryPoint" class="org.springframework.security.ui.webapp.AuthenticationProcessingFilterEntryPoint">-->
+<!--		<property name="loginFormUrl" value="/login/ready" />-->
+<!--		<property name="forceHttps" value="false" />-->
+<!--	</bean>-->
+	
+	<bean id="authenticationProcessingFilterEntryPoint" class="org.kuali.continuity.security.KualiAuthenticationProcessingFilterEntryPoint">
+		<property name="loginFormUrl" value="/login/ready?sdname="/>
+		<property name="defaultLoginFormUrl" value="/login/ready"/>
+		<property name="logoutUrl" value="/login/logout"/>
+		<property name="inCommonMetadataService" ref="inCommonMetadataService" /> 
+	</bean>
+
+	<bean id="logoutFilter" class="org.kuali.continuity.security.KualiLogoutProcessingFilter">
+		 <security:custom-filter position="LOGOUT_FILTER"/>
+		 <constructor-arg type="java.lang.String" value="/login/logout"/>
+         <constructor-arg><ref bean="kualiLogoutHandler"/></constructor-arg>           
+	</bean>
+	
+	<bean id="kualiLogoutHandler" class="org.kuali.continuity.security.KualiLogoutHandler"></bean>
+	
+    <!-- This is dummy test user ids. This authentication provider not really used. -->
+    <security:authentication-provider>
+        <security:user-service>
+            <security:user name="test1" password="test1" authorities="ROLE_USER" />
+            <security:user name="test2" password="test2" authorities="ROLE_USER, ROLE_ADMIN" />
+	    </security:user-service>
+	</security:authentication-provider>
+
+</beans>	

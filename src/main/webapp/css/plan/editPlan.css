@@ -1,0 +1,79 @@
+INPUT.unit_nameClass
+{ 
+	width:480px;
+}
+
+
+INPUT.InstitutionNameClass
+{ 
+	width:480px;
+}
+
+
+
+INPUT.unit_head_nameClass
+{ 
+	width:155px;
+}
+
+INPUT.unit_head_titleClass
+{ 
+	width:250px;
+}
+
+
+INPUT.ContactUserFirstNameClass
+{ 
+	width:100px;
+}
+
+
+INPUT.ContactUserLastNameClass
+{ 
+	width:120px;
+}
+
+
+
+INPUT.ContactEMailClass
+{ 
+	width:160px;
+}
+
+INPUT.PrimaryCheckClass
+{ 
+	width:20px;
+	height: 20px;
+}
+
+
+INPUT.ContactPhoneClass
+{ 
+	width:113px;
+}
+
+INPUT.ContactFirstNameClass
+{ 
+	width:160px;
+}
+
+INPUT.ContactLastNameClass
+{ 
+	width:220px;
+}
+
+SELECT.institutionSelectClass
+{ 
+	width:485px;
+}
+
+SELECT.divisionSelectClass
+{ 
+	width:485px;
+}
+
+SELECT.acronymSelectClass
+{ 
+	width:485px;
+}
+

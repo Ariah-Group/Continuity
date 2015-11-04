@@ -1,0 +1,202 @@
+
+#reports {
+margin: 5px 0;
+}
+
+p{
+padding: 5px 0 0 5px;
+font-size:10px;
+color:#333;
+}
+
+
+#reports fieldset {
+margin: 10px 0 15px 0;
+padding:  2px 20px 2px 20px;
+} 
+
+#reports fieldset legend {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color:#003399;
+font-weight:bold;
+margin: 0;
+padding:0;
+}  
+
+#reports label {
+font-weight:bold;
+display:inline;
+}
+
+#reports select {
+display:block;
+margin-bottom: 20px;
+} 
+
+
+
+#reports label.exclude {
+font-weight:normal;
+display:inline;
+padding:30px 0 10px 0;
+}
+
+#reports label.partial {
+font-weight:bold;
+display:inline;
+margin:4px 0 0 40px;
+padding:0;
+}
+
+#reports input.partial {
+display:inline;
+margin:0 0 0 4px;
+width: 200px;
+}
+
+/*just for placement of word "or" */
+#textlayout {
+padding:10px 0px 10px 5px;
+font-size: 12px;
+font-weight:normal;
+color:#000;
+}
+ 
+
+#reports input.spec_plan {
+display:inline;
+margin: 4px;
+}
+
+.tagline {
+color:#333333;
+display:block;
+margin: 0 0 0 125px;
+}
+
+
+hr.divider {
+margin: 15px 0;
+width:40%;
+border-top:0px;
+border-left:0px;
+border-right:0px;
+line-height:0px;
+height:1px;
+display:block;
+}
+
+#reportdetail {
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/*to add scroll bars and control widths for long tables and control widths such as documents and stakeholders*/
+#widthcontrol {
+max-width: 100%;
+scroll:auto;
+}
+
+.emailwidth {
+width: 100px;
+}
+
+.narrow {
+width: 70px;
+}
+
+
+
+.statusplan_totals {
+list-style-type:none;
+text-align:right;
+width: 270px;
+margin: 0 0 30px 0;
+padding:0;
+}
+
+.statusplan_totals  li{
+list-style-type:none;
+
+}
+
+
+#reportdetail h1 {
+font-family:Arial, Helvetica, sans-serif;
+text-align:left;
+font-size:12px;
+color:#000;
+}
+
+#reportdetail h2 {
+text-align:center;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#000;
+}
+
+#reportdetail h3 {
+text-align:left;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#000;
+}
+
+
+
+#reportdetail p {
+text-align:left;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#000;
+}
+
+
+
+#reportdetail table {
+font-family:Arial, Helvetica, sans-serif;
+margin-top: 4px;
+margin-bottom: 10px;
+color:#000;
+}
+
+/*for long reports such as 8 & 15 to prevent table sliding under guidance*/
+.narrow {
+width: 90px;
+}
+
+#reportdetail th {
+font-family:Arial, Helvetica, sans-serif;
+font-size:10px;
+padding: 4px 2px 4px 2px;
+text-align:left;
+font-weight:bold;
+color:#000;
+}
+
+#reportdetail td {
+font-family:Arial, Helvetica, sans-serif;
+font-size:10px;
+padding: 4px 2px 4px 2px;
+font-weight:normal;
+color:#000;
+}
+
+.createbutton {
+margin:  10px;
+float:right;
+clear:both;
+}
+
+
+.commentcolwidth {
+width: 250px;
+
+}
+
+.narrowcolwidth {
+width: 100px;
+}
+
+
+
+

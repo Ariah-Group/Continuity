@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StaffingRequirements" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="20" bottomMargin="20" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="false"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="30"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(434)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="STAFFING_SCREEN_FLAG" class="java.lang.String"/>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<parameter name="LNBL" class="java.lang.Boolean"/>
+	<queryString>
+		<![CDATA[SELECT key_staffing_req.*, 	critical_functions.name as cname, 	critical_functions.CriticalityLevel, 	StaffCategory.StaffCategory,  	Shift.Name as sname FROM ( 	( 	(key_staffing_req LEFT OUTER JOIN critical_functions ON key_staffing_req.cid = critical_functions.cid) 	LEFT OUTER JOIN StaffCategory ON key_staffing_req.StaffCategoryID = StaffCategory.StaffCategoryID) 	LEFT OUTER JOIN Shift ON key_staffing_req.ShiftID = Shift.ShiftID) WHERE key_staffing_req.pid = $P{PID}]]>
+	</queryString>
+	<field name="CriticalityLevel" class="java.lang.String"/>
+	<field name="FTE_crisis" class="java.lang.String"/>
+	<field name="FTE_normal" class="java.lang.String"/>
+	<field name="ShiftID" class="java.lang.String"/>
+	<field name="StaffCategory" class="java.lang.String"/>
+	<field name="StaffCategoryID" class="java.lang.Integer"/>
+	<field name="cid" class="java.lang.Integer"/>
+	<field name="cname" class="java.lang.String"/>
+	<field name="ksr_id" class="java.lang.Integer"/>
+	<field name="pid" class="java.lang.Integer"/>
+	<field name="sname" class="java.lang.String"/>
+	<title>
+		<band height="320">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() == 1 || $V{REPORT_COUNT}.intValue() == 0 )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="1" y="68" width="549" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[V. KEY RESOURCES (cont.)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="415" y="36" width="125" height="26"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="421" y="38" width="123" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the Step 5 tab of the on-line tool. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="108" width="193" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part 5: Staffing Requirements]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="132" width="469" height="37"/>
+				<textElement markup="styled">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[This list displays both
+• numbers of staff who may be REQUIRED during crisis, and
+• numbers of staff who may be AVAILABLE FOR RE-ASSIGNMENT during crisis
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="289" width="125" height="21"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[
+Function]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="168" width="193" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" isUnderline="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Definitions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="289" width="49" height="21"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Criticality
+Level]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="289" width="90" height="21"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Category of
+Staff]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="289" width="90" height="21"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[
+Shift]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="234" width="48" height="76"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[FTE required under
+normal conditions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="234" width="37" height="76"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[FTE required
+during crisis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="502" y="234" width="40" height="76"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[FTE who may be available
+for re-assignment]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="21" width="548" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="21" y="179" width="469" height="45"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.cfCriticalityLevels()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="250">
+			<printWhenExpression><![CDATA[new Boolean( $P{STAFFING_SCREEN_FLAG}.equals("0"))]]></printWhenExpression>
+			<textField>
+				<reportElement x="21" y="113" width="528" height="37"/>
+				<textElement>
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["PLEASE NOTE: THIS PAGE IS OPTIONAL AND IS CURRENTLY NOT BEING USED."]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($P{STAFFING_SCREEN_FLAG}.equals("1"))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="502" y="0" width="38" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.fteDiff()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="10" y="0" width="125" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cname}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="145" y="0" width="49" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{REPORT_SCRIPTLET}.cfCriticalityLevel($F{CriticalityLevel})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="202" y="0" width="90" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{StaffCategory}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="299" y="0" width="90" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{sname}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00#">
+				<reportElement stretchType="RelativeToTallestObject" x="394" y="0" width="48" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FTE_normal}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00#">
+				<reportElement stretchType="RelativeToTallestObject" x="453" y="0" width="37" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FTE_crisis}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="202" y="38" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="23" width="550" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="185" y="28" width="180" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

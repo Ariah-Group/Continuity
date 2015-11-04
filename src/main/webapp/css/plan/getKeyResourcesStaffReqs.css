@@ -1,0 +1,79 @@
+SELECT.cfSelectClass
+{ 
+	width:180px;
+}
+
+
+
+
+
+#staffing_select {	
+	margin: 8px 0 8px 0;
+	padding-top: 2px;
+	padding-right: 0;
+	padding-bottom: 4px;
+	padding-left: 0;
+	border: thin solid #CCC;
+	width: 728px;
+	
+	
+}
+#staffing_select th {
+	background-color: #D7D7D7;
+	font-weight:bold;
+	text-align:left;			
+}
+
+#staffing_reqs {	
+	margin:  4px 0 4px 0;
+	padding-top: 3px;
+	padding-right: 6px;
+	padding-bottom: 3px;
+	padding-left: 3px;
+	border: thin solid #CCC;
+	width:728px;
+	
+}
+#staffing_reqs th {
+background-color:#FFF;
+	padding: 3px;
+	font-weight:bold;
+	text-align:left;
+				
+}
+
+#staffing_reqs td  {
+	background-color:#ECEFF4;
+	padding: 3px 4px 3px 0;/*was .5em*/
+	vertical-align:top;
+}
+
+
+#staffing_reqs th#link {
+	width: 12px;
+	padding: 2px;		
+}
+
+#staffing_reqs th.amounts {
+	width:35px;		
+}
+
+
+#staffing_reqs th.staffcats {
+	width:40px;	
+	
+}
+#staffing_reqs th.staffshifts {
+	width:40px;	
+	
+}
+
+#staffing_reqs th.c_function {
+	width:135px;	
+	
+}
+
+#staffing_reqs td.ftetotals {
+padding-top: 5px;	
+	
+}

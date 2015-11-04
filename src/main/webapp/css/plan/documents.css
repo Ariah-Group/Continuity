@@ -1,0 +1,173 @@
+input.DocumentNameClass {
+	width: 312px;
+}
+
+select.DocumentMediumClass {
+	width: 318px;
+}
+
+
+textarea.DocumentDescriptionClass {
+	width: 312px; 
+	height: 29px ;
+}
+
+textarea.DocumentContactClass {
+	width: 312px; 
+	height: 29px ;
+}
+
+
+textarea.DocumentOwnerClass {
+	width: 312px; 
+	height: 29px ;
+}
+
+textarea.DocumentBackupClass {
+	width: 312px; 
+	height: 29px ;
+}
+
+textarea.DocumentLocationClass {
+	width: 312px; 
+	height: 29px ;
+}
+
+textarea.DocumentCommentClass {
+	width: 312px; 
+	height: 29px ;
+}
+
+
+div.FileInputs {
+	position: relative;
+	width: 344px;
+}
+
+div.RealFile1 {
+float:right ;
+}
+
+
+div.RealFile2 {
+float:right ;
+cursor: pointer;
+}
+
+
+div.FakeFile {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	
+}
+
+div.FakeFileE {
+	position: absolute;
+	top: 0px; 
+
+	left: 0px;
+	z-index: 1;
+	
+}
+
+
+
+div.ClearFile {
+	top: 0px;
+	position: absolute;
+	left: 299px;
+	z-index: 3;
+	width: 100px;
+}
+
+
+
+
+input.File {
+	position: relative;
+	text-align: right;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+	width: 0px;
+	cursor: pointer;
+	width:68px;
+}
+
+
+input.DummyFile {
+	width:200px;
+}
+
+
+
+input.FakeFile1 {
+	text-align: left;
+	width: 265px;
+}
+
+input.FakeFile2 {
+	text-align: left;
+	width: 265px;
+}
+
+
+table.document_table {	
+	margin: 8px 0 8px 0;
+	padding-top: 2px;
+	padding-bottom: 4px;
+	padding-left: 2px;
+	border: thin solid #CCCCCC;
+}
+
+table.document_table th {
+	background-color:#F5F5F5 ;
+}
+
+IMG.BrowseImageFClass 
+{
+	border:none ;
+	vertical-align: middle;
+	cursor: pointer;
+	padding-bottom: 4px;
+	
+}
+
+IMG.BrowseImageEClass 
+{
+	border:none ;
+	vertical-align: middle;
+	cursor: pointer;
+	padding-bottom: 6px;
+	
+}
+
+
+IMG.ClearImageFClass 
+{
+	border:none ;
+	vertical-align: middle;
+	cursor: pointer;
+	padding-bottom: 4px;
+	
+}
+
+IMG.ClearImageEClass 
+{
+	border:none ;
+	vertical-align: middle;
+	cursor: pointer;
+	padding-bottom: 5px;
+	
+}
+
+
+
+
+
+
+
+

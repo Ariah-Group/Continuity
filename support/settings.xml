@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Note, this file is for user/machine settings, must be set for your machine and placed in ~/.m2 -->
+<settings>
+    <!-- If the path of your local Maven repository has space, use localRepository element to create another repository  
+		 This is required to avoid a bug in the GWT compiler. -->
+    <profiles>   
+		<!-- test profile -->
+        <profile>
+            <id>test</id>
+            <properties>
+                <google.webtoolkit.home>C:\download\gwt-windows-1.5.3\gwt-windows-1.5.3</google.webtoolkit.home>
+                <!-- you only need XstartOnFirstThread on a mac -->
+                <google.webtoolkit.extrajvmargs>-Xmx256m -Xms256m</google.webtoolkit.extrajvmargs>
+                <java.library.path>${google.webtoolkit.home}</java.library.path>
+
+				<!-- hibernate db user name, password -->
+				<hibernate.connection.username>username</hibernate.connection.username>
+				<hibernate.connection.password>password</hibernate.connection.password>
+				
+				<!-- Tomcat configuration -->
+				<version.tomcat.home>C:/apache-tomcat-5.5.27</version.tomcat.home>
+				<version.tomcat.username>tomcat</version.tomcat.username>
+				<version.tomcat.password>tomcat</version.tomcat.password>
+            </properties>			
+        </profile>
+		
+		<!-- production profile -->
+		<profile>
+			<id>production</id>
+            <properties>
+                <google.webtoolkit.home>C:\download\gwt-windows-1.5.3\gwt-windows-1.5.3</google.webtoolkit.home>
+                <!-- you only need XstartOnFirstThread on a mac -->
+                <google.webtoolkit.extrajvmargs>-Xmx256m -Xms256m</google.webtoolkit.extrajvmargs>
+                <java.library.path>${google.webtoolkit.home}</java.library.path>
+
+				<!-- hibernate db user name, password -->
+				<hibernate.connection.username>username</hibernate.connection.username>
+				<hibernate.connection.password>password</hibernate.connection.password>
+				
+				<!-- Tomcat configuration -->
+				<version.tomcat.home>C:/apache-tomcat-5.5.27</version.tomcat.home>
+				<version.tomcat.username>tomcat</version.tomcat.username>
+				<version.tomcat.password>tomcat</version.tomcat.password>
+            </properties>
+		</profile>
+    </profiles>
+	<!--
+    <activeProfiles>
+        <activeProfile>test</activeProfile>
+    </activeProfiles>
+	-->
+</settings>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- ARRA cache -->
+	<beans:bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<beans:property name="configLocation">
+			<beans:value>classpath:ehcache.xml</beans:value>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="inCommonMetadataCache"
+		class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<beans:property name="cacheManager">
+			<beans:ref local="cacheManager" />
+		</beans:property>
+
+		<beans:property name="cacheName">
+			<beans:value>inCommonMetadata</beans:value>
+		</beans:property>
+	</beans:bean>
+</beans:beans>

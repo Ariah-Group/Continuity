@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+   <!-- H I B E R N A T E   D E F I N I T I O N S -->
+   <description>Hibernate related definitions</description>
+
+   <!-- H I B E R N A T E   S E S S I O N   F A C T O R Y -->
+   <bean id="hibernateInterceptor" 
+       class="org.kuali.continuity.dao.hibernate.HibernateInterceptor"/>
+       
+   <bean id="transactionManager" 
+      class="org.springframework.orm.hibernate3.HibernateTransactionManager" >
+      <property name ="sessionFactory">
+              <ref bean="sessionFactory" />
+      </property>
+      
+      </bean>
+   <!--  Note: This is the only Hibernate sessionFactory now. The one in ApplicationContext has been removed -->
+   <bean name="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+      <property name="dataSource" ref="dataSource"/>
+      <property name="entityInterceptor" ref="hibernateInterceptor"/>
+      <property name="annotatedClasses">
+          <list>
+              <value>org.kuali.continuity.domain.BaseRefDomainObject</value>
+              <value>org.kuali.continuity.domain.AccessStatus</value>
+              <value>org.kuali.continuity.domain.BroadbandConnection</value>
+              <value>org.kuali.continuity.domain.BuildingOwnership</value>
+              <value>org.kuali.continuity.domain.ComputerRunning</value>
+              <value>org.kuali.continuity.domain.ConnectFromHome</value>
+              <value>org.kuali.continuity.domain.DependencyType</value>
+              <value>org.kuali.continuity.domain.DocumentType</value>
+              <value>org.kuali.continuity.domain.EvacuationPlan</value>
+              <value>org.kuali.continuity.domain.PlanAccessType</value>
+              <value>org.kuali.continuity.domain.PlanStatus</value>
+              <value>org.kuali.continuity.domain.SecurityType</value>
+              <value>org.kuali.continuity.domain.StaffPosition</value>
+              <value>org.kuali.continuity.domain.StakeholderType</value>
+              <value>org.kuali.continuity.domain.SystemDomainAccess</value>
+              <value>org.kuali.continuity.domain.SystemDomainType</value>
+              <value>org.kuali.continuity.domain.SystemLogEventType</value>
+              <value>org.kuali.continuity.domain.SystemLogObjectType</value>
+              <value>org.kuali.continuity.plan.domain.ActionItemCost</value>
+              <value>org.kuali.continuity.plan.domain.ActionItemCostCycle</value>
+              <value>org.kuali.continuity.plan.domain.ActionItemScope</value>
+              <value>org.kuali.continuity.plan.domain.ActionItemStatus</value>
+              <value>org.kuali.continuity.plan.domain.BackupFrequency</value>
+              <value>org.kuali.continuity.domain.CourseCast</value>
+              <value>org.kuali.continuity.domain.InstructionSelect1</value>
+              <value>org.kuali.continuity.domain.InstructionSelect2</value>
+              <value>org.kuali.continuity.domain.InstructionSelect3</value>
+              <value>org.kuali.continuity.domain.SpecialTeachingIssue</value>
+          </list>
+      </property> 
+      <property name="hibernateProperties">
+         <props>
+            <prop key="hibernate.dialect">${hibernate.db.dialect}</prop>
+            <prop key="hibernate.query.substitutions">${hibernate.db.query.substitutions}</prop>
+            <prop key="hibernate.jdbc.batch_size">${hibernate.db.jdbc.batch_size}</prop>
+            <prop key="hibernate.jdbc.batch_versioned_data">${hibernate.db.jdbc.batch_versioned_data}</prop>
+            <prop key="hibernate.jdbc.use_streams_for_binary">${hibernate.db.jdbc.use_streams_for_binary}</prop>
+            <prop key="hibernate.max_fetch_depth">${hibernate.db.max_fetch_depth}</prop>
+            <prop key="hibernate.cache.region_prefix">${hibernate.db.cache.region_prefix}</prop>
+            <prop key="hibernate.cache.use_query_cache">${hibernate.db.cache.use_query_cache}</prop>
+            <prop key="hibernate.show_sql">${hibernate.db.show_sql}</prop>
+            <prop key="hibernate.cache.provider_class">${hibernate.db.cache.provider_class}</prop>
+            <prop key="hibernate.bytecode.use_reflection_optimizer">${hibernate.db.bytecode.use_reflection_optimizer}</prop>
+            <prop key="hibernate.c3p0.min_size">${hibernate.c3p0.min_size}</prop>
+            <prop key="hibernate.c3p0.max_size">${hibernate.c3p0.max_size}</prop>
+            <prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop>
+            <prop key="hibernate.c3p0.max_statements">${hibernate.c3p0.max_statements}</prop>
+            <!-- IMPORTANT:
+               Spring is being used to manage transactions. ***DO NOT*** configure
+               hibernate.transaction.factory_class or hibernate.transaction.manager_lookup_class.
+             -->
+         </props>
+      </property>
+   </bean>
+</beans>

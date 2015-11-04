@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+    <!-- A O P   D E F I N I T I O N S -->
+    <description>AOP related definitions</description>
+    
+    <aop:config>
+        <!-- Transaction -->
+        <aop:pointcut id="daoOperation"
+            expression="target(org.kuali.continuity.dao.jpa.BaseDAOImpl)"/>
+        <aop:pointcut id="adminServiceOperation"
+            expression="execution(* org.kuali.continuity.admin.service.*ServiceImpl.*(..))"/>
+        <aop:pointcut id="planServiceOperation"
+            expression="execution(* org.kuali.continuity.plan.service.*ServiceImpl.*(..))"/>
+        <aop:advisor pointcut-ref="daoOperation" advice-ref="defaultTxAdvice"/>
+        <aop:advisor pointcut-ref="adminServiceOperation" advice-ref="defaultTxAdvice"/>
+        <aop:advisor pointcut-ref="planServiceOperation" advice-ref="defaultTxAdvice"/>
+
+        <!-- Plan Authorization -->
+        <aop:aspect id="planAccessAspect" ref="planAccessService">
+            <aop:pointcut id="checkCreatePlanAccess" 
+                expression="execution(* org.kuali.continuity.plan.service.ContinuityPlanServiceImpl.create*(..)) and args(..,userAccessValue)"/>
+            <aop:pointcut id="checkUpdatePlanAccess" 
+                expression="execution(* org.kuali.continuity.plan.service.ContinuityPlanServiceImpl.update*(..)) and args(planId,..,userAccessValue)"/>
+            <aop:pointcut id="checkDeletePlanAccess" 
+                expression="execution(* org.kuali.continuity.plan.service.ContinuityPlanServiceImpl.delete*(..)) and args(planId,..,userAccessValue)"/>
+            <aop:before pointcut-ref="checkCreatePlanAccess" method="checkCreateAccess"/>
+            <aop:before pointcut-ref="checkUpdatePlanAccess" method="checkUpdateAccess"/>
+            <aop:before pointcut-ref="checkDeletePlanAccess" method="checkDeleteAccess"/>
+        </aop:aspect>
+        
+        <!-- System Log -->
+        <aop:aspect id="planSystemLogAspect" ref="planSystemLogService">
+            <aop:pointcut id="logCreatePlan" 
+                expression="execution(* org.kuali.continuity.plan.service.ContinuityPlanServiceImpl.createContinuityPlan(..)) and args(plan,..,logInfo)"/>
+            <aop:pointcut id="logDeletePlan" 
+                expression="execution(* org.kuali.continuity.plan.service.ContinuityPlanServiceImpl.deleteContinuityPlan(..)) and args(plan,..,logInfo)"/>
+            <aop:pointcut id="logUpdatePlan" 
+                expression="execution(* org.kuali.continuity.plan.service.ContinuityPlanServiceImpl.updateDepartmentApproval(..)) and args(planId,..,logInfo)"/>
+            <aop:pointcut id="logUpdatePlanStatus" 
+                expression="execution(* org.kuali.continuity.plan.service.ContinuityPlanServiceImpl.updateStatus(..)) and args(planId,..,logInfo)"/>
+            <aop:pointcut id="logReadPlan" 
+                expression="execution(* org.kuali.continuity.plan.service.ContinuityPlanServiceImpl.getContinuityPlan(..)) and args(planId,..,logInfo)"/>
+            <aop:after-returning pointcut-ref="logCreatePlan" method="logAddEvent"/>
+            <aop:after-returning pointcut-ref="logDeletePlan" method="logDeleteEvent"/>
+            <aop:after-returning pointcut-ref="logUpdatePlan" method="logUpdateEvent"/>
+            <aop:after-returning pointcut-ref="logUpdatePlanStatus" method="logUpdateStatusEvent"/>
+            <aop:after-returning pointcut-ref="logReadPlan" method="logLastModifiedEvent"/>
+            <aop:after-returning pointcut-ref="logReadPlan" method="logReadEvent"/>
+        </aop:aspect>
+        
+        <!-- Admin Email Disable -->
+        <aop:aspect id="adminTestModeAspect" ref="adminTestModeService">
+            <aop:pointcut id="setInAdminTestMode" 
+                expression="execution(* org.kuali.continuity.service.EmailSenderServiceImpl.sendEmailMessage*(..)) and args(..,userAccessValue)"/>
+            <aop:before pointcut-ref="setInAdminTestMode" method="setInTestMode"/>
+        </aop:aspect>
+        
+        
+    </aop:config>
+
+    <tx:advice id="defaultTxAdvice">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    
+</beans>

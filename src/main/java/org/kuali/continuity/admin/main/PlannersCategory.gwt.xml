@@ -1,0 +1,16 @@
+<module>
+	<inherits name="com.google.gwt.user.User"/>
+	<inherits name='com.google.gwt.user.theme.standard.Standard'/>
+	<stylesheet src="MainViewer.css"/>
+	<entry-point class="org.kuali.continuity.admin.main.client.PlannersCategory"/>
+   <!--  Ext  -->
+	<inherits name='com.gwtext.GwtExt' />
+	<stylesheet src="js/ext/resources/css/ext-all.css" />
+	
+	<script src="js/ext/adapter/ext/ext-base.js" />
+	<script src="js/ext/ext-all.js" />
+	<!--  UCReady  -->
+	<stylesheet src="css/ucreadystyles.css" />
+	<stylesheet src="css/ucreadyMainElements.css" />	
+	<stylesheet src="css/ucreadyAdminElements.css" />
+</module>

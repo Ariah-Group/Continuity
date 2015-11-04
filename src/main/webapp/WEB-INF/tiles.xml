@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <definition name="kcpt.basePage" template="/pages/common/MainLayout.jsp">
+        <put-attribute name="banner" value="/pages/common/Banner.jsp"/>
+        <put-attribute name="stylesAndScripts" value="/pages/common/StylesAndScripts.jsp"/>
+        <put-attribute name="rightSection" value="/pages/common/RightSection.jsp"/>
+        <put-attribute name="footer" value="/pages/common/Footer.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.basePageNoRightSection" template="/pages/common/MainLayout.jsp">
+        <put-attribute name="banner" value="/pages/common/Banner.jsp"/>
+        <put-attribute name="stylesAndScripts" value="/pages/common/StylesAndScripts.jsp"/>
+        <put-attribute name="rightSection" value="/pages/common/Filler.jsp"/>
+        <put-attribute name="footer" value="/pages/common/Footer.jsp"/>
+    </definition>
+
+    <definition name="kcpt.baseLoginPage" template="/pages/common/CenterLayout.jsp">
+        <put-attribute name="banner" value="/pages/common/Banner.jsp"/>
+        <put-attribute name="stylesAndScripts" value="/pages/common/StylesAndScripts.jsp"/>
+        <put-attribute name="footer" value="/pages/common/Footer.jsp"/>
+    </definition>
+
+    <definition name="kcpt.authenticate" extends="kcpt.baseLoginPage">
+        <put-attribute name="content" value="/pages/login/include/authenticate.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.error" extends="kcpt.baseLoginPage">
+        <put-attribute name="content" value="/pages/common/ErrorExceptionInclude.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.shibError" extends="kcpt.baseLoginPage">
+        <put-attribute name="content" value="/pages/login/include/shibError.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.createAccount" extends="kcpt.baseLoginPage">
+        <put-attribute name="content" value="/pages/login/include/createAccount.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.getLoginPassword" extends="kcpt.baseLoginPage">
+        <put-attribute name="content" value="/pages/login/include/getLoginPassword.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.loginContactUs" extends="kcpt.baseLoginPage">
+        <put-attribute name="content" value="/pages/plan/include/contactUs.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.contactUs" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/contactUs.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.annualReviews" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/annualReviews.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.toKnowItems" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/toKnowItems.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.faqs" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/faqs.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.references" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/references.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.sessionRole" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/sessionRole.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.myProfile" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/myProfile.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.approveNewUsers" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/approveNewUsers.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.begin" template="/pages/plan/include/begin.jsp">
+        <put-attribute name="stylesAndScripts" value="/pages/common/StylesAndScripts.jsp"/>
+        <put-attribute name="footer" value="/pages/common/Footer.jsp"/>
+    </definition>
+
+    <definition name="kcpt.welcome" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/welcome.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.getBasePlans" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/getBasePlans.jsp"/>
+    </definition>
+
+    <definition name="kcpt.getPlans" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/getPlans.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.editPlan" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/editPlan.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.printMenu" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/printMenu.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.getSystemDomainDocuments" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/getSystemDomainDocuments.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.getPlanUsers" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/getPlanUsers.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.getPlanReview" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/getPlanReview.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.planReviewComplete" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/planReviewComplete.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.planReviewAnnual" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/planReviewAnnual.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.basePlanPage" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/basePlanContent.jsp"/>
+        <put-attribute name="planNavigation" value="/pages/common/NavigationBar.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.planHome" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/include/planHome.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.baseCriticalFunctionPage" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/baseCriticalFunctionContent.jsp" cascade="true"/>
+        <put-attribute name="criticalFunctionNavigation" value="/pages/common/CriticalFunctionNavigationBar.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.baseInformationTechnologyPage" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/baseInformationTechnologyContent.jsp" cascade="true"/>
+        <put-attribute name="informationTechnologyNavigation" value="/pages/common/InformationTechnologyNavigationBar.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.baseInstructionPage" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/baseInstructionContent.jsp" cascade="true"/>
+        <put-attribute name="instructionNavigation" value="/pages/common/InstructionNavigationBar.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="kcpt.baseKeyResourcesPage" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/baseKeyResourcesContent.jsp" cascade="true"/>
+        <put-attribute name="keyResourcesNavigation" value="/pages/common/KeyResourcesNavigationBar.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getDepartmentInfo" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/include/getDepartmentInfo.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionExamples" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/plan/include/getCriticalFunctionExamples.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctions" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/include/getCriticalFunctions.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionActionItem" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionActionItem.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionActionItems" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionActionItems.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionConsequences" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionConsequences.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionCopingMethod" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionCopingMethod.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionDependencies" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionDependencies.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionDescription" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionDescription.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionDocument" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionDocument.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionDocuments" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionDocuments.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getCriticalFunctionPeakPeriods" extends="kcpt.baseCriticalFunctionPage">
+        <put-attribute name="criticalFunctionContent" value="/pages/plan/include/getCriticalFunctionPeakPeriods.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getFacultyPreparednessActionItem" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/include/getFacultyPreparednessActionItem.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getFacultyPreparednessActionItems" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/include/getFacultyPreparednessActionItems.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyCentralApplications" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyCentralApplications.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyDepartmentApplication" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyDepartmentApplication.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyDepartmentApplications" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyDepartmentApplications.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyServer" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyServer.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyServers" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyServers.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyWorkstations" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyWorkstations.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyRestart" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyRestart.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyActionItem" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyActionItem.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInformationTechnologyActionItems" extends="kcpt.baseInformationTechnologyPage">
+        <put-attribute name="informationTechnologyContent" value="/pages/plan/include/getInformationTechnologyActionItems.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesStaffMembers" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesStaffMembers.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesStaffMember" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesStaffMember.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesWorkFromHomeStaffs" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesWorkFromHomeStaffs.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesWorkFromHomeStaff" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesWorkFromHomeStaff.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesTeams" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesTeams.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesTeamMember" extends="kcpt.basePageNoRightSection">
+        <put-attribute name="content" value="/pages/plan/include/getKeyResourcesTeamMember.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesSkills" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesSkills.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesStaffReqs" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesStaffReqs.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesStaffReq" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesStaffReq.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesOtherUnitStaffs" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesOtherUnitStaffs.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesOtherUnitStaff" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesOtherUnitStaff.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesStakeholders" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesStakeholders.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesStakeholder" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesStakeholder.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesDocuments" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesDocuments.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesDocument" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesDocument.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesEquipmentReqs" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesEquipmentReqs.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getKeyResourcesFacilitiesReqs" extends="kcpt.baseKeyResourcesPage">
+        <put-attribute name="keyResourcesContent" value="/pages/plan/include/getKeyResourcesFacilitiesReqs.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getPlanActionItem" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/include/getPlanActionItem.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getPlanActionItems" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/include/getPlanActionItems.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInstructions" extends="kcpt.basePlanPage">
+        <put-attribute name="planContent" value="/pages/plan/include/getInstructions.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.getInstructionHighPriorityCourses" extends="kcpt.baseInstructionPage">
+        <put-attribute name="instructionContent" value="/pages/plan/include/getInstructionHighPriorityCourses.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="kcpt.getInstructionAllCourses" extends="kcpt.baseInstructionPage">
+        <put-attribute name="instructionContent" value="/pages/plan/include/getInstructionAllCourses.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="kcpt.getInstructionDepartmentalPractices" extends="kcpt.baseInstructionPage">
+        <put-attribute name="instructionContent" value="/pages/plan/include/getInstructionDepartmentalPractices.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="kcpt.getInstructionTeachingIssues" extends="kcpt.baseInstructionPage">
+        <put-attribute name="instructionContent" value="/pages/plan/include/getInstructionTeachingIssues.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="kcpt.getInstructionActionItems" extends="kcpt.baseInstructionPage">
+        <put-attribute name="instructionContent" value="/pages/plan/include/getInstructionActionItems.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="kcpt.getInstructionActionItem" extends="kcpt.baseInstructionPage">
+        <put-attribute name="instructionContent" value="/pages/plan/include/getInstructionActionItem.jsp" cascade="true"/>
+    </definition>
+    
+    <definition name="kcpt.adminInstructionScreens" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/admin/include/adminInstructionScreens.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.adminCriticalityLevels" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/admin/include/adminCriticalityLevels.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.adminSamplePlan" extends="kcpt.basePage">
+        <put-attribute name="content" value="/pages/admin/include/adminSamplePlan.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.getCritialFunctionGuidanceStepTwo" extends="kcpt.baseLoginPage">
+        <put-attribute name="content" value="/pages/plan/include/getCriticalFunctionGuidanceStepTwo.jsp"/>
+    </definition>
+    
+    <definition name="kcpt.logout" extends="kcpt.baseLoginPage">
+        <put-attribute name="content" value="/pages/login/include/logout.jsp"/>
+    </definition>
+    
+</tiles-definitions>

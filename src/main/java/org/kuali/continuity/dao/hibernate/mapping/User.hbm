@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.kuali.continuity.domain">
+   
+   <!--  ======================================================================================= -->
+   <class name="User" table="UserSecurity"  discriminator-value="-1"
+       optimistic-lock="version" lazy="true" mutable="true" dynamic-update="true">
+      <id name="userId" column="userID"  >
+          <generator class="identity" />
+      </id>
+	<property name="authId"/>
+	<property name="institutionId"/>
+	<property name="securityType"/>
+	<property name="firstName"/>
+	<property name="lastName"/>
+	<property name="workPhone"/>
+	<property name="homePhone"/>
+	<property name="cellPhone"/>
+	<property name="emailregular"/>
+	<property name="emailbackup"/>
+	<property name="workFax"/>
+	<property name="title"/>
+	<property name="departmentName"/>
+	<property name="departmentOrg"/>
+	<property name="departmentOrgHierarchy"/>
+	<property name="workAddress"/>
+	<property name="homeAddress"/>
+	<property name="accessStatus"/>
+	<property name="lockStatus"/>
+	<property name="directoryId"/>
+	</class>
+
+</hibernate-mapping>

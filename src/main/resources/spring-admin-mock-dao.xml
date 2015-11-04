@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- D A O   D E F I N I T I O N S -->
+	<description>Data Access Object (DAO) related definitions</description>
+
+    <!-- D A O s -->
+    <bean id="acronymDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.AcronymDAOImpl"/>
+    <bean id="annualReviewDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.AnnualReviewDAOImpl"/>
+    <bean id="buildingDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.BuildingDAOImpl"/>
+    <bean id="centralApplicationDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.CentralApplicationMockDAOImpl"/>
+    <bean id="contactInfoDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.ContactInfoDAOImpl"/>
+    <bean id="criticalFunctionExampleDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.CriticalFunctionExampleDAOImpl"/>
+    <bean id="departmentTypeDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.DepartmentTypeDAOImpl"/>
+    <bean id="dependencyDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.DependencyAdminDAOImpl"/>
+    <bean id="faqDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.FAQDAOImpl"/>
+    <bean id="majorDivisionDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.MajorDivisionDAOImpl"/>
+    <bean id="plannerLogCategoryDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.PlannerLogCategoryDAOImpl"/>
+    <bean id="referenceDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.ReferenceDAOImpl"/>
+    <bean id="shiftDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.ShiftDAOImpl"/>
+    <bean id="skillDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.SkillAdminDAOImpl"/>
+    <bean id="staffCategoryDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.StaffCategoryDAOImpl"/>
+    <bean id="systemDomainDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.SystemDomainDAOImpl"/>
+    <bean id="toKnowItemDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.ToKnowItemDAOImpl"/>
+    <bean id="userDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.UserDAOImpl"/>
+    <bean id="utilityDAO" autowire="byType"
+   	    class="org.kuali.continuity.admin.dao.jpa.UtilityDAOImpl"/>
+
+</beans>

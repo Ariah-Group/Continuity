@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <description>Service bean definitions</description>
+
+    <!-- S E R V I C E    O B S E R V E R S -->
+    <!--  Place All Services Here -->
+
+    <bean id="referenceDomainObjectService" autowire="byType"
+        class="org.kuali.continuity.service.ReferenceDomainObjectServiceImpl">
+        <property name="factory" ref="referenceDomainObjectDAOFactory" />
+    </bean>
+    <bean id="genericAdminService" autowire="byType"
+        class="org.kuali.continuity.admin.service.GenericAdminServiceImpl">
+        <property name="factory" ref="genericAdminDAOFactory" />
+    </bean>
+    <bean id="systemLogService" autowire="byType"
+        class="org.kuali.continuity.plan.service.SystemLogServiceImpl">
+        <property name="systemLogDAO" ref="systemLogDAO" />
+    </bean>
+    <bean id="userService" autowire="byType"
+        class="org.kuali.continuity.admin.service.UserServiceImpl">
+        <property name="genericAdminService" ref="genericAdminService" />
+        <property name="userDAO" ref="userDAO" />
+    </bean>
+    <bean id="systemSetupService" autowire="byType"
+        class="org.kuali.continuity.service.SystemSetupServiceImpl">
+        <property name="systemSetupDAO" ref="systemSetupDAO" />
+    </bean>
+    <bean id="systemDomainService" autowire="byType"
+        class="org.kuali.continuity.admin.service.SystemDomainServiceImpl">
+        <property name="genericAdminService" ref="genericAdminService" />
+        <property name="systemSetupService" ref="systemSetupService" />
+        <property name="systemDomainDAO" ref="systemDomainDAO" />
+    </bean>
+    <bean id="systemDomainUITextService" autowire="byType"
+        class="org.kuali.continuity.admin.service.SystemDomainUITextServiceImpl">
+        <property name="systemDomainUITextDAO" ref="systemDomainUITextDAO" />
+    </bean>
+    <bean id="systemDomainUIImageService" autowire="byType"
+        class="org.kuali.continuity.admin.service.SystemDomainUIImageServiceImpl">
+        <property name="systemDomainUIImageDAO" ref="systemDomainUIImageDAO" />
+    </bean>
+    <bean id="customImageUploadService" autowire="byType"
+        class="org.kuali.continuity.admin.service.CustomImageUploadServiceImpl">
+        <property name="customImageUploadDAO" ref="customImageUploadDAO" />
+    </bean>
+    <bean id="systemDomainCriticalityLevelService" autowire="byType"
+        class="org.kuali.continuity.admin.service.SystemDomainCriticalityLevelServiceImpl">
+        <property name="genericAdminDAOFactory" ref="genericAdminDAOFactory" />
+        <property name="systemCriticalityLevelDAOFactory" ref="systemCriticalityLevelDAOFactory" />
+    </bean>
+    <bean id="adminTestModeService" autowire="byType"
+        class="org.kuali.continuity.admin.service.AdminTestModeServiceImpl">
+        <property name="adminTestModeDAO" ref="adminTestModeDAO" />
+        <property name="campuswideEnabled" value="${mail.spring.mail.enabled}" />
+    </bean>
+    <bean id="userLoginService" autowire="byType"
+        class="org.kuali.continuity.admin.service.UserLoginServiceImpl">
+        <property name="userLoginDAO" ref="userLoginDAO" />
+        <property name="userService" ref="userService" />
+        <property name="emailSenderService" ref="emailSenderService" />
+        <property name="systemDomainService" ref="systemDomainService" />
+    </bean>
+    <bean id="roleService" autowire="byType"
+        class="org.kuali.continuity.service.RoleServiceImpl">
+        <property name="userDAO" ref="userDAO" />
+        <property name="systemDomainDAO" ref="systemDomainDAO" />
+    </bean>
+    <bean id="deptPlanService" autowire="byType"
+        class="org.kuali.continuity.admin.main.server.DeptPlanServiceImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="kcpService" autowire="byType"
+        class="org.kuali.continuity.admin.project.server.KcpServiceImpl">
+        <property name="roleService" ref="roleService" />
+        <property name="userLoginService" ref="userLoginService" /> 
+        <property name="systemDomainService" ref="systemDomainService" />      
+            
+    </bean> 
+    <bean id="itemService" autowire="byType"
+        class="org.kuali.continuity.admin.main.server.ItemServiceImpl">
+		<property name="continuityPlanAdminValidationService" ref="continuityPlanAdminValidationService" />
+    </bean>
+    <bean id="simpleService" autowire="byType"
+        class="org.kuali.continuity.admin.main.server.SimpleServiceImpl">
+            <property name="itemDaoFactory" ref="itemDaoFactory" />
+            <property name="systemDomainDAO" ref="systemDomainDAO" />
+            <property name="continuityPlanAdminValidationService" ref="continuityPlanAdminValidationService" />
+            <property name="userService" ref="userService"/>          
+    </bean>
+    <bean id="dependencyService" autowire="byType"
+        class="org.kuali.continuity.admin.main.server.DependencyServiceImpl">
+            <property name="itemDaoFactory" ref="itemDaoFactory" />
+            <property name="orderingService" ref="orderingService" />
+    </bean>
+    <bean id="faqService" autowire="byType"
+        class="org.kuali.continuity.admin.main.server.FaqItemServiceMockImpl">
+            <property name="itemDaoFactory" ref="itemDaoFactory" />
+            <property name="orderingService" ref="orderingService" />
+    </bean>
+
+    <bean id="orderingService" autowire="byType"
+        class="org.kuali.continuity.service.OrderingServiceListImpl">
+        <property name="itemDaoFactory" ref="itemDaoFactory" />
+
+    </bean>
+        <bean id="jasperReportService" autowire="byType"
+        class="org.kuali.continuity.service.JasperReportServiceImpl">
+        
+    </bean>
+    <bean id="reportService" autowire="byType"
+        class="org.kuali.continuity.service.ReportServiceJasperImpl">
+        <property name="jasperReportService" ref="jasperReportService" />
+        <property name="systemDomainService" ref="systemDomainService" />
+        <property name="systemDomainUIImageService" ref="systemDomainUIImageService" />      
+    </bean>
+    <bean id="adminReportRunService" autowire="byType"
+        class="org.kuali.continuity.admin.service.AdminReportRunServiceImpl">
+
+    </bean> 
+    <bean id="admReportService" autowire="byType"
+        class="org.kuali.continuity.admin.service.AdminReportServiceImpl">
+
+    </bean> 
+    
+
+</beans>

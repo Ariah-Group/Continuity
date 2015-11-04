@@ -1,0 +1,63 @@
+
+INPUT.UserFirstNameClass
+{ 
+	width:90px;
+}
+
+
+INPUT.UserLastNameClass
+{ 
+	width:110px;
+}
+
+
+
+
+INPUT.UserFirstNameSearchClass
+{ 
+	width:160px;
+}
+
+INPUT.UserLastNameSearchClass
+{ 
+	width:220px;
+}
+
+
+
+
+INPUT.UserEMailClass
+{ 
+	width:265px;
+}
+
+
+INPUT.UserEMailClass2
+{ 
+    width:220px;
+}
+
+INPUT.UserPhoneClass
+{ 
+	width:100px;
+}
+
+
+INPUT.UserAccessClass
+{ 
+	width:82px;
+}
+
+
+
+SELECT.UserAccessSelectClass
+{
+	width:82px;
+	margin-top:3px;
+}
+
+SELECT.UserGatekeeperSelectClass
+{
+    width:60px;
+    margin-top:3px;
+}

@@ -1,0 +1,56 @@
+#personnel {
+width: 350px;
+text-align:right;
+}
+
+#personnel ol {
+margin:  8px;
+}
+
+#personnel  ol li label {
+text-align:right;
+font-weight:normal;
+display:inline;
+}
+
+#dept_table {      
+ margin: 8px 0 8px 0;
+   padding: 2px;
+   border: thin solid #CCCCCC;
+   width:50%;    }
+
+#dept_table th {
+   background: #D7D7D7;
+   padding: 3px;
+   font-weight:bold;
+   text-align:left;       
+    }
+
+#dept_table td.link {
+   width: 12px;
+
+} 
+
+#building_table {	
+	margin: 8px 0 8px 0;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 4px;
+	padding-left: 2px;
+	border: thin solid #CCCCCC;
+	max-width: 720px;
+	
+}
+#building_table th {
+	background: #D7D7D7;
+	padding: 3px;
+	font-weight:bold;
+	text-align:left;
+			
+}
+
+#building_table th.bname {
+width: 220px;
+padding: 0 2px 0 2px;
+}
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<description>Test (non-pooled) DataSource definition</description>
+   
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${hibernate.db.connection.driver_class}"/>
+		<property name="url" value="${hibernate.db.connection.url}"/>
+		<property name="username" value="${hibernate.db.connection.username}"/>
+		<property name="password" value="${hibernate.db.connection.password}"/>
+	</bean>
+   
+</beans>
+

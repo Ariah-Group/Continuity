@@ -1,0 +1,29 @@
+/* 
+--------------------------
+layout for site banner only
+--------------------------
+ */
+ 
+h1.banner {
+		background: #fff url(../images/web-UCReady-banner.png);
+		background-repeat:no-repeat;
+		background-position:top left; 
+		border-bottom: 2px solid #0038A9;
+		height: 79px;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		text-indent: -9999em;
+		width: 100%;
+	}
+
+	h1.banner  a {
+		background:transparent url(../images/web-UCReady-banner-text.png);
+		background-repeat:no-repeat;
+		background-position:top right; 
+		display: block;
+		font-style: normal;
+		font-weight: normal;
+		height: 100%;
+		width: 100%;
+	}

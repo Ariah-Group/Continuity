@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Front2" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="20" bottomMargin="20" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(434)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select ROW_NUMBER() OVER(ORDER BY it_application_id) as row_num,  it_application_id ,name ,functional_owner ,technical_owner ,application_type ,backup_frequency ,location_disks_docs ,responsible_person ,tech ,depts_impacted ,campus_systems ,data_from_core ,transaction_processing ,backup_media ,auto_manual ,location_onsite ,location_offsite ,frequency_offsite ,successful_recovery ,successful_recovery_explain from it_applications where pid=$P{PID}  AND disabled <> 'Y']]>
+	</queryString>
+	<field name="application_type" class="java.lang.String"/>
+	<field name="auto_manual" class="java.lang.String"/>
+	<field name="backup_frequency" class="java.lang.String"/>
+	<field name="backup_media" class="java.lang.String"/>
+	<field name="campus_systems" class="java.lang.String"/>
+	<field name="data_from_core" class="java.lang.String"/>
+	<field name="depts_impacted" class="java.lang.String"/>
+	<field name="frequency_offsite" class="java.lang.String"/>
+	<field name="functional_owner" class="java.lang.String"/>
+	<field name="it_application_id" class="java.lang.Integer"/>
+	<field name="location_disks_docs" class="java.lang.String"/>
+	<field name="location_offsite" class="java.lang.String"/>
+	<field name="location_onsite" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="responsible_person" class="java.lang.String"/>
+	<field name="successful_recovery" class="java.lang.String"/>
+	<field name="successful_recovery_explain" class="java.lang.String"/>
+	<field name="tech" class="java.lang.String"/>
+	<field name="technical_owner" class="java.lang.String"/>
+	<field name="transaction_processing" class="java.lang.String"/>
+	<field name="row_num" class="java.lang.Integer"/>
+	<pageHeader>
+		<band height="23">
+			<textField>
+				<reportElement x="2" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="548" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="150">
+			<staticText>
+				<reportElement x="1" y="53" width="551" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[III. INFORMATION TECHNOLOGY (cont.) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="90" width="333" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Part 2: Departmentally-Owned Applications that are Critical for our Unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="12" width="133" height="37"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the  Step 3 tab of the on-line tool.  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="114" width="97" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" isUnderline="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Definitions:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="127" width="517" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[Departmentally-owned applications are those whose technical owner is our department or another department (but not central IT). 
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="410" y="10" width="128" height="25"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="202" y="39" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="24" width="548" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="185" y="29" width="180" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

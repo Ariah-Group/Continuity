@@ -1,0 +1,32 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+
+    <field name="dto.firstName">
+        <field-validator type="requiredstring">
+            <message>First name must be entered</message>
+        </field-validator>
+    </field>
+    
+    <field name="dto.lastName">
+        <field-validator type="requiredstring">
+            <message>Last name must be entered</message>
+        </field-validator>
+    </field>
+    
+    <field name="dto.emailRegular">
+        <field-validator type="requiredstring">
+            <message>Email must be entered</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Email is invalid</message>
+        </field-validator>
+    </field>
+    
+    <field name="dto.authId">
+        <field-validator type="requiredstring">
+            <message>Login name must be entered</message>
+        </field-validator>
+    </field>
+    
+</validators>

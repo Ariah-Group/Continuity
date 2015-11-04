@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    <description>System Domain Objects</description>
+    <package>org.kuali.continuity.domain</package>
+
+    <entity class="org.kuali.continuity.domain.BaseRefDomainObject" name="BaseRefDomainObject">
+        <table name="DescriptionLookup"/>
+        <inheritance strategy="SINGLE_TABLE"/>
+        <discriminator-column name="LookupName" length="50"/>
+        <attributes>
+            <id name="id">
+                <column name="LookupValue"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="description">
+                <column name="LookupDescription"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="org.kuali.continuity.domain.AccessStatus" name="AccessStatus">
+        <discriminator-value>AccessStatus</discriminator-value>
+        <named-query name="AccessStatus.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM AccessStatus dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.BuildingOwnership" name="BuildingOwnership">
+        <discriminator-value>BuildingOwnership</discriminator-value>
+        <named-query name="BuildingOwnership.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM BuildingOwnership dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.CriticalityLevel" name="CriticalityLevel">
+        <discriminator-value>CriticalityLevel</discriminator-value>
+        <named-query name="CriticalityLevel.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM CriticalityLevel dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.DependencyType" name="DependencyType">
+        <discriminator-value>DependencyType</discriminator-value>
+        <named-query name="DependencyType.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM DependencyType dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.DocumentType" name="DocumentType">
+        <discriminator-value>DocumentMedium</discriminator-value>
+        <named-query name="DocumentType.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM DocumentType dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.EvacuationPlan" name="EvacuationPlan">
+        <discriminator-value>EvacuationPlan</discriminator-value>
+        <named-query name="EvacuationPlan.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM EvacuationPlan dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.PlanAccessType" name="PlanAccessType">
+        <discriminator-value>UserPlanAccess</discriminator-value>
+        <named-query name="PlanAccessType.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM PlanAccessType dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.PlanStatus" name="PlanStatus">
+        <discriminator-value>PlanStatus</discriminator-value>
+        <named-query name="PlanStatus.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM PlanStatus dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.SecurityType" name="SecurityType">
+        <discriminator-value>SysAdminRoleSet</discriminator-value>
+        <named-query name="SecurityType.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM SecurityType dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.StaffPosition" name="StaffPosition">
+        <discriminator-value>StaffPosition</discriminator-value>
+        <named-query name="StaffPosition.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM StaffPosition dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.StakeholderType" name="StakeholderType">
+        <discriminator-value>StakeholderType</discriminator-value>
+        <named-query name="StakeholderType.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM StakeholderType dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.SystemDomainAccess" name="SystemDomainAccess">
+        <discriminator-value>SysAdminInstitutionAccess</discriminator-value>
+        <named-query name="SystemDomainAccess.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM SystemDomainAccess dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+    <entity class="org.kuali.continuity.domain.SystemDomainType" name="SystemDomainType">
+        <discriminator-value>SysAdminInstitutionType</discriminator-value>
+        <named-query name="SystemDomainType.list">
+            <query>
+                <![CDATA[
+                    SELECT dObj FROM SystemDomainType dObj ORDER BY dObj.id
+                ]]>
+            </query>
+        </named-query>
+    </entity>
+    
+</entity-mappings>

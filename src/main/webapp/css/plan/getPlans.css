@@ -1,0 +1,56 @@
+div.PltContainer {
+	width: 720px;		/* table width will be 99% of this*/
+	height: 550px; 	/* must be greater than tbody*/
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+div.PltContainer thead td, thead th {
+	text-align: left;
+	background-color: #D7D7D7;
+	font-weight: medium;
+	height: 26px;
+	border: none;
+	padding: 3px;
+}
+
+div.PltContainer tbody tr td {
+	vertical-align: middle ;
+	margin-top: 4px;
+}
+
+div.PltContainer td.CenterIt {
+	vertical-align: middle ;
+	margin-top: 4px;
+	text-align: center;
+}
+
+div.PltContainer td.RightIt {
+	vertical-align: middle ;
+	margin-top: 4px;
+	text-align: right;
+}
+
+DIV.MyHeaderDivClass
+{
+	width: 680px;
+	padding: 3px;
+}
+
+div.MyHeaderDivClass tbody tr td {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	vertical-align: middle;
+	margin-top: 4px;
+	text-align: left;
+}
+
+div.MyHeaderDivClass td.CenterIt {
+	margin-top: 4px;
+	text-align: center;
+}
+
+div.MyHeaderDivClass th.CenterIt {
+	margin-top: 4px;
+	text-align: center;
+}

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+
+    <description>Continuity Plan Domain Objects</description>
+    <package>org.kuali.continuity.plan.domain</package>
+
+    <entity class="org.kuali.continuity.plan.domain.ContinuityPlan" name="ContinuityPlan">
+        <table name="plans"/>
+        <named-query name="ContinuityPlan.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM ContinuityPlan dObj WHERE dObj.systemDomain.id = :systemDomainId
+                ]]>
+            </query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <column name="pid"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="plan_name"/>
+            </basic>
+            <many-to-one name="systemDomain" fetch="LAZY">
+                <join-column name="InstitutionId" nullable="false"/>
+            </many-to-one>
+            <many-to-one name="majorDivision" fetch="LAZY">
+                <join-column name="MajorDivisionId"/>
+            </many-to-one>
+            <many-to-one name="acronym" fetch="LAZY">
+                <join-column name="AcronymID"/>
+            </many-to-one>
+            <many-to-one name="status" fetch="LAZY">
+                <join-column name="status"/>
+            </many-to-one>
+            <embedded name="departmentHead"/>
+            <embedded name="approval"/>
+            <embedded name="departmentInfo"/>
+            <transient name="contacts"/>
+            <transient name="criticalFunctions"/>
+            <transient name="informationTechnology"/>
+            <transient name="facultyPreparedness"/>
+            <transient name="keyResources"/>
+            <transient name="actionItems"/>
+            <transient name="userAccessMap"/>
+        </attributes>
+    </entity>
+    
+     <entity class="org.kuali.continuity.plan.domain.CriticalFunction" name="CriticalFunction">
+        <table name="critical_functions"/>
+        <named-query name="CriticalFunction.list">
+            <query>
+                <![CDATA[
+                     SELECT dObj FROM CriticalFunction dObj WHERE dObj.plan.id = :planId
+                ]]>
+            </query>
+        </named-query> 
+        <attributes>
+            <id name="id">
+                <column name="cid"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="priority">
+                <column name="priority"/>
+            </basic>
+            <basic name="description">
+                <column name="description"/>
+            </basic>
+            <basic name="performingUnits">
+                <column name="unit_performs"/>
+            </basic>
+            <basic name="responsiblePersons">
+                <column name="responsible_person"/>
+            </basic>
+            <basic name="peaksExplanation">
+                <column name="explanation"/>
+            </basic>
+            <many-to-one name="plan" fetch="LAZY">
+                <join-column name="pid" nullable="false"/>
+            </many-to-one>
+            <many-to-one name="criticalityLevel" fetch="LAZY">
+                <join-column name="CriticalityLevel"/>
+            </many-to-one>
+            <one-to-many name="dependencies" fetch="LAZY">
+                <join-table name="cf_dependency">
+                    <join-column name="DependencyID"/>
+                </join-table>
+            </one-to-many>
+            <transient name="peakMonths"/>
+            <transient name="documents"/>
+            <transient name="consequences"/>
+            <transient name="actionItems"/>
+        </attributes>
+    </entity>
+    
+    <embeddable class="org.kuali.continuity.plan.domain.DepartmentHead">
+        <attributes>
+            <basic name="name">
+                <column name="HeadOfUnitName"/>
+            </basic>
+            <basic name="title">
+                <column name="HeadOfUnitTitle"/>
+            </basic>
+        </attributes>
+    
+    </embeddable>
+    
+    <embeddable class="org.kuali.continuity.plan.domain.DepartmentApproval">
+        <attributes>
+            <basic name="approved">
+                <column name="approval_flag"/>
+            </basic>
+            <basic name="name">
+                <column name="approved_by"/>
+            </basic>
+            <basic name="date">
+                <column name="approved_date"/>
+                <temporal>DATE</temporal>
+            </basic>
+            <transient name="type"/>
+        </attributes>
+    </embeddable>
+
+    <embeddable class="org.kuali.continuity.plan.domain.DepartmentInfo">
+        <attributes>
+            <basic name="employingFaculty">
+                <column name="employ_faculty"/>
+            </basic>
+            <basic name="costCenter">
+                <column name="cost_center"/>
+            </basic>
+            <basic name="comment">
+                <column name="comment"/>
+            </basic>
+            <basic name="academicStaffCount">
+                <column name="acad_staff"/>
+            </basic>
+            <basic name="residentsAndFellowsCount">
+                <column name="res_fellows"/>
+            </basic>
+            <basic name="fulltimeStaffCount">
+                <column name="fulltime_staff"/>
+            </basic>
+            <basic name="parttimeStaffCount">
+                <column name="parttime_staff"/>
+            </basic>
+            <basic name="studentStaffCount">
+                <column name="student_staff"/>
+            </basic>
+            <basic name="volunteersCount">
+                <column name="volunteers"/>
+            </basic>
+            <basic name="guestsCount">
+                <column name="guests"/>
+            </basic>
+            <basic name="otherStaffCount">
+                <column name="other_staff"/>
+            </basic>
+            <transient name="departmentTypes"/>
+            <transient name="buildings"/>
+            <transient name="evacuationPlan"/>
+       </attributes>
+    </embeddable>
+
+    <embeddable class="org.kuali.continuity.plan.domain.CopingMethod">
+        <attributes>
+            <basic name="space">
+                <column name="how_space"/>
+            </basic>
+            <basic name="equipment">
+                <column name="how_equipment"/>
+            </basic>
+            <basic name="staff">
+                <column name="how_staff"/>
+            </basic>
+            <basic name="uniqueSkills">
+                <column name="how_unique_skills"/>
+            </basic>
+            <basic name="workAtHome">
+                <column name="how_work_at_home"/>
+            </basic>
+            <basic name="networkAccess">
+                <column name="how_network_access"/>
+            </basic>
+            <basic name="showStoppers">
+                <column name="how_show_stoppers"/>
+            </basic>
+            <basic name="risk">
+                <column name="how_risk"/>
+            </basic>
+            <basic name="policyExceptions">
+                <column name="how_policy_exceptions"/>
+            </basic>
+            <basic name="timing">
+                <column name="how_timing"/>
+            </basic>
+            <basic name="vulnerabilities">
+                <column name="how_additional_vulnerabilities"/>
+            </basic>
+            <basic name="comment">
+                <column name="comment"/>
+            </basic>
+            <basic name="campusClosure">
+                <column name="how_campus_closure"/>
+            </basic>
+        </attributes>
+    
+    </embeddable>
+
+</entity-mappings>

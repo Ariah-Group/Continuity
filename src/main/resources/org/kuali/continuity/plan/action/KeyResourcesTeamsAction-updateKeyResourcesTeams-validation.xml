@@ -1,0 +1,124 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="teams[0].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 1 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[1].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 2 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[2].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 3 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[3].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 4 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[4].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 5 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[5].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 6 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[6].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 7 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[7].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 8 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[8].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 9 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[9].purpose">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 10 purpose may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[0].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 1 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[1].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 2 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[2].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 3 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[3].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 4 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[4].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 5 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[5].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 6 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[6].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 7 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[7].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 8 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[8].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 9 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+    <field name="teams[9].comment">
+        <field-validator type="stringlength">
+            <param name="maxLength">500</param>
+            <message>Team 10 comment may not exceed 500 characters.</message>
+        </field-validator>
+    </field>
+</validators>

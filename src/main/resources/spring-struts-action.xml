@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+    <!-- S T R U T S   A C T I O N S   D E F I N I T I O N S -->
+    <description>Struts Actions related definitions</description>
+
+    <!-- S T R U T S   A C T I O N S -->
+      
+    <bean id="getAccountsAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.GetAccountsAction">
+        <constructor-arg ref="roleService" />
+    </bean>
+    <bean id="getAccountsReferenceDataAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.GetAccountsReferenceDataAction">
+        <constructor-arg ref="roleService" />
+    </bean>
+
+    <!--- L o g i n -->
+    
+    <bean id="readyAction" scope="prototype"
+        class="org.kuali.continuity.action.ReadyAction">
+        <constructor-arg ref="systemDomainService" />
+        <constructor-arg ref="inCommonMetadataService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+    </bean>
+    
+    <bean id="logoutAction" scope="prototype"
+        class="org.kuali.continuity.action.LogoutAction">
+        <constructor-arg ref="systemDomainService" />
+         <property name="systemDomainService" ref="systemDomainService" />
+         <property name="inCommonMetadataService" ref="inCommonMetadataService" />  
+    </bean>  
+    
+    <bean id="loginAction" scope="prototype"
+        class="org.kuali.continuity.action.LoginAction">
+        <constructor-arg ref="userService" />
+        <constructor-arg ref="systemDomainService" />
+        <constructor-arg ref="systemDomainUITextService" />
+        <constructor-arg ref="adminTestModeService" />
+        <constructor-arg ref="sessionUserRoleUtil" />
+    </bean> 
+    <bean id="userLoginAction" scope="prototype"
+        class="org.kuali.continuity.action.UserLoginAction">
+        <constructor-arg ref="userLoginService" />
+    </bean> 
+    <bean id="createAccount" scope="prototype"
+        class="org.kuali.continuity.admin.action.CreateAccountAction">
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="userService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.action.dto.UserDTO"/>
+        </property>
+    </bean>  
+    <bean id="requestLoginPassword" scope="prototype"
+        class="org.kuali.continuity.admin.action.RequestLoginPasswordAction">
+        <constructor-arg ref="userService" />
+        <constructor-arg ref="userLoginService" />
+    </bean>  
+
+    <!-- H o m e -->
+    
+    <bean id="contactUsAction" scope="prototype"
+        class="org.kuali.continuity.action.BaseHomeFormAction">
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.ContactInfo</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="toKnowItemsAction" scope="prototype"
+        class="org.kuali.continuity.action.BaseHomeFormAction">
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.ToKnowItem</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="annualReviewsAction" scope="prototype"
+        class="org.kuali.continuity.action.BaseHomeFormAction">
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.AnnualReview</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="faqsAction" scope="prototype"
+        class="org.kuali.continuity.action.BaseHomeFormAction">
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.FAQ</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="referencesAction" scope="prototype"
+        class="org.kuali.continuity.action.BaseHomeFormAction">
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.Reference</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <!-- P l a n -->
+       
+    <bean id="beginAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.BeginAction">
+    </bean>   
+    <bean id="welcomeAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.WelcomeAction">
+    </bean>   
+    <bean id="sessionRoleAction" scope="prototype"
+            class="org.kuali.continuity.plan.action.SessionRoleAction">
+        <constructor-arg ref="sessionUserRoleUtil" />
+        <constructor-arg ref="systemDomainService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.SecurityType</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="userProfileAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.UserProfileAction">
+    </bean>   
+    <bean id="saveUserProfileAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.SaveUserProfileAction">
+        <constructor-arg ref="userService" />
+    </bean>   
+    <bean id="saveUserPasswordAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.SaveUserPasswordAction">
+        <constructor-arg ref="userLoginService" />
+    </bean>
+    <bean id="getBasePlansAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetBasePlansAction">
+        <constructor-arg ref="continuityPlanService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+    </bean>   
+    <bean id="getPlansAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetPlansAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>   
+    <bean id="getPlanUsersAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetPlanUsersAction">
+        <constructor-arg ref="continuityPlanService" />
+        <constructor-arg ref="planActionServiceHelper" />
+     </bean>   
+    <bean id="savePlanUsersAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.SavePlanUsersAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>   
+    <bean id="deletePlanAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.DeletePlanAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>   
+    <bean id="planAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.PlanAction">
+        <constructor-arg ref="continuityPlanService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.PlanDTO"/>
+        </property>
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.Acronym</value>
+                        <value>org.kuali.continuity.admin.domain.MajorDivision</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>   
+    <bean id="planDepartmentAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.PlanDepartmentAction">
+        <constructor-arg ref="continuityPlanService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.PlanDTO"/>
+        </property>
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.Acronym</value>
+                        <value>org.kuali.continuity.admin.domain.MajorDivision</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>   
+    <bean id="getPlanAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetPlanAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>   
+    <bean id="getPlanContactsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetPlanContactsAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>   
+    <bean id="getSystemDomainUsersAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetSystemDomainUsersAction">
+        <constructor-arg ref="genericAdminService" />
+        <constructor-arg ref="userService" />
+        <constructor-arg ref="planActionServiceHelper" />
+    </bean>   
+    <bean id="getPlanReviewAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetPlanReviewAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>   
+    <bean id="savePlanReviewAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.SavePlanReviewAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>
+    <bean id="savePlanStatusAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.SavePlanStatusAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>
+    <bean id="getAdminPlansAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetAdminPlansAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>
+    <bean id="getAdminCriticalFunctionsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetAdminCriticalFunctionsAction">
+        <constructor-arg ref="criticalFunctionService" />
+    </bean>
+    <bean id="approveNewUsers" scope="prototype"
+        class="org.kuali.continuity.plan.action.ApproveNewUsersAction">
+        <constructor-arg ref="userService" />
+        <constructor-arg ref="userLoginService" />
+        <constructor-arg ref="do2dtoConverter" />
+    </bean>
+    
+    <bean id="completedPlanReview" scope="prototype"
+            class="org.kuali.continuity.plan.action.PlanReviewAction">
+        <constructor-arg ref="planReviewServiceFactory" />     
+        <constructor-arg value="org.kuali.continuity.plan.domain.CompletedPlanReview"/>     
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.PlanReviewDTO"/>
+        </property>
+    </bean>
+    <bean id="annualPlanReview" scope="prototype"
+            class="org.kuali.continuity.plan.action.PlanReviewAction">
+        <constructor-arg ref="planReviewServiceFactory" />     
+        <constructor-arg value="org.kuali.continuity.plan.domain.AnnualPlanReview"/>     
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.PlanReviewDTO"/>
+        </property>
+    </bean>
+ 
+    <!--  A d m i n   R e p o r t s  -->
+        
+    <bean id="showParameterAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.ShowParameterAction">
+        <constructor-arg ref="admReportService" />     
+    </bean> 
+    <bean id="runAdminReportAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.RunAdminReportAction">
+        <constructor-arg ref="admReportService" />     
+    </bean> 
+    
+    <!--  D e p a r t m e n t   I n f o  -->
+    <bean id="getDepartmentInfoAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.GetDepartmentInfoAction">
+        <constructor-arg ref="continuityPlanService" />
+        <constructor-arg ref="planActionServiceHelper" />
+    </bean>
+    <bean id="saveDepartmentInfoAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.SaveDepartmentInfoAction">
+        <constructor-arg ref="continuityPlanService" />
+    </bean>
+    
+    <!--  C r i t i c a l   F u n c t i o n  -->
+    
+    <bean id="criticalFunctionsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.CriticalFunctionsAction">
+        <constructor-arg ref="criticalFunctionService" />
+        <constructor-arg ref="instructionService" />
+        <constructor-arg ref="systemDomainCriticalityLevelService" />
+    </bean>
+    <bean id="criticalFunctionAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.CriticalFunctionAction">
+        <constructor-arg ref="criticalFunctionService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+    </bean>
+    <bean id="criticalFunctionDependenciesAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.CriticalFunctionDependenciesAction">
+        <constructor-arg ref="criticalFunctionService" />
+        <constructor-arg ref="genericAdminService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+    </bean>
+    <bean id="criticalFunctionExamplesAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.CriticalFunctionExamplesAction">
+        <constructor-arg ref="continuityPlanService" />
+        <constructor-arg ref="criticalFunctionService" />
+        <constructor-arg ref="genericAdminService" />
+        <constructor-arg ref="systemDomainCriticalityLevelService" />
+    </bean>
+    
+    <!--  I n f o r m a t i o n   T e c h n o l o g y  -->
+    
+    <bean id="informationTechnologyCentralApplicationsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InformationTechnologyCentralApplicationsAction">
+        <constructor-arg ref="systemDomainCriticalityLevelService" />
+        <property name="itNav" value="APPS_CENTRAL"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="criticalCentralApplicationService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.CriticalCentralApplicationDTO"/>
+        </property>
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.CentralApplication</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="informationTechnologyDepartmentApplicationsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InformationTechnologyDepartmentApplicationsAction">
+        <constructor-arg ref="criticalFunctionService" />
+        <property name="itNav" value="APPS_DEPARTMENT"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="departmentOwnedApplicationService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.DepartmentOwnedApplicationDTO"/>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.plan.domain.BackupFrequency</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="informationTechnologyServersAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InformationTechnologyServersAction">
+        <property name="itNav" value="SERVERS"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="serverService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.ServerDTO"/>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.plan.domain.BackupFrequency</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="informationTechnologyWorkstationsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InformationTechnologyWorkstationsAction">
+        <constructor-arg ref="informationTechnologyService" />
+        <property name="itNav" value="WORKSTATIONS"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+    </bean>
+    <bean id="informationTechnologyRestartAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InformationTechnologyRestartAction">
+        <constructor-arg ref="informationTechnologyService" />
+        <property name="itNav" value="RESTART"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+    </bean>
+    
+    <!--  K e y   R e s o u r c e s  -->
+    
+    <bean id="keyResourcesStaffAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.KeyResourcesStaffAction">
+        <constructor-arg ref="keyResourcesService" />
+        <property name="krNav" value="STAFF_BASICS"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="keyStaffMemberService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.KeyStaffMemberDTO"/>
+        </property>
+    </bean>
+    <bean id="keyResourcesWorkFromHomeStaffAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.KeyResourcesWorkFromHomeStaffAction">
+        <constructor-arg ref="keyResourcesService" />
+        <property name="krNav" value="WORK_FROM_HOME"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="workFromHomeStaffMemberService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.WorkFromHomeStaffMemberDTO"/>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.StaffPosition</value>
+                        <value>org.kuali.continuity.domain.BroadbandConnection</value>
+                        <value>org.kuali.continuity.domain.ConnectFromHome</value>
+                        <value>org.kuali.continuity.domain.ComputerRunning</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="keyResourcesTeamsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.KeyResourcesTeamsAction">
+        <constructor-arg ref="teamService"/>
+        <property name="krNav" value="TEAMS"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="teamMemberService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.TeamMemberDTO"/>
+        </property>
+    </bean>
+    <bean id="keyResourcesSkillsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.KeyResourcesSkillsAction">
+        <constructor-arg ref="keyResourcesService" />
+        <constructor-arg ref="criticalFunctionService" />
+        <property name="krNav" value="SKILLS"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.SkillDTO"/>
+        </property>
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.Skill</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="keyResourcesStaffReqsAction" scope="prototype"
+            class="org.kuali.continuity.plan.action.KeyResourcesStaffReqsAction">
+        <constructor-arg ref="criticalFunctionService" />
+        <constructor-arg ref="systemDomainCriticalityLevelService" />
+        <property name="krNav" value="STAFF_REQ"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="staffingRequirementService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.StaffingRequirementDTO"/>
+        </property>
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.Shift</value>
+                        <value>org.kuali.continuity.admin.domain.StaffCategory</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="keyResourcesOtherUnitStaffAction" scope="prototype"
+            class="org.kuali.continuity.plan.action.KeyResourcesAction">
+        <property name="krNav" value="STAFF_OTHER"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="otherUnitStaffMemberService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="validateAction"><bean class="org.kuali.continuity.plan.action.KeyResourcesOtherUnitStaffMemberValidateAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.OtherUnitStaffMemberDTO"/>
+        </property>
+    </bean>
+    <bean id="keyResourcesStakeholderAction" scope="prototype"
+            class="org.kuali.continuity.plan.action.KeyResourcesAction">
+        <property name="krNav" value="STAKEHOLDERS"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="stakeholderService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="validateAction"><bean class="org.kuali.continuity.plan.action.KeyResourcesStakeholderValidateAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.StakeholderDTO"/>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.StakeholderType</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="keyResourcesEquipmentReqsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.KeyResourcesEquipmentReqsAction">
+        <constructor-arg ref="keyResourcesService" />
+        <property name="krNav" value="EQUIPMENT"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+    </bean>
+    <bean id="keyResourcesFacilitiesReqsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.KeyResourcesFacilitiesReqsAction">
+        <constructor-arg ref="keyResourcesService" />
+        <property name="krNav" value="FACILITIES"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.Utility</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <!--  I n s t r u c t i o n  -->
+    
+    <bean id="instructionAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InstructionDepartmentAction">
+        <constructor-arg ref="criticalFunctionService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="instructionService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.InstructionDTO"/>
+        </property>
+        <property name="adminListHelper">
+            <bean class="org.kuali.continuity.action.util.AdminListHelper">
+                <property name="genericAdminService" ref="genericAdminService"/>
+                <property name="do2dtoConverter" ref="do2dtoConverter"/>
+                <property name="adminClasses">
+                    <list>
+                        <value>org.kuali.continuity.admin.domain.InstructionalDepartment</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="instructionHighPriorityCoursesAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InstructionHighPriorityCoursesAction">
+        <constructor-arg ref="instructionService" />
+        <property name="inNav" value="HIGH_PRIORITY_COURSES"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="highPriorityCourseService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.HighPriorityCourseDTO"/>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.CourseCast</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>    
+    <bean id="instructionAllCoursesAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InstructionAction">
+        <property name="inNav" value="ALL_COURSES"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="instructionService"/>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.InstructionDTO"/>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.InstructionSelect1</value>
+                        <value>org.kuali.continuity.domain.InstructionSelect2</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>    
+    <bean id="instructionDepartmentalPracticesAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InstructionAction">
+        <property name="inNav" value="DEPARTMENTAL_PRACTICES"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="instructionService"/>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.InstructionDTO"/>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.InstructionSelect3</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>    
+    <bean id="instructionTeachingIssuesAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InstructionTeachingIssuesAction">
+        <constructor-arg ref="instructionService" />
+        <property name="inNav" value="SPECIAL_TEACHING_ISSUES"/>
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="service" ref="teachingIssueService"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.TeachingIssueDTO"/>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.SpecialTeachingIssue</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>    
+    
+    <!--  D o c u m e n t  -->
+    
+    <bean id="documentFileAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.DocumentFileAction">
+        <constructor-arg ref="binaryDocumentServiceFactory" />
+    </bean>
+    <bean id="systemDomainDocumentsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.SystemDomainDocumentsAction">
+        <constructor-arg ref="documentServiceFactory" />
+        <constructor-arg ref="documentSearchService" />
+    </bean>   
+    <bean id="planDocumentsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.PlanDocumentsAction">
+        <constructor-arg ref="documentServiceFactory" />
+        <constructor-arg ref="documentSearchService" />
+    </bean>   
+    <bean id="printAction" scope="prototype"
+            class="org.kuali.continuity.plan.action.PrintAction">
+            <constructor-arg ref="reportService" />
+    </bean>  
+    <bean id="criticalFunctionDocumentsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.CriticalFunctionDocumentsAction">
+        <constructor-arg ref="criticalFunctionService" />
+        <constructor-arg ref="documentServiceFactory" />
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.DocumentType</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="keyResourcesDocumentsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.KeyResourcesDocumentsAction">
+        <constructor-arg ref="documentServiceFactory" />
+        <constructor-arg ref="documentSearchService" />
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.domain.DocumentType</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>   
+    
+    
+    <!--  A c t i o n   I t e m  -->
+    
+    <bean id="criticalFunctionActionItemsAction" scope="prototype"
+            class="org.kuali.continuity.plan.action.CriticalFunctionActionItemsAction">
+        <constructor-arg ref="actionItemServiceFactory" />
+        <constructor-arg ref="criticalFunctionService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.ActionItemDTO">
+                <property name="type" value="C"/>
+            </bean>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCost</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCostCycle</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemScope</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemStatus</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="informationTechnologyActionItemsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.InformationTechnologyActionItemsAction">
+        <constructor-arg ref="actionItemServiceFactory" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.ActionItemDTO">
+                <property name="type" value="I"/>
+            </bean>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCost</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCostCycle</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemScope</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemStatus</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="facultyPreparednessActionItemsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.FacultyPreparednessActionItemsAction">
+        <constructor-arg ref="actionItemServiceFactory" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.ActionItemDTO">
+                <property name="type" value="F"/>
+            </bean>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCost</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCostCycle</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemScope</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemStatus</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="planActionItemsAction" scope="prototype"
+        class="org.kuali.continuity.plan.action.PlanActionItemsAction">
+        <constructor-arg ref="actionItemServiceFactory" />
+        <constructor-arg ref="criticalFunctionService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.ActionItemDTO">
+                <property name="type" value="P"/>
+            </bean>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCost</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCostCycle</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemScope</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemStatus</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="instructionActionItemsAction" scope="prototype"
+            class="org.kuali.continuity.plan.action.InstructionActionItemsAction">
+        <constructor-arg ref="actionItemServiceFactory" />
+        <constructor-arg ref="instructionService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+        <property name="dto2doConverter" ref="dto2doConverter"/>
+        <property name="addAction"><bean class="org.kuali.continuity.action.BaseAddAction"/></property>
+        <property name="updateAction"><bean class="org.kuali.continuity.action.BaseUpdateAction"/></property>
+        <property name="deleteAction"><bean class="org.kuali.continuity.action.BaseDeleteAction"/></property>
+        <property name="readRowAction"><bean class="org.kuali.continuity.action.BaseReadRowAction"/></property>
+        <property name="readListAction"><bean class="org.kuali.continuity.action.BaseReadListAction"/></property>
+        <property name="dto">
+            <bean class="org.kuali.continuity.plan.action.dto.ActionItemDTO">
+                <property name="type" value="T"/>
+            </bean>
+        </property>
+        <property name="refListHelper">
+            <bean class="org.kuali.continuity.action.util.ReferenceListHelper">
+                <property name="refService" ref="referenceDomainObjectService"/>
+                <property name="refClasses">
+                    <list>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCost</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemCostCycle</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemScope</value>
+                        <value>org.kuali.continuity.plan.domain.ActionItemStatus</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <!--  U t i l i t i e s  -->
+    
+    <bean id="planActionServiceHelper"
+        class="org.kuali.continuity.plan.action.PlanActionServiceHelper">
+        <constructor-arg ref="referenceDomainObjectService" />
+        <constructor-arg ref="genericAdminService" />
+        <property name="do2dtoConverter" ref="do2dtoConverter"/>
+    </bean>
+    <bean id="sessionUserRoleUtil"
+        class="org.kuali.continuity.action.util.SessionUserRoleUtil">
+        <constructor-arg ref="systemDomainService" />
+    </bean>
+    <bean id="dto2doConverter" autowire="byType"
+        class="org.kuali.continuity.action.util.DTO2DomainObjectConverterImpl">
+    </bean>
+    <bean id="do2dtoConverter" autowire="byType"
+        class="org.kuali.continuity.action.util.DomainObject2DTOConverterImpl">
+        <property name="dtoClassMap">
+            <map>
+                <entry key="org.kuali.continuity.plan.domain.CriticalCentralApplication">
+                    <value>org.kuali.continuity.plan.action.dto.CriticalCentralApplicationDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.DepartmentOwnedApplication">
+                    <value>org.kuali.continuity.plan.action.dto.DepartmentOwnedApplicationDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.Server">
+                    <value>org.kuali.continuity.plan.action.dto.ServerDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.ActionItem">
+                    <value>org.kuali.continuity.plan.action.dto.ActionItemDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.CriticalFunctionActionItem">
+                    <value>org.kuali.continuity.plan.action.dto.ActionItemDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.FacultyPreparednessActionItem">
+                    <value>org.kuali.continuity.plan.action.dto.ActionItemDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.InformationTechnologyActionItem">
+                    <value>org.kuali.continuity.plan.action.dto.ActionItemDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.InstructionActionItem">
+                    <value>org.kuali.continuity.plan.action.dto.ActionItemDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.KeyStaffMember">
+                    <value>org.kuali.continuity.plan.action.dto.KeyStaffMemberDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.WorkFromHomeStaffMember">
+                    <value>org.kuali.continuity.plan.action.dto.WorkFromHomeStaffMemberDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.Team">
+                    <value>org.kuali.continuity.plan.action.dto.TeamDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.TeamMember">
+                    <value>org.kuali.continuity.plan.action.dto.TeamMemberDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.StaffingRequirement">
+                    <value>org.kuali.continuity.plan.action.dto.StaffingRequirementDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.OtherUnitStaffMember">
+                    <value>org.kuali.continuity.plan.action.dto.OtherUnitStaffMemberDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.Stakeholder">
+                    <value>org.kuali.continuity.plan.action.dto.StakeholderDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.Instruction">
+                    <value>org.kuali.continuity.plan.action.dto.InstructionDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.HighPriorityCourse">
+                    <value>org.kuali.continuity.plan.action.dto.HighPriorityCourseDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.TeachingIssue">
+                    <value>org.kuali.continuity.plan.action.dto.TeachingIssueDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.Building">
+                    <value>org.kuali.continuity.plan.action.dto.BuildingDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.Acronym">
+                    <value>org.kuali.continuity.plan.action.dto.AcronymDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.LiteContinuityPlan">
+                    <value>org.kuali.continuity.plan.action.dto.PlanDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.ContinuityPlan">
+                    <value>org.kuali.continuity.plan.action.dto.PlanDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.User">
+                    <value>org.kuali.continuity.action.dto.UserDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.admin.domain.FAQ">
+                    <value>org.kuali.continuity.plan.action.dto.FAQDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.CompletedPlanReview">
+                    <value>org.kuali.continuity.plan.action.dto.PlanReviewDTO</value>
+                </entry>
+                <entry key="org.kuali.continuity.plan.domain.AnnualPlanReview">
+                    <value>org.kuali.continuity.plan.action.dto.PlanReviewDTO</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <!-- A d m i n -->
+    
+    <bean id="instructionUITextAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.SystemDomainUITextAction">
+        <constructor-arg ref="systemDomainUITextService" />
+        <property name="textEnumClass" value="org.kuali.continuity.domain.InstructionUITextEnum"/>
+    </bean> 
+    
+    <bean id="criticalityLevelsAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.SystemDomainCriticalityLevelAction">
+        <constructor-arg ref="systemDomainCriticalityLevelService" />
+    </bean> 
+    
+    <bean id="systemDomainSamplePlanDocumentAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.SystemDomainSamplePlanDocumentAction">
+        <constructor-arg ref="binaryDocumentServiceFactory" />
+    </bean> 
+    
+    <bean id="systemDomainUIImageAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.SystemDomainUIImageAction">
+        <constructor-arg ref="systemDomainUIImageService" />
+    </bean> 
+    
+    <bean id="customImageUploadAction" scope="prototype"
+        class="org.kuali.continuity.admin.action.CustomImageUploadAction">
+        <constructor-arg ref="customImageUploadService" />
+    </bean> 
+    
+</beans>

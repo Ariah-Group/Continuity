@@ -1,0 +1,26 @@
+<html>
+<body>
+This is to inform you that you have been added to the user-list of the following unit&#39;s continuity plan:
+<br/><br/>
+${plan.acronymPlusName}
+<br/><br/>
+The person who added your name is ${planner.fullName}
+<br/><br/>
+To access this plan, you must first create your own account in the ${systemName} continuity planning tool.  You may do so by clicking here: ${krURL}  
+<br/><br/>
+For questions or assistance, please contact any of the following: 
+<br/>
+<br/>
+<ul>
+#foreach ( $moderator in $moderators )
+    <li>$moderator.emailRegular</li>
+#end
+</ul>
+Be Ready!
+<br/><br/>
+<br/><br/>
+<hr/>
+This is an auto-email from the ${systemName} continuity planning tool.
+</body>
+</html>
+

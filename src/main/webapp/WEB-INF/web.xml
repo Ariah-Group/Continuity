@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="kcpt" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>kcpt</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:/applicationContext.xml
+			classpath:/spring-db-local.xml
+            classpath:/spring-hibernate.xml
+            classpath:/spring-dao.xml
+			classpath:/spring-jpa.xml
+            classpath:/spring-aop.xml
+            classpath:/spring-dao-hibernate.xml
+			classpath:/spring-service.xml						
+			classpath:/spring-struts-action.xml
+            classpath:/spring-admin-dao.xml
+            classpath:/spring-plan-dao.xml
+            classpath:/spring-plan-service.xml
+            classpath:/spring-mail.xml
+            classpath:/spring-cache.xml
+			/WEB-INF/spring-servlet.xml
+			/WEB-INF/spring-security.xml
+		</param-value>
+	</context-param>
+  
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    
+    <context-param>
+        <param-name>
+            org.apache.tiles.impl.BasictilesContainer.DEFINITION_CONFIG</param-name>
+        <param-value>tiles.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+    </listener>
+
+     <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Map the DispatcherServlet to only intercept RPC requests -->
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>/org.kuali.continuity.admin.project.ImageViewer/KcpService.rpc
+		</url-pattern>
+    </servlet-mapping>    
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>*.rpc
+		</url-pattern>
+    </servlet-mapping> 
+
+	
+	<servlet>
+		<servlet-name>KcpDataServlet</servlet-name>
+		<servlet-class>org.kuali.continuity.admin.project.server.KcpDataServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>KcpDataServlet</servlet-name>
+		<url-pattern>/org.kuali.continuity.admin.project.ImageViewer/accounts</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AjaxSpringListController</servlet-name>
+		<servlet-class>org.kuali.continuity.admin.main.server.AjaxSpringListController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AjaxSpringListController</servlet-name>
+		<url-pattern>*.lst</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>CometPrintActionController</servlet-name>
+		<servlet-class>org.kuali.continuity.report.servlet.PrintActionServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>CometPrintActionController</servlet-name>
+		<url-pattern>*.rpt</url-pattern>
+	</servlet-mapping>
+	
+	<!--  SPRING SECURITY -->
+	<!-- UNCOMMMENT TO TURN ON.. -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+         <filter-name>springSecurityFilterChain</filter-name>
+         <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+	<filter-mapping>
+         <filter-name>springSecurityFilterChain</filter-name>
+         <url-pattern>/login/shibleth</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>UTF8Filter</filter-name>
+        <filter-class>org.kuali.continuity.util.UTF8Filter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UTF8Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>
+            org.apache.struts2.dispatcher.FilterDispatcher
+        </filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/login/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/plan/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/struts/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- session expiration time set as 2 hrs -->
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config> 
+
+</web-app>

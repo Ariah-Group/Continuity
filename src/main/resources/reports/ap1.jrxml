@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FacultyPreparedness" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="31" rightMargin="31" topMargin="20" bottomMargin="20" scriptletClass="org.kuali.continuity.service.PageSetScriptlet">
+	<property name="com.jasperassistant.designer.DataSource" value="UCReadyDev"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="false"/>
+	<parameter name="PID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(434)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_NUMBER" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PLAN_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Continuity Plan for SOMI -TestAllFieldsForSaveEtc")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INSTITUTION_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("UC Berkeley")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ACRONYM_PLUS_NAME" class="java.lang.String"/>
+	<parameter name="LNBL" class="java.lang.Boolean"/>
+	<queryString>
+		<![CDATA[select kpd_id as kd_id, 'kpd' as dtype, name, owner_department, original_file_name, location_kept, comment, description, mediumID, contacts, backup_measures, 	(select LookupDescription 				from DescriptionLookup 				where LookupName='DocumentMedium' and LookupValue = key_plan_documents.mediumID) AS LookupDescription 	from key_plan_documents 	where pid = $P{PID} 	union 	select kcd_id as kd_id, 'kcd' as dtype, key_critical_function_documents.name, owner_department, original_file_name, location_kept, key_critical_function_documents.comment, key_critical_function_documents.description, mediumID, contacts, backup_measures, 		(select LookupDescription 				from DescriptionLookup 				where LookupName='DocumentMedium' and LookupValue = key_critical_function_documents.mediumID) AS LookupDescription 	from key_critical_function_documents, critical_functions 	where key_critical_function_documents.cid = critical_functions.cid 		and critical_functions.pid = $P{PID}]]>
+	</queryString>
+	<field name="LookupDescription" class="java.lang.String"/>
+	<field name="backup_measures" class="java.lang.String"/>
+	<field name="comment" class="java.lang.String"/>
+	<field name="contacts" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="dtype" class="java.lang.String"/>
+	<field name="kd_id" class="java.lang.Integer"/>
+	<field name="location_kept" class="java.lang.String"/>
+	<field name="mediumID" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="original_file_name" class="java.lang.String"/>
+	<field name="owner_department" class="java.lang.String"/>
+	<pageHeader>
+		<band height="22">
+			<textField>
+				<reportElement x="2" y="0" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{INSTITUTION_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="11" width="548" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Continuity Plan For " + $P{ACRONYM_PLUS_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="21" width="548" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="140">
+			<printWhenExpression><![CDATA[new Boolean( $V{REPORT_COUNT}.intValue() == 1 || $V{REPORT_COUNT}.intValue() == 0 )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="1" y="61" width="549" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Appendix A. ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="421" y="14" width="125" height="32"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="426" y="16" width="123" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<text><![CDATA[To edit this plan section, use the Step 5 tab (Document Summary) of the on-line tool. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="78" width="548" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[List of Key Documents ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="119" width="533" height="19"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Documents that have been uploaded into this on-line continuity tool (as indicated below) can be viewed on-screen, then printed. ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="15" y="102" width="469" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( (($P{LNBL}).booleanValue()) ? "These documents have been identified as important for continuing our essential functions." : "These documents have been identified as important for continuing our critical functions. " )
+ ]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+		</band>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Medium ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{LookupDescription}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Location]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{location_kept}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Owner (department) ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{owner_department}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Contact person(s) ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{contacts}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Backup measures ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{backup_measures}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Comment]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{comment}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="133" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Uploaded into this tool?]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="29" y="24" width="349" height="3"/>
+				<graphicElement>
+					<pen lineWidth="0.8" lineColor="#555555"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="209" y="0" width="337" height="15"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( ($F{original_file_name} != null &&  !$F{original_file_name}.equals(""))? "Yes" : "No" )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="202" y="39" width="146" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["See list of Action Items in Section VI."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="24" width="550" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="185" y="29" width="180" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

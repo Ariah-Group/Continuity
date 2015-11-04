@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.spring.host}"/>
+        <property name="username" value="${mail.spring.username}"/>
+        <property name="password" value="${mail.spring.password}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${mail.spring.smtp.auth}</prop>
+                <prop key="mail.smtp.starttls.enable">${mail.spring.smtp.starttls.enable}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <value>
+                resource.loader=class
+                class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+            </value>
+        </property>
+    </bean>
+
+    <bean id="moderatorApproveUserMessage" 
+        class="org.kuali.continuity.service.VelocityMailMessage">
+            <property name="from" value="YourEmailAddress"/>
+            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="subject" value="Your %s account has been approved"/>
+            <property name="templateName" value="email-template/moderator-approve-user.vm"/>
+    </bean>
+
+    <bean id="moderatorDenyUserMessage" 
+        class="org.kuali.continuity.service.VelocityMailMessage">
+            <property name="from" value="YourEmailAddress"/>
+            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="subject" value="Your request for an account in %s has been denied"/>
+            <property name="templateName" value="email-template/moderator-deny-user.vm"/>
+    </bean>
+
+    <bean id="createUserAccountInvite" 
+        class="org.kuali.continuity.service.VelocityMailMessage">
+            <property name="from" value="YourEmailAddress"/>
+            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="subject" value="You have been granted access to a continuity plan"/>
+            <property name="templateName" value="email-template/create-user-account-invite.vm"/>
+    </bean>
+
+    <bean id="accessPlanInvite" 
+        class="org.kuali.continuity.service.VelocityMailMessage">
+            <property name="from" value="YourEmailAddress"/>
+            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="subject" value="You have been granted access to a continuity plan"/>
+            <property name="templateName" value="email-template/access-plan-invite.vm"/>
+    </bean>
+
+    <bean id="accessPlanInviteShib" 
+        class="org.kuali.continuity.service.VelocityMailMessage">
+            <property name="from" value="YourEmailAddress"/>
+            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="subject" value="You have been granted access to a continuity plan"/>
+            <property name="templateName" value="email-template/access-plan-invite-shib.vm"/>
+    </bean>
+
+    <bean id="reqstLoginPassword" 
+        class="org.kuali.continuity.service.VelocityMailMessage">
+            <property name="from" value="YourEmailAddress"/>
+            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="subject" value="%s - login information"/>
+            <property name="templateName" value="email-template/request-login-password.vm"/>
+    </bean>
+
+    <bean id="userAwaitingApproval" 
+        class="org.kuali.continuity.service.VelocityMailMessage">
+            <property name="from" value="YourEmailAddress"/>
+            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="subject" value="A %s account is waiting for approval"/>
+            <property name="templateName" value="email-template/user-awaiting-approval.vm"/>
+    </bean>
+
+    <bean id="emailSenderService" class="org.kuali.continuity.service.EmailSenderServiceImpl">
+        <property name="mailSender" ref="mailSender"/>
+        <property name="velocityEngine" ref="velocityEngine"/>
+        <property name="enabled" value="${mail.spring.mail.enabled}"/>
+        <property name="test" value="${mail.spring.mail.test}"/>
+        <property name="testEmail" value="${mail.spring.mail.testEmail}"/>
+        <property name="krURL" value="${mail.spring.mail.krURL}"/>
+        <property name="systemNameService" ref="systemDomainService"/>
+        <property name="mailMessageMap">
+            <map>
+                <entry key="MODERATOR_APPROVE_USER"><ref bean="moderatorApproveUserMessage"/></entry>
+                <entry key="MODERATOR_DENY_USER"><ref bean="moderatorDenyUserMessage"/></entry>
+                <entry key="CREATE_USER_ACCOUNT_INVITE"><ref bean="createUserAccountInvite"/></entry>
+                <entry key="ACCESS_PLAN_INVITE"><ref bean="accessPlanInvite"/></entry>
+                <entry key="ACCESS_PLAN_INVITE_SHIB"><ref bean="accessPlanInviteShib"/></entry>
+                <entry key="REQUEST_LOGIN_PASSWORD"><ref bean="reqstLoginPassword"/></entry>
+                <entry key="USER_AWAITING_APPROVAL"><ref bean="userAwaitingApproval"/></entry>
+            </map>
+        </property>
+        <property name="inCommonMetadataService" ref="inCommonMetadataService" />
+        <property name="systemDomainService" ref="systemDomainService"/>
+   </bean>
+   
+</beans>

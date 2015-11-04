@@ -1,0 +1,141 @@
+/* 
+--------------------------
+layout divs for curved boxes
+--------------------------
+ */
+ 
+ 
+ .b1, .b2, .b3, .b4{font-size:1px; overflow:hidden; display:block;}
+.b1 {height:1px; background:#000D90; margin:0 5px;}
+.b2 {height:1px; background:#E4E9F0; border-right:2px solid #000D90; border-left:2px solid #000D90; margin:0 3px;}
+.b3 {height:1px; background:#E4E9F0; border-right:1px solid #000D90; border-left:1px solid #000D90; margin:0 2px;}
+.b4 {height:2px; background:#E4E9F0; border-right:1px solid #000D90; border-left:1px solid #000D90; margin:0 1px;}
+.contentb {background: #E4E9F0; border-right:1px solid #000D90; border-left:1px solid #000D90;}
+.contentb div {margin-left: 5px;}
+
+
+.contentb h3 {
+margin:0;
+padding:5px 0 5px 0;
+text-align:center;
+font-size: 18px;
+color:#000066;
+font-weight:bold;
+}
+
+#guidance {
+margin: 0 8px 0 8px; 
+padding:0;
+
+}
+#guidance p {
+margin: 0;
+padding: 8px 6px 12px 6px; 
+}
+
+
+#guidance ul {
+  margin:0;
+  padding: 4px 9px 8px 21px; 
+  list-style-position:outside;
+  list-style-type:disc; 
+ 
+}
+
+#guidance ul.narrow {
+  margin:0;
+  padding: 4px 9px 8px 21px; 
+  list-style-position:outside;
+  list-style-type:disc;
+    
+}
+
+#guidance li {	
+	margin: 0;
+	padding:3px 9px 3px 0;	
+	color:#333;
+}
+
+#guidance ul.narrow li  {
+	margin: 0;
+	padding:2px 9px 2px 0;	
+	color:#333;
+
+}
+
+#guidance ul.indent {
+  list-style-type: disc;
+  padding:6px 0 6px 15px;
+   
+}
+
+#guidance ul.indent li{
+  list-style-type: disc;
+  padding:2px 0 2px 0;
+  margin: 0;
+  
+}
+
+#guidance ul li.examplebutton {
+list-style-type:none;
+text-align:center;
+padding: 0 0 8px 0;
+}
+
+#guidance hr.border {
+width:90%;
+text-align:center;
+padding:0;
+margin:0;
+
+}
+/*for editplan admin button layout*/
+
+ul.buttons {
+margin: 0;
+padding:0;
+
+}
+
+ul.buttons li {
+margin:0;
+padding:0;
+list-style:none;
+
+
+}
+
+ul.adminmain {
+text-align:center;
+margin: 8px 0 0 0;
+padding:0;
+list-style:none;
+}
+
+ul.adminmain li{
+margin:0;
+list-style:none;
+padding: 6px 0 0 0;
+}
+
+
+
+
+.noindent {
+margin: 0;
+padding: 0; 
+color:red;
+text-align:left;
+}
+
+.line {
+text-align:center;
+margin:0;
+padding:0;
+border:0;
+
+}
+
+span.italic {
+	font-style: italic;
+}

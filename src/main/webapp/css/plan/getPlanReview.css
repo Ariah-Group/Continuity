@@ -1,0 +1,22 @@
+input.ReviewerNameClass {
+	width: 305px;
+}
+
+
+input.ReviewDateReadClass {
+	width: 100px;
+}
+
+input.ReviewDateClass {
+	width: 80px;
+}
+
+
+
+
+
+div.MyPod {
+	background: #E4E9F0; 
+	border-right:1px solid #000D90;
+	border-left:1px solid #000D90;
+}
