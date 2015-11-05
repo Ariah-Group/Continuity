@@ -14,8 +14,6 @@
 // 
 package org.kuali.continuity.admin.service;
 
-import java.sql.Blob;
-
 import org.kuali.continuity.admin.dao.CustomImageUploadDAO;
 import org.kuali.continuity.domain.UIImageEnum;
 import org.kuali.continuity.domain.UIImageTypeEnum;
@@ -26,7 +24,7 @@ public class CustomImageUploadServiceImpl implements CustomImageUploadService {
 
 	@Override
 	public void uploadImage(int systemDomainId, UIImageEnum uiImageKey,
-			UIImageTypeEnum uiImageType, Blob image) {
+			UIImageTypeEnum uiImageType, byte[] image) {
 		this.getCustomImageUploadDAO().uploadImage(systemDomainId, uiImageKey, uiImageType, image);
 	}
 

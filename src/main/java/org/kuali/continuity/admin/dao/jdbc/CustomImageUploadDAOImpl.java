@@ -14,7 +14,6 @@
 // 
 package org.kuali.continuity.admin.dao.jdbc;
 
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +32,8 @@ public class CustomImageUploadDAOImpl implements CustomImageUploadDAO {
 	private final static String DELETE_SD_QUERY = "DELETE FROM SystemDomainUIImage WHERE InstitutionID = ? AND Name = ?";
 
 	@Override
-	public void uploadImage(int systemDomainId, UIImageEnum uiImageKey, UIImageTypeEnum uiImageType, Blob image) {
+	public void uploadImage(int systemDomainId, UIImageEnum uiImageKey, UIImageTypeEnum uiImageType, byte[] image) {
+		
 		// delete first
 		this.deleteImage(systemDomainId, uiImageKey);
 		

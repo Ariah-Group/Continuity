@@ -14,14 +14,12 @@
 // 
 package org.kuali.continuity.admin.dao;
 
-import java.sql.Blob;
-
 import org.kuali.continuity.domain.UIImageEnum;
 import org.kuali.continuity.domain.UIImageTypeEnum;
 
 public interface CustomImageUploadDAO {
 
-	void uploadImage(int systemDomainId, UIImageEnum uiImageKey, UIImageTypeEnum uiImageType, Blob image);
+	void uploadImage(int systemDomainId, UIImageEnum uiImageKey, UIImageTypeEnum uiImageType, byte[] image);
 	void deleteImage(int systemDomainId, UIImageEnum uiImageKey);
 	
 }

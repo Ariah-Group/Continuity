@@ -18,7 +18,6 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Hibernate;
 import org.kuali.continuity.action.BaseActionSupport;
 import org.kuali.continuity.admin.service.CustomImageUploadService;
 import org.kuali.continuity.domain.UIImageEnum;
@@ -82,11 +81,15 @@ public class CustomImageUploadAction extends BaseActionSupport {
 					sdId, 
 					this.uiImageEnum);
 			} else {
+				byte[] bFile = new byte[(int)upImg.length()];
+				FileInputStream fis = new FileInputStream(upImg);
+				fis.read(bFile);
 				this.customImageUploadService.uploadImage(
 					sdId, 
 					this.uiImageEnum, 
-					UIImageTypeEnum.getEnum(upImgContentType), 
-					Hibernate.createBlob(new FileInputStream(upImg), (int) upImg.length()));
+					UIImageTypeEnum.getEnum(upImgContentType),
+					bFile);
+				fis.close();
 			}
 			
 		} catch (Exception e) {
