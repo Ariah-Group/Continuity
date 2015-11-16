@@ -17,7 +17,7 @@
 <s:if test="#domain == null || #domain == ''">
     <s:set var="domain" value="#session.loginSystemDomain.id"/>
 </s:if>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/skin.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/skin.css">
 
 
 <!-- Begin Banner Table -->

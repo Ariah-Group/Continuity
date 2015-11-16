@@ -17,7 +17,7 @@
 
 <s:if test="actionErrors.size > 0 || fieldErrors.size > 0">
 	<span id="MessageDIV" class="MessageDIVClass">
-		<img class="NavMiddleImagesRegClass" src="/kcpt/images/redlight2.gif">
+		<img class="NavMiddleImagesRegClass" src="/continuity/images/redlight2.gif">
 		Action not complete:<br/>
         <s:iterator value="fieldErrors.keys" var="key">
             <s:iterator value="fieldErrors[#key]">

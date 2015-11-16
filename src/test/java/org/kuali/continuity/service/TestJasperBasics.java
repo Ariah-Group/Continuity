@@ -37,7 +37,7 @@ public class TestJasperBasics extends TestCase {
 
 	public void testFonts() {
 		jrs = new JasperReportServiceImpl();
-		jrs.loadFonts("C:/dnld/apps/cal/kcpa/proj/kcpa1005/kcpt/src/main/resources/");
+		jrs.loadFonts("C:/dnld/apps/cal/kcpa/proj/kcpa1005/continuity/src/main/resources/");
 		
 	}
 	public void testLoad() {

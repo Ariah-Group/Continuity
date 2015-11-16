@@ -118,7 +118,7 @@
             
             <span class="<s:property value='#session.planAccessControl.noDisplayClass'/>">
                 Click on a building to add it to your list. 
-                Please indicate all space used, including storage space. If a building does not appear on the list, please <a href="/kcpt/plan/contactUs">contact us</a> and we will add it.<br />
+                Please indicate all space used, including storage space. If a building does not appear on the list, please <a href="/continuity/plan/contactUs">contact us</a> and we will add it.<br />
                 <s:select
                     name="addBuildingId"
                     list="buildings"

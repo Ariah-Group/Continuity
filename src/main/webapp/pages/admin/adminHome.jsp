@@ -35,14 +35,14 @@
 <ul class="access">
 
 	<li><a href="underDevelopment.html"><img
-		src="/kcpt/images/AdminMain_A.gif" alt="View Activity Log" /></a></li>
+		src="/continuity/images/AdminMain_A.gif" alt="View Activity Log" /></a></li>
 	<li><a href="adminReports"><img
-		src="/kcpt/images/AdminMain_B.gif" alt="View and Print Reports" /></a></li>
+		src="/continuity/images/AdminMain_B.gif" alt="View and Print Reports" /></a></li>
 	<li><a href="underDevelopment.html"><img
-		src="/kcpt/images/AdminMain_C.gif" alt="Track Action Items" /></a></li>
+		src="/continuity/images/AdminMain_C.gif" alt="Track Action Items" /></a></li>
 
 	<li><a href="underDevelopment.html"><img
-		src="/kcpt/images/AdminMain_D.gif" alt="View Planner's Log" /></a></li>
+		src="/continuity/images/AdminMain_D.gif" alt="View Planner's Log" /></a></li>
 </ul>
 
 <br class="clearfloat" />
@@ -55,53 +55,53 @@
 		<td class="adminbuttons">
 		<ul>
 			<li><a href="accounts"><img
-				src="/kcpt/images/AdminMain_1.gif" alt="User and Role Management" /></a></li>
+				src="/continuity/images/AdminMain_1.gif" alt="User and Role Management" /></a></li>
 			<li><a href="setting"><img
-				src="/kcpt/images/AdminMain_4.gif" alt="System Settings" /></a></li>
+				src="/continuity/images/AdminMain_4.gif" alt="System Settings" /></a></li>
 			<li><a href="departmentTypes"><img
-				src="/kcpt/images/AdminMain_5.gif" alt="Types of Departments" /></a></li>
+				src="/continuity/images/AdminMain_5.gif" alt="Types of Departments" /></a></li>
 	
 			<li><a href="buildings"><img
-				src="/kcpt/images/AdminMain_6.gif" alt="Buildings" /></a></li>
+				src="/continuity/images/AdminMain_6.gif" alt="Buildings" /></a></li>
 			<li><a href="majorDivisions"><img
-				src="/kcpt/images/AdminMain_7.gif" alt="Major Divisions" /></a></li>
+				src="/continuity/images/AdminMain_7.gif" alt="Major Divisions" /></a></li>
 			<li><a href="acronyms"><img
-				src="/kcpt/images/AdminMain_8.gif" alt="Acronyms" /></a></li>
+				src="/continuity/images/AdminMain_8.gif" alt="Acronyms" /></a></li>
 			<li><a href="criticalFunctions"><img
-				src="/kcpt/images/AdminMain_9.gif" alt="Examples of Critical Functions" /></a></li>
+				src="/continuity/images/AdminMain_9.gif" alt="Examples of Critical Functions" /></a></li>
 			<li><a href="dependencies"><img
-				src="/kcpt/images/AdminMain_10.gif" alt="Dependencies" /></a></li>
+				src="/continuity/images/AdminMain_10.gif" alt="Dependencies" /></a></li>
 			<li><a href="apps"><img
-				src="/kcpt/images/AdminMain_11.gif" alt="Centrally-Owned Applications" /></a></li>
+				src="/continuity/images/AdminMain_11.gif" alt="Centrally-Owned Applications" /></a></li>
 			<li><a href="skills"><img
-				src="/kcpt/images/AdminMain_12.gif" alt="Skills" /></a></li>
+				src="/continuity/images/AdminMain_12.gif" alt="Skills" /></a></li>
 		</ul>
 		</td>
 
 		<td class="adminbuttons">
 		<ul>
 			<li><a href="staffCategories"><img
-				src="/kcpt/images/AdminMain_13.gif" alt="Staff Categories" /></a></li>
+				src="/continuity/images/AdminMain_13.gif" alt="Staff Categories" /></a></li>
 			<li><a href="shifts"><img
-				src="/kcpt/images/AdminMain_14.gif" alt="Shifts" /></a></li>
+				src="/continuity/images/AdminMain_14.gif" alt="Shifts" /></a></li>
 			<li><a href="utilities"><img
-				src="/kcpt/images/AdminMain_15.gif" alt="Utilities" /></a></li>
+				src="/continuity/images/AdminMain_15.gif" alt="Utilities" /></a></li>
 			<li><a href="knowledge"><img
-				src="/kcpt/images/AdminMain_16.gif" alt="Things to Know as You Plan" /></a></li>
+				src="/continuity/images/AdminMain_16.gif" alt="Things to Know as You Plan" /></a></li>
 			<li><a href="faq_admin"><img
-				src="/kcpt/images/AdminMain_17.gif" alt="FAQ" /></a></li>
+				src="/continuity/images/AdminMain_17.gif" alt="FAQ" /></a></li>
 			<li><a href="references"><img
-				src="/kcpt/images/AdminMain_18.gif" alt="References" /></a></li>
+				src="/continuity/images/AdminMain_18.gif" alt="References" /></a></li>
 
 			<li><a href="contacts_admin"><img
-				src="/kcpt/images/AdminMain_19.gif" alt="Contacts" /></a></li>
+				src="/continuity/images/AdminMain_19.gif" alt="Contacts" /></a></li>
 			<li><a href="annualReview"><img
-				src="/kcpt/images/AdminMain_20.gif" alt="Annual Review of Your Plan" /></a></li>
+				src="/continuity/images/AdminMain_20.gif" alt="Annual Review of Your Plan" /></a></li>
 			<li><a href="plannerCategories"><img
-				src="/kcpt/images/AdminMain_21.gif" alt="Planner's Log Categories" /></a></li>
+				src="/continuity/images/AdminMain_21.gif" alt="Planner's Log Categories" /></a></li>
 
 			<li><a href="institutions"><img
-				src="/kcpt/images/AdminMain_22.gif" alt="System Admin Locations" /></a></li>
+				src="/continuity/images/AdminMain_22.gif" alt="System Admin Locations" /></a></li>
 
 		</ul>
 		</td>

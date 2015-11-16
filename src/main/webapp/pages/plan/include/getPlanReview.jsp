@@ -81,7 +81,7 @@
                                         value="%{formattedApprovalDate}" 
                                         readonly="%{#session.planAccessControl.isInputReadOnly'}"
                                         cssClass="ReviewDateClass %{#session.planAccessControl.addClass}"/>
-	                                    <a id='aCal' name='aCal' href="#"><img src='/kcpt/images/DateChooser.png'/></a>
+	                                    <a id='aCal' name='aCal' href="#"><img src='/continuity/images/DateChooser.png'/></a>
 	                                    <div id='divCal'></div>
 	                                </s:div>
                                 </span>
@@ -97,7 +97,7 @@
                             </td>
                             <td>
                                 <s:iterator var='approvalTypeKey' value='approval.types.keys' status='rowstatus'>
-                                    <img src="/kcpt/images/spacer.gif" width="2px">
+                                    <img src="/continuity/images/spacer.gif" width="2px">
                                     <s:if test='approval.type == null'>
                                         <s:set var='approval.type' value='#approvalTypeKey'/>
                                     </s:if>

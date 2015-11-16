@@ -14,5 +14,5 @@
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<s:set name="tiles_includeScripts" value="{'/kcpt/javascripts/plan/getCriticalFunctionsLibrary.js', '/kcpt/javascripts/plan/deleteRow.js'}"/>
+<s:set name="tiles_includeScripts" value="{'/continuity/javascripts/plan/getCriticalFunctionsLibrary.js', '/continuity/javascripts/plan/deleteRow.js'}"/>
 <tiles:insertDefinition name="kcpt.getCriticalFunctions"/>

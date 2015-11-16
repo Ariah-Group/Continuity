@@ -12,7 +12,7 @@
  % or implied. See the License for the specific language governing
  % permissions and limitations under the License.
  --%> 
-<link REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/custom/demo.css"/>
+<link REL="stylesheet" TYPE="text/css" HREF="/continuity/css/custom/demo.css"/>
 
 <p class="mesg"><span class="mesgBold">Please Note:</span> This is the demonstration version of the Kuali Ready
 continuity planning tool. It is open to the public, and we encourage you

@@ -42,18 +42,18 @@
 			</div>		
     </s:if>  
 	<ol class="layout">
-		<li><a href="./getPlanDepartment" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image35','','/kcpt/images/edit_name_over.gif',1)">      <img src="/kcpt/images/edit_name.gif"       alt="Edit Name & Org. Data"   title="Edit Name & Org. Data"   name="Image35" width="100" height="32" border="0"></a></li>
+		<li><a href="./getPlanDepartment" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image35','','/continuity/images/edit_name_over.gif',1)">      <img src="/continuity/images/edit_name.gif"       alt="Edit Name & Org. Data"   title="Edit Name & Org. Data"   name="Image35" width="100" height="32" border="0"></a></li>
 		<s:if test="#session.planGatekeeper neq null">
-		    <li><a href="./getPlanUsers" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image36','','/kcpt/images/addRemove_over.gif',1)">      <img src="/kcpt/images/addRemove.gif"       alt="Add/Remove User"         title="Add/Remove User"         name="Image36" width="100" height="32" border="0"></a></li>
+		    <li><a href="./getPlanUsers" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image36','','/continuity/images/addRemove_over.gif',1)">      <img src="/continuity/images/addRemove.gif"       alt="Add/Remove User"         title="Add/Remove User"         name="Image36" width="100" height="32" border="0"></a></li>
 		</s:if>
-		<li><a href="./gotoInterviewForms" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3', '','/kcpt/images/interview_forms_over.gif',1)"><img src="/kcpt/images/interview_forms.gif" alt="Interview Forms"         title="Interview Forms"         name="Image3"  width="100" height="32" border="0"></a></li>
-		<li><a href="./printMenu" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image40','','/kcpt/images/print_menu_over.gif',1)">     <img src="/kcpt/images/print_menu.gif"      alt="Printing Menu"           title="Printing Menu"           name="Image40" width="100" height="32" border="0"></a></li>
-		<li><a href="./getPlans" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image42','','/kcpt/images/create_over.gif',1)">         <img src="/kcpt/images/create.gif"          alt="Select a Different Plan" title="Select a Different Plan" name="Image42" width="100" height="32" border="0"></a></li>
+		<li><a href="./gotoInterviewForms" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3', '','/continuity/images/interview_forms_over.gif',1)"><img src="/continuity/images/interview_forms.gif" alt="Interview Forms"         title="Interview Forms"         name="Image3"  width="100" height="32" border="0"></a></li>
+		<li><a href="./printMenu" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image40','','/continuity/images/print_menu_over.gif',1)">     <img src="/continuity/images/print_menu.gif"      alt="Printing Menu"           title="Printing Menu"           name="Image40" width="100" height="32" border="0"></a></li>
+		<li><a href="./getPlans" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image42','','/continuity/images/create_over.gif',1)">         <img src="/continuity/images/create.gif"          alt="Select a Different Plan" title="Select a Different Plan" name="Image42" width="100" height="32" border="0"></a></li>
 	</ol>
 	<hr class="shortline" />
 	<ol class="layout">
-		<li><a href="./planReviewComplete" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image60','','/kcpt/images/MarkPlanComplete_over.gif',1)"><img src="/kcpt/images/MarkPlanComplete.gif" alt="Mark Plan Complete" title="Mark Plan Complete" name="Image60" width="100" height="47" border="0"></a></li>
-		<li><a href="./planReviewAnnual" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image61','','/kcpt/images/MarkAnnReviewComplete_over.gif',1)"><img src="/kcpt/images/MarkAnnReviewComplete.gif" alt="Mark Annual Review Complete" title="Mark Annual Review Complete" name="Image61" width="100" height="47" border="0"></a></li>
+		<li><a href="./planReviewComplete" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image60','','/continuity/images/MarkPlanComplete_over.gif',1)"><img src="/continuity/images/MarkPlanComplete.gif" alt="Mark Plan Complete" title="Mark Plan Complete" name="Image60" width="100" height="47" border="0"></a></li>
+		<li><a href="./planReviewAnnual" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image61','','/continuity/images/MarkAnnReviewComplete_over.gif',1)"><img src="/continuity/images/MarkAnnReviewComplete.gif" alt="Mark Annual Review Complete" title="Mark Annual Review Complete" name="Image61" width="100" height="47" border="0"></a></li>
 	</ol>
 </div>
 			

@@ -43,7 +43,7 @@
 <s:if test="criticalityLevels != null">
 	<br/>
 	<div align="center">
-	    <img src="/kcpt/images/blue_line_G.gif" alt="" width="220" height="10"> 
+	    <img src="/continuity/images/blue_line_G.gif" alt="" width="220" height="10"> 
 	</div> 
 	<br/>
 	<strong>LEVELS OF CRITICALITY FOLLOWING DISASTER</strong>

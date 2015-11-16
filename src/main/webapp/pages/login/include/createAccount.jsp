@@ -61,7 +61,7 @@
                         type="button" 
                         class="floatright" 
                         value="        Exit        " 
-                        onclick="location.href='/kcpt/login/ready?sdname=<s:property value='#session.loginSystemDomain.customUrl'/>'"
+                        onclick="location.href='/continuity/login/ready?sdname=<s:property value='#session.loginSystemDomain.customUrl'/>'"
                     />
                 </div>
                 

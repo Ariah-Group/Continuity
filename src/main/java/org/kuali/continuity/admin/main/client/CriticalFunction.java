@@ -264,7 +264,7 @@ public class CriticalFunction extends ListControl implements EntryPoint {
 		backButton.addClickListener(new ClickListener() {
 			public void onClick(final Widget sender) {
 				showErr(false);
-				redirect("/kcpt/admin/adminHome");
+				redirect("/continuity/admin/adminHome");
 			}
 		});
 		viewButton.setText("View User-Screen");
@@ -272,7 +272,7 @@ public class CriticalFunction extends ListControl implements EntryPoint {
 		viewButton.addClickListener(new ClickListener() {
 			public void onClick(final Widget sender) {
 				showErr(false);
-				redirect("/kcpt/plan/getCriticalFunctionExamples");
+				redirect("/continuity/plan/getCriticalFunctionExamples");
 			}
 		});
 		saveButton.setText("Save Selections");

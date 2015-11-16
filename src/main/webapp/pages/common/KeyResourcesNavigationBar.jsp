@@ -108,7 +108,7 @@
             <s:if test="#isSkipped == false">
                 <li>
                     <a href="<s:property value='#kurl[#rowstatus.index]'/>">
-                        <img src="/kcpt/images/keyresources/<s:property value='#navs[#rowstatus.index]'/>.gif" alt="<s:property value='#alts[#rowstatus.index]'/>" border="0">
+                        <img src="/continuity/images/keyresources/<s:property value='#navs[#rowstatus.index]'/>.gif" alt="<s:property value='#alts[#rowstatus.index]'/>" border="0">
                     </a>
                 </li>
             </s:if>

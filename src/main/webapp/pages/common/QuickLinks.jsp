@@ -19,7 +19,7 @@
 <s:if test="#ns == 'admin'">
    	<select class="QuickLinksClass" name="quicklinks" onChange="ShowLink(this.options[this.selectedIndex].value);" >
 	<option value="#" selected>GO TO..</option>
-    <option value="/kcpt/plan/getPlans">Choose a Plan</option>
+    <option value="/continuity/plan/getPlans">Choose a Plan</option>
     <option value="adminHome">Administrator's Main Control Screen</option>
 	<option value="activityLog">Activity Log</option>
 	<option value="reports">Reports</option>
@@ -91,7 +91,7 @@
 			<option value="sessionRole">Administrator's Emulation Screen</option>
 		</s:if> 	 		 	
 		<s:if test= "#session.user.securityType.id == 0 || #session.user.securityType.id == 1 || #session.user.securityType.id == 3">
-			<option value="/kcpt/admin/adminHome">Administrator's Main Control Screen</option>
+			<option value="/continuity/admin/adminHome">Administrator's Main Control Screen</option>
 		</s:if>		
 	</select>
 	<!-- End Select Statement -->

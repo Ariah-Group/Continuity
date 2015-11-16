@@ -14,8 +14,8 @@
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/plan/planUsersTable.css">
-<script type="text/javascript" src="/kcpt/javascripts/plan/planUsersTableLibrary.js"></script>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/plan/planUsersTable.css">
+<script type="text/javascript" src="/continuity/javascripts/plan/planUsersTableLibrary.js"></script>
 
 <s:set var="hideClass" value=""/>
 <s:set var="isSelectDisabled" value=""/>
@@ -28,12 +28,12 @@
 
     <s:if test="contactTable == true">
         <s:set name='thisElementTitle' value='"contact"'/>
-        <s:set name='thisImgSrc' value='"/kcpt/images/Add_Contact.gif"'/>
+        <s:set name='thisImgSrc' value='"/continuity/images/Add_Contact.gif"'/>
         <s:set name='thisSpacerWidth' value='"1px"'/>
     </s:if>
     <s:else>
         <s:set name='thisElementTitle' value='"user"'/>
-        <s:set name='thisImgSrc' value='"/kcpt/images/Add_to_List.gif"'/>
+        <s:set name='thisImgSrc' value='"/continuity/images/Add_to_List.gif"'/>
         <s:set name='thisSpacerWidth' value='"60px"'/>
     </s:else>
     
@@ -42,7 +42,7 @@
             <s:if test="contactTable == true">
                 <th scope="col">
                     <!-- star imaged removed as per JIRA issue KCP 9
-                    <img src="/kcpt/images/star.png" alt="primary contact" title="primary contact"/>-->
+                    <img src="/continuity/images/star.png" alt="primary contact" title="primary contact"/>-->
                 </th>
             </s:if>
             <th scope="col">First Name</th>
@@ -54,7 +54,7 @@
                 <th scope="col">Gate-<br/>keeper?</th>
             </s:if>
             <th scope="col" bgcolor="white" nowrap="nowrap">
-                <img src="/kcpt/images/spacer.gif" width="<s:property value='thisSpacerWidth'/>" height="20px">
+                <img src="/continuity/images/spacer.gif" width="<s:property value='thisSpacerWidth'/>" height="20px">
             </th>
         </tr>
 

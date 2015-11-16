@@ -32,7 +32,7 @@
 <script>
     window.name="mainwindow";
     function exitPage() {
-        window.location="/kcpt/admin/adminHome";
+        window.location="/continuity/admin/adminHome";
     }
 </script>
 

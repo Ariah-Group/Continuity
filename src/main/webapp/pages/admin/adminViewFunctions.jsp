@@ -22,9 +22,9 @@
 
 <meta name="keywords" content="Kuali Ready, Kuali Continuity,  Planning, Disaster Recovery">
 
-<link rel="stylesheet" type="text/css" href="/kcpt/css/ucreadystyles.css">
-<link rel="stylesheet" type="text/css" href="/kcpt/css/guidance.css">
-<link rel="stylesheet" type="text/css" href="/kcpt/css/ucreadyMainElements.css">
+<link rel="stylesheet" type="text/css" href="/continuity/css/ucreadystyles.css">
+<link rel="stylesheet" type="text/css" href="/continuity/css/guidance.css">
+<link rel="stylesheet" type="text/css" href="/continuity/css/ucreadyMainElements.css">
 	
 	<!-- add template specific CSS -->
 	<style type="text/css">

@@ -34,7 +34,7 @@
 		 </table>
 
 <!--  Set URI to localhost and 8080 when in same container -->
- <iframe name=frame2 style="width:800px;height:800px" id=frame2 src="/kcpt/org.kuali.continuity.admin.project.ImageViewer/ImageViewer.html" frameborder="0">
+ <iframe name=frame2 style="width:800px;height:800px" id=frame2 src="/continuity/org.kuali.continuity.admin.project.ImageViewer/ImageViewer.html" frameborder="0">
 </iframe>
 
 

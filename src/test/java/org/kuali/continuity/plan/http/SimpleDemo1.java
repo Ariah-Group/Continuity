@@ -25,7 +25,7 @@ public class SimpleDemo1 extends TestCase {
 	
 	public void testNewWebConversation() throws Exception {
 		WebConversation wc = new WebConversation();
-		WebRequest req = new GetMethodWebRequest("http://localhost:8080/kcpt/login/start?userId=183");
+		WebRequest req = new GetMethodWebRequest("http://localhost:8080/continuity/login/start?userId=183");
 		WebResponse resp = wc.getResponse(req);
 		System.out.println(resp.getText());
 //		System.out.println(resp.getDOM());

@@ -18,7 +18,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title>Continuity Planning Tool</title>
-	<link rel="stylesheet" type="text/css" href="/kcpt/css/error.css"/>
+	<link rel="stylesheet" type="text/css" href="/continuity/css/error.css"/>
 </head>
 
 <body>

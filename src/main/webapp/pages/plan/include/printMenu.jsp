@@ -36,7 +36,7 @@
 			    // alert(mainval);
                 opstr='?entire='+mainval+'&section='+secval + '&id=' + Math.floor(Math.random()*101) * planId * 19 * 27;
 				// alert(opstr)
-			    window.open('/kcpt/continuity.rpt'+opstr);
+			    window.open('/continuity/continuity.rpt'+opstr);
 		     }
 			 function toggleSelect(){
 			 	var myElement = document.getElementById("entire");

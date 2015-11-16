@@ -28,7 +28,7 @@
     </s:else>
     <a id="searchUsers" href="javascript:getSystemDomainUsers(<s:property value='#context.parameters.contactTable'/>)">
         <img 
-            src='/kcpt/images/Search_aqua.gif' 
+            src='/continuity/images/Search_aqua.gif' 
             class='NavMiddleImagesClass'
             title='<s:property value='#imgTitle'/>'
         />

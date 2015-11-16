@@ -210,7 +210,7 @@ public abstract class MainViewerAL extends ListControl  {
 		backButton.addClickListener(new ClickListener() {
 			public void onClick(final Widget sender) {
                 showErr(false);
-                redirect("/kcpt/admin/adminHome");
+                redirect("/continuity/admin/adminHome");
 			}
 		});
 		backButton.setText("Back");

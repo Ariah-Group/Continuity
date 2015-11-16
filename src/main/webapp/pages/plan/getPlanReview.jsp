@@ -14,6 +14,6 @@
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<s:set name="tiles_includeStyles" value="{'/kcpt/css/plan/planHome.css','/kcpt/css/plan/getPlanReview.css'}"/>
-<s:set name="tiles_includeScripts" value="{'/kcpt/javascripts/plan/getPlanReviewLibrary.js'}"/>
+<s:set name="tiles_includeStyles" value="{'/continuity/css/plan/planHome.css','/continuity/css/plan/getPlanReview.css'}"/>
+<s:set name="tiles_includeScripts" value="{'/continuity/javascripts/plan/getPlanReviewLibrary.js'}"/>
 <tiles:insertDefinition name="kcpt.getPlanReview"/>

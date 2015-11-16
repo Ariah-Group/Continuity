@@ -143,7 +143,7 @@
 					       action="getCriticalFunctionDescriptions"
 					       title="go to detail screens"
 					       type="image"
-					       src="/kcpt/images/GoToDetail_screen_cf.gif"
+					       src="/continuity/images/GoToDetail_screen_cf.gif"
 					       onclick="this.form.criticalFunctionId.value=%{id};this.form.saveType.value=2;"
 					    />
 					</span>

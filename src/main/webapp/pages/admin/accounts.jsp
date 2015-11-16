@@ -15,14 +15,14 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!-- Include Ext and app-specific scripts: -->
-<script type="text/javascript" src="/kcpt/javascripts/ext/adapter/ext/ext-base.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/ext/ext-all-debug.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/ext/kcpt/accounts.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/accountsLibrary.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/ext/ext-all-debug.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/ext/continuity/accounts.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/accountsLibrary.js"></script>
 
 <!-- Include Ext stylesheets here: -->
-<link rel="stylesheet" type="text/css" href="/kcpt/css/ucreadyAdminElements.css">
-<link rel="stylesheet" type="text/css" href="/kcpt/javascripts/ext/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="/continuity/css/ucreadyAdminElements.css">
+<link rel="stylesheet" type="text/css" href="/continuity/javascripts/ext/resources/css/ext-all.css">
 
 <!--- Accounts Control module --->
 <!--- accessible by System Admin and Local Admins --->
@@ -126,8 +126,8 @@
 			<span class="%{DirAccessClass}" id="DirSearch">
 				First Name <s:textfield cssClass="UserFirstNameClass" name="FirstName" value="" maxlength="20"/>
 				Last Name <s:textfield cssClass="UserLastNameClass" name="LastName" value="" maxlength="30"/>
-				<img class="NavMiddleImagesClass"  onclick="#" src="/kcpt/images/Search2.gif" title="Search the directory" alt="Search the directory">
-<!--				LDAPSearch('InstitutionSelectClass','UserFirstNameClass', 'UserLastNameClass');" src="/kcpt/images/Search2.gif" title="Search the directory" alt="Search the directory">-->
+				<img class="NavMiddleImagesClass"  onclick="#" src="/continuity/images/Search2.gif" title="Search the directory" alt="Search the directory">
+<!--				LDAPSearch('InstitutionSelectClass','UserFirstNameClass', 'UserLastNameClass');" src="/continuity/images/Search2.gif" title="Search the directory" alt="Search the directory">-->
 		 	</span>
 		</span>
 	 	<p>This locaton is configured for UC Trust authentication.  Only Role and Access fields could be updated.</p>

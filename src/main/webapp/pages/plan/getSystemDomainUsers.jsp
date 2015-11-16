@@ -37,7 +37,7 @@
 		        <th width="25%" align="left" scope="col">Name</th>
 		        <th width="30%" align="left" scope="col">Email</th>
 		        <th width="35%" align="left" scope="col">Department</th>
-		        <th width="10%" scope="col"><img src="/kcpt/images/spacer.gif" width="1px" height="20px"></th>
+		        <th width="10%" scope="col"><img src="/continuity/images/spacer.gif" width="1px" height="20px"></th>
 		    </tr>
 		    </thead>
 		    <tbody>
@@ -68,7 +68,7 @@
 							'<s:property value='#parameters.contactTable' escapeJavaScript='true'/>',
 							'<s:property value='#AccessList' escapeJavaScript='true'/>');"
 						class="NavTopImagesClass" 
-						src="/kcpt/images/Add_to_List_aqua.gif" 
+						src="/continuity/images/Add_to_List_aqua.gif" 
 						title="Click to Add" 
 						alt="Click to Add" 
 						border="0"/>

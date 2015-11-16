@@ -51,13 +51,13 @@
 <s:hidden id="criticalFunction.id" name="criticalFunction.id"/>
 <div id="subnav">
 	<ul>
-		<li><a href="#" onclick="cfBarForm.action='getCriticalFunctionDescription';cfBarForm.submit();"><img src="/kcpt/images/<s:property value='#nav0'/>.gif" alt="a: description"  	border="0"></a></li>
-	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionPeakPeriods';cfBarForm.submit();"><img src="/kcpt/images/<s:property value='#nav1'/>.gif" alt="b: peak periods"  border="0"></a></li>
-	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionDocuments';cfBarForm.submit();"><img src="/kcpt/images/<s:property value='#nav2'/>.gif" alt="c: documents"     border="0"></a></li>
-	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionDependencies';cfBarForm.submit();"><img src="/kcpt/images/<s:property value='#nav3'/>.gif" alt="d: dependencies"  border="0"></a></li>
-	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionConsequences';cfBarForm.submit();"><img src="/kcpt/images/<s:property value='#nav4'/>.gif" alt="e: consequences"  border="0"></a></li>
-	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionCopingMethod';cfBarForm.submit();"><img src="/kcpt/images/<s:property value='#nav5'/>.gif" alt="f: how to cope"   border="0"></a></li>
-	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionActionItems';cfBarForm.submit();"><img src="/kcpt/images/<s:property value='#nav6'/>.gif" alt="g: action items"  border="0"></a></li>
+		<li><a href="#" onclick="cfBarForm.action='getCriticalFunctionDescription';cfBarForm.submit();"><img src="/continuity/images/<s:property value='#nav0'/>.gif" alt="a: description"  	border="0"></a></li>
+	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionPeakPeriods';cfBarForm.submit();"><img src="/continuity/images/<s:property value='#nav1'/>.gif" alt="b: peak periods"  border="0"></a></li>
+	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionDocuments';cfBarForm.submit();"><img src="/continuity/images/<s:property value='#nav2'/>.gif" alt="c: documents"     border="0"></a></li>
+	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionDependencies';cfBarForm.submit();"><img src="/continuity/images/<s:property value='#nav3'/>.gif" alt="d: dependencies"  border="0"></a></li>
+	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionConsequences';cfBarForm.submit();"><img src="/continuity/images/<s:property value='#nav4'/>.gif" alt="e: consequences"  border="0"></a></li>
+	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionCopingMethod';cfBarForm.submit();"><img src="/continuity/images/<s:property value='#nav5'/>.gif" alt="f: how to cope"   border="0"></a></li>
+	    <li><a href="#" onclick="cfBarForm.action='getCriticalFunctionActionItems';cfBarForm.submit();"><img src="/continuity/images/<s:property value='#nav6'/>.gif" alt="g: action items"  border="0"></a></li>
 	</ul>
 </div>
 </s:form>

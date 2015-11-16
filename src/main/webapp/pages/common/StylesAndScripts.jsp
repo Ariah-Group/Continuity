@@ -12,7 +12,7 @@
  % or implied. See the License for the specific language governing
  % permissions and limitations under the License.
  --%> 
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/ucreadystyles.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/guidance.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/ucreadyMainElements.css">
-<script  type="text/javascript" src="/kcpt/javascripts/UCReadyLibrary.js"></script>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadystyles.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/guidance.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadyMainElements.css">
+<script  type="text/javascript" src="/continuity/javascripts/UCReadyLibrary.js"></script>

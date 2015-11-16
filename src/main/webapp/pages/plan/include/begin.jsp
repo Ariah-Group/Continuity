@@ -26,7 +26,7 @@
     <meta name="keywords"
         content="Kuali Ready, Continuity,  Planning, Disaster Recovery">
     <tiles:insertAttribute name="stylesAndScripts" />
-	<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/skin.css">
+	<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/skin.css">
 </head>
 
 <body>
@@ -41,7 +41,7 @@
     </div>
     
     <div class="beginbutton">
-        <a href="./welcome"><img src="/kcpt/images/begin_button1.gif" alt="begin button" border="0"></a>
+        <a href="./welcome"><img src="/continuity/images/begin_button1.gif" alt="begin button" border="0"></a>
     </div>
     
     <s:include value="/pages/custom/%{#session.systemDomain.customUrl}/begin.jsp"/>

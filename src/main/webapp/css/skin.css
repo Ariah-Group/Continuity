@@ -1,5 +1,5 @@
 #UCReadyhead {
-        background-image:url(/kcpt/login/getImage?imgEnum=BANNER);
+        background-image:url(/continuity/login/getImage?imgEnum=BANNER);
         background-repeat:no-repeat;
         background-position:top left; 
         border-bottom: 2px solid #666666;
@@ -13,7 +13,7 @@
     }
     
 #UCReadyhead  a {
-    background-image:url(/kcpt/login/getImage?imgEnum=BANNER_TEXT);
+    background-image:url(/continuity/login/getImage?imgEnum=BANNER_TEXT);
     background-repeat:no-repeat;
     background-position:top right; 
     display: block;
@@ -24,7 +24,7 @@
 }
 
 #KualiReadyLogo {
-    background-image:url(/kcpt/login/getImage?imgEnum=BEGIN);
+    background-image:url(/continuity/login/getImage?imgEnum=BEGIN);
     background-repeat:no-repeat;
     background-position:center center; 
     height: 220px;
@@ -34,7 +34,7 @@
 }
     
 #KualiReadyText {
-    background-image:url(/kcpt/images/pixel.gif);
+    background-image:url(/continuity/images/pixel.gif);
     background-repeat:no-repeat;
     background-position:center center; 
     height: 0px;
@@ -44,7 +44,7 @@
 }
     
 #KualiReadyMission {
-    background-image:url(/kcpt/login/getImage?imgEnum=BEGIN_TEXT);
+    background-image:url(/continuity/login/getImage?imgEnum=BEGIN_TEXT);
     background-repeat:no-repeat;
     background-position:center center; 
     height: 117px;

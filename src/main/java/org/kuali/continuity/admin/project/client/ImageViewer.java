@@ -475,7 +475,7 @@ public class ImageViewer  extends ListControl implements EntryPoint,
 		backButton.addClickListener(new ClickListener() {
 			public void onClick(final Widget sender) {
                 showErr(false);
-                redirect("/kcpt/admin/adminHome");
+                redirect("/continuity/admin/adminHome");
 			}
 		});
 

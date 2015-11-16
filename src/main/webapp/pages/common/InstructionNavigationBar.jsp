@@ -44,11 +44,11 @@
 <div id="deptname">Department Name:&nbsp;&nbsp;<s:property value="deptName"/></div>
 <div id="subnav">
     <ul>
-        <li><a href="#" onclick="insBarForm.action='getInstructionHighPriorityCourses';insBarForm.submit();">  <img src="/kcpt/images/<s:property value='#nav0'/>.gif" alt="a: high priority classes"   border="0"></a></li>
-        <li><a href="#" onclick="insBarForm.action='getInstructionAllCourses';insBarForm.submit();">           <img src="/kcpt/images/<s:property value='#nav1'/>.gif" alt="b: all courses"             border="0"></a></li>
-        <li><a href="#" onclick="insBarForm.action='getInstructionDepartmentalPractices';insBarForm.submit();"><img src="/kcpt/images/<s:property value='#nav2'/>.gif" alt="c: departmental practices"  border="0"></a></li>
-        <li><a href="#" onclick="insBarForm.action='getInstructionTeachingIssues';insBarForm.submit();">       <img src="/kcpt/images/<s:property value='#nav3'/>.gif" alt="d: special teaching issues" border="0"></a></li>
-        <li><a href="#" onclick="insBarForm.action='getInstructionActionItems';insBarForm.submit();">          <img src="/kcpt/images/<s:property value='#nav4'/>.gif" alt="e: action items"            border="0"></a></li>
+        <li><a href="#" onclick="insBarForm.action='getInstructionHighPriorityCourses';insBarForm.submit();">  <img src="/continuity/images/<s:property value='#nav0'/>.gif" alt="a: high priority classes"   border="0"></a></li>
+        <li><a href="#" onclick="insBarForm.action='getInstructionAllCourses';insBarForm.submit();">           <img src="/continuity/images/<s:property value='#nav1'/>.gif" alt="b: all courses"             border="0"></a></li>
+        <li><a href="#" onclick="insBarForm.action='getInstructionDepartmentalPractices';insBarForm.submit();"><img src="/continuity/images/<s:property value='#nav2'/>.gif" alt="c: departmental practices"  border="0"></a></li>
+        <li><a href="#" onclick="insBarForm.action='getInstructionTeachingIssues';insBarForm.submit();">       <img src="/continuity/images/<s:property value='#nav3'/>.gif" alt="d: special teaching issues" border="0"></a></li>
+        <li><a href="#" onclick="insBarForm.action='getInstructionActionItems';insBarForm.submit();">          <img src="/continuity/images/<s:property value='#nav4'/>.gif" alt="e: action items"            border="0"></a></li>
     </ul>
 </div>
 </s:form>

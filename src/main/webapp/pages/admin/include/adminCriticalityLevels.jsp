@@ -427,7 +427,7 @@ boxes below.</p>
                 value="      Back     " 
                 title="Return"  
                 alt="Go back"  
-                onclick="location.href='/kcpt/admin/adminHome';"
+                onclick="location.href='/continuity/admin/adminHome';"
             />
         </form>
     </div>

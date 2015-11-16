@@ -13,8 +13,8 @@
  % permissions and limitations under the License.
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/plan/planUsersTable.css">
-<script type="text/javascript" src="/kcpt/javascripts/plan/planUsersTableLibrary.js"></script>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/plan/planUsersTable.css">
+<script type="text/javascript" src="/continuity/javascripts/plan/planUsersTableLibrary.js"></script>
 
 <p class="plan">Continuity Plan for <span id="planname"><s:property value="#session.plan.acronymPlusName"/></span></p>
 
@@ -50,7 +50,7 @@
 		            <th>EMail <span class="AttentionClassNotBold">(official email from campus directory)</span></th>
 		            <th>Phone</th>
 		            <th bgcolor="white">
-                        <img src="/kcpt/images/spacer.gif" width="210px" height="20px">
+                        <img src="/continuity/images/spacer.gif" width="210px" height="20px">
                     </th>
 		        </tr>
 	            <tr class="<s:property value='#session.planAccessControl.noDisplayClass'/>">
@@ -72,7 +72,7 @@
 	                            document.getElementById('user.workPhone').value, 
 	                            '<s:property value='contactTable'/>',
 	                            '<s:property value='#AccessList' escapeJavaScript='true'/>');">
-	                            <img src="/kcpt/images/Add_to_List.gif" alt='add user'/>
+	                            <img src="/continuity/images/Add_to_List.gif" alt='add user'/>
 	                    </span>
 	                </td>
 	            </tr>

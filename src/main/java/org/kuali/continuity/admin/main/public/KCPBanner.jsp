@@ -16,7 +16,7 @@
 <style type="text/css">
 <!--
 #UCReadyhead {
-		background-image:url(/kcpt/images/web-UCReady-banner.png);
+		background-image:url(/continuity/images/web-UCReady-banner.png);
 		background-repeat:no-repeat;
 		background-position:top left; 
 		border-bottom: 2px solid #0038A9;
@@ -30,7 +30,7 @@
 	}
 	
 #UCReadyhead  a {
-	background-image:url(/kcpt/images/web-UCReady-banner-text.png);
+	background-image:url(/continuity/images/web-UCReady-banner-text.png);
 	background-repeat:no-repeat;
 	background-position:top right; 
 	display: block;

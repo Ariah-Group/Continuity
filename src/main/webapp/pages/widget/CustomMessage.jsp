@@ -13,5 +13,5 @@
  % permissions and limitations under the License.
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<img class="NavTopImagesRegClass" src="/kcpt/images/Info3.gif" border="0" />
+<img class="NavTopImagesRegClass" src="/continuity/images/Info3.gif" border="0" />
 <s:property value="#customMessage" escape=false/>

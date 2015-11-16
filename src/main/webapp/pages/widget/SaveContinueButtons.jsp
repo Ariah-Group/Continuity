@@ -13,7 +13,7 @@
  % permissions and limitations under the License.
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<script type="text/javascript" src="/kcpt/javascripts/widget/SaveContinueButtonsLibrary.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/widget/SaveContinueButtonsLibrary.js"></script>
 <br /> 
 <div class="FloatRight">
     <span class="<s:property value='#session.planAccessControl.noDisplayClass'/>">

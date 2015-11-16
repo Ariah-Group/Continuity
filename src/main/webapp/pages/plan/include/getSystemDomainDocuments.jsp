@@ -20,7 +20,7 @@
 	<p>This download screen is accessible only to <em>institution administrators</em>, <em>local administrators</em> and <em>universal viewers</em>.</p>
 	<p>Below is a list of all documents stored for all plans in this planning tool.</p>
 	<p>Clicking a document link will cause it to be opened on your computer.  You may then view, print, or save any document at will.</p>
-	<p><strong>Departmental continuity plans:</strong> to view or print any departmental continuity plan, <a href="/kcpt/plan/getPlans">select that plan</a> and and click its Printing Menu button (on the Plan Home screen).</p>
+	<p><strong>Departmental continuity plans:</strong> to view or print any departmental continuity plan, <a href="/continuity/plan/getPlans">select that plan</a> and and click its Printing Menu button (on the Plan Home screen).</p>
  
     <table id="list_table">
 

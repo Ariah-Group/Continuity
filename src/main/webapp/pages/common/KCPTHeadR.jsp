@@ -22,11 +22,11 @@
 <META Http-Equiv="Expires" Content="0"> 
 <meta name="keywords" content="Kuali Ready, Continuity,  Planning, Disaster Recovery">
 
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/ucreadystyles.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/guidance.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/ucreadyMainElements.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/ucreadyAdminElements.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/ucreadyAdmin_reports.css">
-<script  type="text/javascript" src="/kcpt/javascripts/UCReadyLibrary.js"></script>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadystyles.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/guidance.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadyMainElements.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadyAdminElements.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadyAdmin_reports.css">
+<script  type="text/javascript" src="/continuity/javascripts/UCReadyLibrary.js"></script>
 
 </head>

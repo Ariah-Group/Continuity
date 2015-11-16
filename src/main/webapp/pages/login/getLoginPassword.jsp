@@ -14,5 +14,5 @@
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<s:set name="tiles_includeStyles" value="{'/kcpt/css/login.css'}"/>
+<s:set name="tiles_includeStyles" value="{'/continuity/css/login.css'}"/>
 <tiles:insertDefinition name="kcpt.getLoginPassword"/>

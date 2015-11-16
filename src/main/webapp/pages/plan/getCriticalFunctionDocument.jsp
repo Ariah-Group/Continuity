@@ -14,5 +14,5 @@
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<s:set name="tiles_includeStyles" value="{'/kcpt/css/plan/documents.css'}"/>
+<s:set name="tiles_includeStyles" value="{'/continuity/css/plan/documents.css'}"/>
 <tiles:insertDefinition name="kcpt.getCriticalFunctionDocument"/>

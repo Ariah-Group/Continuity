@@ -390,7 +390,7 @@ public class Location extends SimpleGridViewerS {
 		final FormPanel formPanel = new FormPanel();
 		formPanel.setEncoding(FormPanel.ENCODING_MULTIPART);
 		formPanel.setMethod(FormPanel.METHOD_POST);
-		formPanel.setAction(Window.Location.getProtocol() + "//" + Window.Location.getHost() + "/kcpt/admin/customImageUpload");
+		formPanel.setAction(Window.Location.getProtocol() + "//" + Window.Location.getHost() + "/continuity/admin/customImageUpload");
 		
 		// set form handler
 		formPanel.addFormHandler(new FormHandler()

@@ -27,7 +27,7 @@
 <s:include value="/pages/custom/%{#session.systemDomain.customUrl}/getPlans.jsp"/>
 
 <div class="MyHeaderDivClass AllignRight"><a
-	href="/kcpt/plan/editPlan"> <img src="/kcpt/images/create_new.gif"
+	href="/continuity/plan/editPlan"> <img src="/continuity/images/create_new.gif"
 	class="NavTopImagesClass" title="Create New Plan" alt="Create New Plan"
 	width="120" height="27" border="0" /> </a>
 </div>
@@ -72,17 +72,17 @@
                             <span id="showPanel" class="myLink"
                                   title="Show (<s:property value='acronymPlusName' escape='true'/>) Contacts Info"
                                 onclick="showPlanContacts(<s:property value='id'/>, '<s:property value='acronymPlusName' escapeJavaScript='true'/>');">
-                                <img src="/kcpt/images/Contacts.png" />
+                                <img src="/continuity/images/Contacts.png" />
                             </span>
                         </s:if>
                         <s:else>
-                            <img src="/kcpt/images/spacer.gif" width="2px" height="24px"/>
+                            <img src="/continuity/images/spacer.gif" width="2px" height="24px"/>
                         </s:else>
                     </td>
                     <td>
                         <s:if test="planAccess != null && planAccess.id != null && planAccess.id != '9'">
                             <a href="javascript: submitForm(<s:property value='id'/>);">
-                                <img src="/kcpt/images/goto.gif" class="NavAbsMiddleImagesClass" 
+                                <img src="/continuity/images/goto.gif" class="NavAbsMiddleImagesClass" 
                                    title="Go to (<s:property value='acronymPlusName' escape='true'/>) Plan"
                                      alt="Go to  (<s:property value='acronymPlusName' escape='true'/>) Plan" 
                                    width="59" height="27" border="0"/>
@@ -96,7 +96,7 @@
                         <s:if test="#session.user.securityType.id == 0 || #session.user.securityType.id == 1 || #session.user.securityType.id == 3">
                             <a href="javascript:deleteFormRow(<s:property value='id'/>);"
                                 onClick="return confirm('Delete plan (<s:property value='acronymPlusName' escapeJavaScript='true'/>): are you sure?');">
-                                <img src="/kcpt/images/delete_sm.gif" 
+                                <img src="/continuity/images/delete_sm.gif" 
                                    class="NavAbsMiddleImagesClass"
                                    title="Delete (<s:property value='acronymPlusName' escape='true'/>) Plan"
                                      alt="Delete (<s:property value='acronymPlusName' escape='true'/>) Plan"

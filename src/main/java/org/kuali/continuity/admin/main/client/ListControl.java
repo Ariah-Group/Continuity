@@ -25,8 +25,8 @@ import com.google.gwt.user.client.ui.TextArea;
 
 public class ListControl {
 	
-	protected final String logoutPath = "/kcpt/login/logout";
-	protected final String welcomePath = "/kcpt/plan/welcome";
+	protected final String logoutPath = "/continuity/login/logout";
+	protected final String welcomePath = "/continuity/plan/welcome";
 	protected final String KUALI_DIRECTLOGIN_COOKIE_KEY = "KUALI_DIRECTLOGIN_COOKIE_KEY";
 	protected final String SHIBBOLETH_LOGIN_IDP_ID = "SHIBBOLETH_LOGIN_IDP_ID";
 	protected final String SESSION_EXPIRED_ERROR = "3";
@@ -171,7 +171,7 @@ public class ListControl {
 	}
 	
 	protected String getLogoutUrlWithParm(String errorCode){
-		return Window.Location.getProtocol() + "//" + Window.Location.getHost() + logoutPath + "?error=" + errorCode + "&defaultDirectLoginUrl=/kcpt/login/ready&shibbolethLoginWayfUrl=/secure";
+		return Window.Location.getProtocol() + "//" + Window.Location.getHost() + logoutPath + "?error=" + errorCode + "&defaultDirectLoginUrl=/continuity/login/ready&shibbolethLoginWayfUrl=/secure";
 	}
 	
 	protected String getWelcomeUrl(){

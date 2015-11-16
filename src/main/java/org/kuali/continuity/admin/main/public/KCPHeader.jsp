@@ -26,11 +26,11 @@
 <meta name="keywords" content="Kuali Ready, Continuity,  Planning, Disaster Recovery">
 
 <!-- cfoutput> -->
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/ucreadystyles.css">  <!-- "#Session.Browser.RegularCSS1#">  -->
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/ucreadyMainElements.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/guidance.css">  <!--LINK REL="stylesheet" TYPE="text/css" HREF="#Session.Browser.RegularCSS4#"> -->
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadystyles.css">  <!-- "#Session.Browser.RegularCSS1#">  -->
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadyMainElements.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/guidance.css">  <!--LINK REL="stylesheet" TYPE="text/css" HREF="#Session.Browser.RegularCSS4#"> -->
 
-<script  type="text/javascript" src="/kcpt/javascripts/UCReadyLibrary.js"></script>
+<script  type="text/javascript" src="/continuity/javascripts/UCReadyLibrary.js"></script>
 
 </head>
 

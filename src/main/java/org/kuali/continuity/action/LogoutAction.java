@@ -165,7 +165,7 @@ public class LogoutAction extends BaseActionSupport implements ServletRequestAwa
  				//shibbolethLoginWayfUrl= this.iCommonMetadataService.getAppUrl() + "/secure";			
  			} else if (customUrl != null && (shibbolethIdp == null || shibbolethCustomUrl == null)){
  				//Direct Login
- 				backUrl = this.iCommonMetadataService.getAppUrl() + "/kcpt/login/ready?" + "sdname=" + customUrl;
+ 				backUrl = this.iCommonMetadataService.getAppUrl() + "/continuity/login/ready?" + "sdname=" + customUrl;
  			} else {
  				//Shibboleth Login
  				backUrl = this.iCommonMetadataService.getLoginUrl(shibbolethIdp, shibbolethCustomUrl);

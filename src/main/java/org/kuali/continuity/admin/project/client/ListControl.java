@@ -27,7 +27,7 @@ public class ListControl {
 	protected int currow = 0;
 	protected int ncols = 5;
 	
-	protected final String logoutPath = "/kcpt/login/logout";
+	protected final String logoutPath = "/continuity/login/logout";
 	
     public void highlight(Grid g, int row) {
 		if (row != currow && row>0) {

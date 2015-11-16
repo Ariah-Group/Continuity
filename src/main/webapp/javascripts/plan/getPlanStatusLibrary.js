@@ -33,7 +33,7 @@ var PlanStatusAjaxObject = {
 			document.getElementById('hd').innerHTML =
 				"Message Center";
 			document.getElementById('bd').innerHTML = 
-				"<img src='/kcpt/images/Info3.gif'/> " +
+				"<img src='/continuity/images/Info3.gif'/> " +
 				document.getElementById('planStatusError').value;
 			onPlanStatusError.fire();
 	 }	

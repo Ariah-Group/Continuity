@@ -18,17 +18,17 @@
 
     <s:if test= "#session.user.isShibMode == false">
 	    <s:if test="#session.user.securityType.id == 0 || #session.user.securityType.id == 1 || #session.user.securityType.id == 3|| #session.user.securityType.id == 4">
-	        <a href="/kcpt/plan/getNewUsers"><img src="/kcpt/images/ModerateKR.gif" alt="Monderator's Screen" /></a> <br /><br />
+	        <a href="/continuity/plan/getNewUsers"><img src="/continuity/images/ModerateKR.gif" alt="Monderator's Screen" /></a> <br /><br />
 	    </s:if>
     </s:if>     
     <!--- all except local user --->
     <s:if test="#session.user.securityType.id != 9">
-        <a href="./getSystemDomainDocuments"><img src="/kcpt/images/AccessAllDocumentsKR.gif" alt="Access All Plan Documents" /></a>  <br /><br />
+        <a href="./getSystemDomainDocuments"><img src="/continuity/images/AccessAllDocumentsKR.gif" alt="Access All Plan Documents" /></a>  <br /><br />
       
     </s:if> 
     <!--- sysadmin, group admin, localadmin  --->
     <s:if test="#session.user.securityType.id == 0 || #session.user.securityType.id == 1 || #session.user.securityType.id == 3">
-        <a href="/kcpt/admin/adminHome"><img src="/kcpt/images/AccessAdminControlsKR.gif" alt="Administrator's Controls" /></a> <br /><br />
+        <a href="/continuity/admin/adminHome"><img src="/continuity/images/AccessAdminControlsKR.gif" alt="Administrator's Controls" /></a> <br /><br />
     </s:if> 
 
 <ul>

@@ -26,7 +26,7 @@
 }
 -->
 </style>
-<script type="text/javascript" src="/kcpt/javascripts/plan/getPlanStatusLibrary.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/plan/getPlanStatusLibrary.js"></script>
 
 <B class="corner">
     <B class="filler1" style="background-color:#7197B7;"></B>
@@ -39,7 +39,7 @@
     Status of Plan
 </div>
 
-<div id="StatusPod_body" class="ypod-dlg-body" style="height:auto;overflow:auto;background-color:#E4E9F0; background-position:bottom ; background-repeat:no-repeat; background-image:url(/kcpt/images/PODBottom1.gif);  border:none ; ;">
+<div id="StatusPod_body" class="ypod-dlg-body" style="height:auto;overflow:auto;background-color:#E4E9F0; background-position:bottom ; background-repeat:no-repeat; background-image:url(/continuity/images/PODBottom1.gif);  border:none ; ;">
 
     <span class="AttentionClass"><s:property value="#session.plan.status.description"/></span>
     <br/>
@@ -48,16 +48,16 @@
     <s:if test='#session.plan.planAccess.id == 2 && #session.plan.status.id == "C"'>
         <br/>
         <span>
-            <a href="javascript:setPlanStatus();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image45','','/kcpt/images/status_inprogress_over.gif',1)">
-                <img id="markStatusBtn" src="/kcpt/images/status_inprogress.gif" alt="Mark this Plan IN-PROGRESS" title="Mark this Plan IN-PROGRESS" name="Image45"  border="0">
+            <a href="javascript:setPlanStatus();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image45','','/continuity/images/status_inprogress_over.gif',1)">
+                <img id="markStatusBtn" src="/continuity/images/status_inprogress.gif" alt="Mark this Plan IN-PROGRESS" title="Mark this Plan IN-PROGRESS" name="Image45"  border="0">
             </a>
         </span>
     </s:if>
     <s:if test='#session.plan.planAccess.id == 2 && #session.plan.status.id == "N"'>
         <br/>
         <span>
-            <a href="javascript:setPlanStatus();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image44','','/kcpt/images/status_complete_over.gif',1)">
-                <img id="markStatusBtn" src="/kcpt/images/status_complete.gif" alt="Mark this Plan COMPLETE" title="Mark this Plan COMPLETE" name="Image44"  border="0">
+            <a href="javascript:setPlanStatus();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image44','','/continuity/images/status_complete_over.gif',1)">
+                <img id="markStatusBtn" src="/continuity/images/status_complete.gif" alt="Mark this Plan COMPLETE" title="Mark this Plan COMPLETE" name="Image44"  border="0">
             </a>
         </span>
     </s:if>

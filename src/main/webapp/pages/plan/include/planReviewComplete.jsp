@@ -57,7 +57,7 @@
                     size="14" 
                     maxlength="10"
                     value="%{formattedApprovalDate}"/>
-                    <a id='aCal' name='aCal' href="#"><img src='/kcpt/images/DateChooser.png'/></a>
+                    <a id='aCal' name='aCal' href="#"><img src='/continuity/images/DateChooser.png'/></a>
                     <div id='divCal'></div>
                 </s:div>
             </td>

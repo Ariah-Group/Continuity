@@ -17,7 +17,7 @@
 
 <s:if test="actionErrors.size > 0 || fieldErrors.size > 0">
 	<span id="MessageDIV" class="MessageDIVClass">
-		<img class="NavMiddleImagesRegClass" src="/kcpt/images/redlight2.gif">
+		<img class="NavMiddleImagesRegClass" src="/continuity/images/redlight2.gif">
 		Action not complete:&nbsp;  
 		<select
 		    id="kcptErrors"

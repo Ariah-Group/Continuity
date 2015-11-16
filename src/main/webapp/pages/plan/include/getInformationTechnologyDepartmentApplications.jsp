@@ -78,7 +78,7 @@
 		            <td><s:property value="functionalOwner"/></td>
 		            <td><s:property value="technicalOwner"/></td>
 		            <td class="button"><a href="getInformationTechnologyDepartmentApplication?rowId=<s:property value="id"/>">
-		            <img src="/kcpt/images/GoToDetail_screen.gif" alt="go to detail screen" border="0"></a></td>
+		            <img src="/continuity/images/GoToDetail_screen.gif" alt="go to detail screen" border="0"></a></td>
 		            <td class="<s:property value='#session.planAccessControl.noDisplayClass'/>">
 		               <a href="javascript:deleteFormRow(<s:property value='id'/>);" onClick="return confirm('Are you sure?');">Delete</a>
 		            </td>

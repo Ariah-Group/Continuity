@@ -102,7 +102,7 @@
 		                <th scope="col">EMail <span class="AttentionClassNotBold">(official email from campus directory)</span></th>
                         <th scope="col">Title</th>
 		                <th scope="col" bgcolor="white" nowrap="nowrap">
-		                    <img src="/kcpt/images/spacer.gif" width="134px" height="20px">		                </th>
+		                    <img src="/continuity/images/spacer.gif" width="134px" height="20px">		                </th>
 		            </tr>
 		        </thead>
 		        <tbody>
@@ -123,11 +123,11 @@
     <s:include value="/pages/widget/ActionErrors.jsp" />
     
     <s:if test="newPlan == true">
-        <s:set name="onclickHref" value="'/kcpt/plan/getPlans'"/>
+        <s:set name="onclickHref" value="'/continuity/plan/getPlans'"/>
         <s:set name="saveBtnName" value="'Create a New Plan'"/>
     </s:if>
     <s:else>
-        <s:set name="onclickHref" value="'/kcpt/plan/planHome'"/>
+        <s:set name="onclickHref" value="'/continuity/plan/planHome'"/>
         <s:set name="saveBtnName" value="'Update Plan Org Data'"/>
     </s:else>
 

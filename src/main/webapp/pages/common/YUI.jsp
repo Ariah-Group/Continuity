@@ -12,19 +12,19 @@
  % or implied. See the License for the specific language governing
  % permissions and limitations under the License.
  --%> 
-<!--<link rel="stylesheet" type="text/css" href="/kcpt/javascripts/yui/build/fonts/fonts-min.css" />-->
-<link rel="stylesheet" type="text/css" href="/kcpt/javascripts/yui/build/container/assets/skins/sam/container.css" />
-<link rel="stylesheet" type="text/css" href="/kcpt/javascripts/yui/build/resize/assets/skins/sam/resize.css" />
-<link rel="stylesheet" type="text/css" href="/kcpt/javascripts/yui/build/calendar/assets/skins/sam/calendar.css" />
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/utilities/utilities.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/container/container.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/resize/resize.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/yahoo/yahoo-min.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/dom/dom-min.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/event/event-min.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/connection/connection-min.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
-<script type="text/javascript" src="/kcpt/javascripts/yui/build/calendar/calendar-min.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="/continuity/javascripts/yui/build/fonts/fonts-min.css" />-->
+<link rel="stylesheet" type="text/css" href="/continuity/javascripts/yui/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="/continuity/javascripts/yui/build/resize/assets/skins/sam/resize.css" />
+<link rel="stylesheet" type="text/css" href="/continuity/javascripts/yui/build/calendar/assets/skins/sam/calendar.css" />
+<script type="text/javascript" src="/continuity/javascripts/yui/build/utilities/utilities.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/yui/build/container/container.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/yui/build/resize/resize.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/yui/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/yui/build/dom/dom-min.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/yui/build/event/event-min.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/yui/build/connection/connection-min.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="/continuity/javascripts/yui/build/calendar/calendar-min.js"></script>
 
 
 

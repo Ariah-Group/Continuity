@@ -86,7 +86,7 @@ public class TestJasper extends DomainObjectTest {
 			fail("failed to load frin target directory - probably won't run.");
 		}
 	}
-	String filePath0="target/kcpt/WEB-INF/classes/reports/";
+	String filePath0="target/continuity/WEB-INF/classes/reports/";
 	String filePath="src/main/jasperreports/";
 	int pid =1854;
 	String srcFolder=filePath;
@@ -113,7 +113,7 @@ public class TestJasper extends DomainObjectTest {
 	public void testRunSet0(int x) {
 		jasperReportService = new JasperReportServiceImpl();
 		// String indir="C:/ws/wsjasper/JasperAssist1/";
-		String indir = "C:/dnld/apps/cal/kcpa/proj/kr0125/kcpt/target/classes/reports/";
+		String indir = "C:/dnld/apps/cal/kcpa/proj/kr0125/continuity/target/classes/reports/";
 		String[] reports = { "Front1", "Front2", "ai" };
 		String thisrpt = "starting";
 		Map testMap =jasperReportService.getStartParameters(pid, ReportServiceJasperImpl.startSql);
@@ -188,7 +188,7 @@ public class TestJasper extends DomainObjectTest {
 	public void testRunSet(int x) {
 		jasperReportService = new JasperReportServiceImpl();
 		// String indir="C:/ws/wsjasper/JasperAssist1/";
-		String indir = "C:/dnld/apps/cal/kcpa/proj/kr0125/kcpt/target/classes/reports/";
+		String indir = "C:/dnld/apps/cal/kcpa/proj/kr0125/continuity/target/classes/reports/";
 		
 		// String indir = srcFolder;
 		String fontDir="C:/windows/fonts/";

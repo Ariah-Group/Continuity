@@ -45,11 +45,11 @@
 
 <div id="subnav">
     <ul>
-        <li><a href="./getInformationTechnologyCentralApplications">   <img src="/kcpt/images/<s:property value='#nav0'/>.gif" alt="a: central applications"     border="0"></a></li>
-        <li><a href="./getInformationTechnologyDepartmentApplications"><img src="/kcpt/images/<s:property value='#nav1'/>.gif" alt="b: department applications"  border="0"></a></li>
-        <li><a href="./getInformationTechnologyServers">               <img src="/kcpt/images/<s:property value='#nav2'/>.gif" alt="c: servers"                  border="0"></a></li>
-        <li><a href="./getInformationTechnologyWorkstations">          <img src="/kcpt/images/<s:property value='#nav3'/>.gif" alt="d: workstations"             border="0"></a></li>
-        <li><a href="./getInformationTechnologyRestart">               <img src="/kcpt/images/<s:property value='#nav4'/>.gif" alt="e: how to restart"           border="0"></a></li>
-        <li><a href="./getInformationTechnologyActionItems">           <img src="/kcpt/images/<s:property value='#nav5'/>.gif" alt="g: action items"             border="0"></a></li>
+        <li><a href="./getInformationTechnologyCentralApplications">   <img src="/continuity/images/<s:property value='#nav0'/>.gif" alt="a: central applications"     border="0"></a></li>
+        <li><a href="./getInformationTechnologyDepartmentApplications"><img src="/continuity/images/<s:property value='#nav1'/>.gif" alt="b: department applications"  border="0"></a></li>
+        <li><a href="./getInformationTechnologyServers">               <img src="/continuity/images/<s:property value='#nav2'/>.gif" alt="c: servers"                  border="0"></a></li>
+        <li><a href="./getInformationTechnologyWorkstations">          <img src="/continuity/images/<s:property value='#nav3'/>.gif" alt="d: workstations"             border="0"></a></li>
+        <li><a href="./getInformationTechnologyRestart">               <img src="/continuity/images/<s:property value='#nav4'/>.gif" alt="e: how to restart"           border="0"></a></li>
+        <li><a href="./getInformationTechnologyActionItems">           <img src="/continuity/images/<s:property value='#nav5'/>.gif" alt="g: action items"             border="0"></a></li>
     </ul>
 </div>

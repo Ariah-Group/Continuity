@@ -20,8 +20,8 @@
     <title>Creating a Resizable Panel</title>
 
 <s:include value="../common/YUI.jsp"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/widget/FloatingPanel.css">
-<script type="text/javascript" src="/kcpt/javascripts/widget/FloatingPanelLibrary.js"></script>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/widget/FloatingPanel.css">
+<script type="text/javascript" src="/continuity/javascripts/widget/FloatingPanelLibrary.js"></script>
 
 </head>
 <div class="yui-skin-sam">

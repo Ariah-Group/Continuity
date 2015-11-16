@@ -14,5 +14,5 @@
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<s:set name="tiles_includeScripts" value="{'/kcpt/javascripts/plan/getPlanUsersLibrary.js'}"/>
+<s:set name="tiles_includeScripts" value="{'/continuity/javascripts/plan/getPlanUsersLibrary.js'}"/>
 <tiles:insertDefinition name="kcpt.getPlanUsers"/>

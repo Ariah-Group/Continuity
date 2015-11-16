@@ -35,7 +35,7 @@
 		<property name="entryUrl" value="/login/start?" />
         <property name="entryShibUrl" value="/login/shibStart?" />
 		<!-- NOte: If you change lotoutURL here, remember to change the org.kuali.continuity.admin.project.client.ListControl -->
-		<!--       protected final String logoutPath = "/kcpt/login/logout"; -->
+		<!--       protected final String logoutPath = "/continuity/login/logout"; -->
 		<property name="logoutUrl" value="/login/logout" />
 		<property name="authenticationManager" ref="authenticationManager" />
 		<property name="shiblethAuthenticationManager" ref="shiblethAuthenticationManager" />

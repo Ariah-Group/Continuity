@@ -14,5 +14,5 @@
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<s:set name="tiles_includeStyles" value="{'/kcpt/css/error.css'}"/>
+<s:set name="tiles_includeStyles" value="{'/continuity/css/error.css'}"/>
 <tiles:insertDefinition name="kcpt.error"/>

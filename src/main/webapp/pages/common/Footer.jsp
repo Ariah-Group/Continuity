@@ -35,7 +35,7 @@
          | <a href="<%=request.getContextPath()%>/j_spring_security_logout">Logout</a>
     </s:if>
     <br />
-    <div id="copyright">Powered by <em>Kuali Ready</em>. Copyright &copy; 2010 Kuali Foundation. All rights reserved.</div>
+    <div id="copyright">Powered by <em>Ariah Continuity</em>. Copyright &copy; 2015, The Ariah  Group, Inc. All rights reserved.</div>
     <div id="copyright">Release ${application.release.version} on 
         <s:property value="#context.get('com.opensymphony.xwork2.dispatcher.HttpServletRequest').getHeader('Host')"/>
     </div>

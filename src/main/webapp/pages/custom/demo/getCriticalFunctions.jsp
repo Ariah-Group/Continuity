@@ -12,7 +12,7 @@
  % or implied. See the License for the specific language governing
  % permissions and limitations under the License.
  --%> 
-<link REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/custom/demo.css" />
+<link REL="stylesheet" TYPE="text/css" HREF="/continuity/css/custom/demo.css" />
 
 <p class="mesgNormal"><span class="mesgBold">Note to users of this
 demo version:</span> To explore this Step 2, make an entry in &ldquo;Other Functions&rdquo;

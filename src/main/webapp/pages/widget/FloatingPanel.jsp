@@ -14,8 +14,8 @@
  --%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:include value="../common/YUI.jsp"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/kcpt/css/widget/FloatingPanel.css">
-<script type="text/javascript" src="/kcpt/javascripts/widget/FloatingPanelLibrary.js"></script>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/widget/FloatingPanel.css">
+<script type="text/javascript" src="/continuity/javascripts/widget/FloatingPanelLibrary.js"></script>
 <div class="yui-skin-sam">
 	<div id="floatingpanel" style="visibility:hidden">
 	    <div id="hd" class="hd">text</div>

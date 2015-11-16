@@ -32,10 +32,10 @@
 <script>
     window.name="mainwindow";
     function exitPage() {
-        window.location="/kcpt/admin/adminHome";
+        window.location="/continuity/admin/adminHome";
     }
 </script>
- <iframe name=frame2 style="width:800px;height:2200px" id=frame2 src="/kcpt/org.kuali.continuity.admin.main.Setting/Setting.html" frameborder="0">
+ <iframe name=frame2 style="width:800px;height:2200px" id=frame2 src="/continuity/org.kuali.continuity.admin.main.Setting/Setting.html" frameborder="0">
 </iframe>
 
 

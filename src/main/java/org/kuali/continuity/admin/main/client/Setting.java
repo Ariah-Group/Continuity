@@ -252,7 +252,7 @@ public class Setting extends ListControl implements EntryPoint {
 		backButton.addClickListener(new ClickListener() {
 			public void onClick(final Widget sender) {
 				showErr(false);
-				redirect("/kcpt/admin/adminHome");
+				redirect("/continuity/admin/adminHome");
 			}
 		});
 
@@ -576,7 +576,7 @@ public class Setting extends ListControl implements EntryPoint {
 	public AsyncCallback updateItemCallback = new AsyncCallback() {
 		public void onSuccess(Object result) {
 			flashDone();
-			redirect("/kcpt/admin/setting");
+			redirect("/continuity/admin/setting");
 		}
 
 		public void onFailure(Throwable e) {

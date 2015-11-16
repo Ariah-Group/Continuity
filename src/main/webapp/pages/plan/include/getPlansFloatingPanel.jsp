@@ -27,7 +27,7 @@
         document.getElementById('bd').innerHTML = '';
         day = new Date();
         id = day.getTime();
-	    url = "/kcpt/plan/getPlanContacts?planId="+planId+"&ts="+id;
+	    url = "/continuity/plan/getPlanContacts?planId="+planId+"&ts="+id;
 	    startAjaxGetRequest(url);
 	}
 </script>

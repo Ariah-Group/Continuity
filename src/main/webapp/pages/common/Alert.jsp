@@ -24,7 +24,7 @@
     <h3><span class="AttentionClass">System Alert</span></h3>
     <div id="guidance">
         <div align="center">
-            <img src="/kcpt/images/blue_line_G.gif" alt="" width="220" height="10"> 
+            <img src="/continuity/images/blue_line_G.gif" alt="" width="220" height="10"> 
         </div>
         <p>Testing Mode is turned on.  To return system to normal, use the Setup System Parameters screen.</p>
     </div>
