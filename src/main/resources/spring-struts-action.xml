@@ -138,6 +138,10 @@
             </bean>
         </property>
     </bean>
+
+    <bean id="acknowledgmentsAction" scope="prototype"
+        class="com.opensymphony.xwork2.ActionSupport">
+    </bean>
     
     <!-- P l a n -->
        

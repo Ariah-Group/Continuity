@@ -1494,6 +1494,12 @@
             <result>/pages/widget/Calendar.jsp</result>
         </action>
 
+
+        <action name="acknowledgments" class="acknowledgmentsAction">
+            <result>/pages/plan/acknowledgments.jsp</result>
+        </action>
+
+
     </package>
     
 </struts>

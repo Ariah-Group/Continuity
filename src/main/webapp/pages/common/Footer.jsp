@@ -23,6 +23,7 @@
 <s:set var="ns" value="#request['javax.servlet.forward.servlet_path'].substring(1,6)"/>
 <s:set var="beginPage" value="%{#request['javax.servlet.forward.context_path'] + '/plan/begin'}"/>
 <s:set var="contactUsPage" value="%{#request['javax.servlet.forward.context_path'] + '/plan/contactUs'}"/>
+<s:set var="acknowledgmentsPage" value="%{#request['javax.servlet.forward.context_path'] + '/plan/acknowledgments'}"/>
 <s:if test="#ns == 'login'">
     <s:set var="contactUsPage" value="'mailto:kualiready@berkeley.edu'"/>
 </s:if>
@@ -35,8 +36,9 @@
          | <a href="<%=request.getContextPath()%>/j_spring_security_logout">Logout</a>
     </s:if>
     <br />
-    <div id="copyright">Powered by <em>Ariah Continuity</em>. Copyright &copy; 2015, The Ariah  Group, Inc. All rights reserved.</div>
-    <div id="copyright">Release ${application.release.version} on 
-        <s:property value="#context.get('com.opensymphony.xwork2.dispatcher.HttpServletRequest').getHeader('Host')"/>
+    <div id="copyright">
+    	Powered by <em>Ariah Continuity</em>. Copyright &copy; 2015, The Ariah  Group, Inc. All rights reserved.<br />
+    	Portions of <em>Ariah Continuity</em> are copyrighted by other parties as described on the <a href="<s:property value='#acknowledgmentsPage'/>">Acknowledgments</a> page.<br />
+    	Release ${application.release.version} on <s:property value="#context.get('com.opensymphony.xwork2.dispatcher.HttpServletRequest').getHeader('Host')"/>
     </div>
 </div>	

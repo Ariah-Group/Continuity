@@ -125,6 +125,12 @@
 			    <param name="allowCaching">false</param>
 			</result>
         </action>
+
+
+        <action name="acknowledgments" class="acknowledgmentsAction">
+            <result>/pages/plan/acknowledgments.jsp</result>
+        </action>
+
     </package>
 
     <include file="struts-admin.xml"/>
