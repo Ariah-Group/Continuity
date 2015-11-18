@@ -20,7 +20,7 @@
 
 <title>Continuity Planning Tool</title>
 
-<meta name="keywords" content="Kuali Ready, Kuali Continuity,  Planning, Disaster Recovery">
+<meta name="keywords" content="Ariah Continuity, Kuali Continuity,  Planning, Disaster Recovery">
 
 <link rel="stylesheet" type="text/css" href="/continuity/css/ucreadystyles.css">
 <link rel="stylesheet" type="text/css" href="/continuity/css/guidance.css">
@@ -230,7 +230,7 @@ Use these examples to form your thoughts about your own unit's critical function
 
 
 <div id="footer">
-    <a href="./begin">Kuali Ready Home</a> |
+    <a href="./begin">Ariah Continuity Home</a> |
     <a href="http://www.ucop.edu">UC Home</a> |
 	<a href="./contactUs">Contact Us</a> |
 	<a href="<%=request.getContextPath()%>/j_spring_security_logout">Logout</a>

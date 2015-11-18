@@ -18,7 +18,7 @@
 of this demo version:</span></p>
 
 <ul class="mesg">
-	<li>Before the Kuali Ready tool is placed in service on a campus,
+	<li>Before the Ariah Continuity tool is placed in service on a campus,
 	the campus administrator of the tool extensively customizes the tool.
 	He/she creates the contents of various drop-down lists, creates certain
 	on-screen text, decides whether to use certain optional screens, and

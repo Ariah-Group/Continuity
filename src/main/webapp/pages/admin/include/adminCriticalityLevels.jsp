@@ -22,7 +22,7 @@
 functions and (b) IT systems for two reasons: to prioritize, and to set
 expectations about recovery times.</p>
 
-<p>Kuali Ready comes &ldquo;out of the box&rdquo; with default
+<p>Ariah Continuity comes &ldquo;out of the box&rdquo; with default
 definitions of &ldquo;level of criticality&rdquo;. You can see these
 definitions on</p>
 

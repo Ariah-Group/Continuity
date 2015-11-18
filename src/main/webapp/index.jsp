@@ -13,7 +13,7 @@
  % permissions and limitations under the License.
  --%> 
 <%	
-	ServletContext  thatctx= application.getContext("/kcpt");
+	ServletContext  thatctx= application.getContext("/continuity");
 	RequestDispatcher  rdpt=thatctx.getRequestDispatcher("/login/shibleth");
 	request.setAttribute("isShibleth","1");
     rdpt.forward(request, response);

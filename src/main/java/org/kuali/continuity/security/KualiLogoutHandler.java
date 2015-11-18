@@ -50,8 +50,8 @@ public class KualiLogoutHandler implements LogoutHandler {
 //		}	
 		
 		SecurityContextHolder.clearContext();
-		deleteCookie(request, response, SecurityEnum.KUALI_DIRECTLOGIN_COOKIE_KEY.toString(), "/kcpt");
-		deleteCookie(request, response, SecurityEnum.SHIBBOLETH_LOGIN_IDP_ID.toString(), "/kcpt");		
+		deleteCookie(request, response, SecurityEnum.KUALI_DIRECTLOGIN_COOKIE_KEY.toString(), "/continuity");
+		deleteCookie(request, response, SecurityEnum.SHIBBOLETH_LOGIN_IDP_ID.toString(), "/continuity");		
 	}
 	
 	/**

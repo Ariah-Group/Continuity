@@ -161,7 +161,7 @@ public class LogoutAction extends BaseActionSupport implements ServletRequestAwa
  			if(customUrl == null && (shibbolethIdp == null || shibbolethCustomUrl == null)){
  				//Client cleared all cookies
  				exception = SecurityErrorCode.SESSION_EXPIRED.getDescription();
- 				//defaultDirectLoginUrl = this.iCommonMetadataService.getAppUrl() + "/kcpt" + "/login/ready";
+ 				//defaultDirectLoginUrl = this.iCommonMetadataService.getAppUrl() + "/continuity" + "/login/ready";
  				//shibbolethLoginWayfUrl= this.iCommonMetadataService.getAppUrl() + "/secure";			
  			} else if (customUrl != null && (shibbolethIdp == null || shibbolethCustomUrl == null)){
  				//Direct Login
@@ -176,14 +176,14 @@ public class LogoutAction extends BaseActionSupport implements ServletRequestAwa
 		SystemDomain systemDomain = this.systemDomainService.getById(dto.id);
 		
 		if(systemDomain == null){
-			backUrl = this.iCommonMetadataService.getAppUrl() + "/kcpt";
+			backUrl = this.iCommonMetadataService.getAppUrl() + "/continuity";
 			return SUCCESS;
 		}
 		
 		if(systemDomain.isShibMode()){		
 			backUrl = this.iCommonMetadataService.getLoginUrl(systemDomain.getShibIDP(), systemDomain.getCustomUrl());
 		} else{
-			backUrl = this.iCommonMetadataService.getAppUrl() + "/kcpt" + "/login/ready?sdname=" + systemDomain.getCustomUrl();
+			backUrl = this.iCommonMetadataService.getAppUrl() + "/continuity" + "/login/ready?sdname=" + systemDomain.getCustomUrl();
 		}
 		
 		return SUCCESS;

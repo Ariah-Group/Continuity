@@ -69,7 +69,7 @@ public class ReadyTest extends TestCase {
 			envUrl = "https://us.ready-dev.kuali.org";
 		else
 			envUrl = "http://localhost:8080";
-		return envUrl + "/kcpt";
+		return envUrl + "/continuity";
 	}
 	
 }

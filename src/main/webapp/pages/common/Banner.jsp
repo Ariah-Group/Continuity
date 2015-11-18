@@ -28,6 +28,6 @@
     <s:set var="beginPage" value="'#'"/>
 </s:if>
 <div id="UCReadyhead">
-	<a href="<s:property value="#beginPage"/>">Kuali Ready Securing our mission: teaching, research, and public service</a>
+	<a href="<s:property value="#beginPage"/>">Ariah Continuity Securing our mission: teaching, research, and public service</a>
 </div>
 <!-- End Banner Table -->

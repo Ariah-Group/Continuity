@@ -14,12 +14,12 @@
  --%> 
 <link REL="stylesheet" TYPE="text/css" HREF="/continuity/css/custom/demo.css"/>
 
-<p class="mesg"><span class="mesgBold">Please Note:</span> This is the demonstration version of the Kuali Ready
+<p class="mesg"><span class="mesgBold">Please Note:</span> This is the demonstration version of the Ariah Continuity
 continuity planning tool. It is open to the public, and we encourage you
 to &ldquo;try it out&rdquo;.</p>
 
 <p class="mesg">This tool is available for annual subscription. The Kuali
 Foundation invites each subscribing institution to place its own name &amp; 
-graphic logo on the tool (in place of the Kuali Ready name &amp; logo).
+graphic logo on the tool (in place of the Ariah Continuity name &amp; logo).
 These are installed for you by the Foundation, creating a tool that
 displays your campus branding on each page.</p>

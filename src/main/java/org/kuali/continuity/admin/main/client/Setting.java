@@ -218,7 +218,7 @@ public class Setting extends ListControl implements EntryPoint {
 		modPanel.add(new HTML("<h3>Select the Rule for Issuing Passwords:</h3>"));
 		modPanel
 				.add(new HTML(
-						"<p class='StandardWidth'>This selection applies only when the location (campus) is configured for Direct Login (i.e., when Kuali Ready issues passwords to users via email).  When the location is configured for Shibboleth Login (under which Kuali Ready recognizes the user's own login/password from the campus Identity Management System), moderation is not needed and is disabled.</p>"));
+						"<p class='StandardWidth'>This selection applies only when the location (campus) is configured for Direct Login (i.e., when Ariah Continuity issues passwords to users via email).  When the location is configured for Shibboleth Login (under which Kuali Ready recognizes the user's own login/password from the campus Identity Management System), moderation is not needed and is disabled.</p>"));
 
 		modPanel.add(radioFull);
 		radioFull
@@ -417,7 +417,7 @@ public class Setting extends ListControl implements EntryPoint {
 
 		vp.add(new HTML("<hr style='margin-top:10px;'/>"));
 		vp.add(new HTML("<h3>Create a Name for this Planning Tool:</h3>"));
-		vp.add(new HTML("<p class='StandardWidth'>Please enter here a name for your local version of the Kuali Ready tool.  This name will appear in the system-generated emails that notify users about new accounts, passwords, etc.   Some possible examples:  Indiana Ready, UBC Ready, Penn State Continuity Planner.  For consistency, please use the same name as will appear in your custom graphics at the top of every page.</p>"));
+		vp.add(new HTML("<p class='StandardWidth'>Please enter here a name for your local version of the Ariah Continuity tool.  This name will appear in the system-generated emails that notify users about new accounts, passwords, etc.   Some possible examples:  Indiana Ready, UBC Ready, Penn State Continuity Planner.  For consistency, please use the same name as will appear in your custom graphics at the top of every page.</p>"));
 		systemNameTextBox.setSize("644px", "20px");
 		
 		systemNameTextBox.setMaxLength(1000);

@@ -23,7 +23,7 @@
 <head>
     <title>Continuity Planning Tool</title>
     <meta name="keywords"
-        content="Kuali Ready, Continuity,  Planning, Disaster Recovery">
+        content="Ariah Continuity, Continuity,  Planning, Disaster Recovery">
     <!-- Enforce browser not to cache  -->
     <META Http-Equiv="Cache-Control" Content="no-cache">
     <META Http-Equiv="Pragma" Content="no-cache">

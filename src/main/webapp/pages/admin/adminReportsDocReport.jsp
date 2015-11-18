@@ -25,7 +25,7 @@
 <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
 --->
 
-<meta name="keywords" content="Kuali Ready, Continuity,  Planning, Disaster Recovery">
+<meta name="keywords" content="Ariah Continuity, Continuity,  Planning, Disaster Recovery">
 <style type="text/css">
 
 <jsp:include page="/css/ucreadyMainElements.css" />

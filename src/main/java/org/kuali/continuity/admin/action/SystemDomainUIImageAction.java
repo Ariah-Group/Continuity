@@ -52,15 +52,15 @@ public class SystemDomainUIImageAction extends BaseAction {
 				// default
 				String fileName = "";
 				if (imgEnum == UIImageEnum.BANNER)
-					fileName = "/images/banner.gif";
+					fileName = "/images/banner.png";
 				else if (imgEnum == UIImageEnum.BANNER_TEXT)
-					fileName = "/images/banner-text.gif";
+					fileName = "/images/banner-text.png";
 				else if (imgEnum == UIImageEnum.BEGIN)
-					fileName = "/images/begin.gif";
+					fileName = "/images/begin.png";
 				else if (imgEnum == UIImageEnum.BEGIN_TEXT)
-					fileName = "/images/begin-text.gif";
+					fileName = "/images/begin-text.png";
 				this.setInputStream(SystemDomainUIImageAction.class.getResourceAsStream(fileName));
-				this.setContentType(UIImageTypeEnum.GIF.getContentType());
+				this.setContentType(UIImageTypeEnum.PNG.getContentType());
 			}
 		}
 

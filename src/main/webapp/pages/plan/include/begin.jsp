@@ -24,7 +24,7 @@
 <head>
     <title>Continuity Planning Tool</title>
     <meta name="keywords"
-        content="Kuali Ready, Continuity,  Planning, Disaster Recovery">
+        content="Ariah Continuity, Continuity,  Planning, Disaster Recovery">
     <tiles:insertAttribute name="stylesAndScripts" />
 	<LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/skin.css">
 </head>

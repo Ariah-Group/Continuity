@@ -20,7 +20,7 @@
 <META Http-Equiv="Cache-Control" Content="no-cache">
 <META Http-Equiv="Pragma" Content="no-cache">
 <META Http-Equiv="Expires" Content="0"> 
-<meta name="keywords" content="Kuali Ready, Continuity,  Planning, Disaster Recovery">
+<meta name="keywords" content="Ariah Continuity, Continuity,  Planning, Disaster Recovery">
 
 <LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/ucreadystyles.css">
 <LINK REL="stylesheet" TYPE="text/css" HREF="/continuity/css/guidance.css">

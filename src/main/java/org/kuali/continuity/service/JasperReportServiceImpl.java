@@ -78,7 +78,7 @@ public class JasperReportServiceImpl implements JasperReportService {
 							"jdbc:jtds:sqlserver://sql-dnon02.ist.berkeley.edu:1433;DatabaseName=UCReady",
 							"restart_app", "RB7erk.ley");
 		   } else {
-			      logger.info("Reports connecting to Kuali Ready");
+			      logger.info("Reports connecting to Ariah Continuity");
 			      conn = dataSource.getConnection();
 		   }
 		
