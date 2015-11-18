@@ -1,129 +1,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.kuali.continuity</groupId>
-	<artifactId>kcpt</artifactId>
+	<groupId>org.ariahgroup.continuity</groupId>
+	<artifactId>continuity</artifactId>
 	<packaging>war</packaging>
-	<version>2.0</version>
-	<name>kcpt-maven Maven Webapp</name>
-	<url>http://maven.apache.org</url>
- 
-
+	<version>3.0-SNAPSHOT</version>
+	<name>Ariah Continuity</name>
+	<url>http://ariahgroup.org/product/ariah-continuity/</url>
+	
 	<scm>
-		<url>scm:svn:svn+ssh://YourUserName@YourSVNServerName/kcpt</url>
+		<url>https://github.com/Ariah-Group/Continuity</url>
+		<connection>scm:git:git://github.com/Ariah-Group/Continuity.git</connection>
+		<developerConnection>scm:git:git@github.com:Ariah-Group/Continuity.git</developerConnection>
 	</scm>
+
 	<organization>
-		<name>University of California Berkeley</name>
-		<url>http://www.berkeley.edu</url>
+		<name>The Ariah Group</name>
+		<url>http://ariahgroup.org</url>
 	</organization>
-	<developers>
-		<developer>
-			<name>Richard Katz</name>
-			<email>richkatz@berkeley.edu</email>
-			<organization>University of California Berkeley</organization>
-			<organizationUrl>http://www.berkeley.edu</organizationUrl>
-			<roles>
-				<role>developer</role>
-			</roles>
-		</developer>
-
-		<developer>
-			<name>Lito Tejada</name>
-			<email>lito.tejada@berkeley.edu</email>
-			<organization>University of California Berkeley</organization>
-			<organizationUrl>http://www.berkeley.edu</organizationUrl>
-
-			<roles>
-				<role>developer</role>
-			</roles>
-		</developer>
-
-		<developer>
-			<name>Rusty Wright</name>
-			<email>rusty@berkeley.edu</email>
-			<organization>University of California Berkeley</organization>
-			<organizationUrl>http://www.berkeley.edu</organizationUrl>
-
-			<roles>
-				<role>developer</role>
-			</roles>
-		</developer>
-
-		<developer>
-			<name>Eric Liao</name>
-			<email>hcliao@berkeley.edu</email>
-			<organization>University of California Berkeley</organization>
-			<organizationUrl>http://www.berkeley.edu</organizationUrl>
-			<roles>
-				<role>developer</role>
-			</roles>
-		</developer>
-
-		<developer>
-			<name>Vahid Nadi</name>
-			<email>vnadi@berkeley.edu</email>
-			<organization>University of California Berkeley</organization>
-			<organizationUrl>http://www.berkeley.edu</organizationUrl>
-			<roles>
-				<role>developer</role>
-			</roles>
-		</developer>
-
-	</developers>
-	<ciManagement>
-		<system>hudson</system>
-		<url>https://YourHudsonServerName/hudson/</url>
-		<notifiers>
-			<notifier>
-				<type>mail</type>
-				<sendOnError>true</sendOnError>
-				<sendOnFailure>true</sendOnFailure>
-				<sendOnSuccess>false</sendOnSuccess>
-				<sendOnWarning>false</sendOnWarning>
-				<configuration>
-					<address>YourEmailAddress</address>
-				</configuration>
-			</notifier>
-		</notifiers>
-	</ciManagement>
-
+ 
 	<build>
-		<finalName>kcpt</finalName>
+		<finalName>continuity</finalName>
 		<plugins>			
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19</version>
 				<configuration>
 					<skipTests>true</skipTests>
-					<!--
-						<includes> <include>**/SpringConfig*</include> </includes>
-					-->
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<configuration>
-					<buildOutputDirectory>src/main/webapp/WEB-INF/classes
-					</buildOutputDirectory>
-					<downloadJavadocs>true</downloadJavadocs>
-					<downloadSources>true</downloadSources>
-					<wtpversion>1.5</wtpversion>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 
@@ -158,8 +71,8 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
 				<configuration>
 					<webResources>
 						<resource>
@@ -173,6 +86,31 @@
 					</webResources>
 				</configuration>
 			</plugin>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat6-maven-plugin</artifactId>
+                <version>2.1</version>
+                <dependencies>
+					<dependency>
+						<groupId>net.sourceforge.jtds</groupId>
+						<artifactId>jtds</artifactId>
+						<version>${version.jtds}</version>
+					    <scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>javax.mail</groupId>
+						<artifactId>mail</artifactId>
+						<version>${version.mail}</version>
+						<scope>runtime</scope>
+					</dependency>
+                </dependencies>
+                <configuration>
+                    <port>8080</port>
+                    <path>/continuity</path>
+                </configuration>
+            </plugin>
+
 		</plugins>
 
 		<resources>
@@ -182,36 +120,12 @@
 			</resource>
 		</resources>
 
-		<!--		<testResources>-->
-		<!--			<testResource>-->
-		<!--				<directory>src/test/resources</directory>-->
-		<!--				<filtering>true</filtering>-->
-		<!--			</testResource>-->
-<!---->
-		<!--			<testResource>-->
-		<!--				<directory>src/test/java</directory>-->
-<!---->
-		<!--				<filtering>true</filtering>-->
-<!---->
-		<!--				<includes>-->
-		<!--					<include>**/*-context.xml</include>-->
-		<!--				</includes>-->
-		<!--			</testResource>-->
-		<!--		</testResources>-->
 	</build>
 
 	<repositories>
 		<repository>
-			<id>java-maven</id>
-			<url>http://download.java.net/maven/2/</url>
-		</repository>
-		<repository>
 			<id>gwtchismes</id>
 			<url>http://gwtchismes.googlecode.com/svn/mavenrepo/</url>
-		</repository>
-		<repository>  
-			<id>thirdparty</id>  
-			<url>http://nexus.kuali.org/content/repositories/thirdparty/</url>  
 		</repository>
 	</repositories>
 
@@ -245,7 +159,7 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>jaas</groupId>
+			<groupId>javax.security</groupId>
 			<artifactId>jaas</artifactId>
 			<version>${version.jaas}</version>
 		</dependency>
@@ -283,7 +197,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>bsh</groupId>
+			<groupId>org.beanshell</groupId>
 			<artifactId>bsh</artifactId>
 			<version>${version.bsh}</version>
 		</dependency>
@@ -393,7 +307,7 @@
 			<version>${version.dom4j}</version>
 		</dependency>
 		<dependency>
-			<groupId>easymock</groupId>
+			<groupId>org.easymock</groupId>
 			<artifactId>easymockclassextension</artifactId>
 			<version>${version.easymockclassextension}</version>
 		</dependency>
@@ -414,7 +328,7 @@
 			<version>${version.ejb3-persistence}</version>
 		</dependency>
 		<dependency>
-			<groupId>poi</groupId>
+			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 			<version>${version.poi}</version>
 		</dependency>
@@ -424,7 +338,7 @@
 			<version>${version.proxool}</version>
 		</dependency>
 		<dependency>
-			<groupId>opensymphony</groupId>
+			<groupId>org.opensymphony.quartz</groupId>
 			<artifactId>quartz</artifactId>
 			<version>${version.quartz}</version>
 		</dependency>
@@ -1220,18 +1134,23 @@
 		    <version>2.3.1</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<!--
 		project default properties.
-	-->
-	<!--
 		not all properties are given here; the missing ones are below in
-	-->
-	<!--
 		a profile. you must use a profile when building.
 	-->
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- default version numbers -->
 		<version.bsh>2.0b4</version.bsh>
 		<version.junit>4.4</version.junit>
@@ -1251,7 +1170,7 @@
         <version.commons-validator>1.3.1</version.commons-validator>
         <version.oro>2.0.8</version.oro>
 		<version.asm.commons>2.2.3</version.asm.commons>
-		<version.jaas>1.0.1</version.jaas>
+		<version.jaas>1.0.01</version.jaas>
 		<version.jacc>1.0</version.jacc>
 		<version.mail>1.4.1</version.mail>
 		<version.jasperreports>3.5.2</version.jasperreports>
@@ -1283,7 +1202,7 @@
 		<version.velocity-tools-view>1.3</version.velocity-tools-view>
 		<version.xapool>1.5.0</version.xapool>
 		<version.xercesImpl>2.9.1</version.xercesImpl>
-		<version.xml-apis>2.0.2</version.xml-apis>
+		<version.xml-apis>1.0.b2</version.xml-apis>
 		<version.spring-ldap>1.2</version.spring-ldap>
 		<version.jboss-archive-browsing>5.0.0alpha-200607201-119
 		</version.jboss-archive-browsing>
@@ -1361,14 +1280,15 @@
 	<!-- Profiles -->
 	<profiles>
 		<profile>
-			<id>test</id>   <!-- Used by test environment -->
+			<id>local</id>   <!-- Used by local environment -->
 			<properties>
+
 				<!-- Hibernate Database related parameters settins for Test cases -->
 				<hibernate.dialect>org.hibernate.dialect.SQLServerDialect</hibernate.dialect>
 				<hibernate.connection.driver_class>net.sourceforge.jtds.jdbc.Driver</hibernate.connection.driver_class>
-				<hibernate.connection.url>jdbc:jtds:sqlserver://YourDatabaseServerName:1433;DatabaseName=KualiReady</hibernate.connection.url>
-				<hibernate.connection.username>YourUserName</hibernate.connection.username>
-				<hibernate.connection.password>xxxxxx</hibernate.connection.password>
+				<hibernate.connection.url>xxxxxxxxxx</hibernate.connection.url>
+				<hibernate.connection.username>xxxxxxxxxx</hibernate.connection.username>
+				<hibernate.connection.password>xxxxxxxxxx</hibernate.connection.password>
 
 				<!-- Spring mail -->
 				<mail.host>YourSMTPServerName</mail.host>
@@ -1387,125 +1307,35 @@
 				<application.shibboleth.metada>/tmp/InCommon-metadata.xml</application.shibboleth.metada>
 			</properties>
 		</profile>
+
 		<profile>
-			<id>dev</id>   <!-- Used by dev environment -->
+			<id>demo</id>   <!-- Used by demo environment -->
 			<properties>
+
 				<!-- Hibernate Database related parameters settins for Test cases -->
 				<hibernate.dialect>org.hibernate.dialect.SQLServerDialect</hibernate.dialect>
-				<hibernate.connection.driver_class>com.microsoft.sqlserver.jdbc.SQLServerDriver</hibernate.connection.driver_class>
-				<hibernate.connection.url>jdbc:sqlserver://YourDatabaseServerName:1433;DatabaseName=KualiReady</hibernate.connection.url>
-				<hibernate.connection.username>YourUserName</hibernate.connection.username>
-				<hibernate.connection.password>xxxxxx</hibernate.connection.password>
+				<hibernate.connection.driver_class>net.sourceforge.jtds.jdbc.Driver</hibernate.connection.driver_class>
+				<hibernate.connection.url>xxxxxxxxxx</hibernate.connection.url>
+				<hibernate.connection.username>xxxxxxxxxx</hibernate.connection.username>
+				<hibernate.connection.password>xxxxxxxxxx</hibernate.connection.password>
 
-				<!-- Spring mail -->			
+				<!-- Spring mail -->
 				<mail.host>YourSMTPServerName</mail.host>
 				<mail.username>YourUserName</mail.username>
 				<mail.password>xxxxxx</mail.password>
 				<mail.smtp.auth>true</mail.smtp.auth>
-				<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>			
+				<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>
 				
-				<spring.mail.enabled>false</spring.mail.enabled>
+				<spring.mail.enabled>true</spring.mail.enabled>
 				<spring.mail.test>true</spring.mail.test>
 				<spring.mail.testEmail>YourEmailAddress</spring.mail.testEmail>
 				<spring.mail.krURL>https://YourServerName/kcpt</spring.mail.krURL>
 				
-				<!-- Spring application -->			
-				<application.url>https://YourServerName</application.url>
+				<application.url>http://continuity.ariahgroup.org</application.url>
 				<application.release.version>${release.version}</application.release.version>
-				
-				<!-- shibboleth meta xml file -->
-				<application.shibboleth.metada>/etc/shibboleth/InCommon-metadata.xml</application.shibboleth.metada>
+				<application.shibboleth.metada>/tmp/InCommon-metadata.xml</application.shibboleth.metada>
 			</properties>
 		</profile>
-		<profile>
-			<id>qa</id>   <!-- Used by qa environment -->
-			<properties>
-				<!-- Hibernate Database related parameters settins for Test cases -->
-				<hibernate.dialect>org.hibernate.dialect.SQLServerDialect</hibernate.dialect>
-				<hibernate.connection.driver_class>com.microsoft.sqlserver.jdbc.SQLServerDriver</hibernate.connection.driver_class>
-				<hibernate.connection.url>jdbc:sqlserver://YourDatabaseServerName:1433;DatabaseName=KualiReady</hibernate.connection.url>
-				<hibernate.connection.username>YourUserName</hibernate.connection.username>
-				<hibernate.connection.password>xxxxxx</hibernate.connection.password>
 
-				<!-- Spring mail -->			
-				<mail.host>YourSMTPServerName</mail.host>
-				<mail.username>YourUserName</mail.username>
-				<mail.password>xxxxxx</mail.password>
-				<mail.smtp.auth>true</mail.smtp.auth>
-				<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>			
-				
-				<spring.mail.enabled>false</spring.mail.enabled>
-				<spring.mail.test>true</spring.mail.test>
-				<spring.mail.testEmail>YourEmailAddress</spring.mail.testEmail>
-				<spring.mail.krURL>https://YourServerName/kcpt</spring.mail.krURL>
-				
-				<!-- Spring application -->			
-				<application.url>https://YourServerName</application.url>
-				<application.release.version>${release.version}</application.release.version>
-				
-				<!-- shibboleth meta xml file -->
-				<application.shibboleth.metada>/etc/shibboleth/InCommon-metadata.xml</application.shibboleth.metada>
-			</properties>
-		</profile>
-		<profile>
-			<id>staging</id>   <!-- Used by staging environment -->
-			<properties>
-				<!-- Hibernate Database related parameters settins for Test cases -->
-				<hibernate.dialect>org.hibernate.dialect.SQLServerDialect</hibernate.dialect>
-				<hibernate.connection.driver_class>com.microsoft.sqlserver.jdbc.SQLServerDriver</hibernate.connection.driver_class>
-				<hibernate.connection.url>jdbc:sqlserver://YourDatabaseServerName:1433;DatabaseName=KualiReady</hibernate.connection.url>
-				<hibernate.connection.username>YourUserName</hibernate.connection.username>
-				<hibernate.connection.password>xxxxxx</hibernate.connection.password>
-
-				<!-- Spring mail -->			
-				<mail.host>YourSMTPServerName</mail.host>
-				<mail.username>YourUserName</mail.username>
-				<mail.password>xxxxxx</mail.password>
-				<mail.smtp.auth>true</mail.smtp.auth>
-				<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>			
-				
-				<spring.mail.enabled>false</spring.mail.enabled>
-				<spring.mail.test>true</spring.mail.test>
-				<spring.mail.testEmail>YourEmailAddress</spring.mail.testEmail>
-				<spring.mail.krURL>https://YourServerName/kcpt</spring.mail.krURL>
-				
-				<!-- Spring application -->			
-				<application.url>https://YourServerName</application.url>
-				<application.release.version>${release.version}</application.release.version>
-				
-				<!-- shibboleth meta xml file -->
-				<application.shibboleth.metada>/etc/shibboleth/InCommon-metadata.xml</application.shibboleth.metada>
-			</properties>
-		</profile>
-		<profile>
-			<id>production</id> <!-- Used by production environment -->
-			<properties>
-				<!-- Hibernate Database related parameters settins for Test cases -->
-				<hibernate.dialect>org.hibernate.dialect.SQLServerDialect</hibernate.dialect>
-				<hibernate.connection.driver_class>com.microsoft.sqlserver.jdbc.SQLServerDriver</hibernate.connection.driver_class>
-				<hibernate.connection.url>jdbc:sqlserver://YourDatabaseServerName:1433;DatabaseName=KualiReady</hibernate.connection.url>
-				<hibernate.connection.username>YourUserName</hibernate.connection.username>
-				<hibernate.connection.password>xxxxxx</hibernate.connection.password>
-
-				<!-- Spring mail -->			
-				<mail.host>YourSMTPServerName</mail.host>
-				<mail.username>YourUserName</mail.username>
-				<mail.password>xxxxxx</mail.password>
-				<mail.smtp.auth>true</mail.smtp.auth>
-				<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>			
-				
-				<spring.mail.enabled>false</spring.mail.enabled>
-				<spring.mail.test>true</spring.mail.test>
-				<spring.mail.testEmail>YourEmailAddress</spring.mail.testEmail>
-				<spring.mail.krURL>https://YourServerName/kcpt</spring.mail.krURL>
-				
-				<!-- Spring application -->			
-				<application.url>https://YourServerName</application.url>
-				<application.release.version>${release.version}</application.release.version>
-				
-				<!-- shibboleth meta xml file -->
-				<application.shibboleth.metada>/etc/shibboleth/InCommon-metadata.xml</application.shibboleth.metada>
-			</properties>
-		</profile>
 	</profiles>
 </project>
