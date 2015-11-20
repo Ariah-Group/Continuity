@@ -21,10 +21,8 @@
             <fieldset>
                 <legend>&nbsp;Login&nbsp;</legend>
 		        <div id="logincontext">
-				    <p>You are on the secure website of the Kuali Foundation, a consortium of universities
-					  and colleges that collaboratively develops software tools for higher education.  
-					  Your campus's <span class="bold"><strong>continuity planning tool</strong></span> 
-					  is powered by Kuali's software, and hosted
+				    <p>Your campus's <span class="bold"><strong>continuity planning tool</strong></span> 
+					  is powered by the <a href="http://www.ariahgroup.org">Ariah Group</a>, and hosted
 					  here.  This login screen admits you to your campus's tool, which is secure and
 					  confidential to your institution.
     				</p>

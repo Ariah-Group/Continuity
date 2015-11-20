@@ -27,56 +27,56 @@
 
     <bean id="moderatorApproveUserMessage" 
         class="org.kuali.continuity.service.VelocityMailMessage">
-            <property name="from" value="YourEmailAddress"/>
-            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="from" value="info@ariahgroup.org"/>
+            <property name="replyTo" value="info@ariahgroup.org"/>
             <property name="subject" value="Your %s account has been approved"/>
             <property name="templateName" value="email-template/moderator-approve-user.vm"/>
     </bean>
 
     <bean id="moderatorDenyUserMessage" 
         class="org.kuali.continuity.service.VelocityMailMessage">
-            <property name="from" value="YourEmailAddress"/>
-            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="from" value="info@ariahgroup.org"/>
+            <property name="replyTo" value="info@ariahgroup.org"/>
             <property name="subject" value="Your request for an account in %s has been denied"/>
             <property name="templateName" value="email-template/moderator-deny-user.vm"/>
     </bean>
 
     <bean id="createUserAccountInvite" 
         class="org.kuali.continuity.service.VelocityMailMessage">
-            <property name="from" value="YourEmailAddress"/>
-            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="from" value="info@ariahgroup.org"/>
+            <property name="replyTo" value="info@ariahgroup.org"/>
             <property name="subject" value="You have been granted access to a continuity plan"/>
             <property name="templateName" value="email-template/create-user-account-invite.vm"/>
     </bean>
 
     <bean id="accessPlanInvite" 
         class="org.kuali.continuity.service.VelocityMailMessage">
-            <property name="from" value="YourEmailAddress"/>
-            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="from" value="info@ariahgroup.org"/>
+            <property name="replyTo" value="info@ariahgroup.org"/>
             <property name="subject" value="You have been granted access to a continuity plan"/>
             <property name="templateName" value="email-template/access-plan-invite.vm"/>
     </bean>
 
     <bean id="accessPlanInviteShib" 
         class="org.kuali.continuity.service.VelocityMailMessage">
-            <property name="from" value="YourEmailAddress"/>
-            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="from" value="info@ariahgroup.org"/>
+            <property name="replyTo" value="info@ariahgroup.org"/>
             <property name="subject" value="You have been granted access to a continuity plan"/>
             <property name="templateName" value="email-template/access-plan-invite-shib.vm"/>
     </bean>
 
     <bean id="reqstLoginPassword" 
         class="org.kuali.continuity.service.VelocityMailMessage">
-            <property name="from" value="YourEmailAddress"/>
-            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="from" value="info@ariahgroup.org"/>
+            <property name="replyTo" value="info@ariahgroup.org"/>
             <property name="subject" value="%s - login information"/>
             <property name="templateName" value="email-template/request-login-password.vm"/>
     </bean>
 
     <bean id="userAwaitingApproval" 
         class="org.kuali.continuity.service.VelocityMailMessage">
-            <property name="from" value="YourEmailAddress"/>
-            <property name="replyTo" value="YourEmailAddress"/>
+            <property name="from" value="info@ariahgroup.org"/>
+            <property name="replyTo" value="info@ariahgroup.org"/>
             <property name="subject" value="A %s account is waiting for approval"/>
             <property name="templateName" value="email-template/user-awaiting-approval.vm"/>
     </bean>

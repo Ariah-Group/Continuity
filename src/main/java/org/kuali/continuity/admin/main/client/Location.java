@@ -111,7 +111,7 @@ public class Location extends SimpleGridViewerS {
 		Label lblLoc = new Label("Location");
 		Label lblAcc = new Label("Access");
 		Label lblCus = new Label("User Friendly Url:");
-		Label lblCs1 = new Label("https://us.ready.kuali.org/");
+		Label lblCs1 = new Label("https://us.continuity.ariahgroup.org/");
 		Label lblLog = new Label("Login Method");
 		Label lblIdp = new Label("IDP");
 		Label lblIdi = new Label("Shibboleth unique attribute");

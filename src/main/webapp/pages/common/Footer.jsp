@@ -25,7 +25,7 @@
 <s:set var="contactUsPage" value="%{#request['javax.servlet.forward.context_path'] + '/plan/contactUs'}"/>
 <s:set var="acknowledgmentsPage" value="%{#request['javax.servlet.forward.context_path'] + '/plan/acknowledgments'}"/>
 <s:if test="#ns == 'login'">
-    <s:set var="contactUsPage" value="'mailto:kualiready@berkeley.edu'"/>
+    <s:set var="contactUsPage" value="'mailto:info@ariahgroup.org'"/>
 </s:if>
 <div id="footer">
 	<s:if test="#ns != 'login'">
