@@ -23,7 +23,7 @@
 <s:set var="ns" value="#request['javax.servlet.forward.servlet_path'].substring(1,6)"/>
 <s:set var="beginPage" value="%{#request['javax.servlet.forward.context_path'] + '/plan/begin'}"/>
 <s:set var="contactUsPage" value="%{#request['javax.servlet.forward.context_path'] + '/plan/contactUs'}"/>
-<s:set var="acknowledgmentsPage" value="%{#request['javax.servlet.forward.context_path'] + '/plan/acknowledgments'}"/>
+<s:set var="acknowledgmentsPage" value="%{#request['javax.servlet.forward.context_path'] + '/login/acknowledgments'}"/>
 <s:if test="#ns == 'login'">
     <s:set var="contactUsPage" value="'mailto:info@ariahgroup.org'"/>
 </s:if>

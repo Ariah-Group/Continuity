@@ -10,7 +10,8 @@
  
  	<security:global-method-security/>
  	
-    <security:http auto-config="false" entry-point-ref="authenticationProcessingFilterEntryPoint" >         
+    <security:http auto-config="false" entry-point-ref="authenticationProcessingFilterEntryPoint" >        
+       <security:intercept-url pattern="/login/acknowledgments" filters="none" access="IS_AUTHENTICATED_ANONYMOUSLY" />        
 	   <security:intercept-url pattern="/login/logout" filters="none"/>
        <security:intercept-url pattern="/login/failed" filters="none"/>
        <security:intercept-url pattern="/login/ready" filters="none"/>      
