@@ -79,7 +79,7 @@
 								<li><a href="../admin/references"><img src="../images/AdminMain_18.gif" alt="Setup References" /></a></li>
 								<li><a href="../admin/contacts_admin"><img src="../images/AdminMain_19.gif" alt="Setup Contacts" /></a></li>
 								<li><a href="../admin/annualReview"><img src="../images/AdminMain_20.gif" alt="Setup Annual Review of Your Plan" /></a></li>
-								<li><a href="../admin/samplePlan"><img src="../images/AdminMain_21a.gif" alt="Setup Sample Plan" /></a></li>
+								<%-- <li><a href="../admin/samplePlan"><img src="../images/AdminMain_21a.gif" alt="Setup Sample Plan" /></a></li> --%>
 								<s:if test="#session.user.securityType.id== 0">
 									<li><a href="../admin/institutions"><img src="../images/AdminMain_22.gif" alt="Setup Locations" /></a></a></li>
 								</s:if>
