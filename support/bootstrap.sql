@@ -68,6 +68,10 @@ INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription)
 GO
 INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('DocumentMedium','ot','Other (explain)')
 GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('PlanStatus','N','In-Progress')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('PlanStatus','C','Complete')
+GO
 INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (19,2,'1','less than $100')
 GO
 INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (19,3,'2','$100 to $1000')
