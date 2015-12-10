@@ -19,6 +19,7 @@
 <s:if test="#ns == 'admin'">
    	<select class="QuickLinksClass" name="quicklinks" onChange="ShowLink(this.options[this.selectedIndex].value);" >
 	<option value="#" selected>GO TO..</option>
+	<option value="../plan/welcome">Return to Welcome Screen</option>
     <option value="/continuity/plan/getPlans">Choose a Plan</option>
     <option value="adminHome">Administrator's Main Control Screen</option>
 	<option value="activityLog">Activity Log</option>
