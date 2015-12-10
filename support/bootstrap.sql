@@ -104,13 +104,15 @@ INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup
 GO
 INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (20,6,'6','not sure')
 GO
-INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,1,'d','Needs further discussion')
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,1,'','Please Select...')
 GO
-INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,2,'n','Not yet begun')
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,2,'d','Needs further discussion')
 GO
-INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,3,'p','In Progress')
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,3,'n','Not yet begun')
 GO
-INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,4,'c','Completed')
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,4,'p','In Progress')
+GO
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (21,5,'c','Completed')
 GO
 INSERT INTO [dbo].[SystemCriticalLevelFunc] (LevelNo,Name,Descr,LongDescr) VALUES ('1','Extreme','Extreme','Super crazy critical')
 GO
@@ -134,3 +136,75 @@ INSERT INTO [dbo].[SystemDomain] (Institution,InstitutionType,InstitutionOrgList
 GO
 INSERT INTO [dbo].[UserSecurity] (AuthID,InstitutionID,SecurityType,FirstName,LastName,WorkPhone,HomePhone,CellPhone,EMailRegular,EMailBackup,WorkFAX,Title,DepartmentName,DepartmentOrg,DepartmentOrgHierarchy,WorkAddress,HomeAddress,AccessStatus,LockStatus,CreatedDate,Affiliations,Password,SecurityAttribute,DirectoryID,ModApprovedFlag) VALUES ('admin',(SELECT IDENT_CURRENT('SystemDomain')),'0','Super','User','999-999-9999','','','admin@example.com','','','Admin','Administration','','','','','1','0',CURRENT_TIMESTAMP,'','4E17A448E043206801B95DE317E07C839770C8B8',1,'','1')
 GO
+
+
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StaffPosition','aa','Academic Administration')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StaffPosition','na','Non-Academic Administration')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StaffPosition','as','Academic Staff')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StaffPosition','vs','Visiting Academic Staff')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StaffPosition','ns','Non-Academic Staff')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StaffPosition','am','Academic Management')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StaffPosition','nm','Non-Academic Management')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StaffPosition','ex','Executive')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('ComputerRunning','a','Yes, 24/7')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('ComputerRunning','s','Yes, Business Hours')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('ComputerRunning','n','No')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('ConnectFromHome','y','Yes')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('ConnectFromHome','n','No')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('BroadbandConnection','c','Cable')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('BroadbandConnection','d','DSL')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('BroadbandConnection','w','Wireless')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('BroadbandConnection','o','Other')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('BroadbandConnection','n','None')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StakeholderType','vend','Vendor')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StakeholderType','cli','Client')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StakeholderType','part','Project Partner')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StakeholderType','don','Donor')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StakeholderType','spon','Sponsor')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('StakeholderType','oth','Other Stakeholder')
+GO
+
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (3,1,'','Please select...')
+GO
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (3,2,'0','not backed up')
+GO
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (3,3,'1','daily or more frequent')
+GO
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (3,4,'2','daily to weekly')
+GO
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (3,5,'3','weekly to monthly')
+GO
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (3,6,'4','less frequent than monthly')
+GO
+INSERT INTO [dbo].[lookup_items] (lookup_id,lookup_item_no,lookup_item_id,lookup_item_desc) VALUES (3,7,'x','Do Not Know')
+GO
+
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('UserPlanAccess','2','Full')
+GO
+INSERT INTO [dbo].[DescriptionLookup] (LookupName,LookupValue,LookupDescription) VALUES ('UserPlanAccess','3','View-Only')
+GO
+
+
