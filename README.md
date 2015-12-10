@@ -3,11 +3,6 @@ Continuity
 
 Ariah Continuity
 
+Version: 3.0.0
 
-Version: 2.0
-
-Technical Setup Documentation:
-  /support/KualiReadyDevSetup.doc
-    
-Database script:
-  /support/KualiReadyDBScripts.sql
+Documentation: https://wiki.ariahgroup.org/display/CON/Ariah+Continuity+Home+Page
