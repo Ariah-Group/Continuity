@@ -218,7 +218,7 @@ public class Setting extends ListControl implements EntryPoint {
 		modPanel.add(new HTML("<h3>Select the Rule for Issuing Passwords:</h3>"));
 		modPanel
 				.add(new HTML(
-						"<p class='StandardWidth'>This selection applies only when the location (campus) is configured for Direct Login (i.e., when Ariah Continuity issues passwords to users via email).  When the location is configured for Shibboleth Login (under which Kuali Ready recognizes the user's own login/password from the campus Identity Management System), moderation is not needed and is disabled.</p>"));
+						"<p class='StandardWidth'>This selection applies only when the location (campus) is configured for Direct Login (i.e., when Ariah Continuity issues passwords to users via email). </p>"));
 
 		modPanel.add(radioFull);
 		radioFull

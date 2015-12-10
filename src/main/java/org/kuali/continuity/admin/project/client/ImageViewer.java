@@ -63,7 +63,7 @@ import com.gwtext.client.widgets.grid.event.GridRowListener;
 import com.gwtextux.client.data.PagingMemoryProxy;
 
 /**
- * Entry point classes define <code>onModuleLoad()</code>. This is the Kuali
+ * Entry point classes define <code>onModuleLoad()</code>. This is the Ariah
  * Continuity Admin Role Management Application in GWT.
  */
 

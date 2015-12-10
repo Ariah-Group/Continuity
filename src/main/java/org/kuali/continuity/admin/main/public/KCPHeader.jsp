@@ -16,7 +16,7 @@
 
 <head>
 
-<title>Kuali Continuity Plan</title>
+<title>Ariah Continuity Plan</title>
 
 <!---
 <META HTTP-EQUIV="Expires" CONTENT="Mon, 06 Jan 1990 00:00:01 GMT"> 
