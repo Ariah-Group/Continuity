@@ -220,7 +220,7 @@ available]]></text>
 				<textElement>
 					<font size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
 				</textElement>
-				<text><![CDATA[To edit this plan section, use these tabs of the Kuali Continuity web tool - Plan Home, Step 1, Step 2.]]></text>
+				<text><![CDATA[To edit this plan section, use these tabs of the Ariah Continuity web tool - Plan Home, Step 1, Step 2.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="24" y="180" width="97" height="20"/>

@@ -140,7 +140,7 @@ public class ReportServiceJasperImpl implements ReportService {
 
 		String indir = filePath+srcFolder;
 		String fontDir=filePath+fontFolder;
-		String imageDir = filePath+imageFolder + "begin-report.gif";
+		String imageDir = filePath+imageFolder + "begin-report.png";
 		String reportDir=filePath+report;
 	
 		String thisrpt = "starting";
