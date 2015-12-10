@@ -5,7 +5,7 @@
 	<groupId>org.ariahgroup.continuity</groupId>
 	<artifactId>continuity</artifactId>
 	<packaging>war</packaging>
-	<version>3.0-SNAPSHOT</version>
+	<version>3.0.0</version>
 	<name>Ariah Continuity</name>
 	<url>http://ariahgroup.org/product/ariah-continuity/</url>
 	
@@ -1273,7 +1273,7 @@
 		</version.cargo.tomcat.home>		
 		
 		<!-- Release version of the application -->
-		<release.version>2.0</release.version>
+		<release.version>${project.version}</release.version>
 		
 	</properties>
 
