@@ -5,7 +5,7 @@
 	<groupId>org.ariahgroup.continuity</groupId>
 	<artifactId>continuity</artifactId>
 	<packaging>war</packaging>
-	<version>3.0.0</version>
+	<version>3.0.1-SNAPSHOT</version>
 	<name>Ariah Continuity</name>
 	<url>http://ariahgroup.org/product/ariah-continuity/</url>
 	
