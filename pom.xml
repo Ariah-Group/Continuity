@@ -643,12 +643,6 @@
 
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-tomcat-weaver</artifactId>
-			<version>${version.springframework}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc-portlet</artifactId>
 			<version>${version.springframework}</version>
 		</dependency>
